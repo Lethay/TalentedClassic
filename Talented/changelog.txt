@@ -1,2 +1,8 @@
-Since last update
+20190924
     - Removed references to "Glyph" in code (and options menu!)
+    - Removed mmochamp.lua and spellData.lua from Talented.toc
+    - Fixed tooltips to show ranks>1
+    - Fixed detection of when Talented_Data is disabled
+    - Removed debug printing from Wowhead export
+    - Fixed display of talent prerequisites
+    - Prevent blocking of talent reset -- this issue is not yet fixed, as Talented will not respond to reset talents without a reload

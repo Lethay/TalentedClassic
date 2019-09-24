@@ -283,18 +283,16 @@ end
 function Talented:OnEnable()
 	self:RawHook("ToggleTalentFrame", true)
 	self:SecureHook("UpdateMicroButtons")
-	-- self:CheckHookInspectUI() -- You cannot inspect talents in classic WoW.
 
-	UIParent:UnregisterEvent"CONFIRM_TALENT_WIPE"
+	-- UIParent:UnregisterEvent"CONFIRM_TALENT_WIPE" --FIXME: See notes below, marked with (**).
 	self:RegisterEvent"CONFIRM_TALENT_WIPE"
 	self:RegisterEvent"CHARACTER_POINTS_CHANGED"
-	-- self:RegisterEvent"PLAYER_TALENT_UPDATE"-- There are no dual-specs in classic WoW.
 	TalentMicroButton:SetScript("OnClick", ToggleTalentFrame)
 end
 
 function Talented:OnDisable()
 	self:UnhookInspectUI()
-	UIParent:RegisterEvent"CONFIRM_TALENT_WIPE"
+	-- UIParent:RegisterEvent"CONFIRM_TALENT_WIPE"
 end
 
 function Talented:PLAYER_TALENT_UPDATE()
@@ -302,17 +300,22 @@ function Talented:PLAYER_TALENT_UPDATE()
 end
 
 function Talented:CONFIRM_TALENT_WIPE(_, cost)
-	local dialog = StaticPopup_Show"CONFIRM_TALENT_WIPE"
-	if dialog then
-		MoneyFrame_Update(dialog:GetName().."MoneyFrame", cost)
-		self:SetTemplate()
+	-- local dialog = StaticPopup_Show("CONFIRM_TALENT_WIPE")  --(**)
+	-- if dialog then--(**)
+		-- MoneyFrame_Update(dialog:GetName().."MoneyFrame", cost)--(**)
+		-- self:SetTemplate() Shouldn't need this line as it is called within Self:Update()
 		local frame = self.base
 		if not frame or not frame:IsVisible() then
 			self:Update()
-			ShowUIPanel(self.base)
+			-- ShowUIPanel(self.base) (**)
 		end
-		dialog:SetFrameLevel(frame:GetFrameLevel() + 5)
-	end
+		-- dialog:SetFrameLevel(frame:GetFrameLevel() + 5) --(**)
+	-- end--(**)
+	-- FIXME: For some reason, trying to hook onto CONFIRM_TALENT_WIPE calls an LUA error when 
+	--        StaticPopup_Show("CONFIRM_TALENT_WIPE") is called, regardless of whether 0, 1 or 2 string arguments are given.
+	--        The error is:
+	--          Message: ..\FrameXML\StaticPopup.lua line 4473:
+   --             bad argument #1 to 'SetFormattedText' (string expected, got nil)
 end
 
 

@@ -180,7 +180,7 @@ local function FindPrereqsSource(info)
 		for index, talent in ipairs(tree.talents) do
 			local p = talent.info.prereqs
 			if p then
-				for _, req in ipairs(p) do
+				for _, req in ipairs(p) do --look through all requirements in turn
 					if req.source then
 						return
 					else
@@ -219,11 +219,10 @@ end
 function Talented:ReportMissingTalents(class)
 	local p = self.db.profile
 	if p.report_unavailable or not p.reported_once then
-		self:Print(L["Talented cannot perform the required action because it does not have the required talent data available for class %s. You should inspect someone of this class."]:format(tostring(class)))
-		if not p.reported_once then
+		self:Print(L["Talented cannot perform the required action because it does not have the required talent data available for class %s."]:format(tostring(class)))
+		-- if not p.reported_once then
 			p.reported_once = true
-			self:Print(L["You must install the Talented_Data helper addon for this action to work."])
-			self:Print(L["You can download it from http://files.wowace.com/ ."])
-		end
+			self:Print(L["You must enable the Talented_Data helper addon for this action to work."])
+		-- end
 	end
 end

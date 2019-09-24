@@ -27,6 +27,10 @@ Talented.defaults = {
 -- Global frame scale
 		scale = 1,
 
+-- Detect whether Talented_Data is loaded
+	report_unavailable = true,
+	reported_once = false,
+
 -- the template that was selected last
 	--	last_template = nil,
 

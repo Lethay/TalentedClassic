@@ -11,7 +11,8 @@ Talented_Data.WARLOCK = {
 					column = 2,
 					icon = 136230,
 					row = 1,
-					tips = "Reduces the chance for enemies to resist your Affliction spells by 2%.",
+					tips = "Reduces the chance for enemies to resist your Affliction spells by %d%%.",
+					tipValues = {{2}, {4}, {6}, {8}, {10}}
 				},
 			}, -- [1]
 			{
@@ -21,7 +22,8 @@ Talented_Data.WARLOCK = {
 					column = 3,
 					icon = 136118,
 					row = 1,
-					tips = "Reduces the casting time of your Corruption spell by 0.4 sec.",
+					tips = "Reduces the casting time of your Corruption spell by %.1f sec.",
+					tipValues = {{0.4}, {0.8}, {1.2}, {1.6}, {2.0}}
 				},
 			}, -- [2]
 			{
@@ -31,7 +33,8 @@ Talented_Data.WARLOCK = {
 					column = 1,
 					icon = 136138,
 					row = 2,
-					tips = "Increases the effect of your Curse of Weakness by 6%.",
+					tips = "Increases the effect of your Curse of Weakness by %d%%.",
+					tipValues = {{6}, {13}, {20}}
 				},
 			}, -- [3]
 			{
@@ -41,7 +44,8 @@ Talented_Data.WARLOCK = {
 					column = 2,
 					icon = 136163,
 					row = 2,
-					tips = "Gives you a 50% chance to get a 100% increase to your Mana regeneration for 10 sec if the target is killed by you while you drain its soul.  In addition your Mana may continue to regenerate while casting at 50% of normal.",
+					tips = "Gives you a %d%% chance to get a 100%% increase to your Mana regeneration for 10 sec if the target is killed by you while you drain its soul.  In addition your Mana may continue to regenerate while casting at 50%% of normal.",
+					tipValues = {{50}, {100}}
 				},
 			}, -- [4]
 			{
@@ -51,7 +55,8 @@ Talented_Data.WARLOCK = {
 					column = 3,
 					icon = 136126,
 					row = 2,
-					tips = "Increases the amount of Mana awarded by your Life Tap spell by 10%.",
+					tips = "Increases the amount of Mana awarded by your Life Tap spell by %d%%.",
+					tipValues = {{10}, {20}}
 				},
 			}, -- [5]
 			{
@@ -61,7 +66,8 @@ Talented_Data.WARLOCK = {
 					column = 4,
 					icon = 136169,
 					row = 2,
-					tips = "Increases the Health drained by your Drain Life spell by 2%.",
+					tips = "Increases the Health drained by your Drain Life spell by %d%%.",
+					tipValues = {{2}, {4}, {6}, {8}, {10}}
 				},
 			}, -- [6]
 			{
@@ -71,7 +77,8 @@ Talented_Data.WARLOCK = {
 					column = 1,
 					icon = 136139,
 					row = 3,
-					tips = "Increases the damage done by your Curse of Agony by 2%.",
+					tips = "Increases the damage done by your Curse of Agony by %d%%.",
+					tipValues = {{2}, {4}, {6}}
 				},
 			}, -- [7]
 			{
@@ -81,18 +88,20 @@ Talented_Data.WARLOCK = {
 					column = 2,
 					icon = 136157,
 					row = 3,
-					tips = "Gives you a 14% chance to avoid interruption caused by damage while channeling the Drain Life, Drain Mana, or Drain Soul spell.",
+					tips = "Gives you a %d%% chance to avoid interruption caused by damage while channeling the Drain Life, Drain Mana, or Drain Soul spell.",
+					tipValues = {{14}, {28}, {42}, {56}, {70}}
 				},
 			}, -- [8]
 			{
 				info = {
 					ranks = 1,
+					tipValues = {},
 					name = "Amplify Curse",
 					icon = 136132,
 					column = 3,
 					exceptional = 1,
 					row = 3,
-					tips = "Increases the effect of your next Curse of Weakness or Curse of Agony by 50%, or your next Curse of Exhaustion by 20%.  Lasts 30 sec.",
+					tips = "Increases the effect of your next Curse of Weakness or Curse of Agony by 50%%, or your next Curse of Exhaustion by 20%%.  Lasts 30 sec.",
 				},
 			}, -- [9]
 			{
@@ -102,7 +111,8 @@ Talented_Data.WARLOCK = {
 					column = 1,
 					icon = 136127,
 					row = 4,
-					tips = "Increases the range of your Affliction spells by 10%.",
+					tips = "Increases the range of your Affliction spells by %d%%.",
+					tipValues = {{10}, {20}}
 				},
 			}, -- [10]
 			{
@@ -112,7 +122,8 @@ Talented_Data.WARLOCK = {
 					column = 2,
 					icon = 136223,
 					row = 4,
-					tips = "Gives your Corruption and Drain Life spells a 2% chance to cause you to enter a Shadow Trance state after damaging the opponent.  The Shadow Trance state reduces the casting time of your next Shadow Bolt spell by 100%.",
+					tips = "Gives your Corruption and Drain Life spells a %d%% chance to cause you to enter a Shadow Trance state after damaging the opponent.  The Shadow Trance state reduces the casting time of your next Shadow Bolt spell by 100%%.",
+					tipValues = {{2}, {4}}
 				},
 			}, -- [11]
 			{
@@ -122,12 +133,14 @@ Talented_Data.WARLOCK = {
 					column = 4,
 					icon = 136208,
 					row = 4,
-					tips = "Causes 15% of the Mana drained by your Drain Mana spell to damage the opponent.",
+					tips = "Causes %d%% of the Mana drained by your Drain Mana spell to damage the opponent.",
+					tipValues = {{15}, {30}}
 				},
 			}, -- [12]
 			{
 				info = {
 					ranks = 1,
+					tipValues = {},
 					name = "Siphon Life",
 					icon = 136188,
 					column = 2,
@@ -139,6 +152,7 @@ Talented_Data.WARLOCK = {
 			{
 				info = {
 					ranks = 1,
+					tipValues = {},
 					prereqs = {
 						{
 							column = 3,
@@ -151,7 +165,7 @@ Talented_Data.WARLOCK = {
 					column = 3,
 					exceptional = 1,
 					row = 5,
-					tips = "Reduces the target's movement speed by 10% for 12 sec.  Only one Curse per Warlock can be active on any one target.",
+					tips = "Reduces the target's movement speed by 10%% for 12 sec.  Only one Curse per Warlock can be active on any one target.",
 				},
 			}, -- [14]
 			{
@@ -168,7 +182,8 @@ Talented_Data.WARLOCK = {
 					column = 4,
 					icon = 136162,
 					row = 5,
-					tips = "Increases the speed reduction of your Curse of Exhaustion by 5%.",
+					tips = "Increases the speed reduction of your Curse of Exhaustion by %d%%.",
+					tipValues = {{5}, {10}, {15}, {20}}
 				},
 			}, -- [15]
 			{
@@ -185,18 +200,20 @@ Talented_Data.WARLOCK = {
 					column = 2,
 					icon = 136195,
 					row = 6,
-					tips = "Increases the damage dealt or life drained by your Shadow spells by 2%.",
+					tips = "Increases the damage dealt or life drained by your Shadow spells by %d%%.",
+					tipValues = {{2}, {4}, {6}, {8}, {10}}
 				},
 			}, -- [16]
 			{
 				info = {
 					ranks = 1,
+					tipValues = {},
 					name = "Dark Pact",
 					icon = 136141,
 					column = 2,
 					exceptional = 1,
 					row = 7,
-					tips = "Drains 150 of your pet's Mana, returning 100% to you.",
+					tips = "Drains 150 of your pet's Mana, returning 100%% to you.",
 				},
 			}, -- [17]
 		},
@@ -215,7 +232,8 @@ Talented_Data.WARLOCK = {
 					column = 1,
 					icon = 135230,
 					row = 1,
-					tips = "Increases the amount of Health restored by your Healthstone by 10%.",
+					tips = "Increases the amount of Health restored by your Healthstone by %d%%.",
+					tipValues = {{10}, {20}}
 				},
 			}, -- [1]
 			{
@@ -225,7 +243,8 @@ Talented_Data.WARLOCK = {
 					column = 2,
 					icon = 136218,
 					row = 1,
-					tips = "Increases the effect of your Imp's Firebolt, Fire Shield, and Blood Pact spells by 10%.",
+					tips = "Increases the effect of your Imp's Firebolt, Fire Shield, and Blood Pact spells by %d%%.",
+					tipValues = {{10}, {20}, {30}}
 				},
 			}, -- [2]
 			{
@@ -235,7 +254,8 @@ Talented_Data.WARLOCK = {
 					column = 3,
 					icon = 136172,
 					row = 1,
-					tips = "Increases your total Stamina by 3% but reduces your total Spirit by 1%.",
+					tips = "Increases your total Stamina by %d%% but reduces your total Spirit by %d%%.",
+					tipValues = {{3, 1}, {6, 2}, {9, 3}, {12, 4}, {15, 5}}
 				},
 			}, -- [3]
 			{
@@ -245,7 +265,8 @@ Talented_Data.WARLOCK = {
 					column = 1,
 					icon = 136168,
 					row = 2,
-					tips = "Increases the amount of Health transferred by your Health Funnel spell by 10%.",
+					tips = "Increases the amount of Health transferred by your Health Funnel spell by %d%%.",
+					tipValues = {{10}, {20}}
 				},
 			}, -- [4]
 			{
@@ -255,7 +276,8 @@ Talented_Data.WARLOCK = {
 					column = 2,
 					icon = 136221,
 					row = 2,
-					tips = "Increases the effectiveness of your Voidwalker's Torment, Consume Shadows, Sacrifice and Suffering spells by 10%.",
+					tips = "Increases the effectiveness of your Voidwalker's Torment, Consume Shadows, Sacrifice and Suffering spells by %d%%.",
+					tipValues = {{10}, {20}, {30}}
 				},
 			}, -- [5]
 			{
@@ -265,7 +287,8 @@ Talented_Data.WARLOCK = {
 					column = 3,
 					icon = 135932,
 					row = 2,
-					tips = "Increases the maximum Mana of your Imp, Voidwalker, Succubus, and Felhunter by 3%.",
+					tips = "Increases the maximum Mana of your Imp, Voidwalker, Succubus, and Felhunter by %d%%.",
+					tipValues = {{3}, {6}, {9}, {12}, {15}}
 				},
 			}, -- [6]
 			{
@@ -275,18 +298,20 @@ Talented_Data.WARLOCK = {
 					column = 1,
 					icon = 136220,
 					row = 3,
-					tips = "Increases the effect of your Succubus' Lash of Pain and Soothing Kiss spells by 10%, and increases the duration of your Succubus' Seduction and Lesser Invisibility spells by 10%.",
+					tips = "Increases the effect of your Succubus' Lash of Pain and Soothing Kiss spells by %d%%, and increases the duration of your Succubus' Seduction and Lesser Invisibility spells by %d%%.",
+					tipValues = {{10, 10}, {20, 20}, {30, 30}}
 				},
 			}, -- [7]
 			{
 				info = {
 					ranks = 1,
+					tipValues = {},
 					name = "Fel Domination",
 					icon = 136082,
 					column = 2,
 					exceptional = 1,
 					row = 3,
-					tips = "Your next Imp, Voidwalker, Succubus, or Felhunter Summon spell has its casting time reduced by 5.5 sec and its Mana cost reduced by 50%.",
+					tips = "Your next Imp, Voidwalker, Succubus, or Felhunter Summon spell has its casting time reduced by 5.5 sec and its Mana cost reduced by 50%%.",
 				},
 			}, -- [8]
 			{
@@ -296,7 +321,8 @@ Talented_Data.WARLOCK = {
 					column = 3,
 					icon = 136121,
 					row = 3,
-					tips = "Increases the maximum Health of your Imp, Voidwalker, Succubus, and Felhunter by 3%.",
+					tips = "Increases the maximum Health of your Imp, Voidwalker, Succubus, and Felhunter by %d%%.",
+					tipValues = {{3}, {6}, {9}, {12}, {15}}
 				},
 			}, -- [9]
 			{
@@ -313,7 +339,8 @@ Talented_Data.WARLOCK = {
 					column = 2,
 					icon = 136164,
 					row = 4,
-					tips = "Reduces the casting time of your Imp, Voidwalker, Succubus, and Felhunter Summoning spells by 2 sec and the Mana cost by 20%.",
+					tips = "Reduces the casting time of your Imp, Voidwalker, Succubus, and Felhunter Summoning spells by %d sec and the Mana cost by %d%%.",
+					tipValues = {{2, 20}, {4, 40}}
 				},
 			}, -- [10]
 			{
@@ -323,7 +350,8 @@ Talented_Data.WARLOCK = {
 					column = 3,
 					icon = 136206,
 					row = 4,
-					tips = "Increases the damage done by your Voidwalker, Succubus, and Felhunter's melee attacks by 4%.",
+					tips = "Increases the damage done by your Voidwalker, Succubus, and Felhunter's melee attacks by %d%%.",
+					tipValues = {{4}, {8}, {12}, {16}, {20}}
 				},
 			}, -- [11]
 			{
@@ -333,18 +361,20 @@ Talented_Data.WARLOCK = {
 					column = 1,
 					icon = 136154,
 					row = 5,
-					tips = "Reduces the Attack Speed and Casting Speed penalty of your Enslave Demon spell by 2% and reduces the resist chance by 2%.",
+					tips = "Reduces the Attack Speed and Casting Speed penalty of your Enslave Demon spell by %d%% and reduces the resist chance by %d%%.",
+					tipValues = {{2, 2}, {4, 4}, {6, 6}, {8, 8}, {10, 10}}
 				},
 			}, -- [12]
 			{
 				info = {
 					ranks = 1,
+					tipValues = {},
 					name = "Demonic Sacrifice",
 					icon = 136184,
 					column = 2,
 					exceptional = 1,
 					row = 5,
-					tips = "When activated, sacrifices your summoned demon to grant you an effect that lasts 30 min.  The effect is canceled if any Demon is summoned.\r\n\r\nImp: Increases your Fire damage by 15%.\r\n\r\nVoidwalker: Restores 3% of total Health every 4 sec.\r\n\r\nSuccubus: Increases your Shadow damage by 15%.\r\n\r\nFelhunter: Restores 2% of total Mana every 4 sec.",
+					tips = "When activated, sacrifices your summoned demon to grant you an effect that lasts 30 min.  The effect is canceled if any Demon is summoned.\r\n\r\nImp: Increases your Fire damage by 15%%.\r\n\r\nVoidwalker: Restores 3%% of total Health every 4 sec.\r\n\r\nSuccubus: Increases your Shadow damage by 15%%.\r\n\r\nFelhunter: Restores 2%% of total Mana every 4 sec.",
 				},
 			}, -- [13]
 			{
@@ -354,7 +384,8 @@ Talented_Data.WARLOCK = {
 					column = 4,
 					icon = 132386,
 					row = 5,
-					tips = "Increases the bonus Fire damage from Firestones and the Firestone effect by 15%.",
+					tips = "Increases the bonus Fire damage from Firestones and the Firestone effect by %d%%.",
+					tipValues = {{15}, {30}}
 				},
 			}, -- [14]
 			{
@@ -371,12 +402,14 @@ Talented_Data.WARLOCK = {
 					column = 3,
 					icon = 136203,
 					row = 6,
-					tips = "Grants both the Warlock and the summoned demon an effect as long as that demon is active.\r\n\r\nImp - Reduces threat caused by 4%.\r\n\r\nVoidwalker - Reduces physical damage taken by 2%.\r\n\r\nSuccubus - Increases all damage caused by 2%.\r\n\r\nFelhunter - Increases all resistances by .2 per level.",
+					tips = "Grants both the Warlock and the summoned demon an effect as long as that demon is active.\r\n\r\nImp - Reduces threat caused by %d%%.\r\n\r\nVoidwalker - Reduces physical damage taken by %d%%.\r\n\r\nSuccubus - Increases all damage caused by %d%%.\r\n\r\nFelhunter - Increases all resistances by %.1f per level.",
+					tipValues = {{4, 2, 2, 0.2}, {8, 4, 4, 0.4}, {12, 6, 6, 0.6}, {16, 8, 8, 0.8}, {20, 10, 10, 1}}
 				},
 			}, -- [15]
 			{
 				info = {
 					ranks = 1,
+					tipValues = {},
 					prereqs = {
 						{
 							column = 2,
@@ -389,7 +422,7 @@ Talented_Data.WARLOCK = {
 					column = 2,
 					exceptional = 1,
 					row = 7,
-					tips = "When active, 30% of all damage taken by the caster is taken by your Imp, Voidwalker, Succubus, or Felhunter demon instead.  In addition, both the demon and master will inflict 3% more damage.  Lasts as long as the demon is active.",
+					tips = "When active, 30%% of all damage taken by the caster is taken by your Imp, Voidwalker, Succubus, or Felhunter demon instead.  In addition, both the demon and master will inflict 3%% more damage.  Lasts as long as the demon is active.",
 				},
 			}, -- [16]
 			{
@@ -399,7 +432,8 @@ Talented_Data.WARLOCK = {
 					column = 3,
 					icon = 134131,
 					row = 7,
-					tips = "Increases the amount of damage absorbed by your Spellstone by 15%.",
+					tips = "Increases the amount of damage absorbed by your Spellstone by %d%%.",
+					tipValues = {{15}, {30}}
 				},
 			}, -- [17]
 		},
@@ -418,7 +452,8 @@ Talented_Data.WARLOCK = {
 					column = 2,
 					icon = 136197,
 					row = 1,
-					tips = "Your Shadow Bolt critical strikes increase Shadow damage dealt to the target by 4% until 4 non-periodic damage sources are applied.  Effect lasts a maximum of 12 sec.",
+					tips = "Your Shadow Bolt critical strikes increase Shadow damage dealt to the target by %d%% until 4 non-periodic damage sources are applied.  Effect lasts a maximum of 12 sec.",
+					tipValues = {{4}, {8}, {12}, {16}, {20}}
 				},
 			}, -- [1]
 			{
@@ -428,7 +463,8 @@ Talented_Data.WARLOCK = {
 					column = 3,
 					icon = 135831,
 					row = 1,
-					tips = "Reduces the Mana cost of your Destruction spells by 1%.",
+					tips = "Reduces the Mana cost of your Destruction spells by %d%%.",
+					tipValues = {{1}, {2}, {3}, {4}, {5}}
 				},
 			}, -- [2]
 			{
@@ -438,7 +474,8 @@ Talented_Data.WARLOCK = {
 					column = 2,
 					icon = 136146,
 					row = 2,
-					tips = "Reduces the casting time of your Shadow Bolt and Immolate spells by 0.1 sec and your Soul Fire spell by 0.4 sec.",
+					tips = "Reduces the casting time of your Shadow Bolt and Immolate spells by %.1f sec and your Soul Fire spell by %.1f sec.",
+					tipValues = {{0.1, 0.4}, {0.2, 0.8}, {0.3, 1.2}, {0.4, 1.6}, {0.5, 2.0}}
 				},
 			}, -- [3]
 			{
@@ -448,7 +485,8 @@ Talented_Data.WARLOCK = {
 					column = 3,
 					icon = 135805,
 					row = 2,
-					tips = "Gives your Destruction spells a 2% chance to daze the target for 5 sec.",
+					tips = "Gives your Destruction spells a %d%% chance to daze the target for 5 sec.",
+					tipValues = {{2}, {4}, {6}, {8}, {10}}
 				},
 			}, -- [4]
 			{
@@ -458,7 +496,8 @@ Talented_Data.WARLOCK = {
 					column = 1,
 					icon = 135809,
 					row = 3,
-					tips = "Reduces the casting time of your Imp's Firebolt spell by 0.5 sec.",
+					tips = "Reduces the casting time of your Imp's Firebolt spell by %.1f sec.",
+					tipValues = {{0.5}, {1.0}}
 				},
 			}, -- [5]
 			{
@@ -468,7 +507,8 @@ Talented_Data.WARLOCK = {
 					column = 2,
 					icon = 136136,
 					row = 3,
-					tips = "Reduces the cooldown of your Succubus' Lash of Pain spell by 3 sec.",
+					tips = "Reduces the cooldown of your Succubus' Lash of Pain spell by %d sec.",
+					tipValues = {{3}, {6}}
 				},
 			}, -- [6]
 			{
@@ -478,12 +518,14 @@ Talented_Data.WARLOCK = {
 					column = 3,
 					icon = 135813,
 					row = 3,
-					tips = "Increases the critical strike chance of your Destruction spells by 1%.",
+					tips = "Increases the critical strike chance of your Destruction spells by %d%%.",
+					tipValues = {{1}, {2}, {3}, {4}, {5}}
 				},
 			}, -- [7]
 			{
 				info = {
 					ranks = 1,
+					tipValues = {},
 					name = "Shadowburn",
 					icon = 136191,
 					column = 4,
@@ -499,7 +541,8 @@ Talented_Data.WARLOCK = {
 					column = 1,
 					icon = 135819,
 					row = 4,
-					tips = "Gives you a 35% chance to resist interruption caused by damage while channeling the Rain of Fire, Hellfire or Soul Fire spell.",
+					tips = "Gives you a %d%% chance to resist interruption caused by damage while channeling the Rain of Fire, Hellfire or Soul Fire spell.",
+					tipValues = {{35}, {70}}
 				},
 			}, -- [9]
 			{
@@ -509,7 +552,8 @@ Talented_Data.WARLOCK = {
 					column = 2,
 					icon = 136133,
 					row = 4,
-					tips = "Increases the range of your Destruction spells by 10%.",
+					tips = "Increases the range of your Destruction spells by %d%%.",
+					tipValues = {{10}, {20}}
 				},
 			}, -- [10]
 			{
@@ -519,7 +563,8 @@ Talented_Data.WARLOCK = {
 					column = 4,
 					icon = 135827,
 					row = 4,
-					tips = "Increases the critical strike chance of your Searing Pain spell by 2%.",
+					tips = "Increases the critical strike chance of your Searing Pain spell by %d%%.",
+					tipValues = {{2}, {4}, {6}, {8}, {10}}
 				},
 			}, -- [11]
 			{
@@ -536,7 +581,8 @@ Talented_Data.WARLOCK = {
 					column = 1,
 					icon = 135830,
 					row = 5,
-					tips = "Gives your Rain of Fire, Hellfire, and Soul Fire spells a 13% chance to stun the target for 3 sec.",
+					tips = "Gives your Rain of Fire, Hellfire, and Soul Fire spells a %d%% chance to stun the target for 3 sec.",
+					tipValues = {{13}, {26}}
 				},
 			}, -- [12]
 			{
@@ -546,7 +592,8 @@ Talented_Data.WARLOCK = {
 					column = 2,
 					icon = 135817,
 					row = 5,
-					tips = "Increases the initial damage of your Immolate spell by 5%.",
+					tips = "Increases the initial damage of your Immolate spell by %d%%.",
+					tipValues = {{5}, {10}, {15}, {20}, {25}}
 				},
 			}, -- [13]
 			{
@@ -560,10 +607,11 @@ Talented_Data.WARLOCK = {
 					},
 					name = "Ruin",
 					ranks = 1,
+					tipValues = {},
 					column = 3,
 					icon = 136207,
 					row = 5,
-					tips = "Increases the critical strike damage bonus of your Destruction spells by 100%.",
+					tips = "Increases the critical strike damage bonus of your Destruction spells by 100%%.",
 				},
 			}, -- [14]
 			{
@@ -573,12 +621,14 @@ Talented_Data.WARLOCK = {
 					column = 3,
 					icon = 135826,
 					row = 6,
-					tips = "Increases the damage done by your Fire spells by 2%.",
+					tips = "Increases the damage done by your Fire spells by %d%%.",
+					tipValues = {{2}, {4}, {6}, {8}, {10}}
 				},
 			}, -- [15]
 			{
 				info = {
 					ranks = 1,
+					tipValues = {},
 					prereqs = {
 						{
 							column = 2,

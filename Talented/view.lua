@@ -120,11 +120,12 @@ function TalentView:SetClass(class, force)
 
 		for index, _talent in ipairs(tree.talents) do
 			talent = _talent.info
-			local req = talent.req
+			local req = talent.prereqs
 			if req then
+				req = req[1] --No talent in vanilla has more than 1 requirement
 				local elements = {}
-				Talented.DrawLine(elements, frame, offset, talent.row, talent.column, tree[req].row, tree[req].column)
-				self:SetUIElement(elements, tab, index, req)
+				Talented.DrawLine(elements, frame, offset, talent.row, talent.column, req.row, req.column)
+				self:SetUIElement(elements, tab, index, req.source)
 			end
 		end
 
@@ -231,12 +232,12 @@ function TalentView:Update()
 				button.slot:SetVertexColor(color.r, color.g, color.b)
 				button.rank:SetVertexColor(color.r, color.g, color.b)
 			end
-			local req = talent.req
+			local req = talent.prereqs
 			if req then
 				local ecolor = color
 				if ecolor == GREEN_FONT_COLOR then
 					if self.mode == "edit" then
-						local s = Talented:GetTalentState(template, tab, req)
+						local s = Talented:GetTalentState(template, tab, req[1].source)
 						if s ~= "full" then
 							ecolor = RED_FONT_COLOR
 						end
@@ -244,7 +245,7 @@ function TalentView:Update()
 						ecolor = NORMAL_FONT_COLOR
 					end
 				end
-				for _, element in ipairs(self:GetUIElement(tab, index, req)) do
+				for _, element in ipairs(self:GetUIElement(tab, index, req[1].source)) do
 					element:SetVertexColor(ecolor.r, ecolor.g, ecolor.b)
 				end
 			end

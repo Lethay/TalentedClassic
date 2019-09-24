@@ -36,7 +36,7 @@ local function handle_ranks(...)
 		req = req
 	}
 	if not result[1] then
-		entry.req = nil
+		entry.prereqs = nil
 		entry.ranks = nil
 		-- entry.inactive = true
 	end
@@ -77,9 +77,9 @@ local function handle_talents(...)
 		if dcolumn ~= -1 or drow then
 			row, column = next_talent_pos(row, column)
 		end
-		if talent.req then
-			talent.req = talent.req + index
-			assert(talent.req > 0 and talent.req <= #result)
+		if talent.prereqs then
+			talent.prereqs[1].source = talent.prereqs[1].source + index
+			assert(talent.prereqs[1].source > 0 and talent.prereqs[1].source <= #result)
 		end
 	end
 	return result
@@ -233,7 +233,7 @@ end
 
 function Talented:GetTalentPrereqs(class, tab, index)
 	local talent = self:GetTalentInfo(class)[tab].talents[index].info
-	return talent.req
+	return talent.prereqs
 end
 
 function Talented:GetTalentRanks(class, tab, index)

@@ -94,39 +94,45 @@ function Talented:CheckSpellData(class)
 						talent.ranks[i] = nil
 					end
 				end
-				local req_row, req_column, _, _, req2 = GetTalentPrereqs(tab, index)
+				local req2 = GetTalentPrereqs(tab, index)
 				if req2 then
+					req_row    = req2[1].row
+					req_column = req2[1].column
 					print("too many reqs for talent", tab, index, req2)
 					invalid = true
 				end
 				if not req_row then
-					if talent.req then
+					if talent.prereqs then
 						print("too many req for talent", tab, index)
 						invalid = true
-						talent.req = nil
+						talent.prereqs = nil
 					end
 				else
-					local req = talents[talent.req]
-					if not req or req.row ~= req_row or req.column ~= req_column then
-						print("invalid req for talent", tab, index, req and req.row, req_row, req and req.column, req_column)
+					local req = talents[talent].prereqs
+					if not req or req[1].row ~= req_row or req[1].column ~= req_column then
+						print("invalid req for talent", tab, index, req[1].source and req[1].row, req_row, req[1].source and req[1].column, req_column)
 						invalid = true
 						-- it requires another pass to get the right talent.
-						talent.req = 0
+						talent.prereqs = 0
 					end
 				end
 			-- end
 		end
 		for index = 1, GetNumTalents(tab) do
 			local talent = talents[index]
-			if talent.req == 0 then
-				local row, column = GetTalentPrereqs(tab, index)
+			if talent.prereqs == 0 then
+				local req = GetTalentPrereqs(tab, index)
+				if req then 
+					row = req[1].row
+					column = req[1].column
+				end
 				for j = 1, GetNumTalents(tab) do
 					if talents[j].row == row and talents[j].column == column then
-						talent.req = j
+						talent.prereqs[1].source = j
 						break
 					end
 				end
-				assert(talent.req ~= 0)
+				assert(talent.prereqs[1].source ~= 0)
 			end
 		end
 	end

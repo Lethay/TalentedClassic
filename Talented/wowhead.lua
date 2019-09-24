@@ -9,20 +9,16 @@ Talented.importers[".*/talent.calc/(.*)/(%d*)-(%d*)-(%d*)$"] = function (self, u
 		return
 	end
 	src={t1, t2, t3}
-	print("s:", s, "_:", _, "class:", class, "t1:", src[1], "t2:", src[2], "t3:", src[3])
 	--src
 	dst.class = class:upper()
 	local info = self:GetTalentInfo(dst.class)
 	local lens = {t1:len(), t2:len(), t3:len()}
 	
-	print("count, info, len", count, info, len)
 	for tab, tree in ipairs(info) do
 		local count = 1
-		print("tab, tree:", tab, tree, #tree.talents)
 		local t = {}
 		dst[tab] = t
 		for index = 1, #tree.talents do
-			print(index, count)
 			t[index] = tonumber(src[tab]:sub(count, count))
 			count = count + 1
 			if count > lens[tab] then break end

@@ -50,7 +50,7 @@ function Talented:GetTalentState(template, tab, index)
 		s = false
 	else
 		s = true
-		if info.req and self:GetTalentState(template, tab, info.req) ~= "full" then
+		if info.prereqs and self:GetTalentState(template, tab, info.prereqs[1].source) ~= "full" then
 			s = false
 		end
 	end
@@ -84,10 +84,11 @@ function Talented:ValidateTalentBranch(template, tab, index, newvalue)
 				self:Debug("Update refused because of tier")
 				return false
 			end
-			local r = talent.req
+			local r = talent.prereqs
 			if r then
-				local rvalue = r == index and newvalue or ttab[r]
-				if rvalue < #tree[r].ranks then
+				rs = r[1].source
+				local rvalue = rs == index and newvalue or ttab[rs]
+				if rvalue < #tree.talents[rs].info.ranks then
 					self:Debug("Update refused because of prereq")
 					return false
 				end
@@ -116,9 +117,10 @@ function Talented:ValidateTemplate(template, fix)
 				if count < (talent.row - 1) * pointsPerTier or value > (0 or #talent.ranks) then 
 					if fix then t[i], value, fixed = 0, 0, true else return end
 				end
-				local r = talent.req
+				local r = talent.prereqs
 				if r then
-					if t[r] < #tree[r].ranks then 
+					rs = r[1].source
+					if t[rs] < #tree.talents[rs].info.ranks then 
 						if fix then t[i], value, fixed = 0, 0, true else return end
 					end
 				end
