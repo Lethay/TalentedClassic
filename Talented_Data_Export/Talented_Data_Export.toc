@@ -1,0 +1,9 @@
+## Interface: 11302
+## Title: Talented_Data_Export
+## Name: Talented_Data_Export
+## Notes: Class Data Exporter for The Talent Template Editor
+## Author: Jerry,Lethay
+## Version: 1.0
+## SavedVariables: Talented_Data_HUNTER, Talented_Data_WARRIOR, Talented_Data_PALADIN, Talented_Data_MAGE, Talented_Data_PRIEST, Talented_Data_WARLOCK, Talented_Data_SHAMAN, Talented_Data_DRUID, Talented_Data_ROGUE
+
+export.lua

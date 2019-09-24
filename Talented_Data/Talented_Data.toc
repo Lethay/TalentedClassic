@@ -1,0 +1,29 @@
+## Interface: 11302
+## Title: Talented Data
+## Notes: Gather localized information about the different talent trees of your toons
+## Author: Jerry,Lethay
+## SavedVariables: Talented_DataDB
+## OptionalDeps: Ace2, GratuityLib
+## X-ExpectedBuild: "1.13.2 - 31882 - Sep 17 2019 - 11302"
+
+## LIBS START
+## LIBS END
+
+Talented_Data_init.lua
+Talented_Data_HUNTER.lua
+Talented_Data_WARRIOR.lua
+Talented_Data_PALADIN.lua
+Talented_Data_MAGE.lua
+Talented_Data_PRIEST.lua
+Talented_Data_WARLOCK.lua
+Talented_Data_SHAMAN.lua
+Talented_Data_DRUID.lua
+Talented_Data_ROGUE.lua
+Talented_Data_esES.lua
+Talented_Data_zhCN.lua
+Talented_Data_frFR.lua
+Talented_Data_zhTW.lua
+Talented_Data_deDE.lua
+Talented_Data_ruRU.lua
+Talented_Data_koKR.lua
+Talented_Data_enUS.lua

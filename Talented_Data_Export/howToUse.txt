@@ -1,0 +1,49 @@
+	local tree = self.talents[class][tab]
+	local info = tree.talents[index].info
+
+------------------
+
+	for i = 1, ranks do
+		local tip = self:GetTalentDesc(class, tab, index, i)
+		if type(tip) == "table" then tip = tip[#tip].left end
+		addline(tip, i == rank and HIGHLIGHT_FONT_COLOR or NORMAL_FONT_COLOR, true)
+	end
+
+	addtipline(self:GetTalentDesc(class, tab, index, rank))
+	addtipline(self:GetTalentDesc(class, tab, index, rank + 1))
+
+--------
+
+To export data, disable Talented_Data, make a character of each class and
+1. Open Talented Window. Check talent tooltips are loading. Reload if not.
+2. Run /script Talented_Data_Export(), or press the button in the options
+In the savedvariable file, take the output and put each class into its own appropriately named file. Edit the file as follows,
+1. Replace all [" and "] with nothing
+2. Replace all Data_ with Data.
+
+-------------
+
+/script for key, value in pairs(Talented.talents) do print(key) end
+
+/script for key, value in pairs(Talented.options.args) do print( key, value) end
+/script for key, value in pairs(Talented_Data) do print(key, value) end
+
+self.options.args.template.args.new.args
+/script print(Talented.TalentView.frame.targetname)
+/script for k, v in pairs(Talented.TalentView) do print (k, v) end
+/script for k, v in pairs(Talented.views[1]) do print (k, v) end
+/script for k, v in pairs(Talented.views[1].frame) do print (k, v) end
+
+/script Talented.views[1].mode = "edit"
+/script print(Talented.views[1].template == Talented.current)
+
+/script print(Talented.views[1].mode ~= "edit", Talented.views[1].count <= 0, Talented.views[1].template == Talented.current)
+
+/script print(Talented.views[1].template == Talented.current)
+
+/script for k, v in pairs(Talented.views[1].frame.targetname) do print(k, v) end
+/script for k, v in pairs(Talented.views[1].frame.editname) do print(k, v) end
+/script print(Talented.views[1].frame.edit)
+
+
+/script print(Talented.template.)

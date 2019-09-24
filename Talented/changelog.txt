@@ -1,0 +1,2 @@
+Since last update
+    - Removed references to "Glyph" in code (and options menu!)
