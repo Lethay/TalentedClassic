@@ -39,7 +39,6 @@ locales.xml
 
 core.lua
 options.lua
-spelldata.lua
 tabdata.lua
 spell.lua
 talents.lua
@@ -56,7 +55,6 @@ apply.lua
 inspectui.lua
 wowhead.lua
 wowdb.lua
-mmochamp.lua
 
 ui\pool.lua
 ui\base.lua
