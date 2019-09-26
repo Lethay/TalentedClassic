@@ -11,14 +11,23 @@
 
 Talented_Data_init.lua
 Talented_Data_HUNTER.lua
+Talented_Data_HUNTER_koKR.lua
 Talented_Data_WARRIOR.lua
+Talented_Data_WARRIOR_koKR.lua
 Talented_Data_PALADIN.lua
+Talented_Data_PALADIN_koKR.lua
 Talented_Data_MAGE.lua
+Talented_Data_MAGE_koKR.lua
 Talented_Data_PRIEST.lua
+Talented_Data_PRIEST_koKR.lua
 Talented_Data_WARLOCK.lua
+Talented_Data_WARLOCK_koKR.lua
 Talented_Data_SHAMAN.lua
+Talented_Data_SHAMAN_koKR.lua
 Talented_Data_DRUID.lua
+Talented_Data_DRUID_koKR.lua
 Talented_Data_ROGUE.lua
+Talented_Data_ROGUE_koKR.lua
 Talented_Data_esES.lua
 Talented_Data_zhCN.lua
 Talented_Data_frFR.lua
