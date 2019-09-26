@@ -1,8 +1,8 @@
 v190926
     - Fixed/added the ability to show a target template when choosing talents.
+    - Fixed korean localisation (with thanks to @chkmyid)
     TODO:
         - Verify conflict with bagnon/tooltip changing addons
-        - Fix korean localisation
         - Fix reaction to resetting talents
     
 v190924
