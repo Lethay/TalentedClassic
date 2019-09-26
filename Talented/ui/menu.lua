@@ -367,7 +367,7 @@ function Talented:MakeActionMenu()
 	local restricted = (self.template.class ~= select(2, UnitClass("player")))
 	local targetName
 	if not restricted then
-		targetName = template or self.current
+		targetName = 1 --Primary talents, the only talent group ion calssic. Formerly targetName = templateTalentGroup or activeTalentGroup
 	end
 
 	self:GetNamedMenu("Apply").disabled = self.template==self.current or restricted
@@ -377,7 +377,7 @@ function Talented:MakeActionMenu()
 	-- switch.arg1 = templateTalentGroup
 
 	local target = self:GetNamedMenu("Target")
-	if self.template then
+	if template == self.current then
 		target.text = L["Clear target"]
 		target.arg1 = targetName
 		target.arg2 = nil

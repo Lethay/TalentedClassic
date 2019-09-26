@@ -1,4 +1,11 @@
-20190924
+v190926
+    - Fixed/added the ability to show a target template when choosing talents.
+    TODO:
+        - Verify conflict with bagnon/tooltip changing addons
+        - Fix korean localisation
+        - Fix reaction to resetting talents
+    
+v190924
     - Removed references to "Glyph" in code (and options menu!)
     - Removed mmochamp.lua and spellData.lua from Talented.toc
     - Fixed tooltips to show ranks>1

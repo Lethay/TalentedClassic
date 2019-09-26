@@ -271,8 +271,8 @@ function Talented:CopyPackedTemplate(src, dst)
 			d = {}
 			dst[tab] = d
 		end
-		for index, value in ipairs(tree.talents) do
-			d[index] = value
+		for index, value in ipairs(tree) do --templates don't have tree.talents like Talented_Data members do
+			dst[tab][index] = value
 		end
 	end
 	if packed then self:PackTemplate(src) end
