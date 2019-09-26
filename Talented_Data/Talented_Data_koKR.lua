@@ -84,7 +84,7 @@ if data then
 	tree.talents[5].info.name = "야생의 일격"
 	tree.talents[6].info.tips = "날개 절단 사용 시 %d%%의 확률로 대상을 5초 동안 움직이지 못하도록 만듭니다."
 	tree.talents[6].info.name = "날개 절단 연마"
-	tree.talents[7].tips = "얼음의 덫과 냉기의 덫 효과의 지속시간이 %d%%만큼 증가하고 제물의 덫과 폭발의 덫 효과의 피해가 %d%%만큼 증가합니다."
+	tree.talents[7].info.tips = "얼음의 덫과 냉기의 덫 효과의 지속시간이 %d%%만큼 증가하고 제물의 덫과 폭발의 덫 효과의 피해가 %d%%만큼 증가합니다."
 	tree.talents[7].info.name = "덫 개량"
 	tree.talents[8].info.tips = "최대 생명력이 %d%%만큼 증가합니다."
 	tree.talents[8].info.name = "생존의 대가"
