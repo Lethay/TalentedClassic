@@ -2,8 +2,8 @@ v190926
     - Fixed/added the ability to show a target template when choosing talents.
     - Fixed korean localisation (with thanks to @chkmyid)
     TODO:
-        - Verify conflict with bagnon/tooltip changing addons
         - Fix reaction to resetting talents
+        - Make Talented_Data depend on Talented
     
 v190924
     - Removed references to "Glyph" in code (and options menu!)
