@@ -1,6 +1,8 @@
 local L =  LibStub:GetLibrary("AceLocale-3.0"):NewLocale("Talented", "enUS", true)
 if not L then return end
 
+L['CONFIRM_TALENT_WIPE_TEXT'] = "Do you want to unlearn all of your talents? This will unsummon any controlled pet and the cost will increase each time.";
+
 L["Talented - Talent Editor"] = true
 
 L["Layout options"] = true
