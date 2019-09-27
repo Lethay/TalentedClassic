@@ -1,9 +1,10 @@
+v190927
+    - Fixed reaction to resetting talents (thanks to @deathcore01)
+    - Made Talented_Data depend on Talented
+
 v190926
-    - Fixed/added the ability to show a target template when choosing talents.
+    - Fixed/added the ability to show a target template when choosing talents
     - Fixed korean localisation (with thanks to @chkmyid)
-    TODO:
-        - Fix reaction to resetting talents
-        - Make Talented_Data depend on Talented
     
 v190924
     - Removed references to "Glyph" in code (and options menu!)
