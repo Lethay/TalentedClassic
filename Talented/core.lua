@@ -34,8 +34,7 @@ function Talented:MakeTarget(targetName)
 	end
 	self:CopyPackedTemplate(src, target)
 
-	if not self:ValidateTemplate(target) or
-		target.class ~= select(2, UnitClass"player")
+	if not self:ValidateTemplate(target) or target.class ~= select(2, UnitClass"player")
 	then
 		self.db.char.targets[targetName] = nil
 		return nil
@@ -231,7 +230,7 @@ function Talented:OpenTemplate(template)
 	if not self.current then
 		self:UpdateCurrentTemplate()
 	end
-	self:SetTemplateDebug(template)
+	self:SetTemplate(template)
 	if not base:IsVisible() then
 		ShowUIPanel(base)
 	end
@@ -243,7 +242,8 @@ function Talented:SetTemplate(template)
 	local old = view.template
 	if template ~= old then
 		if self.current == template then
-			view:SetTemplate(template, self:MakeTarget(self.current == template))
+			local target = self:MakeTarget(1)
+			view:SetTemplate(template, target)
 		else
 			view:SetTemplate(template)
 		end
@@ -256,25 +256,6 @@ function Talented:SetTemplate(template)
 
 	-- self:UpdateView() --TODO: Why is this commented out?
 end
-
-function Talented:SetTemplateDebug(template)
-	if not template then template = self.current end
-	local view = self:CreateBaseFrame().view
-	local old = view.template
-	if template ~= old then
-		if self.current == template then
-				view:SetTemplateDebug(template, self:MakeTarget(self.current == template))
-		else
-			view:SetTemplateDebug(template)
-		end
-		self.template = template
-	end
-	if template and self.current ~= template then
-		self.db.profile.last_template = template.name
-	end
-	self:SetMode(self:GetDefaultMode())
-end
-
 
 function Talented:GetDefaultMode()
 	return "edit"--self.db.profile.always_edit and "edit" or "view"

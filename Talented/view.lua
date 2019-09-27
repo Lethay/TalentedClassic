@@ -140,10 +140,11 @@ end
 
 function TalentView:SetTemplate(template, target)
 	if template then Talented:UnpackTemplate(template) end
-	if target then Talented:UnpackTemplate(target) end
+	-- if target then Talented:UnpackTemplate(target) end This will use target's code object, which we have NOT been updating
 
 	local curr = self.target
 	self.target = target
+
 	if curr and curr ~= template and curr ~= target then
 		Talented:PackTemplate(curr)
 	end
@@ -154,27 +155,6 @@ function TalentView:SetTemplate(template, target)
 	end
 
 	self:SetClass(template.class)
-
-	return self:Update()
-end
-
-function TalentView:SetTemplateDebug(template, target)
-	if template then Talented:UnpackTemplate(template) end
-	if target then Talented:UnpackTemplate(target) end
-
-	local curr = self.target
-	self.target = target
-	if curr and curr ~= template and curr ~= target then
-		Talented:PackTemplate(curr)
-	end
-	curr = self.template
-	self.template = template
-	if curr and curr ~= template and curr ~= target then
-		Talented:PackTemplate(curr)
-	end
-
-	self:SetClass(template.class)
-
 	return self:Update()
 end
 
@@ -199,7 +179,6 @@ function TalentView:Update()
 	local total = 0
 	local info = Talented:GetTalentInfo(template.class)
 	local at_cap = Talented:IsTemplateAtCap(template)
-
 
 	for tab, tree in ipairs(info) do
 		local count = 0
@@ -337,14 +316,10 @@ function TalentView:Update()
 	
 	local targetname = self.frame.targetname
 	if targetname then
-		if template then
+		if template == Talented.current then
 			targetname:Show()
-			if template == Talented.current and target then
+			if target then
 				targetname:SetText(L["Target: %s"]:format(target.name))
-			-- elseif template.talentGroup == 1 then
-			-- 	targetname:SetText(TALENT_SPEC_PRIMARY)
-			-- else
-			-- 	targetname:SetText(TALENT_SPEC_SECONDARY)
 			end
 		else
 			targetname:Hide()

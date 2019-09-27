@@ -78,8 +78,6 @@ function Talented:SetTooltipInfo(frame, class, tab, index)
 	local template = frame:GetParent().view.template
 
 	self:UnpackTemplate(template)
-	-- print("tab, index:", tab, index, "template[][]:", template[tab][index], "template[tab] members:")
-	-- for k, v in pairs(template[tab]) do print("",k,v) end
 	local rank = template[tab][index]
 	local ranks, req = info.ranks, info.prereqs
 	addline(info.name, HIGHLIGHT_FONT_COLOR)
