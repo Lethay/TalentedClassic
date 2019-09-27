@@ -265,15 +265,15 @@ function Talented:OnEnable()
 	self:RawHook("ToggleTalentFrame", true)
 	self:SecureHook("UpdateMicroButtons")
 
-	-- UIParent:UnregisterEvent"CONFIRM_TALENT_WIPE" --FIXME: See notes below, marked with (**).
-	self:RegisterEvent"CONFIRM_TALENT_WIPE"
-	self:RegisterEvent"CHARACTER_POINTS_CHANGED"
+	UIParent:UnregisterEvent("CONFIRM_TALENT_WIPE")
+	self:RegisterEvent("CONFIRM_TALENT_WIPE")
+	self:RegisterEvent("CHARACTER_POINTS_CHANGED")
 	TalentMicroButton:SetScript("OnClick", ToggleTalentFrame)
 end
 
 function Talented:OnDisable()
 	self:UnhookInspectUI()
-	-- UIParent:RegisterEvent"CONFIRM_TALENT_WIPE"
+	UIParent:RegisterEvent("CONFIRM_TALENT_WIPE")
 end
 
 function Talented:PLAYER_TALENT_UPDATE()
@@ -281,22 +281,18 @@ function Talented:PLAYER_TALENT_UPDATE()
 end
 
 function Talented:CONFIRM_TALENT_WIPE(_, cost)
-	-- local dialog = StaticPopup_Show("CONFIRM_TALENT_WIPE")  --(**)
-	-- if dialog then--(**)
-		-- MoneyFrame_Update(dialog:GetName().."MoneyFrame", cost)--(**)
-		-- self:SetTemplate() Shouldn't need this line as it is called within Self:Update()
+    StaticPopupDialogs["CONFIRM_TALENT_WIPE"].text = L['CONFIRM_TALENT_WIPE_TEXT'] --the problem: text for CONFIRM_TALENT_WIPE are nil, eventualy in conjunction of unregisterevent from uiparent??? now let us set the text manually...
+	local dialog = StaticPopup_Show("CONFIRM_TALENT_WIPE")
+	if dialog then
+		MoneyFrame_Update(dialog:GetName().."MoneyFrame", cost)
 		local frame = self.base
-		if not frame or not frame:IsVisible() then
+        if not frame or not frame:IsVisible() then
 			self:Update()
-			-- ShowUIPanel(self.base) (**)
+			ShowUIPanel(self.base)
 		end
-		-- dialog:SetFrameLevel(frame:GetFrameLevel() + 5) --(**)
-	-- end--(**)
-	-- FIXME: For some reason, trying to hook onto CONFIRM_TALENT_WIPE calls an LUA error when 
-	--        StaticPopup_Show("CONFIRM_TALENT_WIPE") is called, regardless of whether 0, 1 or 2 string arguments are given.
-	--        The error is:
-	--          Message: ..\FrameXML\StaticPopup.lua line 4473:
-   --             bad argument #1 to 'SetFormattedText' (string expected, got nil)
+        --dialog:SetFrameLevel(self.base:GetFrameLevel() + 5) frame level dosn't work, so let's us set the frame strata
+        dialog:SetFrameStrata('FULLSCREEN_DIALOG')
+	end
 end
 
 

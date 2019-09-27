@@ -1,6 +1,9 @@
 -- translators: kunda
 local L =  LibStub:GetLibrary("AceLocale-3.0"):NewLocale("Talented", "deDE")
 if not L then return end
+
+L['CONFIRM_TALENT_WIPE_TEXT'] = "Sollen alle Talente verlernt werden? Mit jeder Anwendung dieses Befehls steigen die Kosten dafür und alle Eure Begleiter werden freigegeben."
+
 L["Talented - Talent Editor"] = "Talented - Talente Editor"
 
 L["Layout options"] = "Anzeigeoptionen"
