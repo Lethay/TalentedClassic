@@ -1,3 +1,6 @@
+v190928
+    - Fix Wowhead importing
+    
 v190927
     - Fixed reaction to resetting talents (thanks to @deathcore01)
     - Made Talented_Data depend on Talented
