@@ -19,9 +19,12 @@ Talented.importers[".*/talent.calc/(.*)/(%d*)-(%d*)-(%d*)$"] = function (self, u
 		local t = {}
 		dst[tab] = t
 		for index = 1, #tree.talents do
-			t[index] = tonumber(src[tab]:sub(count, count))
-			count = count + 1
-			if count > lens[tab] then break end
+			if count <= lens[tab] then
+				t[index] = tonumber(src[tab]:sub(count, count))
+				count = count + 1
+			else
+				t[index] = 0
+			end
 		end
 	end
 	return dst
