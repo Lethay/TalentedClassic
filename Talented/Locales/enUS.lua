@@ -91,6 +91,7 @@ L["Error while applying talents! some of the request talents were not set!"] = t
 L["Error! Talented window has been closed during template application. Please reapply later."] = true
 L["Talent application has been cancelled. %d talent points remaining."] = true
 L["Template applied successfully, %d talent points remaining."] = true
+L["Warning - no action was taken, or we ran out of talent points."] = true
 --~ L["Talented_Data is outdated. It was created for %q, but current build is %q. Please update."] = true
 --~ L["Loading outdated data. |cffff1010WARNING:|r Recent changes in talent trees might not be included in this data."] = true
 L["\"%s\" does not appear to be a valid URL!"] = true

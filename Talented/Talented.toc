@@ -3,7 +3,7 @@
 ## Name: Talented
 ## Notes: The Talent Template Editor
 ## Author: Jerry,Lethay
-## Version: v190928
+## Version: 191004
 ## OptionalDeps: Ace3
 ## SavedVariables: TalentedDB
 ## X-Category: Interface Enhancements
@@ -52,7 +52,6 @@ other.lua
 chat.lua
 tips.lua
 apply.lua
-inspectui.lua
 wowhead.lua
 wowdb.lua
 

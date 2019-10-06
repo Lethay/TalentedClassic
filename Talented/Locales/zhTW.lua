@@ -92,6 +92,7 @@ L["Template applied successfully, %d talent points remaining."] = "成功應用�
 --~ L["Talented_Data is outdated. It was created for %q, but current build is %q. Please update."] = "Talented_Data已過期。創建資料屬於%q版本，但當前用戶端版本是%q。請進行升級。"
 --~ L["Loading outdated data. |cffff1010WARNING:|r Recent changes in talent trees might not be included in this data."] = "載入過期數據。 |cffff1010警告：|r最新的天賦樹改動可能不包含在該資料中。"
 L["\"%s\" does not appear to be a valid URL!"] = "\"%s\"看起來不是一個有效的URL"
+L["Warning - no action was taken, or we ran out of talent points."] = true --TODO: Localise!
 
 L["Import template ..."] = "導入範本"
 L["Enter the complete URL of a template from Blizzard talent calculator or wowhead."] = "輸入從暴雪天賦模擬器或者Wowhead天賦模擬器獲得的天賦範本連結"

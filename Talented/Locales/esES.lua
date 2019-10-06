@@ -77,6 +77,7 @@ L["Error! Talented window has been closed during template application. Please re
 L["Talent application has been cancelled. %d talent points remaining."] = "El establecimiento de talemtos ha sido cancelado. Quedan %d puntos de talento"
 L["Template applied successfully, %d talent points remaining."] = "Plantilla aplicada exitosamente. Quedan %d puntos de talento"
 L["\"%s\" does not appear to be a valid URL!"] = "¡ \"%s\" no parece ser una URL válida !"
+L["Warning - no action was taken, or we ran out of talent points."] = true --TODO: Localise!
 
 L["Import template ..."] = "Importar plantilla..."
 L["Enter the complete URL of a template from Blizzard talent calculator or wowhead."] = "Introduce la URL completa de una plantilla del calculador de talentos de Blizzard o WoWHead."

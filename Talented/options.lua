@@ -120,13 +120,13 @@ Talented.options = {
 					arg = "UpdateView",
 					order = 400,
 				},
-				hook_inspect_ui = {
-					name = L["Hook Inspect UI"],
-					desc = L["Hook the Talent Inspection UI."],
-					type = "toggle",
-					arg = "CheckHookInspectUI",
-					order = 700,
-				},
+				-- hook_inspect_ui = {
+				-- 	name = L["Hook Inspect UI"],
+				-- 	desc = L["Hook the Talent Inspection UI."],
+				-- 	type = "toggle",
+				-- 	arg = "CheckHookInspectUI",
+				-- 	order = 700,
+				-- },
 				show_url_in_chat = {
 					name = L["Output URL in Chat"],
 					desc = L["Directly outputs the URL in Chat instead of using a Dialog."],

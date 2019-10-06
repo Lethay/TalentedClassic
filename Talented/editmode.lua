@@ -75,20 +75,20 @@ function Talented:ValidateTalentBranch(template, tab, index, newvalue)
 	local count = 0
 	local pointsPerTier = self:GetSkillPointsPerTier(template.class)
 	local tree = self:GetTalentInfo(template.class)[tab]
-	local ttab = template[tab]
-	for i, talent in ipairs(tree) do
+	local ttab = template[tab] --n.b. NOT .talents
+	for i, talent in ipairs(tree.talents) do
 		local value = i == index and newvalue or ttab[i]
 		if value > 0 then
-			local tier = (talent.row - 1) * pointsPerTier
+			local tier = (talent.info.row - 1) * pointsPerTier
 			if count < tier then
 				self:Debug("Update refused because of tier")
 				return false
 			end
-			local r = talent.prereqs
+			local r = talent.info.prereqs
 			if r then
 				rs = r[1].source
 				local rvalue = rs == index and newvalue or ttab[rs]
-				if rvalue < #tree.talents[rs].info.ranks then
+				if rvalue < tree.talents[rs].info.ranks then
 					self:Debug("Update refused because of prereq")
 					return false
 				end
@@ -106,21 +106,20 @@ function Talented:ValidateTemplate(template, fix)
 	local info = self:GetTalentInfo(class)
 	local fixed
 	for tab, tree in ipairs(info) do
-		local t = template[tab]
+		local t = template[tab] --NOT .talents
 		if not t then return end
 		local count = 0
-		for i, talent in ipairs(tree) do
+		for i, talent in ipairs(tree.talents) do
 			local value = t[i]
 			if not value then return end
 			if value > 0 then
-				-- if count < (talent.row - 1) * pointsPerTier or value > (talent.inactive and 0 or #talent.ranks) then 
-				if count < (talent.row - 1) * pointsPerTier or value > (0 or #talent.ranks) then 
+				if count < (talent.info.row - 1) * pointsPerTier or value > ((talent.inactive and 0) or talent.info.ranks) then 
 					if fix then t[i], value, fixed = 0, 0, true else return end
 				end
-				local r = talent.prereqs
+				local r = talent.info.prereqs
 				if r then
 					rs = r[1].source
-					if t[rs] < #tree.talents[rs].info.ranks then 
+					if t[rs] < tree.talents[rs].info.ranks then 
 						if fix then t[i], value, fixed = 0, 0, true else return end
 					end
 				end

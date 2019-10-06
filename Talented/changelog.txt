@@ -1,13 +1,23 @@
+v191004
+    - Fix Wowhead importing again (now accepts URLs with a talent input order in)
+    - Fix "apply" button; now uses old algorithm of applying a talent point after CHARACTER_POINTS_CHANGED fires, as apparently the vanilla API doesn't return quick enough
+    - Add notes about localisation for those languages that are missing it
+    - Remove code and references to inspecting characters
+    - Fix validation checks - no longer can one remove the entire top row of talents because they're bad (hi Disc Priests)
+    - Fix name of Arcane Power in korean localisation
+    
+
 v190928
     - Fix Wowhead importing
-    
+    - Add Russian localisation to tooltips (thanks to @tierggg)
+
 v190927
     - Fixed reaction to resetting talents (thanks to @deathcore01)
     - Made Talented_Data depend on Talented
 
 v190926
     - Fixed/added the ability to show a target template when choosing talents
-    - Fixed korean localisation (with thanks to @chkmyid)
+    - Add korean localisation to tooltips (with thanks to @chkmyid)
     
 v190924
     - Removed references to "Glyph" in code (and options menu!)

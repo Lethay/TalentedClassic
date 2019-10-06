@@ -361,7 +361,7 @@ if data then
 	tree.talents[15].info.name = "신비한 불안정성"
 	tree.talents[15].info.tips = "주문 공격력이 증가하고 공격 주문이 극대화 효과를 발휘할 확률이 %d%%만큼 증가합니다."
 	tree.talents[16].info.tips = "활성화되면 30%%만큼의 마나를 더 소비하여 30%%의 추가 피해를 입힙니다. 이 효과는 15초 동안 지속됩니다."
-	tree.talents[16].info.name = "Arcane Power"
+	tree.talents[16].info.name = "신비의 마법 강화"
 	
 	tree = data[2]
 	tree.info.name = "화염"

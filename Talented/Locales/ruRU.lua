@@ -95,6 +95,7 @@ L["Template applied successfully, %d talent points remaining."] = "Шаблон 
 --~ L["Talented_Data is outdated. It was created for %q, but current build is %q. Please update."] = "Talented_Data устарел. Он был создан для %q, а текущий билд %q. Обновитесь пожалуйста."
 --~ L["Loading outdated data. |cffff1010WARNING:|r Recent changes in talent trees might not be included in this data."] = "Загружаем устаревшие данные. |cffff1010ВНИМАНИЕ:|r Последние изменения в талантах могут быть не учтены в этих данных."
 L["\"%s\" does not appear to be a valid URL!"] = "\"%s\" не является подходящей ссылкой!"
+L["Warning - no action was taken, or we ran out of talent points."] = true --TODO: Localise!
 
 L["Import template ..."] = "Импортировать шаблон ..."
 L["Enter the complete URL of a template from Blizzard talent calculator or wowhead."] = "Вставьте полную ссылку на шаблон талантов, полученную в калькуляторе Blizzard или wowhead"

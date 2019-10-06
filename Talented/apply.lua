@@ -1,6 +1,14 @@
 local Talented = Talented
 local L = LibStub("AceLocale-3.0"):GetLocale("Talented")
 
+local reset = function(...)
+	if select("#", ...) > 0 then
+		Talented:Print(...)
+	end
+	Talented:SetTemplate()
+	Talented:EnableUI(true)
+end
+
 function Talented:ApplyCurrentTemplate()
 	local template = self.template
 	if select(2, UnitClass"player") ~= template.class then
@@ -14,7 +22,7 @@ function Talented:ApplyCurrentTemplate()
 	-- check if enough talent points are available
 	local available = UnitCharacterPoints("player")
 	for tab, tree in ipairs(self:GetTalentInfo(template.class)) do
-		for index = 1, #tree do
+		for index = 1, #tree.talents do
 			local delta = template[tab][index] - self.current[tab][index]
 			if delta > 0 then
 				count = count + delta
@@ -31,49 +39,85 @@ function Talented:ApplyCurrentTemplate()
 		self:UpdateView()
 	else
 		self:EnableUI(false)
-		self:ApplyTalentPoints()
+		self:ApplyNextTalentPoint()
 	end
 end
 
-function Talented:ApplyTalentPoints()
-	local p = GetCVar"previewTalents"
-	SetCVar("previewTalents", "1")
+--Interestingly, in the vanilla API, it seems that LearnTalent doesn't return fast enough:
+  -- doing GetTalentInfo or UnitCharacterPoints immediately after LearnTalent DOESN'T yield changed values.
+  -- Will need to use the old method in TBC, of trying to learn the next talent point after each 
+  -- CHARACTER_POINTS_CHANGED -- see core.lua.
 
-	local template = self.template
-	local current = self.current
-	ResetGroupPreviewTalentPoints(nil, nil) --TODO: This function doesn't exist!
+-- function Talented:ApplyTalentPoints()
+-- 	local template = self.template
+-- 	local current = self.current
+-- 	local cp = UnitCharacterPoints("player")
+
+-- 	while true do
+-- 		local missing, set
+-- 		--Loop over all trees and talents, and try to spend a point
+-- 		for tab, tree in ipairs(self:GetTalentInfo(template.class)) do
+-- 			local ttab = template[tab]
+-- 			for index = 1, #tree.talents do
+-- 				local rank = select(5, GetTalentInfo(tab, index, nil))
+-- 				local delta = ttab[index] - rank
+
+-- 				--If this talent has a higher rank in the template than current talents, then try to increase it
+-- 				if delta > 0 then
+-- 					self:LearnTalent(tab, index)
+-- 					local nrank = select(5, GetTalentInfo(tab, index, nil)) --What is the rank now?
+-- 					if nrank < ttab[index] then
+-- 						missing = true --Is the new rank less than the tamplet: are there still points to apply?
+-- 					elseif nrank > rank then
+-- 						set = true --Did we actually do something?
+-- 					end
+-- 					cp = cp - nrank + rank
+-- 				end
+-- 			end
+-- 		end
+-- 		if (not missing) or cp<=0 then break end
+-- 		if not set then -- make sure we did something
+-- 			Talented:Print(L["Warning - no action was taken, or we ran out of talent points."]) 
+-- 			break
+-- 		end
+-- 	end
+-- 	if cp < 0 then
+-- 		Talented:Print(L["Error while applying talents! Not enough talent points!"])
+-- 	end
+-- 	Talented:EnableUI(true)
+-- end
+
+function Talented:ApplyNextTalentPoint()
 	local cp = UnitCharacterPoints("player")
-
-	while true do
-		local missing, set
-		for tab, tree in ipairs(self:GetTalentInfo(template.class)) do
-			local ttab = template[tab]
-			for index = 1, #tree do
-				local rank = select(9, GetTalentInfo(tab, index, nil))
-				local delta = ttab[index] - rank
-				if delta > 0 then
-					AddPreviewTalentPoints(tab, index, delta)
-					local nrank = select(9, GetTalentInfo(tab, index, nil))
-					if nrank < ttab[index] then
-						missing = true
-					elseif nrank > rank then
-						set = true
-					end
-					cp = cp - nrank + rank
+	
+	local found = false
+	local current = self.current
+	local template = self.template
+	local class = template.class
+	assert(select(2, UnitClass"player") == template.class, "Player class doesn't match template class")
+	for tab, tree in ipairs(self:GetTalentInfo(class)) do
+		local ctab = current[tab]
+		local ttab = template[tab]
+		for index in ipairs(tree.talents) do
+			local cvalue = ctab[index]
+			if cvalue < ttab[index] then
+				if cp == 0 then
+					reset(L["Error while applying talents! Not enough talent points!"])
+					return
+				end
+				found = true
+				if self:ValidateTalentBranch(current, tab, index, cvalue + 1) then
+					self:LearnTalent(tab, index)
+					return
 				end
 			end
 		end
-		if not missing then break end
-		assert(set) -- make sure we did something
 	end
-	if cp < 0 then
-		Talented:Print(L["Error while applying talents! Not enough talent points!"])
-		ResetGroupPreviewTalentPoints(nil, nil) --TODO: This function doesn't exist!
-		Talented:EnableUI(true)
+	if not found then
+		reset(L["Template applied successfully, %d talent points remaining."], cp)
 	else
-		LearnPreviewTalents(nil) --TODO: This function doesn't exist!
+		reset(L["Error while applying talents! Invalid template!"])
 	end
-	SetCVar("previewTalents", p)
 end
 
 function Talented:CheckTalentPointsApplied()

@@ -272,7 +272,7 @@ function Talented:OnEnable()
 end
 
 function Talented:OnDisable()
-	self:UnhookInspectUI()
+	-- self:UnhookInspectUI()
 	UIParent:RegisterEvent("CONFIRM_TALENT_WIPE")
 end
 
@@ -300,9 +300,10 @@ function Talented:CHARACTER_POINTS_CHANGED()
 	self:UpdateCurrentTemplate()
 	self:UpdateView()
 	if self.mode == "apply" then
-		self:CheckTalentPointsApplied()
+		self:ApplyNextTalentPoint()
 	end
 end
+
 
 function Talented:UpdateMicroButtons()
 	local button = TalentMicroButton

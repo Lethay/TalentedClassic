@@ -92,6 +92,7 @@ L["Error while applying talents! some of the request talents were not set!"] = "
 L["Error! Talented window has been closed during template application. Please reapply later."] = "Fehler! Das Talented Fenster wurde während der Vorlagenzuweisung geschlossen. Bitte später noch einmal versuchen."
 L["Talent application has been cancelled. %d talent points remaining."] = "Talentzuweisung wurde abgebrochen. %d Talentpunkt(e) übrig."
 L["Template applied successfully, %d talent points remaining."] = "Vorlage erfolgreich zugewiesen, %d Talentpunkt(e) übrig."
+L["Warning - no action was taken, or we ran out of talent points."] = true --TODO: Localise!
 --~ L["Talented_Data is outdated. It was created for %q, but current build is %q. Please update."] = "Talented_Data ist veraltet. Es wurde für %q erstellt, aber momentane Version ist %q. Bitte aktualisieren."
 --~ L["Loading outdated data. |cffff1010WARNING:|r Recent changes in talent trees might not be included in this data."] = "Veraltete Daten werden geladen. |cffff1010WARNUNG:|r Änderungen an Talentbäumen, die erst kürzlich eingeführt wurden, könnten nicht in diesen Daten vorhanden sein."
 L["\"%s\" does not appear to be a valid URL!"] = "\"%s\" sieht nach einer ungültigen URL aus!"

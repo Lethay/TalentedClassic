@@ -3,8 +3,8 @@ local ipairs = ipairs
 
 local L = LibStub("AceLocale-3.0"):GetLocale("Talented")
 --https://classic.wowhead.com/talent-calc/rogue/0251030050502--05
-Talented.importers[".*/talent.calc/(.*)/(%d*)-(%d*)-(%d*)$"] = function (self, url, dst)
-	local s, _, class, t1, t2, t3 = url:find(".*/talent.calc/(.*)/(%d*)-(%d*)-(%d*)$")
+Talented.importers[".*/talent.calc/(.*)/(%d*)-(%d*)-(%d*).*"] = function (self, url, dst)
+	local s, _, class, t1, t2, t3 = url:find(".*/talent.calc/(.*)/(%d*)-(%d*)-(%d*).*")
 	if not s then
 		return
 	end
