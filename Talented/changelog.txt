@@ -1,3 +1,6 @@
+v191007
+    - Untested fix to learning talents when "Confirm learn" is on (why did no-one mention this bug before?)
+
 v191004
     - Fix Wowhead importing again (now accepts URLs with a talent input order in)
     - Fix "apply" button; now uses old algorithm of applying a talent point after CHARACTER_POINTS_CHANGED fires, as apparently the vanilla API doesn't return quick enough
@@ -6,7 +9,6 @@ v191004
     - Fix validation checks - no longer can one remove the entire top row of talents because they're bad (hi Disc Priests)
     - Fix name of Arcane Power in korean localisation
     
-
 v190928
     - Fix Wowhead importing
     - Add Russian localisation to tooltips (thanks to @tierggg)

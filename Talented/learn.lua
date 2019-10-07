@@ -42,9 +42,15 @@ function Talented:LearnTalent(tab, index)
 		end
 	end
 
+	--Create confirmation dialogue
+	local info = self:GetTalentInfo(self.current.class)
+	if not info then return end
+	local talent = info[tab].talents[index]
+	
 	ShowDialog(L["Are you sure that you want to learn \"%s (%d/%d)\" ?"]:format(
-			self:GetTalentName(template.class, tab, index),
+			talent.info.name,
 			template[tab][index] + 1,
-			self:GetTalentRanks(template.class, tab, index)),
+			talent.info.ranks),
 		tab, index)
 end
+--[tab].talents[index].info

@@ -3,7 +3,7 @@
 ## Name: Talented
 ## Notes: The Talent Template Editor
 ## Author: Jerry,Lethay
-## Version: 191004
+## Version: v191007
 ## OptionalDeps: Ace3
 ## SavedVariables: TalentedDB
 ## X-Category: Interface Enhancements
