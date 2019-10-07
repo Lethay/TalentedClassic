@@ -1,6 +1,6 @@
 v191007
     - Untested fix to learning talents when "Confirm learn" is on (why did no-one mention this bug before?)
-
+    
 v191004
     - Fix Wowhead importing again (now accepts URLs with a talent input order in)
     - Fix "apply" button; now uses old algorithm of applying a talent point after CHARACTER_POINTS_CHANGED fires, as apparently the vanilla API doesn't return quick enough

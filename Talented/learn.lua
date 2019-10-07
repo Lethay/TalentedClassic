@@ -49,7 +49,7 @@ function Talented:LearnTalent(tab, index)
 	
 	ShowDialog(L["Are you sure that you want to learn \"%s (%d/%d)\" ?"]:format(
 			talent.info.name,
-			template[tab][index] + 1,
+			self.current[tab][index] + 1,
 			talent.info.ranks),
 		tab, index)
 end
