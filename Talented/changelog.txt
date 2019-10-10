@@ -1,3 +1,7 @@
+v191010
+    - Add Taiwanese (i.e. traditional Chinese script) localisation to tooltips, with thanks to @Class2u
+    - Add Chinese (i.e. simplified Chinese script) localisation to tooltips, with thanks to @rainyr
+
 v191007
     - Untested fix to learning talents when "Confirm learn" is on (why did no-one mention this bug before?)
     
