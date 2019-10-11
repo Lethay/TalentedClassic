@@ -72,8 +72,9 @@ L["Sorry, I can't apply this template because you don't have enough talent point
 L["Sorry, I can't apply this template because it doesn't match your pet's class!"] = "抱歉，无法应用该模板，这与你宠物类型不符！"
 L["Sorry, I can't apply this template because it doesn't match your class!"] = "抱歉，无法应用该模板，这与你的职业不符！"
 L["Nothing to do"] = "什么都不做"
---~ L["Talented cannot perform the required action because it does not have the required talent data available for class %s. You should inspect someone of this class."] = ""
---~ L["You must install the Talented_Data helper addon for this action to work."] = ""
+L["Talented cannot perform the required action because it does not have the required talent data available for class %s."] = true
+L["You must install the Talented_Data helper addon for this action to work."] = true
+L["You must enable the Talented_Data helper addon for this action to work."] = true
 --~ L["You can download it from http://files.wowace.com/ ."] = ""
 
 L["Inspection of %s"] = "观察%s"
@@ -89,8 +90,8 @@ L["Error while applying talents! some of the request talents were not set!"] = "
 L["Error! Talented window has been closed during template application. Please reapply later."] = "天赋面板在应用过程中被关闭！请稍候重新应用。"
 L["Talent application has been cancelled. %d talent points remaining."] = "应用天赋操作取消，剩余%d天赋点数。"
 L["Template applied successfully, %d talent points remaining."] = "成功应用模板，剩余%d天赋点数。"
---~ L["Talented_Data is outdated. It was created for %q, but current build is %q. Please update."] = "Talented_Data 已过期。创建数据属于%q版本，但当前客户端版本是%q。请进行升级。"
---~ L["Loading outdated data. |cffff1010WARNING:|r Recent changes in talent trees might not be included in this data."] = "加载过期数据。 |cffff1010警告：|r最新的天赋树改动可能不包含在该数据中。"
+L["Talented_Data is outdated. It was created for %q, but current build is %q. Please update."] = "Talented_Data 已过期。创建数据属于%q版本，但当前客户端版本是%q。请进行升级。"
+L["Loading outdated data. |cffff1010WARNING:|r Recent changes in talent trees might not be included in this data."] = "加载过期数据。 |cffff1010警告：|r最新的天赋树改动可能不包含在该数据中。"
 L["\"%s\" does not appear to be a valid URL!"] = "\"%s\"看起来不是一个有效的链接！"
 L["Warning - no action was taken, or we ran out of talent points."] = true --TODO: Localise!
 

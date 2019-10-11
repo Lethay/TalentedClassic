@@ -71,8 +71,10 @@ L["Clear target"] = "Retirer la cible"
 L["Sorry, I can't apply this template because you don't have enough talent points available (need %d)!"] = "Désolé, je ne peux pas appliquer ce template car vous n'avez pas assez de points de talents à votre disposition (besoin de %d)."
 L["Sorry, I can't apply this template because it doesn't match your pet's class!"] = "Désolé, je ne peux pas appliquer ce template car il ne correspond pas à la classe de votre animal de compagnie !"
 L["Sorry, I can't apply this template because it doesn't match your class!"] = "Désolé, je ne peux pas appliquer ce template car il ne correspond pas à votre classe !"
---~ L["Talented cannot perform the required action because it does not have the required talent data available for class %s. You should inspect someone of this class."] = "Talented ne peux pas effectuer l'action demandée car il n'a pas les informations de talents nécéssaire pour la classe %s. Vous devriez inspecter quelqu'un de cette classe."
---~ L["You must install the Talented_Data helper addon for this action to work."] = "Vous devez installer l'addon supplémentaire Talented_Data pour que cette action fonctionne."
+-- L["Talented cannot perform the required action because it does not have the required talent data available for class %s. You should inspect someone of this class."] = "Talented ne peux pas effectuer l'action demandée car il n'a pas les informations de talents nécéssaire pour la classe %s. Vous devriez inspecter quelqu'un de cette classe."
+L["Talented cannot perform the required action because it does not have the required talent data available for class %s."] = "Talented ne peux pas effectuer l'action demandée car il n'a pas les informations de talents nécéssaire pour la classe %s."
+L["You must install the Talented_Data helper addon for this action to work."] = "Vous devez installer l'addon supplémentaire Talented_Data pour que cette action fonctionne."
+L["You must enable the Talented_Data helper addon for this action to work."] = "Vous devez installer l'addon supplémentaire Talented_Data pour que cette action fonctionne."
 --~ L["You can download it from http://files.wowace.com/ ."] = "Vous pouvez le télécharger de http://files.wowace.com/ ."
 
 L["Inspection of %s"] = "Inspection de %s"
@@ -87,8 +89,8 @@ L["Error while applying talents! Not enough talent points!"] = "Erreur pendant l
 L["Error while applying talents! some of the request talents were not set!"] = "Erreur pendant l'application des talents ! quelques-uns des talents n'ont pas été appliqués!"
 L["Talent application has been cancelled. %d talent points remaining."] = "L'application des talents a été annulée. %d points de talents restants."
 L["Template applied successfully, %d talent points remaining."] = "Template appliqué avec succès, %d points de talent restants."
---~ L["Talented_Data is outdated. It was created for %q, but current build is %q. Please update."] = "Talented_Data n'est pas à jour. Il a été crée pour %q, mais la version courante est %q. Veuillez mettre à jour."
---~ L["Loading outdated data. |cffff1010WARNING:|r Recent changes in talent trees might not be included in this data."] = "Chargement des données périmées. |cffff1010ATTENTION :|r Des changements récents dans les arbres de talents peuvent ne pas être inclus dans ces données."
+L["Talented_Data is outdated. It was created for %q, but current build is %q. Please update."] = "Talented_Data n'est pas à jour. Il a été crée pour %q, mais la version courante est %q. Veuillez mettre à jour."
+L["Loading outdated data. |cffff1010WARNING:|r Recent changes in talent trees might not be included in this data."] = "Chargement des données périmées. |cffff1010ATTENTION :|r Des changements récents dans les arbres de talents peuvent ne pas être inclus dans ces données."
 L["\"%s\" does not appear to be a valid URL!"] = "\"%s\" ne semble pas être une URL valide !"
 L["Warning - no action was taken, or we ran out of talent points."] = true --TODO: Localise!
 

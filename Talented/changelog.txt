@@ -1,7 +1,11 @@
+v191011
+    - Potential stop to LibGratuity interacting with other addons, by disabling AceAddon 2 support. But maybe it doesn't work - we'll see!
+    - Minor update to localisation, so that errors don't fire in other clients when Talented_Data is missing (though sometimes English text is shown)
+ 
 v191010
     - Add Taiwanese (i.e. traditional Chinese script) localisation to tooltips, with thanks to @Class2u
     - Add Chinese (i.e. simplified Chinese script) localisation to tooltips, with thanks to @rainyr
-
+ 
 v191007
     - Untested fix to learning talents when "Confirm learn" is on (why did no-one mention this bug before?)
     
@@ -16,11 +20,11 @@ v191004
 v190928
     - Fix Wowhead importing
     - Add Russian localisation to tooltips (thanks to @tierggg)
-
+ 
 v190927
     - Fixed reaction to resetting talents (thanks to @deathcore01)
     - Made Talented_Data depend on Talented
-
+ 
 v190926
     - Fixed/added the ability to show a target template when choosing talents
     - Add korean localisation to tooltips (with thanks to @chkmyid)

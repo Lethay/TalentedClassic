@@ -3,15 +3,14 @@
 ## Name: Talented
 ## Notes: The Talent Template Editor
 ## Author: Jerry,Lethay
-## Version: v191010
+## Version: v191011
 ## OptionalDeps: Ace3
 ## SavedVariables: TalentedDB
 ## X-Category: Interface Enhancements
 ## LoadManagers: Talented_Loader AddonLoader
 ## X-LoadOn-Execute: local N = "ToggleTalentFrame" local P = _G[N] local function f() if _G[N] == f then _G[N] = P end local T = "Talented" AddonLoader:LoadAddOn(T) local t = _G[T] if t then t[N](t) else P() end end _G[N] = f
 ## X-LoadOn-Slash: /talented
-## X-LoadOn-Event: INSPECT_TALENT_READY CONFIRM_TALENT_WIPE
-## X-LoadOn-INSPECT_TALENT_READY: if IsAddOnLoaded"Talented" or not InspectFrame or not InspectFrame:IsShown() then return end AddonLoader:LoadAddOn"Talented" if Talented then Talented:INSPECT_TALENT_READY() end
+## X-LoadOn-Event: CONFIRM_TALENT_WIPE
 ## X-LoadOn-CONFIRM_TALENT_WIPE: if IsAddOnLoaded"Talented" then return end AddonLoader:LoadAddOn"Talented" if Talented then Talented:CONFIRM_TALENT_WIPE() end
 ## X-Curse-Packaged-Version: v20190923a
 ## X-Curse-Project-Name: Talented

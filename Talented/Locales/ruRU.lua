@@ -75,8 +75,10 @@ L["Sorry, I can't apply this template because you don't have enough talent point
 L["Sorry, I can't apply this template because it doesn't match your pet's class!"] = "К сожалению, я не могу применить этот шаблон, поскольку он не соответствует классу вашего питомца!"
 L["Sorry, I can't apply this template because it doesn't match your class!"] = "К сожалению, я не могу применить этот шаблон, поскольку он не соответствует с вашим классом!"
 L["Nothing to do"] = "Ничего не делать"
---~ L["Talented cannot perform the required action because it does not have the required talent data available for class %s. You should inspect someone of this class."] = "Talented не может выполнить данную операцию, так как отсутствуют необходимые данные о талантах для класса %s. Вы должны осмотреть какого-нибудь персонажа данного класса."
---~ L["You must install the Talented_Data helper addon for this action to work."] = "Для этого действия вы должны установить дополнительный аддон Talented_Data."
+-- L["Talented cannot perform the required action because it does not have the required talent data available for class %s. You should inspect someone of this class."] = "Talented не может выполнить данную операцию, так как отсутствуют необходимые данные о талантах для класса %s. Вы должны осмотреть какого-нибудь персонажа данного класса."
+L["Talented cannot perform the required action because it does not have the required talent data available for class %s."] = "Talented не может выполнить данную операцию, так как отсутствуют необходимые данные о талантах для класса %s."
+L["You must install the Talented_Data helper addon for this action to work."] = "Для этого действия вы должны установить дополнительный аддон Talented_Data."
+L["You must enable the Talented_Data helper addon for this action to work."] = "Для этого действия вы должны установить дополнительный аддон Talented_Data."
 --~ L["You can download it from http://files.wowace.com/ ."] = "Вы можете загрузить его с сайта http://www.wowace.com/."
 
 L["Inspection of %s"] = "Осмотр %s"
@@ -92,8 +94,8 @@ L["Error while applying talents! some of the request talents were not set!"] = "
 L["Error! Talented window has been closed during template application. Please reapply later."] = "Ошибка! Talented был закрыт во время применения талантов. Повторите операцию позже."
 L["Talent application has been cancelled. %d talent points remaining."] = "Применение талантов было прервано. Осталось %d очков талантов."
 L["Template applied successfully, %d talent points remaining."] = "Шаблон применен успешно, осталось %d очков талантов."
---~ L["Talented_Data is outdated. It was created for %q, but current build is %q. Please update."] = "Talented_Data устарел. Он был создан для %q, а текущий билд %q. Обновитесь пожалуйста."
---~ L["Loading outdated data. |cffff1010WARNING:|r Recent changes in talent trees might not be included in this data."] = "Загружаем устаревшие данные. |cffff1010ВНИМАНИЕ:|r Последние изменения в талантах могут быть не учтены в этих данных."
+L["Talented_Data is outdated. It was created for %q, but current build is %q. Please update."] = "Talented_Data устарел. Он был создан для %q, а текущий билд %q. Обновитесь пожалуйста."
+L["Loading outdated data. |cffff1010WARNING:|r Recent changes in talent trees might not be included in this data."] = "Загружаем устаревшие данные. |cffff1010ВНИМАНИЕ:|r Последние изменения в талантах могут быть не учтены в этих данных."
 L["\"%s\" does not appear to be a valid URL!"] = "\"%s\" не является подходящей ссылкой!"
 L["Warning - no action was taken, or we ran out of talent points."] = true --TODO: Localise!
 

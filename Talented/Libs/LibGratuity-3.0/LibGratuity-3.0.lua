@@ -222,32 +222,34 @@ if not lib.vars then
 end
 lib:CreateSetMethods()
 
-local function createCompat()
-	createCompat = nil
-	local Gratuity20 = setmetatable({}, {__index=function(self, key)
-		if type(lib[key]) == "function" then
-			self[key] = function(self, ...)
-				return lib[key](lib, ...)
-			end
-		else
-			self[key] = lib[key]
-		end
-		return self[key]
-	end})
-	AceLibrary:Register(Gratuity20, "Gratuity-2.0", vminor+70000000)
-end
-if not AceLibrary then
-	local frame = CreateFrame("Frame")
-	frame:RegisterEvent("ADDON_LOADED")
-	frame:SetScript("OnEvent", function(this)
-		if not AceLibrary then
-			return
-		end
-		createCompat()
-		frame:SetScript("OnEvent", nil)
-		frame:UnregisterAllEvents()
-		frame:Hide()
-	end)
-else
-	createCompat()
-end
+-- local function createCompat()
+-- 	createCompat = nil
+-- 	local Gratuity20 = setmetatable({}, {__index=function(self, key)
+-- 		if type(lib[key]) == "function" then
+-- 			self[key] = function(self, ...)
+-- 				return lib[key](lib, ...)
+-- 			end
+-- 		else
+-- 			self[key] = lib[key]
+-- 		end
+-- 		return self[key]
+-- 	end})
+-- 	AceLibrary:Register(Gratuity20, "Gratuity-2.0", vminor+70000000)
+-- end
+
+--Nope, now we're making it so we need Ace3
+-- if not AceLibrary then
+-- 	local frame = CreateFrame("Frame")
+-- 	frame:RegisterEvent("ADDON_LOADED")
+-- 	frame:SetScript("OnEvent", function(this)
+-- 		if not AceLibrary then
+-- 			return
+-- 		end
+-- 		createCompat()
+-- 		frame:SetScript("OnEvent", nil)
+-- 		frame:UnregisterAllEvents()
+-- 		frame:Hide()
+-- 	end)
+-- else
+-- 	createCompat()
+-- end
