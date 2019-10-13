@@ -347,7 +347,7 @@ function TalentView:UpdateTalent(tab, index, offset)
 	if self.template == Talented.current then
 		-- Applying talent
 		if offset > 0 then
-			Talented:LearnTalent(self.template, tab, index)
+			Talented:LearnTalent(tab, index)
 		end
 		return
 	end

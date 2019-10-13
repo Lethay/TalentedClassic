@@ -74,8 +74,9 @@ L["Sorry, I can't apply this template because you don't have enough talent point
 L["Sorry, I can't apply this template because it doesn't match your pet's class!"] = true
 L["Sorry, I can't apply this template because it doesn't match your class!"] = true
 L["Nothing to do"] = true
---~ L["Talented cannot perform the required action because it does not have the required talent data available for class %s. You should inspect someone of this class."] = true
---~ L["You must install the Talented_Data helper addon for this action to work."] = true
+L["Talented cannot perform the required action because it does not have the required talent data available for class %s."] = true
+L["You must install the Talented_Data helper addon for this action to work."] = true
+L["You must enable the Talented_Data helper addon for this action to work."] = true
 --~ L["You can download it from http://files.wowace.com/ ."] = true
 
 L["Inspection of %s"] = true
@@ -91,8 +92,9 @@ L["Error while applying talents! some of the request talents were not set!"] = t
 L["Error! Talented window has been closed during template application. Please reapply later."] = true
 L["Talent application has been cancelled. %d talent points remaining."] = true
 L["Template applied successfully, %d talent points remaining."] = true
---~ L["Talented_Data is outdated. It was created for %q, but current build is %q. Please update."] = true
---~ L["Loading outdated data. |cffff1010WARNING:|r Recent changes in talent trees might not be included in this data."] = true
+L["Warning - no action was taken, or we ran out of talent points."] = true
+L["Talented_Data is outdated. It was created for %q, but current build is %q. Please update."] = true
+L["Loading outdated data. |cffff1010WARNING:|r Recent changes in talent trees might not be included in this data."] = true
 L["\"%s\" does not appear to be a valid URL!"] = true
 
 L["Import template ..."] = true

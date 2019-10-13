@@ -3,8 +3,9 @@
 ## Notes: Gather localized information about the different talent trees of your toons
 ## Author: Jerry,Lethay
 ## SavedVariables: Talented_DataDB
+## RequiredDeps: Talented
 ## OptionalDeps: Ace2, GratuityLib
-## X-ExpectedBuild: "1.13.2 - 31882 - Sep 17 2019 - 11302"
+## X-ExpectedBuild: "1.13.2 - 32089 - Oct  4 2019 - 11302"
 
 ## LIBS START
 ## LIBS END

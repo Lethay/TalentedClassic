@@ -62,6 +62,9 @@ L["Sorry, I can't apply this template because you don't have enough talent point
 L["Sorry, I can't apply this template because it doesn't match your pet's class!"] = "¡ Lo siento, no puedo aplicar esta plantilla porque no coincide con la clase de tu mascota !"
 L["Sorry, I can't apply this template because it doesn't match your class!"] = "¡ Lo siento, no puedo aplicar esta plantilla porque no coincide con tu clase !"
 L["Nothing to do"] = "Nada que hacer"
+L["Talented cannot perform the required action because it does not have the required talent data available for class %s."] = true
+L["You must install the Talented_Data helper addon for this action to work."] = true
+L["You must enable the Talented_Data helper addon for this action to work."] = true
 
 L["Inspection of %s"] = "Inspección de %s"
 L["Select %s"] = "Selecciona %s"
@@ -77,6 +80,9 @@ L["Error! Talented window has been closed during template application. Please re
 L["Talent application has been cancelled. %d talent points remaining."] = "El establecimiento de talemtos ha sido cancelado. Quedan %d puntos de talento"
 L["Template applied successfully, %d talent points remaining."] = "Plantilla aplicada exitosamente. Quedan %d puntos de talento"
 L["\"%s\" does not appear to be a valid URL!"] = "¡ \"%s\" no parece ser una URL válida !"
+L["Warning - no action was taken, or we ran out of talent points."] = true --TODO: Localise!
+L["Talented_Data is outdated. It was created for %q, but current build is %q. Please update."] = true
+L["Loading outdated data. |cffff1010WARNING:|r Recent changes in talent trees might not be included in this data."] = true
 
 L["Import template ..."] = "Importar plantilla..."
 L["Enter the complete URL of a template from Blizzard talent calculator or wowhead."] = "Introduce la URL completa de una plantilla del calculador de talentos de Blizzard o WoWHead."

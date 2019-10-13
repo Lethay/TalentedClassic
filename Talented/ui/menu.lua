@@ -93,13 +93,13 @@ function Talented:CreateTemplateMenu()
 		menu[#menu + 1] = entry
 	end
 
-	menu[#menu + 1] = self:GetNamedMenu("separator")
+	-- menu[#menu + 1] = self:GetNamedMenu("separator")
 
-	entry = self:GetNamedMenu("Inspected")
-	entry.text = L["Inspected Characters"]
-	entry.hasArrow = true
-	entry.menuList = self:GetNamedMenu("InspectedList")
-	menu[#menu + 1] = entry
+	-- entry = self:GetNamedMenu("Inspected")
+	-- entry.text = L["Inspected Characters"]
+	-- entry.hasArrow = true
+	-- entry.menuList = self:GetNamedMenu("InspectedList")
+	-- menu[#menu + 1] = entry
 
 	self.CreateTemplateMenu = function (self) return self:GetNamedMenu("Template") end
 	return menu
@@ -156,27 +156,27 @@ function Talented:MakeTemplateMenu()
 		end
 	end
 
-	if not self.inspections then
-		 self:GetNamedMenu("Inspected").disabled = true
-	else
-		 self:GetNamedMenu("Inspected").disabled = nil
-		local menuList = self:GetNamedMenu("InspectedList")
-		local index = 1
-		for name, template in pairs(self.inspections) do
-			local entry = menuList[index]
-			if not entry then
-				entry = {}
-				menuList[index] = entry
-			end
-			index = index + 1
-			update_template_entry(entry, name, template)
-			entry.func = Menu_SetTemplate
-			entry.checked = (self.template == template)
-			entry.arg1 = template
-			entry.colorCode = menuColorCodes[template.class]
-		end
-		table.sort(menuList, Sort_Template_Menu_Entry)
-	end
+	-- if not self.inspections then
+	-- 	 self:GetNamedMenu("Inspected").disabled = true
+	-- else
+	-- 	 self:GetNamedMenu("Inspected").disabled = nil
+	-- 	local menuList = self:GetNamedMenu("InspectedList")
+	-- 	local index = 1
+	-- 	for name, template in pairs(self.inspections) do
+	-- 		local entry = menuList[index]
+	-- 		if not entry then
+	-- 			entry = {}
+	-- 			menuList[index] = entry
+	-- 		end
+	-- 		index = index + 1
+	-- 		update_template_entry(entry, name, template)
+	-- 		entry.func = Menu_SetTemplate
+	-- 		entry.checked = (self.template == template)
+	-- 		entry.arg1 = template
+	-- 		entry.colorCode = menuColorCodes[template.class]
+	-- 	end
+	-- 	table.sort(menuList, Sort_Template_Menu_Entry)
+	-- end
 	-- local talentGroup = GetActiveTalentGroup()
 	-- local entry = self:GetNamedMenu("primary")
 	-- local current = self.alternates[1]

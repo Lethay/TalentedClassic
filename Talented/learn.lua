@@ -23,7 +23,7 @@ local function ShowDialog(text, tab, index)
 	return ShowDialog(text, tab, index)
 end
 
-function Talented:LearnTalent(template, tab, index)
+function Talented:LearnTalent(tab, index)
 	local p = self.db.profile
 
 	if not p.confirmlearn then
@@ -32,7 +32,7 @@ function Talented:LearnTalent(template, tab, index)
 	end
 
 	if not p.always_call_learn_talents then
-		local state = self:GetTalentState(template, tab, index)
+		local state = self:GetTalentState(self.current, tab, index)
 		if
 			state == "full" or -- talent maxed out
 			state == "unavailable" or -- prereqs not fullfilled
@@ -42,9 +42,15 @@ function Talented:LearnTalent(template, tab, index)
 		end
 	end
 
+	--Create confirmation dialogue
+	local info = self:GetTalentInfo(self.current.class)
+	if not info then return end
+	local talent = info[tab].talents[index]
+	
 	ShowDialog(L["Are you sure that you want to learn \"%s (%d/%d)\" ?"]:format(
-			self:GetTalentName(template.class, tab, index),
-			template[tab][index] + 1,
-			self:GetTalentRanks(template.class, tab, index)),
+			talent.info.name,
+			self.current[tab][index] + 1,
+			talent.info.ranks),
 		tab, index)
 end
+--[tab].talents[index].info
