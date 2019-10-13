@@ -1,11 +1,17 @@
-Talented_Data = AceLibrary("AceAddon-2.0"):new("AceEvent-2.0")
-local G = AceLibrary("Gratuity-2.0")
+Talented_Data = LibStub("AceAddon-3.0"):NewAddon("Talented_Data", "AceEvent-3.0")
+local G = LibStub("LibGratuity-3.0")
 
 local locale = GetLocale()
 
 function Talented_Data:OnInitialize()
-	self:RegisterEvent("PLAYER_ENTERING_WORLD", "GetData")
-	self:RegisterEvent("CHARACTER_POINTS_CHANGED", "GetData")
+	self:RegisterEvent("PLAYER_ENTERING_WORLD", "OnEvent")
+end
+
+function Talented_Data:OnEvent(self, event, ...)
+    if event == "PLAYER_ENTERING_WORLD" then
+        self:UnregisterEvent("PLAYER_ENTERING_WORLD")
+        self:RegisterEvent("CHARACTER_POINTS_CHANGED", "GetData")
+    end
 end
 
 function Talented_Data:GetData()
@@ -96,5 +102,4 @@ function Talented_Data:GetData()
 			end
 		end
 	end
-	self:UnregisterEvent("PLAYER_ENTERING_WORLD")
 end
