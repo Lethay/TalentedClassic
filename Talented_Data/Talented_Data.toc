@@ -4,27 +4,35 @@
 ## Author: Jerry,Lethay
 ## SavedVariables: Talented_DataDB
 ## RequiredDeps: Talented
-## OptionalDeps: Ace2, GratuityLib
-## X-ExpectedBuild: "1.13.2 - 32089 - Oct  4 2019 - 11302"
+## OptionalDeps: Ace3
+## X-ExpectedBuild: "1.13.2 - 31882 - Sep 17 2019 - 11302"
 
 ## LIBS START
+Libs\LibStub.lua
+Libs\CallbackHandler-1.0.lua
+Libs\Ace3\AceAddon-3.0.lua
+Libs\Ace3\AceConsole-3.0.lua
+Libs\Ace3\AceEvent-3.0.lua
+Libs\LibGratuity-3.0\LibGratuity-3.0.lua
 ## LIBS END
 
-Talented_Data_init.lua
-Talented_Data_HUNTER.lua
-Talented_Data_WARRIOR.lua
-Talented_Data_PALADIN.lua
-Talented_Data_MAGE.lua
-Talented_Data_PRIEST.lua
-Talented_Data_WARLOCK.lua
-Talented_Data_SHAMAN.lua
-Talented_Data_DRUID.lua
-Talented_Data_ROGUE.lua
-Talented_Data_esES.lua
-Talented_Data_zhCN.lua
-Talented_Data_frFR.lua
-Talented_Data_zhTW.lua
-Talented_Data_deDE.lua
-Talented_Data_ruRU.lua
-Talented_Data_koKR.lua
-Talented_Data_enUS.lua
+Core.lua
+
+Data\Class\Talented_Data_HUNTER.lua
+Data\Class\Talented_Data_WARRIOR.lua
+Data\Class\Talented_Data_PALADIN.lua
+Data\Class\Talented_Data_MAGE.lua
+Data\Class\Talented_Data_PRIEST.lua
+Data\Class\Talented_Data_WARLOCK.lua
+Data\Class\Talented_Data_SHAMAN.lua
+Data\Class\Talented_Data_DRUID.lua
+Data\Class\Talented_Data_ROGUE.lua
+
+Data\Locale\Talented_Data_esES.lua
+Data\Locale\Talented_Data_zhCN.lua
+Data\Locale\Talented_Data_frFR.lua
+Data\Locale\Talented_Data_zhTW.lua
+Data\Locale\Talented_Data_deDE.lua
+Data\Locale\Talented_Data_ruRU.lua
+Data\Locale\Talented_Data_koKR.lua
+Data\Locale\Talented_Data_enUS.lua
