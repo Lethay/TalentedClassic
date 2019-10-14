@@ -5,7 +5,7 @@
 ## SavedVariables: Talented_DataDB
 ## RequiredDeps: Talented
 ## OptionalDeps: Ace3
-## X-ExpectedBuild: "1.13.2 - 31882 - Sep 17 2019 - 11302"
+## X-ExpectedBuild: "1.13.2 - 32089 - Oct  4 2019 - 11302"
 
 ## LIBS START
 Libs\LibStub.lua
@@ -18,21 +18,21 @@ Libs\LibGratuity-3.0\LibGratuity-3.0.lua
 
 Core.lua
 
-Data\Class\Talented_Data_HUNTER.lua
-Data\Class\Talented_Data_WARRIOR.lua
-Data\Class\Talented_Data_PALADIN.lua
-Data\Class\Talented_Data_MAGE.lua
-Data\Class\Talented_Data_PRIEST.lua
-Data\Class\Talented_Data_WARLOCK.lua
-Data\Class\Talented_Data_SHAMAN.lua
-Data\Class\Talented_Data_DRUID.lua
-Data\Class\Talented_Data_ROGUE.lua
+Data\Talented_Data_HUNTER.lua
+Data\Talented_Data_WARRIOR.lua
+Data\Talented_Data_PALADIN.lua
+Data\Talented_Data_MAGE.lua
+Data\Talented_Data_PRIEST.lua
+Data\Talented_Data_WARLOCK.lua
+Data\Talented_Data_SHAMAN.lua
+Data\Talented_Data_DRUID.lua
+Data\Talented_Data_ROGUE.lua
 
-Data\Locale\Talented_Data_esES.lua
-Data\Locale\Talented_Data_zhCN.lua
-Data\Locale\Talented_Data_frFR.lua
-Data\Locale\Talented_Data_zhTW.lua
-Data\Locale\Talented_Data_deDE.lua
-Data\Locale\Talented_Data_ruRU.lua
-Data\Locale\Talented_Data_koKR.lua
-Data\Locale\Talented_Data_enUS.lua
+Locales\Talented_Data_esES.lua
+Locales\Talented_Data_zhCN.lua
+Locales\Talented_Data_frFR.lua
+Locales\Talented_Data_zhTW.lua
+Locales\Talented_Data_deDE.lua
+Locales\Talented_Data_ruRU.lua
+Locales\Talented_Data_koKR.lua
+Locales\Talented_Data_enUS.lua
