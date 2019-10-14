@@ -94,7 +94,7 @@ L["Template applied successfully, %d talent points remaining."] = "템플릿 적
 L["Talented_Data is outdated. It was created for %q, but current build is %q. Please update."] = "구버전의 Talented_Data 입니다. %q용으로 만들어진 것 입니다. 현재 빌드는 %q 입니다. 업데이트 하시기 바랍니다."
 L["Loading outdated data. |cffff1010WARNING:|r Recent changes in talent trees might not be included in this data."] = "구버전 데이타 로딩... |cffff1010경고:|r 이 특성 데이타에는 최근 변경 사항이 포함되어 있지 않을 수 있습니다."
 L["\"%s\" does not appear to be a valid URL!"] = "\"%s\"는 유효한 URL이 아닙니다!"
-L["Warning - no action was taken, or we ran out of talent points."] = true --TODO: Localise!
+L["Warning - no action was taken, or we ran out of talent points."] = "경고 - 아무런 동작도 할 수 없거나 특성 포인트가 부족합니다."
 
 L["Import template ..."] = "템플릿 가져오기 ..."
 L["Enter the complete URL of a template from Blizzard talent calculator or wowhead."] = "블리자드 또는 wowhead 특성 계산기에 의한 템플릿 URL을 입력하십시오."
