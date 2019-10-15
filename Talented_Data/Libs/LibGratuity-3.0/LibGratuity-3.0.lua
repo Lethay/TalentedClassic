@@ -236,18 +236,20 @@ local function createCompat()
 	end})
 	AceLibrary:Register(Gratuity20, "Gratuity-2.0", vminor+70000000)
 end
-if not AceLibrary then
-	local frame = CreateFrame("Frame")
-	frame:RegisterEvent("ADDON_LOADED")
-	frame:SetScript("OnEvent", function(this)
-		if not AceLibrary then
-			return
-		end
-		createCompat()
-		frame:SetScript("OnEvent", nil)
-		frame:UnregisterAllEvents()
-		frame:Hide()
-	end)
-else
-	createCompat()
-end
+
+--Prevent conflict w/ other addons
+-- if not AceLibrary then
+-- 	local frame = CreateFrame("Frame")
+-- 	frame:RegisterEvent("ADDON_LOADED")
+-- 	frame:SetScript("OnEvent", function(this)
+-- 		if not AceLibrary then
+-- 			return
+-- 		end
+-- 		createCompat()
+-- 		frame:SetScript("OnEvent", nil)
+-- 		frame:UnregisterAllEvents()
+-- 		frame:Hide()
+-- 	end)
+-- else
+-- 	createCompat()
+-- end
