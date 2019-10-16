@@ -1,3 +1,9 @@
+v191014
+    - Upgrade Talented_Data to Ace3 (because why not, apparently) - thanks to @deathcore01
+    - Add German localisation to talent tooltips - thanks to @deathcore01
+    - Update to korean localisation - thanks to @chkmyid
+    - Update to russian localisation
+ 
 v191011
     - Potential stop to LibGratuity interacting with other addons, by disabling AceAddon 2 support. But maybe it doesn't work - we'll see!
     - Minor update to localisation, so that errors don't fire in other clients when Talented_Data is missing (though sometimes English text is shown)
