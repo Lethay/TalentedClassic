@@ -1,3 +1,6 @@
+v191026
+    - Found yet another exception for WoWHead importing, now fixed
+    
 v191014
     - Upgrade Talented_Data to Ace3 (because why not, apparently) - thanks to @deathcore01
     - Add German localisation to talent tooltips - thanks to @deathcore01
