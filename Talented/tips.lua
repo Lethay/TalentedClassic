@@ -82,6 +82,7 @@ function Talented:SetTooltipInfo(frame, class, tab, index)
 	local ranks, req = info.ranks, info.prereqs
 	addline(info.name, HIGHLIGHT_FONT_COLOR)
 	addline(TOOLTIP_TALENT_RANK:format(rank, ranks), HIGHLIGHT_FONT_COLOR)
+    addtipline('|n')
 	if req then
 		reqSource = req[1].source
 		local oranks = tree.talents[reqSource].info.ranks
@@ -96,6 +97,9 @@ function Talented:SetTooltipInfo(frame, class, tab, index)
 		for i = 1, info.ranks do
 			-- addtipline(info.tips)
 			addtipline(gettipline(info.tips, info.tipValues, i), i == rank and HIGHLIGHT_FONT_COLOR or NORMAL_FONT_COLOR)
+            if (i < info.ranks) then
+                addtipline('|n')
+            end
 		end
 	else
 		if rank > 0 then

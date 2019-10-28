@@ -11,7 +11,7 @@ if data then
 	tree.info.name = "Tierherrschaft"
 	talent = tree.talents[1].info
 	talent.name = "Verbesserter Aspekt des Falken"
-	talent.tips = "Bei aktiviertem 'Aspekt des Falken' besteht für alle normalen Distanzangriffe eine Chance von 1%%, dass das Distanzangriffstempo für 12 Sek. um %d%% erhöht wird."
+	talent.tips = "Bei aktiviertem 'Aspekt des Falken' besteht für alle normalen Distanzangriffe eine Chance von %d%%, dass das Distanzangriffstempo für 12 Sek. um 30%% erhöht wird."
 	talent = tree.talents[2].info
 	talent.name = "Belastbarkeit-Ausbildung"
 	talent.tips = "Erhöht die Gesundheit des Tiers um %d%%."
