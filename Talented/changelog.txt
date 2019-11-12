@@ -1,3 +1,6 @@
+v191112
+    - Another month, another fix to WoWHead importing: can now once again deal with trailing "/"s in the URL
+     
 v191026
     - Found yet another exception for WoWHead importing, now fixed
     

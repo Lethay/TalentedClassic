@@ -6,8 +6,9 @@ local L = LibStub("AceLocale-3.0"):GetLocale("Talented")
 --https://classic.wowhead.com/talent-calc/rogue/0251030050502-32
 --https://classic.wowhead.com/talent-calc/rogue/0251030050502
 --https://classic.wowhead.com/talent-calc/rogue/--05
-Talented.importers[".*/talent.calc/(.*)/(%d*)-?(%d*)-?(%d*).*"] = function (self, url, dst)
-	local s, _, class, t1, t2, t3 = url:find(".*/talent.calc/(.*)/(%d*)-?(%d*)-?(%d*).*")
+--https://classic.wowhead.com/talent-calc/priest/05023013-235051002320054-5/2A0B1CEABMJfQ0DEHg1Krrrr
+Talented.importers[".*/talent.calc/(.-)/(%d*)-?(%d*)-?(%d*).*"] = function (self, url, dst)
+	local s, _, class, t1, t2, t3 = url:find(".*/talent.calc/(.-)/(%d*)-?(%d*)-?(%d*).*")
 	if not s then
 		return
 	end
