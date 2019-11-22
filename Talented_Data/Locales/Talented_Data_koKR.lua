@@ -745,7 +745,7 @@ if data then
 	tree.talents[6].info.name = "선제 공격"
 	tree.talents[6].info.tips = "매복, 목조르기, 비열한 습격 사용 시 %d%%의 확률로 대상에 대한 연계 포인트 1점이 추가됩니다."
 	tree.talents[7].info.tips = "적을 공격하여 무기 공격력의 125%%에 해당하는 피해를 입히고 7초 동안 자신의 회피 확률을 15%%만큼 증가시킵니다. 1의 연계 포인트가 주어집니다."
-	tree.talents[7].info.name = "Ghostly Strike"
+	tree.talents[7].info.name = "그림자 일격"
 	tree.talents[8].info.name = "매복 연마"
 	tree.talents[8].info.tips = "매복으로 치명타를 성공시킬 확률이 %d%%만큼 증가합니다."
 	tree.talents[9].info.name = "사전 준비"
