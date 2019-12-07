@@ -12,6 +12,11 @@ Talented.importers[".*/talent.calc/(.-)/(%d*)-?(%d*)-?(%d*).*"] = function (self
 	if not s then
 		return
 	end
+
+	if not dst then
+		return class:upper()
+	end
+
 	src={t1, t2, t3}
 	--src
 	dst.class = class:upper()
@@ -39,9 +44,14 @@ Talented.importers["/%??talent#"] = function (self, url, dst)
 	if not s or not code then return end
 	local p = code:find(":", nil, true)
 	if p then code = code:sub(1, p -1) end
-	local val, class = self:StringToTemplate(code, dst, "0zMcmVokRsaqbdrfwihuGINALpTjnyxtgevE")
-	dst.class = class
-	return dst
+
+	if not dst then
+		return self:GetTemplateStringClass(code, "0zMcmVokRsaqbdrfwihuGINALpTjnyxtgevE")
+	else
+		local val, class = self:StringToTemplate(code, dst, "0zMcmVokRsaqbdrfwihuGINALpTjnyxtgevE")
+		dst.class = class
+		return dst
+	end
 end
 
 Talented.exporters[L["Wowhead Talent Calculator"]] = function (self, template)

@@ -5,7 +5,7 @@
 ## SavedVariables: Talented_DataDB
 ## RequiredDeps: Talented
 ## OptionalDeps: Ace3
-## X-ExpectedBuild: "1.13.2 - 32089 - Oct  4 2019 - 11302"
+## X-ExpectedBuild: "1.13.2 - 32600 - Nov 20 2019 - 11302"
 
 ## LIBS START
 Libs\LibStub.lua

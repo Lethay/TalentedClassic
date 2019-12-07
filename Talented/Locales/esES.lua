@@ -107,6 +107,8 @@ L["WARNING: Talented has detected that its talent data is outdated. Talented wil
 L["View glyphs of alternate Spec"] = "Ver glifos de la build alternaitva"
 L[" (alt)"] = true
 L["The following templates are no longer valid and have been removed:"] = "Las siguientes plantillas ya no son válidas y han sido eliminadas:"
+L["The following templates were converted from a previous version of the addon. Ensure that none are 'invalid' (below); retrieve the backup of your config file from the WTF folder if so."] = true
+
 
 L["Lock frame"] = "Bloquear ventana"
 L["Can not apply, unknown template \"%s\""] = "No es posible aplicar, plantilla desconocida: \"%s\""

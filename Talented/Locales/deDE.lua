@@ -126,6 +126,7 @@ L["WARNING: Talented has detected that its talent data is outdated. Talented wil
 L["View glyphs of alternate Spec"] = "Glyphen der anderen Talentspezialisierung zeigen"
 L[" (alt)"] = " (alt.)"
 L["The following templates are no longer valid and have been removed:"] = "Die folgenden Vorlagen sind nicht länger gültig und wurden entfernt:"
+L["The following templates were converted from a previous version of the addon. Ensure that none are 'invalid' (below); retrieve the backup of your config file from the WTF folder if so."] = true
 L["The template '%s' is no longer valid and has been removed."] = "Die Vorlage '%s' ist nicht länger gültig und wurde entfernt."
 L["The template '%s' had inconsistencies and has been fixed. Please check it before applying."] = "Bei der Vorlage '%s' gab es Ungereimtheiten, die behoben wurden. Bitte Vorlage vor einem zuweisen überprüfen."
 

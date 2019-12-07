@@ -124,10 +124,13 @@ end
 function Talented:MakeTemplateMenu()
 	local menu = self:CreateTemplateMenu()
 
-	for class, color in pairs(menuColorCodes) do
+
+	for cindex, class in pairs(CLASS_SORT_ORDER) do
+		color = menuColorCodes[class] --Looping through menuColorCodes would give us Death Knight, etc, which aren't in classic
 		local menuList = self:GetNamedMenu(class.."List")
 		local index = 1
-		for name, template in pairs(self.db.global.templates) do
+		classdb = self.db.global.templates[class]
+		for name, template in pairs(classdb) do
 			if template.class == class then
 				local entry = menuList[index]
 				if not entry then
@@ -304,17 +307,19 @@ function Talented:CreateActionMenu()
 
 	entry = self:GetNamedMenu("Target")
 	entry.text = L["Set as target"]
-	entry.func = function (entry, targetName, name)
+	entry.func = function (entry, targetName, template)
 		if entry.checked then
 			Talented.db.char.targets[targetName] = nil
+			Talented.base.view:ClearTarget()
 		else
-			Talented.db.char.targets[targetName] = name
-			if not name then
+			if not template then
 				Talented.base.view:ClearTarget()
+			else
+				Talented.db.char.targets[targetName] = {name = template.name, class = template.class}
 			end
 		end
 	end
-	entry.arg2 = self.template.name
+	entry.arg2 = self.template
 	menu[#menu + 1] = entry
 
 	menu[#menu + 1] = self:GetNamedMenu("separator")
@@ -371,7 +376,7 @@ function Talented:MakeActionMenu()
 	end
 
 	self:GetNamedMenu("Apply").disabled = self.template==self.current or restricted
-	self:GetNamedMenu("Delete").disabled = self.template==self.current or not self.db.global.templates[self.template.name]
+	self:GetNamedMenu("Delete").disabled = self.template==self.current or not self.db.global.templates[self.template.class][self.template.name]
 	-- local switch = self:GetNamedMenu("SwitchTalentGroup")
 	-- switch.disabled = (restricted or not templateTalentGroup or templateTalentGroup == activeTalentGroup)
 	-- switch.arg1 = templateTalentGroup
@@ -386,10 +391,10 @@ function Talented:MakeActionMenu()
 	else
 		target.text = L["Set as target"]
 		target.arg1 = targetName
-		target.arg2 = self.template.name
+		target.arg2 = self.template
 		target.disabled = not targetName
 
-		target.checked = (self.db.char.targets[targetName] == self.template.name)
+		target.checked = (self.db.char.targets[targetName] and self.db.char.targets[targetName].name == self.template.name)
 	end
 
 	for _, entry in ipairs(self:GetNamedMenu("NewTemplates")) do

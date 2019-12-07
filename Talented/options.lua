@@ -172,8 +172,8 @@ Talented.options = {
 			desc = "Apply the specified template",
 			type = "input",
 			dialogHidden = true,
-			set = function (_, name)
-				local template = Talented.db.global.templates[name]
+			set = function (_, class, name)
+				local template = Talented.db.global.templates[class][name]
 				if not template then
 					Talented:Print(L["Can not apply, unknown template \"%s\""], name)
 					return

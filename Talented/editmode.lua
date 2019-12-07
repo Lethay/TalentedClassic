@@ -102,6 +102,7 @@ end
 function Talented:ValidateTemplate(template, fix)
 	local class = template.class
 	if not class then return end
+	
 	local pointsPerTier = self:GetSkillPointsPerTier(template.class)
 	local info = self:GetTalentInfo(class)
 	local fixed

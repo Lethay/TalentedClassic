@@ -122,6 +122,7 @@ L["WARNING: Talented has detected that its talent data is outdated. Talented wil
 L["View glyphs of alternate Spec"] = "查看替换雕文配置方案"
 L[" (alt)"] = "（alt）"
 L["The following templates are no longer valid and have been removed:"] = "以下模板已失效并已被删除："
+L["The following templates were converted from a previous version of the addon. Ensure that none are 'invalid' (below); retrieve the backup of your config file from the WTF folder if so."] = true
 
 L["Lock frame"] = "锁定框体"
 L["Can not apply, unknown template \"%s\""] = "不能接受，未知模板\"%s\""

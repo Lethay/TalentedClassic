@@ -123,6 +123,7 @@ L["WARNING: Talented has detected that its talent data is outdated. Talented wil
 L["View glyphs of alternate Spec"] = "대체 특성의 문양 보기"
 L[" (alt)"] = " (다른캐릭터)"
 L["The following templates are no longer valid and have been removed:"] = "다음의 템플릿은 더 이상 유효하지 않으므로 삭제됨:"
+L["The following templates were converted from a previous version of the addon. Ensure that none are 'invalid' (below); retrieve the backup of your config file from the WTF folder if so."] = true
 L["The template '%s' is no longer valid and has been removed."] = "'%s' 템플릿은 더 이상 유효하지 않아 삭제되었습니다."
 L["The template '%s' had inconsistencies and has been fixed. Please check it before applying."] = "'%s' 템플릿에 잘못된 부분이 있어 수정되었습니다. 적용하기 전 반드시 확인하십시오."
 

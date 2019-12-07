@@ -1,6 +1,12 @@
+v191206
+    - Minor update to korean localisation - thanks to @chkmyid
+    - Templates from other classes may now share a name.
+    WARNING: The above change requires migration of old data to the new format. If something goes wrong, some templates may be erased. To be sure/safe, back up your Talented.lua file in the WTF folder.
+    
 v191112
     - Another month, another fix to WoWHead importing: can now once again deal with trailing "/"s in the URL
-     
+    - Minor fix to German localisation (@deathcore01)
+    
 v191026
     - Found yet another exception for WoWHead importing, now fixed
     
