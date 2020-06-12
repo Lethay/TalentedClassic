@@ -13,7 +13,6 @@ This was an addon originally written by "Jerry" (URL: https://www.wowinterface.c
 Feature List (adapted from original page)
 
     See the complete talent tree on a single frame.
-    View and switch to your alternate spec when you've bought it.
     Create and view templates for all classes.
     Apply complete templates with a single click, after a talent wipe.
     Share your current build with others, or any template you've made.
