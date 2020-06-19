@@ -1,3 +1,6 @@
+v191215
+	- Version update
+	
 v191206
     - Minor update to korean localisation - thanks to @chkmyid
     - Templates from other classes may now share a name.
