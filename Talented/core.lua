@@ -281,7 +281,7 @@ function Talented:SetTemplate(template)
 end
 
 function Talented:GetDefaultMode()
-	return "edit"--self.db.profile.always_edit and "edit" or "view"
+	return self.db.profile.always_edit and "edit" or "view"
 end
 
 function Talented:OnEnable()
@@ -344,6 +344,10 @@ function Talented:ToggleTalentFrame()
 	local frame = self.base
 	if not frame or not frame:IsVisible() then
 		self:Update()
+		if self.template then
+			-- reset editing mode to the default every time we open the panel after the initial open
+			self:SetMode(self:GetDefaultMode())
+		end
 		ShowUIPanel(self.base)
 	else
 		HideUIPanel(frame)

@@ -179,6 +179,7 @@ function TalentView:Update()
 	local total = 0
 	local info = Talented:GetTalentInfo(template.class)
 	local at_cap = Talented:IsTemplateAtCap(template)
+	local allowEditing = (self.mode == "edit" or Talented.current ~= template)
 
 	for tab, tree in ipairs(info) do
 		local count = 0
@@ -190,7 +191,7 @@ function TalentView:Update()
 			local button = self:GetUIElement(tab, index)
 			local color = GRAY_FONT_COLOR
 			local state = Talented:GetTalentState(template, tab, index)
-			if state == "empty" and (at_cap or self.mode == "view") then
+			if state == "empty" and (at_cap or not allowEditing) then
 				state = "unavailable"
 			end
 			if state == "unavailable" then
@@ -215,7 +216,7 @@ function TalentView:Update()
 			if req then
 				local ecolor = color
 				if ecolor == GREEN_FONT_COLOR then
-					if self.mode == "edit" then
+					if allowEditing then
 						local s = Talented:GetTalentState(template, tab, req[1].source)
 						if s ~= "full" then
 							ecolor = RED_FONT_COLOR
@@ -252,7 +253,7 @@ function TalentView:Update()
 		frame.name:SetFormattedText(L["%s (%d)"], Talented.tabdata[template.class][tab].name, count)
 		total = total + count
 		local clear = frame.clear
-		if self.mode ~= "edit" or count <= 0 or self.template == Talented.current then
+		if count <= 0 or not allowEditing then
 			clear:Hide()
 		else
 			clear:Show()
@@ -343,7 +344,9 @@ function TalentView:OnTalentClick(button, tab, index)
 end
 
 function TalentView:UpdateTalent(tab, index, offset)
-	if self.mode ~= "edit" then return end
+	--Don't allow editing of current talents if looking @ current template
+	if self.mode ~= "edit" and self.template == Talented.current then return end
+	
 	if self.template == Talented.current then
 		-- Applying talent
 		if offset > 0 then
