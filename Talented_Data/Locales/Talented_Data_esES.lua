@@ -1,6 +1,6 @@
 -- Generated Data : Do Not Modify
 if not Talented_Data then return end
-if GetLocale() ~= "esES" then return end
+if GetLocale() ~= "esES" or GetLocale() ~= "esMX" then return end
 Talented:Print("Localisation for talent tooltips is missing for this language. If you would like to contribute, please visit the Github and use the Talented_Data_Export addon.")
 local data, tree
 data = Talented_Data.HUNTER
