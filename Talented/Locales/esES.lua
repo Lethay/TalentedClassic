@@ -1,4 +1,4 @@
-local L =  LibStub:GetLibrary("AceLocale-3.0"):NewLocale("Talented", "esES", false)
+local L =  LibStub:GetLibrary("AceLocale-3.0"):NewLocale("Talented", "esES", false) or LibStub:GetLibrary("AceLocale-3.0"):NewLocale("Talented", "esMX", false)
 if not L then return end
 
 L["Talented - Talent Editor"] = "Talented - Editor de talentos"
