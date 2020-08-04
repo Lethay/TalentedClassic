@@ -1,9 +1,9 @@
-## Interface: 11303
+## Interface: 11305
 ## Title: Talented
 ## Name: Talented
 ## Notes: The Talent Template Editor
 ## Author: Jerry,Lethay
-## Version: v191215
+## Version: v200804
 ## OptionalDeps: Ace3
 ## SavedVariables: TalentedDB
 ## X-Category: Interface Enhancements
@@ -12,7 +12,7 @@
 ## X-LoadOn-Slash: /talented
 ## X-LoadOn-Event: CONFIRM_TALENT_WIPE
 ## X-LoadOn-CONFIRM_TALENT_WIPE: if IsAddOnLoaded"Talented" then return end AddonLoader:LoadAddOn"Talented" if Talented then Talented:CONFIRM_TALENT_WIPE() end
-## X-Curse-Packaged-Version: v20190923a
+## X-Curse-Packaged-Version: v200804
 ## X-Curse-Project-Name: Talented
 ## X-Curse-Project-ID: talented
 ## X-Curse-Repository-ID: wow/talented/mainline

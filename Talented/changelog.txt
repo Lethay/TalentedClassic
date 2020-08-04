@@ -1,3 +1,8 @@
+v200804
+    - Reinstate option to not always allow editing of current talents (thanks @praxxis)
+    - Set esMX to take esES localisation -- I hope there're no differences in the text (thanks @anon1231823)
+    - Version update
+
 v191215
 	- Version update
 	
