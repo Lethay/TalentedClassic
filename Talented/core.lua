@@ -191,7 +191,8 @@ do
 		
 		local template = new(self.db.global.templates, L["Empty"], class)
 		local info = self:GetTalentInfo(class)
-
+		if not info then return end
+		
 		for tab, tree in ipairs(info) do
 			local t = {}
 			template[tab] = t

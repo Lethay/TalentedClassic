@@ -1,11 +1,17 @@
+v201014
+    - Add (actually reinstate) option to load Talented_Data if it is out of date
+    - Prevent crash when the target template is invalid and cannot be shown
+    - Warn user when data cannot be loaded; tell them to updated Talented_Data or allow it to load when out of date (see new option!)
+    - Update expected build to 24th Sep 2020
+    
 v200804
     - Reinstate option to not always allow editing of current talents (thanks @praxxis)
     - Set esMX to take esES localisation -- I hope there're no differences in the text (thanks @anon1231823)
     - Version update
-
+    
 v191215
-	- Version update
-	
+    - Version update
+    
 v191206
     - Minor update to korean localisation - thanks to @chkmyid
     - Templates from other classes may now share a name.

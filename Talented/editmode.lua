@@ -105,6 +105,12 @@ function Talented:ValidateTemplate(template, fix)
 	
 	local pointsPerTier = self:GetSkillPointsPerTier(template.class)
 	local info = self:GetTalentInfo(class)
+	if not info then
+		--Couldn't load data, cannot validate template.
+		--Returning false here would delete the template, so return true.
+		return true
+	end
+	
 	local fixed
 	for tab, tree in ipairs(info) do
 		local t = template[tab] --NOT .talents

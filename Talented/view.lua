@@ -79,6 +79,11 @@ function TalentView:SetClass(class, force)
 	Talented.Pool:changeSet(self.name)
 	wipe(self.elements)
 	local talents = Talented:GetTalentInfo(class)
+	if not talents then
+		Talented:ReportMissingTalents(class)
+		return
+	end
+
 	if not LAYOUT_OFFSET_X then
 		RecalcLayout(Talented.db.profile.offset)
 	end

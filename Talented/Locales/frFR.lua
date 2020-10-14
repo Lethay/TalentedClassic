@@ -24,8 +24,8 @@ L["Talent cap"] = "Restriction des talents"
 L["Restrict templates to a maximum of %d points."] = "Restreint les templates à un maximum de %d points."
 L["Level restriction"] = "Niveau requis"
 L["Show the required level for the template, instead of the number of points."] = "Affiche le niveau requis plutôt que le nombre de points dépensés pour un template."
---~ L["Load outdated data"] = "Charger données périmées"
---~ L["Load Talented_Data, even if outdated."] = "Charge l'addon Talented_Data, même s'il n'est pas mis à jour à la version courante."
+L["Load outdated data"] = "Charger données périmées"
+L["Load Talented_Data, even if outdated."] = "Charge l'addon Talented_Data, même s'il n'est pas mis à jour à la version courante."
 L["Hook Inspect UI"] = "Remplacer la fenêtre d'inspection"
 L["Hook the Talent Inspection UI."] = "Remplace l'onglet talent de la fenêtre d'inspection."
 --L["Output URL in Chat"] = true
@@ -76,6 +76,7 @@ L["Talented cannot perform the required action because it does not have the requ
 L["You must install the Talented_Data helper addon for this action to work."] = "Vous devez installer l'addon supplémentaire Talented_Data pour que cette action fonctionne."
 L["You must enable the Talented_Data helper addon for this action to work."] = "Vous devez installer l'addon supplémentaire Talented_Data pour que cette action fonctionne."
 --~ L["You can download it from http://files.wowace.com/ ."] = "Vous pouvez le télécharger de http://files.wowace.com/ ."
+L["If Talented_Data is out of date, you must update or you can allow it to load outdated data in the settings."] = true
 
 L["Inspection of %s"] = "Inspection de %s"
 L["Select %s"] = "Sélectionner %s"

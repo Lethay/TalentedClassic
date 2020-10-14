@@ -223,6 +223,7 @@ function Talented:ReportMissingTalents(class)
 		-- if not p.reported_once then
 			p.reported_once = true
 			self:Print(L["You must enable the Talented_Data helper addon for this action to work."])
+			self:Print(L["If Talented_Data is out of date, you must update or you can allow it to load outdated data in the settings."])
 		-- end
 	end
 end

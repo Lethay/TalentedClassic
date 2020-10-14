@@ -36,6 +36,9 @@ Talented.defaults = {
 
 		framepos = {},
 
+-- Do we force loading of old data from Talented_Data?
+	force_load = false,
+
 -- Do we hook the inspect UI to replace it by Talented ?
 		-- hook_inspect_ui = nil,
 
@@ -119,6 +122,12 @@ Talented.options = {
 					type = "toggle",
 					arg = "UpdateView",
 					order = 400,
+				},
+				force_load = {
+					name = L["Load outdated data"],
+					desc = L["Load Talented_Data, even if outdated."],
+					type = "toggle",
+					order = 500,
 				},
 				-- hook_inspect_ui = {
 				-- 	name = L["Hook Inspect UI"],

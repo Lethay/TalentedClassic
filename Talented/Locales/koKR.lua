@@ -24,8 +24,8 @@ L["Talent cap"] = "최대 특성 포인트 제한"
 L["Restrict templates to a maximum of %d points."] = "템플릿의 최대 특성 포인트를 %d|1로;으로; 제한합니다."
 L["Level restriction"] = "레벨 제한"
 L["Show the required level for the template, instead of the number of points."] = "배운 특성 포인트 대신 템플릿 적용에 필요한 최소 레벨을 보여줍니다."
---~ L["Load outdated data"] = "구버전 데이타 로딩"
---~ L["Load Talented_Data, even if outdated."] = "구버전의 Talented_Data를 불러옵니다."
+L["Load outdated data"] = "구버전 데이타 로딩"
+L["Load Talented_Data, even if outdated."] = "구버전의 Talented_Data를 불러옵니다."
 L["Hook Inspect UI"] = "살펴보기 UI 가로채기"
 L["Hook the Talent Inspection UI."] = "특성 살펴보기 UI로 대체합니다."
 L["Output URL in Chat"] = "대화창에 URL 출력"
@@ -77,6 +77,7 @@ L["Talented cannot perform the required action because it does not have the requ
 L["You must install the Talented_Data helper addon for this action to work."] = "이 동작을 수행하려면 먼저 Talented_Data 애드온이 설치되어야 합니다."
 L["You must enable the Talented_Data helper addon for this action to work."] = "이 동작을 수행하려면 먼저 Talented_Data 애드온이 설치되어야 합니다."
 --~ L["You can download it from http://files.wowace.com/ ."] = "http://files.wowace.com/ 에서 다운 받으실 수 있습니다."
+L["If Talented_Data is out of date, you must update or you can allow it to load outdated data in the settings."] = true
 
 L["Inspection of %s"] = "%s의 살펴보기"
 L["Select %s"] = "%s 선택"

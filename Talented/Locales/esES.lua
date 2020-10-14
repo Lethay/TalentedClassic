@@ -21,6 +21,8 @@ L["Talent cap"] = "Límite de talentos"
 L["Restrict templates to a maximum of %d points."] = "Restringe las plantillas a un máximo de %d puntos."
 L["Level restriction"] = "Restricción de nivel"
 L["Show the required level for the template, instead of the number of points."] = "Muestra el nivel requerido por la plantilla, en vez del número de puntos."
+L["Load outdated data"] = true
+L["Load Talented_Data, even if outdated."] = true
 L["Hook Inspect UI"] = "Enlazar el interfaz de inspección"
 L["Hook the Talent Inspection UI."] = "Enlaza el interfaz de inspección de talentos."
 L["Output URL in Chat"] = "Muestra enlaces en el chat"
@@ -65,6 +67,7 @@ L["Nothing to do"] = "Nada que hacer"
 L["Talented cannot perform the required action because it does not have the required talent data available for class %s."] = true
 L["You must install the Talented_Data helper addon for this action to work."] = true
 L["You must enable the Talented_Data helper addon for this action to work."] = true
+L["If Talented_Data is out of date, you must update or you can allow it to load outdated data in the settings."] = true
 
 L["Inspection of %s"] = "Inspección de %s"
 L["Select %s"] = "Selecciona %s"

@@ -26,8 +26,8 @@ L["Talent cap"] = true
 L["Restrict templates to a maximum of %d points."] = true
 L["Level restriction"] = true
 L["Show the required level for the template, instead of the number of points."] = true
---~ L["Load outdated data"] = true
---~ L["Load Talented_Data, even if outdated."] = true
+L["Load outdated data"] = true
+L["Load Talented_Data, even if outdated."] = true
 L["Hook Inspect UI"] = true
 L["Hook the Talent Inspection UI."] = true
 L["Output URL in Chat"] = true
@@ -78,6 +78,7 @@ L["Talented cannot perform the required action because it does not have the requ
 L["You must install the Talented_Data helper addon for this action to work."] = true
 L["You must enable the Talented_Data helper addon for this action to work."] = true
 --~ L["You can download it from http://files.wowace.com/ ."] = true
+L["If Talented_Data is out of date, you must update or you can allow it to load outdated data in the settings."] = true
 
 L["Inspection of %s"] = true
 L["Select %s"] = true

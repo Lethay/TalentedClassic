@@ -24,8 +24,8 @@ L["Talent cap"] = "天賦上限"
 L["Restrict templates to a maximum of %d points."] = "將範本限制為%d點上限"
 L["Level restriction"] = "等級限制"
 L["Show the required level for the template, instead of the number of points."] = "顯示範本的當前方案所需等級，而不是所需的天賦點數。"
---~ L["Load outdated data"] = "載入過期資料"
---~ L["Load Talented_Data, even if outdated."] = "載入過期的天賦編輯器天賦資料。"
+L["Load outdated data"] = "載入過期資料"
+L["Load Talented_Data, even if outdated."] = "載入過期的天賦編輯器天賦資料。"
 L["Hook Inspect UI"] = "與觀察介面連動"
 L["Hook the Talent Inspection UI."] = "顯示觀察視窗的天賦介面使用天賦編輯器。"
 L["Output URL in Chat"] = "URL 輸出到聊天視窗"
@@ -77,6 +77,7 @@ L["Talented cannot perform the required action because it does not have the requ
 L["You must install the Talented_Data helper addon for this action to work."] = "該操作需要安裝和載入Talented_Data"
 L["You must enable the Talented_Data helper addon for this action to work."] = "該操作需要安裝和載入Talented_Data"
 --~ L["You can download it from http://files.wowace.com/ ."] = "您可以從http://www.wowace.com/projects/talented_data/下載它"
+L["If Talented_Data is out of date, you must update or you can allow it to load outdated data in the settings."] = true
 
 L["Inspection of %s"] = "觀察%s"
 L["Select %s"] = "選擇%s"
