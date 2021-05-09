@@ -125,7 +125,7 @@ local function Constructor()
 	dropdown.frame:Show()
 	dropdown:SetLabel("")
 
-	local border = CreateFrame("Frame", nil, frame)
+	local border = CreateFrame("Frame", nil, frame, "BackdropTemplate")
 	border:SetPoint("TOPLEFT", 0, -26)
 	border:SetPoint("BOTTOMRIGHT", 0, 3)
 	border:SetBackdrop(PaneBackdrop)
@@ -133,7 +133,7 @@ local function Constructor()
 	border:SetBackdropBorderColor(0.4,0.4,0.4)
 
 	--Container Support
-	local content = CreateFrame("Frame", nil, border)
+	local content = CreateFrame("Frame", nil, border, "BackdropTemplate")
 	content:SetPoint("TOPLEFT", 10, -10)
 	content:SetPoint("BOTTOMRIGHT", -10, 10)
 

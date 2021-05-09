@@ -1,9 +1,9 @@
-## Interface: 11305
+## Interface: 20501
 ## Title: Talented
 ## Name: Talented
 ## Notes: The Talent Template Editor
 ## Author: Jerry,Lethay
-## Version: v201014
+## Version: v210509
 ## OptionalDeps: Ace3
 ## SavedVariables: TalentedDB
 ## X-Category: Interface Enhancements

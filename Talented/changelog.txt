@@ -1,3 +1,7 @@
+v210509
+    - Updated talents to TBC.
+    - Note, old Vanilla templates will not be deleted. Wipe your settings or delete them manually.
+    
 v201014
     - Add (actually reinstate) option to load Talented_Data if it is out of date
     - Prevent crash when the target template is invalid and cannot be shown

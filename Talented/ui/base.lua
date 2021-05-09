@@ -300,7 +300,7 @@ function Talented:CreateCloseButton(parent, OnClickHandler)
 end
 
 function Talented:CreateBaseFrame()
-	local frame = TalentedFrame or CreateFrame("Frame", "TalentedFrame", UIParent)
+	local frame = TalentedFrame or CreateFrame("Frame", "TalentedFrame", UIParent, "BackdropTemplate")
 	frame:Hide()
 
 	frame:SetFrameStrata("DIALOG")
@@ -372,7 +372,7 @@ function Talented:EnableUI(enable)
 end
 
 function Talented:MakeAlternateView()
-	local frame = CreateFrame("Frame", "TalentedAltFrame", UIParent)
+	local frame = CreateFrame("Frame", "TalentedAltFrame", UIParent, "BackdropTemplate")
 
 	frame:SetFrameStrata("DIALOG")
 	if TalentedFrame then
