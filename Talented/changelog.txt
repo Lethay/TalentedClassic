@@ -1,3 +1,6 @@
+v210517
+    - Fix inability to open/close frame in combat
+    
 v210509
     - Updated talents to TBC.
     - Note, old Vanilla templates will not be deleted. Wipe your settings or delete them manually.

@@ -287,6 +287,7 @@ end
 
 function Talented:OnEnable()
 	self:RawHook("ToggleTalentFrame", true)
+	--Non-taint option that loads Talented's frame IN ADDITION to Blizzard's frame: self:SecureHook("ToggleTalentFrame")
 	self:SecureHook("UpdateMicroButtons")
 
 	UIParent:UnregisterEvent("CONFIRM_TALENT_WIPE")
@@ -349,9 +350,11 @@ function Talented:ToggleTalentFrame()
 			-- reset editing mode to the default every time we open the panel after the initial open
 			self:SetMode(self:GetDefaultMode())
 		end
-		ShowUIPanel(self.base)
+		-- ShowUIPanel(self.base)
+		self.base:Show()
 	else
-		HideUIPanel(frame)
+		-- HideUIPanel(frame)
+		frame:Hide()
 	end
 end
 

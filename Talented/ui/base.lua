@@ -323,7 +323,8 @@ function Talented:CreateBaseFrame()
 
 
 	local close = self:CreateCloseButton(frame, function (self)
-		HideUIPanel(self:GetParent())
+		-- HideUIPanel(self:GetParent())
+		self:GetParent():Hide()
 	end)
 	frame.close = close
 	table.insert(Talented.uielements, close)
