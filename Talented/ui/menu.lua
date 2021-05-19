@@ -130,19 +130,21 @@ function Talented:MakeTemplateMenu()
 		local menuList = self:GetNamedMenu(class.."List")
 		local index = 1
 		classdb = self.db.global.templates[class]
-		for name, template in pairs(classdb) do
-			if template.class == class then
-				local entry = menuList[index]
-				if not entry then
-					entry = {}
-					menuList[index] = entry
+		if classdb ~= nil then
+			for name, template in pairs(classdb) do
+				if template.class == class then
+					local entry = menuList[index]
+					if not entry then
+						entry = {}
+						menuList[index] = entry
+					end
+					index = index + 1
+					update_template_entry(entry, name, template)
+					entry.func = Menu_SetTemplate
+					entry.checked = (self.template == template)
+					entry.arg1 = template
+					entry.colorCode = color
 				end
-				index = index + 1
-				update_template_entry(entry, name, template)
-				entry.func = Menu_SetTemplate
-				entry.checked = (self.template == template)
-				entry.arg1 = template
-				entry.colorCode = color
 			end
 		end
 		for i = index, #menuList do
