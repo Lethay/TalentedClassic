@@ -256,7 +256,8 @@ function Talented:OpenTemplate(template)
 	end
 	self:SetTemplate(template)
 	if not base:IsVisible() then
-		ShowUIPanel(base)
+		-- ShowUIPanel(base)
+		base:Show()
 	end
 end
 
@@ -313,7 +314,8 @@ function Talented:CONFIRM_TALENT_WIPE(_, cost)
 		local frame = self.base
         if not frame or not frame:IsVisible() then
 			self:Update()
-			ShowUIPanel(self.base)
+			-- ShowUIPanel(self.base)
+			self.base:Show()
 		end
         --dialog:SetFrameLevel(self.base:GetFrameLevel() + 5) frame level dosn't work, so let's us set the frame strata
         dialog:SetFrameStrata('FULLSCREEN_DIALOG')

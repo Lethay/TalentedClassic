@@ -1,3 +1,6 @@
+v210518
+    - Fix other cases where frame tries to open or close (e.g. resetting talents in combat!)
+    
 v210517
     - Fix inability to open/close frame in combat
     
