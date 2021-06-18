@@ -238,7 +238,7 @@ end
 
 function Talented:GetTalentRanks(class, tab, index)
 	local talent = self:GetTalentInfo(class)[tab].talents[index].info
-	return talent.ranks --should be #talent.ranks
+	return talent.ranks --should be #talent.ranks if ranks is an array
 end
 
 function Talented:GetTalentLink(template, tab, index, rank)

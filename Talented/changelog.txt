@@ -1,5 +1,14 @@
+v210618
+    - Don't confirm learning of each talent when applying a template
+    - Fix export URL for wowhead
+    - Fix hunter talent
+    Known issues:
+        - Cannot link talents by shift-clicking
+        - Talented UI does not appear when inspecting other players
+    
 v210518
     - Fix other cases where frame tries to open or close (e.g. resetting talents in combat!)
+    - Fix a bug where template menu would not open if any class has no templates saved.
     
 v210517
     - Fix inability to open/close frame in combat

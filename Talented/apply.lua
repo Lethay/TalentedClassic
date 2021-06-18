@@ -107,7 +107,7 @@ function Talented:ApplyNextTalentPoint()
 				end
 				found = true
 				if self:ValidateTalentBranch(current, tab, index, cvalue + 1) then
-					self:LearnTalent(tab, index)
+					LearnTalent(tab, index) --Don't use self:LearnTalent; don't want to confirm learning
 					return
 				end
 			end
