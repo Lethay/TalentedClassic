@@ -1,7 +1,10 @@
+v210618b
+    - Fix localisation of export URL for wowhead
+    
 v210618
     - Don't confirm learning of each talent when applying a template
     - Fix export URL for wowhead
-    - Fix hunter talent
+    - Fix a mis-labelled hunter talent
     Known issues:
         - Cannot link talents by shift-clicking
         - Talented UI does not appear when inspecting other players

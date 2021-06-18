@@ -108,6 +108,8 @@ L["Wowdb Talent Calculator"] = true
 L["MMO Champion Talent Calculator"] = true
 --~ L["http://www.worldofwarcraft.com/info/classes/%s/talents.html?tal=%s"] = true
 L["http://www.wowarmory.com/talent-calc.xml?%s=%s&tal=%s"] = true
+L["http://tbc.wowhead.com/talent-calc/%s/%s"] = true
+L["http://tbc.wowhead.com/petcalc#%s"] = true
 L["http://classic.wowhead.com/talent-calc/%s/%s"] = true
 L["http://classic.wowhead.com/petcalc#%s"] = true
 L["http://www.wowhead.com/talent-calc/%s/%s"] = true

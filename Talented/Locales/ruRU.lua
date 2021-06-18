@@ -112,6 +112,8 @@ L["MMO Champion Talent Calculator"] = "Калькулятор талантов M
 L["http://www.wowarmory.com/talent-calc.xml?%s=%s&tal=%s"] = "http://eu.wowarmory.com/talent-calc.xml?%s=%s&tal=%s"
 L["http://www.wowhead.com/talent-calc/%s/%s"] = "http://www.wowhead.com/talent-calc/%s/%s"
 L["http://www.wowhead.com/petcalc#%s"] = "http://www.wowhead.com/petcalc#%s"
+L["http://tbc.wowhead.com/talent-calc/%s/%s"] = "http://tbc.wowhead.com/talent-calc/%s/%s"
+L["http://tbc.wowhead.com/petcalc#%s"] = "http://tbc.wowhead.com/petcalc#%s"
 L["http://classic.wowhead.com/talent-calc/%s/%s"] = "http://classic.wowhead.com/talent-calc/%s/%s"
 L["http://classic.wowhead.com/petcalc#%s"] = "http://classic.wowhead.com/petcalc#%s"
 L["Send to ..."] = "Отослать ..."
