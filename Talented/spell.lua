@@ -248,5 +248,6 @@ function Talented:GetTalentLink(template, tab, index, rank)
 		rank = 1
 	end
 	return
-		("|cff71d5ff|Hspell:%d|h[%s]|h|r"):format(data[tab][index].ranks[rank], self:GetTalentName(template.class, tab, index))
+	local link = GetTalentLink(tab,index)
+	return link
 end
