@@ -1,3 +1,7 @@
+v210718
+    - Add korean localisation (thank you Jinny2305 on Curseforge)
+    - Add ability to link talents if viewing current talents (does not work from templates!). Thanks to @aLanaMaunz.
+    
 v210618b
     - Fix localisation of export URL for wowhead
     
