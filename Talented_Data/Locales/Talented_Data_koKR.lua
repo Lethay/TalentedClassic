@@ -1035,9 +1035,9 @@ end
  	tree.talents[14].info.tips = "달빛 섬광과 별빛 섬광, 천벌, 치유의 손길, 재생, 회복 주문에 소비되는 마나가 %d%%만큼 감소합니다."
  	tree.talents[15].info.name = "달의 분노"
  	tree.talents[15].info.tips = "별빛 섬광과 달빛 섬광, 천벌 주문의 공격력이 %d%%만큼 증가합니다."
-    tree.talents[15].info.tipValues = {{2,2}, {4,4}}
  	tree.talents[16].info.name = "힘의 균형"
  	tree.talents[16].info.tips = "모든 주문의 적중률이 %d%%만큼 증가하고 주문에 적중 당할 확률이 %d%%만큼 감소합니다."
+	tree.talents[16].info.tipValues = {{2,2}, {4,4}}
  	tree.talents[17].info.name = "꿈결"
  	tree.talents[17].info.tips = "시전 중에도 매 5초마다 지능의 %d%%에 해당하는 마나를 회복합니다."
  	tree.talents[18].info.name = "달빛야수 변신"
