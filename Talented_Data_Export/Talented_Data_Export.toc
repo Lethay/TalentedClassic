@@ -1,4 +1,4 @@
-## Interface: 11302
+## Interface: 20502
 ## Title: Talented_Data_Export
 ## Name: Talented_Data_Export
 ## Notes: Class Data Exporter for The Talent Template Editor
