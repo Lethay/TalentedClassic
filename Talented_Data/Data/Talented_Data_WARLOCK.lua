@@ -458,7 +458,7 @@ Talented_Data.WARLOCK = {
 						}, -- [1]
 					},
 					name = "Master Demonologist",
-					tips = "Grants both the Warlock and the summoned demon an effect as long as that demon is active.\r\n\r\nImp - Reduces threat caused by 5d%%.\r\n\r\nVoidwalker - Reduces physical damage taken by %d%%.\r\n\r\nSuccubus - Increases all damage caused by %d%%.\r\n\r\nFelhunter - Increases all resistances by %.1f per level.\r\n\r\nFelguard - Increases all damage caused by %d%% and all resistances by %.1f per level.",
+					tips = "Grants both the Warlock and the summoned demon an effect as long as that demon is active.\r\n\r\nImp - Reduces threat caused by %d%%.\r\n\r\nVoidwalker - Reduces physical damage taken by %d%%.\r\n\r\nSuccubus - Increases all damage caused by %d%%.\r\n\r\nFelhunter - Increases all resistances by %.1f per level.\r\n\r\nFelguard - Increases all damage caused by %d%% and all resistances by %.1f per level.",
 					tipValues = {{4, 2, 2, 0.2, 1, 0.1}, {8, 4, 4, 0.4, 2, 0.2}, {12, 6, 6, 0.6, 3, 0.3}, {16, 8, 8, 0.8, 4, 0.4}, {20, 10, 10, 1.0, 5, 0.5}},
 					column = 3,
 					row = 6,
