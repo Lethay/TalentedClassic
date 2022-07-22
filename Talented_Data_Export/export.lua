@@ -37,6 +37,7 @@ function Talented_Data_Export:export()
         elseif class=="SHAMAN"  then Talented_Data_SHAMAN  = data
         elseif class=="DRUID"   then Talented_Data_DRUID   = data
         elseif class=="ROGUE"   then Talented_Data_ROGUE   = data
+        elseif class=="DEATHKNIGHT"   then Talented_Data_DEATHKNIGHT   = data
         end
     else
         print("Talented.talents[class] is nil for class",class,"- check code!")

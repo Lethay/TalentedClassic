@@ -2,7 +2,7 @@ local Talented = LibStub("AceAddon-3.0"):NewAddon("Talented",
 	"AceConsole-3.0", "AceComm-3.0", "AceHook-3.0", "AceEvent-3.0", "AceSerializer-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("Talented")
 
-local classes = {'DRUID','HUNTER','MAGE','PALADIN','PRIEST','ROGUE','SHAMAN','WARLOCK','WARRIOR'}
+local classes = {'DRUID','HUNTER','MAGE','PALADIN','PRIEST','ROGUE','SHAMAN','WARLOCK','WARRIOR','DEATHKNIGHT'}
 Talented.prev_Print = Talented.Print
 function Talented:Print(s, ...)
 	if type(s) == "string" and s:find("%", nil, true) then

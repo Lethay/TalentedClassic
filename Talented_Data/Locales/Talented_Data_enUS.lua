@@ -86,3 +86,12 @@ if data then
 	tree = data[3]
 	tree.info.name = "Retribution"
 end
+data = Talented_Data.DEATHKNIGHT
+if data then
+	tree = data[1]
+	tree.info.name = "Blood"
+	tree = data[2]
+	tree.info.name = "Frost"
+	tree = data[3]
+	tree.info.name = "Unholy"
+end

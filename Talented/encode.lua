@@ -10,7 +10,7 @@ local Talented = Talented
 
 local stop = 'Z'
 local talented_map = "012345abcdefABCDEFmnopqrMNOPQRtuvwxy*"
-local classmap = { 'DRUID','HUNTER','MAGE','PALADIN','PRIEST','ROGUE','SHAMAN','WARLOCK','WARRIOR' }--,'DEATHKNIGHT', 'Ferocity', 'Cunning', 'Tenacity' }
+local classmap = { 'DRUID','HUNTER','MAGE','PALADIN','PRIEST','ROGUE','SHAMAN','WARLOCK','WARRIOR','DEATHKNIGHT' }--, 'Ferocity', 'Cunning', 'Tenacity' }
 
 function Talented:GetTemplateStringClass(code, nmap)
 	nmap = nmap or talented_map
