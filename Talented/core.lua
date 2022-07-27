@@ -241,6 +241,20 @@ do
 	end
 end
 
+function Talented:convertOrderedTalentIndexToWowIndex(classNameToLookup, talentSpecNumber, orderedTalentIndex)
+	return Talented_Data[classNameToLookup][talentSpecNumber].talents[orderedTalentIndex].info.wowTreeIndex
+end
+
+function Talented:convertWowTalentIndexToOrderedIndex(talentSpecNumber, wowTalentIndex)
+	local talentSpecTree = Talented.GetTalentInfo(select(2, UnitClass"player"))[talentSpecNumber].talents[orderedTalentIndex]
+	for index, value in ipairs(talentSpecTree) do
+		if (value.info.wowTreeIndex == wowTalentIndex) then
+			return index
+		end
+	end
+end
+
+
 function Talented:OpenTemplate(template)
 	self:UnpackTemplate(template)
 	if not self:ValidateTemplate(template, true) then

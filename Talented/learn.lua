@@ -6,7 +6,8 @@ local function ShowDialog(text, tab, index)
 		button1 = YES,
 		button2 = NO,
 		OnAccept = function(self)
-			LearnTalent(self.talent_tab, self.talent_index)
+--			LearnTalent(self.talent_tab, self.talent_index)
+			LearnTalent(self.talent_tab, Talented.convertOrderedTalentIndexToWowIndex(self, self.current.class, self.talent_tab, self.talent_index))
 		end,
 		timeout = 0,
 		exclusive = 1,
@@ -27,7 +28,7 @@ function Talented:LearnTalent(tab, index)
 	local p = self.db.profile
 
 	if not p.confirmlearn then
-		LearnTalent(tab, index)
+		LearnTalent(tab, Talented.convertOrderedTalentIndexToWowIndex(self, self.current.class, tab, index))
 		return
 	end
 

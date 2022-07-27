@@ -55,7 +55,7 @@ function Talented:CheckSpellData(class)
 			if not talent then
 				return DisableTalented("%s:%d:%d MISSING TALENT", class, tab, index)
 			end
-			local name, icon, row, column, _, ranks = GetTalentInfo(tab, index)
+			local name, icon, row, column, _, ranks = GetTalentInfo(class, tab, Talented.convertOrderedTalentIndexToWowIndex(self, class, tab, index))
 			-- if not name then
 			-- 	if not talent.inactive then
 			-- 		print("inactive talent", class, tab, index)

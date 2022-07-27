@@ -46,7 +46,7 @@ do
 			local talents = result[tab].talents
 			local count = 0
 			for index = 1, GetNumTalents(tab, inspect) do
-				local name, icon, row, column, rank, ranks, exceptional = GetTalentInfo(tab, index, inspect)
+				local name, icon, row, column, rank, ranks, exceptional = GetTalentInfo(tab, Talented.convertOrderedTalentIndexToWowIndex(self, select(2, UnitClass("player")), tab, index), inspect)
 				G:SetTalent(tab, index, inspect)
 				local n = G:NumLines()
 				local tips = G:GetLine(n)
@@ -195,10 +195,10 @@ end
 function Talented:GetTalentInfo(class, inspect)
 	-- class = class or PlayerClass
 	if not self.talents then
-		if self:DataAddonLoaded() then
-			self.talents = Talented_Data --self.talents["DRUID"].talents == {1:, 2:, 3:}
+		if Talented:DataAddonLoaded() then
+			Talented.talents = Talented_Data --self.talents["DRUID"].talents == {1:, 2:, 3:}
 		else
-			self.talents = {
+			Talented.talents = {
 				[select(2, UnitClass("player"))] = BuildTalentInfo(), --self.talents["DRUID"] == {1:, 2:, 3:}
 			}
 		end

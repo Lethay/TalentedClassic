@@ -2,13 +2,19 @@ if not Talented_Data then return end
 
 Talented_Data.HUNTER = {
 	{
-		numtalents = 21,
+		numtalents = 26,
 		talents = {
 			{
 				info = {
+					talentRankSpellIds = {
+						19552, -- [1]
+						19553, -- [2]
+						19554, -- [3]
+						19555, -- [4]
+						19556, -- [5]
+					},
 					name = "Improved Aspect of the Hawk",
-					tips = "While Aspect of the Hawk is active, all normal ranged attacks have a 10%% chance of increasing ranged attack speed by %d%% for 12 sec.",
-					tipValues = {{3}, {6}, {9}, {12}, {15}},
+					wowTreeIndex = 2,
 					column = 2,
 					row = 1,
 					icon = 136076,
@@ -17,9 +23,15 @@ Talented_Data.HUNTER = {
 			}, -- [1]
 			{
 				info = {
+					talentRankSpellIds = {
+						19583, -- [1]
+						19584, -- [2]
+						19585, -- [3]
+						19586, -- [4]
+						19587, -- [5]
+					},
 					name = "Endurance Training",
-					tips = "Increases the Health of your pet by %d%% and your total health by %d%%.",
-					tipValues = {{2, 1}, {4, 2}, {6, 3}, {8, 4}, {10, 5}},
+					wowTreeIndex = 8,
 					column = 3,
 					row = 1,
 					icon = 136080,
@@ -28,9 +40,12 @@ Talented_Data.HUNTER = {
 			}, -- [2]
 			{
 				info = {
+					talentRankSpellIds = {
+						35029, -- [1]
+						35030, -- [2]
+					},
 					name = "Focused Fire",
-					tips = "All damage caused by you is increased by %d%% while your pet is active and the critical strike chance of your Kill Command ability is increased by %d%%.",
-					tipValues = {{1, 10}, {2, 20}},
+					wowTreeIndex = 14,
 					column = 1,
 					row = 2,
 					icon = 132210,
@@ -39,9 +54,13 @@ Talented_Data.HUNTER = {
 			}, -- [3]
 			{
 				info = {
+					talentRankSpellIds = {
+						19549, -- [1]
+						19550, -- [2]
+						19551, -- [3]
+					},
 					name = "Improved Aspect of the Monkey",
-					tips = "Increases the Dodge bonus of your Aspect of the Monkey by %d%%.",
-					tipValues = {{2}, {4}, {6}},
+					wowTreeIndex = 1,
 					column = 2,
 					row = 2,
 					icon = 132159,
@@ -50,9 +69,13 @@ Talented_Data.HUNTER = {
 			}, -- [4]
 			{
 				info = {
+					talentRankSpellIds = {
+						16929, -- [1]
+						16930, -- [2]
+						16931, -- [3]
+					},
 					name = "Thick Hide",
-					tips = "Increases the armor rating of your pets by %d%% and your armor contribution from items by %d%%.",
-					tipValues = {{7, 4}, {14, 7}, {20, 10}},
+					wowTreeIndex = 11,
 					column = 3,
 					row = 2,
 					icon = 134355,
@@ -61,9 +84,12 @@ Talented_Data.HUNTER = {
 			}, -- [5]
 			{
 				info = {
+					talentRankSpellIds = {
+						19575, -- [1]
+						24443, -- [2]
+					},
 					name = "Improved Revive Pet",
-					tips = "Revive Pet's casting time is reduced by %d sec, mana cost is reduced by %d%%, and increases the health your pet returns with by an additional %d%%.",
-					tipValues = {{3, 20, 15}, {6, 40, 30}},
+					wowTreeIndex = 15,
 					column = 4,
 					row = 2,
 					icon = 132163,
@@ -72,9 +98,12 @@ Talented_Data.HUNTER = {
 			}, -- [6]
 			{
 				info = {
+					talentRankSpellIds = {
+						6711, -- [1]
+						19559, -- [2]
+					},
 					name = "Pathfinding",
-					tips = "Increases the speed bonus of your Aspect of the Cheetah and Aspect of the Pack by %d%%.",
-					tipValues = {{4}, {8}},
+					wowTreeIndex = 3,
 					column = 1,
 					row = 3,
 					icon = 132242,
@@ -83,19 +112,28 @@ Talented_Data.HUNTER = {
 			}, -- [7]
 			{
 				info = {
-					name = "Bestial Swiftness",
-					tips = "Increases the outdoor movement speed of your pets by 30%.",
+					talentRankSpellIds = {
+						53265, -- [1]
+					},
+					name = "Aspect Mastery",
+					wowTreeIndex = 23,
 					column = 2,
 					row = 3,
-					icon = 132120,
+					icon = 236172,
 					ranks = 1,
 				},
 			}, -- [8]
 			{
 				info = {
+					talentRankSpellIds = {
+						19616, -- [1]
+						19617, -- [2]
+						19618, -- [3]
+						19619, -- [4]
+						19620, -- [5]
+					},
 					name = "Unleashed Fury",
-					tips = "Increases the damage done by your pets by %d%%.",
-					tipValues = {{4}, {8}, {12}, {16}, {20}},
+					wowTreeIndex = 12,
 					column = 3,
 					row = 3,
 					icon = 132091,
@@ -104,9 +142,12 @@ Talented_Data.HUNTER = {
 			}, -- [9]
 			{
 				info = {
+					talentRankSpellIds = {
+						19572, -- [1]
+						19573, -- [2]
+					},
 					name = "Improved Mend Pet",
-					tips = "Reduces the mana cost of your Mend Pet spell by %d%% and gives the Mend Pet spell a %d%% chance of cleansing 1 Curse, Disease, Magic or Poison effect from the pet each tick.",
-					tipValues = {{10, 25}, {20, 50}},
+					wowTreeIndex = 4,
 					column = 2,
 					row = 4,
 					icon = 132179,
@@ -115,9 +156,15 @@ Talented_Data.HUNTER = {
 			}, -- [10]
 			{
 				info = {
+					talentRankSpellIds = {
+						4154, -- [1]
+						16934, -- [2]
+						16935, -- [3]
+						16936, -- [4]
+						16937, -- [5]
+					},
 					name = "Ferocity",
-					tips = "Increases the critical strike chance of your pet by %d%%.",
-					tipValues = {{2}, {4}, {6}, {8}, {10}},
+					wowTreeIndex = 10,
 					column = 3,
 					row = 4,
 					icon = 134297,
@@ -126,9 +173,12 @@ Talented_Data.HUNTER = {
 			}, -- [11]
 			{
 				info = {
+					talentRankSpellIds = {
+						19578, -- [1]
+						19579, -- [2]
+					},
 					name = "Spirit Bond",
-					tips = "While your pet is active, you and your pet will regenerate %d%% of total health every 10 sec.",
-					tipValues = {{1}, {2}},
+					wowTreeIndex = 7,
 					column = 1,
 					row = 5,
 					icon = 132121,
@@ -137,20 +187,26 @@ Talented_Data.HUNTER = {
 			}, -- [12]
 			{
 				info = {
-					tips = "Command your pet to intimidate the target on the next successful melee attack, causing a high amount of threat and stunning the target for 3 sec.",
+					isExceptional = 1,
+					talentRankSpellIds = {
+						7093, -- [1]
+					},
 					name = "Intimidation",
-					row = 5,
+					wowTreeIndex = 6,
 					column = 2,
-					exceptional = 1,
+					row = 5,
 					icon = 132111,
 					ranks = 1,
 				},
 			}, -- [13]
 			{
 				info = {
+					talentRankSpellIds = {
+						19590, -- [1]
+						19592, -- [2]
+					},
 					name = "Bestial Discipline",
-					tips = "Increases the Focus regeneration of your pets by %d%%.",
-					tipValues = {{50}, {100}},
+					wowTreeIndex = 9,
 					column = 4,
 					row = 5,
 					icon = 136006,
@@ -159,9 +215,12 @@ Talented_Data.HUNTER = {
 			}, -- [14]
 			{
 				info = {
+					talentRankSpellIds = {
+						34453, -- [1]
+						34454, -- [2]
+					},
 					name = "Animal Handler",
-					tips = "Increases your speed while mounted by %d%% and your pet's chance to hit by %d%%.  The mounted movement speed increase does not stack with other effects.",
-					tipValues = {{4, 2}, {8, 4}},
+					wowTreeIndex = 16,
 					column = 1,
 					row = 6,
 					icon = 132158,
@@ -170,6 +229,13 @@ Talented_Data.HUNTER = {
 			}, -- [15]
 			{
 				info = {
+					talentRankSpellIds = {
+						3019, -- [1]
+						8269, -- [2]
+						12795, -- [3]
+						19516, -- [4]
+						19621, -- [5]
+					},
 					prereqs = {
 						{
 							column = 3,
@@ -178,8 +244,7 @@ Talented_Data.HUNTER = {
 						}, -- [1]
 					},
 					name = "Frenzy",
-					tips = "Gives your pet a %d%% chance to gain a 30%% attack speed increase for 8 sec after dealing a critical strike.",
-					tipValues = {{20}, {40}, {60}, {80}, {100}},
+					wowTreeIndex = 13,
 					column = 3,
 					row = 6,
 					icon = 134296,
@@ -188,9 +253,13 @@ Talented_Data.HUNTER = {
 			}, -- [16]
 			{
 				info = {
+					talentRankSpellIds = {
+						34455, -- [1]
+						34459, -- [2]
+						34460, -- [3]
+					},
 					name = "Ferocious Inspiration",
-					tips = "When your pet scores a critical hit, all party members have all damage increased by %d%% for 10 sec.",
-					tipValues = {{1}, {2}, {3}},
+					wowTreeIndex = 17,
 					column = 1,
 					row = 7,
 					icon = 132173,
@@ -199,7 +268,7 @@ Talented_Data.HUNTER = {
 			}, -- [17]
 			{
 				info = {
-					tips = "Send your pet into a rage causing 50% additional damage for 18 sec.  While enraged, the beast does not feel pity or remorse or fear and it cannot be stopped unless killed.",
+					isExceptional = 1,
 					prereqs = {
 						{
 							column = 2,
@@ -207,19 +276,26 @@ Talented_Data.HUNTER = {
 							source = 13,
 						}, -- [1]
 					},
-					name = "Bestial Wrath",
-					row = 7,
-					column = 2,
-					exceptional = 1,
-					icon = 132127,
 					ranks = 1,
+					name = "Bestial Wrath",
+					talentRankSpellIds = {
+						19574, -- [1]
+					},
+					column = 2,
+					row = 7,
+					icon = 132127,
+					wowTreeIndex = 5,
 				},
 			}, -- [18]
 			{
 				info = {
+					talentRankSpellIds = {
+						34462, -- [1]
+						34464, -- [2]
+						34465, -- [3]
+					},
 					name = "Catlike Reflexes",
-					tips = "Increases your chance to dodge by %d%% and your pet's chance to dodge by an additional %d%%.",
-					tipValues = {{1, 3}, {2, 6}, {3, 9}},
+					wowTreeIndex = 18,
 					column = 3,
 					row = 7,
 					icon = 132167,
@@ -228,17 +304,62 @@ Talented_Data.HUNTER = {
 			}, -- [19]
 			{
 				info = {
+					talentRankSpellIds = {
+						53252, -- [1]
+						53253, -- [2]
+					},
+					prereqs = {
+						{
+							column = 1,
+							row = 7,
+							source = 17,
+						}, -- [1]
+					},
+					name = "Invigoration",
+					wowTreeIndex = 21,
+					column = 1,
+					row = 8,
+					icon = 236184,
+					ranks = 2,
+				},
+			}, -- [20]
+			{
+				info = {
+					talentRankSpellIds = {
+						34466, -- [1]
+						34467, -- [2]
+						34468, -- [3]
+						34469, -- [4]
+						34470, -- [5]
+					},
 					name = "Serpent's Swiftness",
-					tips = "Increases ranged combat attack speed by %d%% and your pet's melee attack speed by %d%%.",
-					tipValues = {{4, 4}, {8, 8}, {12, 12}, {16, 16}, {20, 20}},
+					wowTreeIndex = 19,
 					column = 3,
 					row = 8,
 					icon = 132209,
 					ranks = 5,
 				},
-			}, -- [20]
+			}, -- [21]
 			{
 				info = {
+					talentRankSpellIds = {
+						53262, -- [1]
+						53263, -- [2]
+						53264, -- [3]
+					},
+					name = "Longevity",
+					wowTreeIndex = 25,
+					column = 1,
+					row = 9,
+					icon = 236186,
+					ranks = 3,
+				},
+			}, -- [22]
+			{
+				info = {
+					talentRankSpellIds = {
+						34471, -- [1]
+					},
 					prereqs = {
 						{
 							column = 2,
@@ -247,13 +368,66 @@ Talented_Data.HUNTER = {
 						}, -- [1]
 					},
 					name = "The Beast Within",
-					tips = "When your pet is under the effects of Bestial Wrath, you also go into a rage causing 10% additional damage and reducing mana costs of all spells by 20% for 18 sec.  While enraged, you do not feel pity or remorse or fear and you cannot be stopped unless killed.",
+					wowTreeIndex = 20,
 					column = 2,
 					row = 9,
 					icon = 132166,
 					ranks = 1,
 				},
-			}, -- [21]
+			}, -- [23]
+			{
+				info = {
+					talentRankSpellIds = {
+						53256, -- [1]
+						53257, -- [2]
+						53259, -- [3]
+					},
+					prereqs = {
+						{
+							column = 3,
+							row = 8,
+							source = 21,
+						}, -- [1]
+					},
+					name = "Cobra Strikes",
+					wowTreeIndex = 22,
+					column = 3,
+					row = 9,
+					icon = 236177,
+					ranks = 3,
+				},
+			}, -- [24]
+			{
+				info = {
+					talentRankSpellIds = {
+						56314, -- [1]
+						56315, -- [2]
+						56316, -- [3]
+						56317, -- [4]
+						56318, -- [5]
+					},
+					name = "Kindred Spirits",
+					wowTreeIndex = 26,
+					column = 2,
+					row = 10,
+					icon = 236202,
+					ranks = 5,
+				},
+			}, -- [25]
+			{
+				info = {
+					isExceptional = 1,
+					talentRankSpellIds = {
+						53270, -- [1]
+					},
+					name = "Beast Mastery",
+					wowTreeIndex = 24,
+					column = 2,
+					row = 11,
+					icon = 236175,
+					ranks = 1,
+				},
+			}, -- [26]
 		},
 		info = {
 			name = "Beast Mastery",
@@ -261,256 +435,440 @@ Talented_Data.HUNTER = {
 		},
 	}, -- [1]
 	{
-		numtalents = 20,
+		numtalents = 27,
 		talents = {
 			{
 				info = {
+					talentRankSpellIds = {
+						19407, -- [1]
+						19412, -- [2]
+					},
 					name = "Improved Concussive Shot",
-					tips = "Gives your Concussive Shot a %d%% chance to stun the target for 3 sec.",
-					tipValues = {{4}, {8}, {12}, {16}, {20}},
-					column = 2,
+					wowTreeIndex = 1,
+					column = 1,
 					row = 1,
 					icon = 135860,
-					ranks = 5,
+					ranks = 2,
 				},
 			}, -- [1]
 			{
 				info = {
+					talentRankSpellIds = {
+						53620, -- [1]
+						53621, -- [2]
+						53622, -- [3]
+					},
+					name = "Focused Aim",
+					wowTreeIndex = 27,
+					column = 2,
+					row = 1,
+					icon = 236179,
+					ranks = 3,
+				},
+			}, -- [2]
+			{
+				info = {
+					talentRankSpellIds = {
+						19426, -- [1]
+						19427, -- [2]
+						19429, -- [3]
+						19430, -- [4]
+						19431, -- [5]
+					},
 					name = "Lethal Shots",
-					tips = "Increases your critical strike chance with ranged weapons by %d%%.",
-					tipValues = {{1}, {2}, {3}, {4}, {5}},
+					wowTreeIndex = 4,
 					column = 3,
 					row = 1,
 					icon = 132312,
 					ranks = 5,
 				},
-			}, -- [2]
-			{
-				info = {
-					name = "Improved Hunter's Mark",
-					tips = "Causes %d%% of your Hunter's Mark ability's base attack power to apply to melee attack power as well.",
-					tipValues = {{20}, {40}, {60}, {80}, {100}},
-					column = 2,
-					row = 2,
-					icon = 132212,
-					ranks = 5,
-				},
 			}, -- [3]
 			{
 				info = {
-					name = "Efficiency",
-					tips = "Reduces the Mana cost of your Shots and Stings by %d%%.",
-					tipValues = {{2}, {4}, {6}, {8}, {10}},
-					column = 3,
+					talentRankSpellIds = {
+						34482, -- [1]
+						34483, -- [2]
+						34484, -- [3]
+					},
+					name = "Careful Aim",
+					wowTreeIndex = 15,
+					column = 1,
 					row = 2,
-					icon = 135865,
-					ranks = 5,
+					icon = 132217,
+					ranks = 3,
 				},
 			}, -- [4]
 			{
 				info = {
-					name = "Go for the Throat",
-					tips = "Your ranged critical hits cause your pet to generate %d Focus.",
-					tipValues = {{25}, {50}},
-					column = 1,
-					row = 3,
-					icon = 132174,
-					ranks = 2,
+					talentRankSpellIds = {
+						19421, -- [1]
+						19422, -- [2]
+						19423, -- [3]
+					},
+					name = "Improved Hunter's Mark",
+					wowTreeIndex = 3,
+					column = 2,
+					row = 2,
+					icon = 132212,
+					ranks = 3,
 				},
 			}, -- [5]
 			{
 				info = {
-					name = "Improved Arcane Shot",
-					tips = "Reduces the cooldown of your Arcane Shot by %.1f sec.",
-					tipValues = {{0.2}, {0.4}, {0.6}, {0.8}, {1.0}},
-					column = 2,
-					row = 3,
-					icon = 132218,
+					talentRankSpellIds = {
+						19485, -- [1]
+						19487, -- [2]
+						19488, -- [3]
+						19489, -- [4]
+						19490, -- [5]
+					},
+					name = "Mortal Shots",
+					wowTreeIndex = 9,
+					column = 3,
+					row = 2,
+					icon = 132271,
 					ranks = 5,
 				},
 			}, -- [6]
 			{
 				info = {
-					tips = "An aimed shot that increases ranged damage by 70 and reduces healing done to that target by 50%.  Lasts 10 sec.",
-					name = "Aimed Shot",
+					talentRankSpellIds = {
+						34950, -- [1]
+						34952, -- [2]
+					},
+					name = "Go for the Throat",
+					wowTreeIndex = 18,
+					column = 1,
 					row = 3,
-					column = 3,
-					exceptional = 1,
-					icon = 135130,
-					ranks = 1,
+					icon = 132174,
+					ranks = 2,
 				},
 			}, -- [7]
 			{
 				info = {
+					talentRankSpellIds = {
+						19454, -- [1]
+						19455, -- [2]
+						19456, -- [3]
+					},
+					name = "Improved Arcane Shot",
+					wowTreeIndex = 6,
+					column = 2,
+					row = 3,
+					icon = 132218,
+					ranks = 3,
+				},
+			}, -- [8]
+			{
+				info = {
+					isExceptional = 1,
+					prereqs = {
+						{
+							column = 3,
+							row = 2,
+							source = 6,
+						}, -- [1]
+					},
+					ranks = 1,
+					name = "Aimed Shot",
+					talentRankSpellIds = {
+						19434, -- [1]
+					},
+					column = 3,
+					row = 3,
+					icon = 135130,
+					wowTreeIndex = 5,
+				},
+			}, -- [9]
+			{
+				info = {
+					talentRankSpellIds = {
+						34948, -- [1]
+						34949, -- [2]
+					},
 					name = "Rapid Killing",
-					tips = "Reduces the cooldown of your Rapid Fire ability by %d min.  In addition, after killing an opponent that yields experience or honor, your next Aimed Shot, Arcane Shot or Auto Shot causes %d%% additional damage.  Lasts 20 sec.",
-					tipValues = {{1, 10}, {2, 20}},
+					wowTreeIndex = 19,
 					column = 4,
 					row = 3,
 					icon = 132205,
 					ranks = 2,
 				},
-			}, -- [8]
-			{
-				info = {
-					name = "Improved Stings",
-					tips = "Increases the damage done by your Serpent Sting and Wyvern Sting by %d%% and the mana drained by your Viper Sting by %d%%.  In addition, reduces the chance your Stings will be dispelled by %d%%.",
-					tipValues = {{6, 6, 6}, {12, 12, 12}, {18, 18, 18}, {24, 24, 24}, {30, 30, 30}},
-					column = 2,
-					row = 4,
-					icon = 132204,
-					ranks = 5,
-				},
-			}, -- [9]
-			{
-				info = {
-					prereqs = {
-						{
-							column = 3,
-							row = 3,
-							source = 7,
-						}, -- [1]
-					},
-					name = "Mortal Shots",
-					tips = "Increases your ranged weapon critical strike damage bonus by %d%%.",
-					tipValues = {{6}, {12}, {18}, {24}, {30}},
-					column = 3,
-					row = 4,
-					icon = 132271,
-					ranks = 5,
-				},
 			}, -- [10]
 			{
 				info = {
-					name = "Concussive Barrage",
-					tips = "Your successful Auto Shot attacks have a %d%% chance to Daze the target for 4 sec.",
-					tipValues = {{2}, {4}, {6}},
-					column = 1,
-					row = 5,
-					icon = 135753,
+					talentRankSpellIds = {
+						19464, -- [1]
+						19465, -- [2]
+						19466, -- [3]
+					},
+					name = "Improved Stings",
+					wowTreeIndex = 8,
+					column = 2,
+					row = 4,
+					icon = 132204,
 					ranks = 3,
 				},
 			}, -- [11]
 			{
 				info = {
-					tips = "A short-range shot that deals 50% weapon damage and disorients the target for 4 sec.  Any damage caused will remove the effect.  Turns off your attack when used.",
-					name = "Scatter Shot",
-					row = 5,
-					column = 2,
-					exceptional = 1,
-					icon = 132153,
-					ranks = 1,
+					talentRankSpellIds = {
+						19416, -- [1]
+						19417, -- [2]
+						19418, -- [3]
+						19419, -- [4]
+						19420, -- [5]
+					},
+					name = "Efficiency",
+					wowTreeIndex = 2,
+					column = 3,
+					row = 4,
+					icon = 135865,
+					ranks = 5,
 				},
 			}, -- [12]
 			{
 				info = {
+					talentRankSpellIds = {
+						35100, -- [1]
+						35101, -- [2]
+					},
+					name = "Concussive Barrage",
+					wowTreeIndex = 10,
+					column = 1,
+					row = 5,
+					icon = 135753,
+					ranks = 2,
+				},
+			}, -- [13]
+			{
+				info = {
+					isExceptional = 1,
+					talentRankSpellIds = {
+						23989, -- [1]
+					},
+					name = "Readiness",
+					wowTreeIndex = 11,
+					column = 2,
+					row = 5,
+					icon = 132206,
+					ranks = 1,
+				},
+			}, -- [14]
+			{
+				info = {
+					talentRankSpellIds = {
+						19461, -- [1]
+						19462, -- [2]
+						24691, -- [3]
+					},
 					name = "Barrage",
-					tips = "Increases the damage done by your Multi-Shot and Volley spells by %d%%.",
-					tipValues = {{4}, {8}, {12}},
+					wowTreeIndex = 7,
 					column = 3,
 					row = 5,
 					icon = 132330,
 					ranks = 3,
 				},
-			}, -- [13]
+			}, -- [15]
 			{
 				info = {
+					talentRankSpellIds = {
+						34475, -- [1]
+						34476, -- [2]
+					},
 					name = "Combat Experience",
-					tips = "Increases your total Agility by %d%% and your total Intellect by %d%%.",
-					tipValues = {{1, 3}, {2, 6}},
+					wowTreeIndex = 14,
 					column = 1,
 					row = 6,
 					icon = 132168,
 					ranks = 2,
 				},
-			}, -- [14]
-			{
-				info = {
-					name = "Ranged Weapon Specialization",
-					tips = "Increases the damage you deal with ranged weapons by %d%%.",
-					tipValues = {{1}, {2}, {3}, {4}, {5}},
-					column = 4,
-					row = 6,
-					icon = 135615,
-					ranks = 5,
-				},
-			}, -- [15]
-			{
-				info = {
-					name = "Careful Aim",
-					tips = "Increases your ranged attack power by an amount equal to %d%% of your total Intellect.",
-					tipValues = {{15}, {30}, {45}},
-					column = 1,
-					row = 7,
-					icon = 132217,
-					ranks = 3,
-				},
 			}, -- [16]
 			{
 				info = {
-					tips = "Increases the attack power of party members within 45 yards by 50.  Lasts until cancelled.",
-					prereqs = {
-						{
-							column = 2,
-							row = 5,
-							source = 12,
-						}, -- [1]
+					talentRankSpellIds = {
+						19507, -- [1]
+						19508, -- [2]
+						19509, -- [3]
 					},
-					name = "Trueshot Aura",
-					row = 7,
-					column = 2,
-					exceptional = 1,
-					icon = 132329,
-					ranks = 1,
+					name = "Ranged Weapon Specialization",
+					wowTreeIndex = 13,
+					column = 4,
+					row = 6,
+					icon = 135615,
+					ranks = 3,
 				},
 			}, -- [17]
 			{
 				info = {
-					prereqs = {
-						{
-							column = 3,
-							row = 5,
-							source = 13,
-						}, -- [1]
+					talentRankSpellIds = {
+						53234, -- [1]
+						53237, -- [2]
+						53238, -- [3]
 					},
-					name = "Improved Barrage",
-					tips = "Increases the critical strike chance of your Multi-Shot ability by %d%% and gives you a %d%% chance to avoid interruption caused by damage while channeling Volley.",
-					tipValues = {{4, 33}, {8, 66}, {12, 100}},
-					column = 3,
+					name = "Piercing Shots",
+					wowTreeIndex = 21,
+					column = 1,
 					row = 7,
-					icon = 132330,
+					icon = 236198,
 					ranks = 3,
 				},
 			}, -- [18]
 			{
 				info = {
+					isExceptional = 1,
+					prereqs = {
+						{
+							column = 2,
+							row = 5,
+							source = 14,
+						}, -- [1]
+					},
+					ranks = 1,
+					name = "Trueshot Aura",
+					talentRankSpellIds = {
+						19506, -- [1]
+					},
+					column = 2,
+					row = 7,
+					icon = 132329,
+					wowTreeIndex = 12,
+				},
+			}, -- [19]
+			{
+				info = {
+					talentRankSpellIds = {
+						35104, -- [1]
+						35110, -- [2]
+						35111, -- [3]
+					},
+					prereqs = {
+						{
+							column = 3,
+							row = 5,
+							source = 15,
+						}, -- [1]
+					},
+					name = "Improved Barrage",
+					wowTreeIndex = 20,
+					column = 3,
+					row = 7,
+					icon = 132330,
+					ranks = 3,
+				},
+			}, -- [20]
+			{
+				info = {
+					talentRankSpellIds = {
+						34485, -- [1]
+						34486, -- [2]
+						34487, -- [3]
+						34488, -- [4]
+						34489, -- [5]
+					},
 					name = "Master Marksman",
-					tips = "Increases your ranged attack power by %d%%.",
-					tipValues = {{2}, {4}, {6}, {8}, {10}},
+					wowTreeIndex = 16,
 					column = 2,
 					row = 8,
 					icon = 132177,
 					ranks = 5,
 				},
-			}, -- [19]
+			}, -- [21]
 			{
 				info = {
-					tips = "A shot that deals 50% weapon damage and Silences the target for 3 sec.",
+					talentRankSpellIds = {
+						53228, -- [1]
+						53232, -- [2]
+					},
+					name = "Rapid Recuperation",
+					wowTreeIndex = 22,
+					column = 3,
+					row = 8,
+					icon = 236201,
+					ranks = 2,
+				},
+			}, -- [22]
+			{
+				info = {
+					talentRankSpellIds = {
+						53215, -- [1]
+						53216, -- [2]
+						53217, -- [3]
+					},
+					name = "Wild Quiver",
+					wowTreeIndex = 23,
+					column = 1,
+					row = 9,
+					icon = 236204,
+					ranks = 3,
+				},
+			}, -- [23]
+			{
+				info = {
+					isExceptional = 1,
 					prereqs = {
 						{
 							column = 2,
 							row = 8,
-							source = 19,
+							source = 21,
 						}, -- [1]
 					},
+					ranks = 1,
 					name = "Silencing Shot",
-					row = 9,
+					talentRankSpellIds = {
+						34490, -- [1]
+					},
 					column = 2,
-					exceptional = 1,
+					row = 9,
 					icon = 132323,
+					wowTreeIndex = 17,
+				},
+			}, -- [24]
+			{
+				info = {
+					talentRankSpellIds = {
+						53220, -- [1]
+						53221, -- [2]
+						53222, -- [3]
+					},
+					name = "Improved Steady Shot",
+					wowTreeIndex = 24,
+					column = 3,
+					row = 9,
+					icon = 236182,
+					ranks = 3,
+				},
+			}, -- [25]
+			{
+				info = {
+					talentRankSpellIds = {
+						53241, -- [1]
+						53243, -- [2]
+						53244, -- [3]
+						53245, -- [4]
+						53246, -- [5]
+					},
+					name = "Marked for Death",
+					wowTreeIndex = 25,
+					column = 2,
+					row = 10,
+					icon = 236173,
+					ranks = 5,
+				},
+			}, -- [26]
+			{
+				info = {
+					isExceptional = 1,
+					talentRankSpellIds = {
+						53209, -- [1]
+					},
+					name = "Chimera Shot",
+					wowTreeIndex = 26,
+					column = 2,
+					row = 11,
+					icon = 236176,
 					ranks = 1,
 				},
-			}, -- [20]
+			}, -- [27]
 		},
 		info = {
 			name = "Marksmanship",
@@ -518,58 +876,79 @@ Talented_Data.HUNTER = {
 		},
 	}, -- [2]
 	{
-		numtalents = 23,
+		numtalents = 28,
 		talents = {
 			{
 				info = {
-					name = "Monster Slaying",
-					tips = "Increases all damage caused against Beasts, Giants and Dragonkin targets by %d%% and increases critical damage caused against Beasts, Giants and Dragonkin targets by an additional %d%%.",
-					tipValues = {{1, 1}, {2, 2}, {3, 3}},
+					talentRankSpellIds = {
+						52783, -- [1]
+						52785, -- [2]
+						52786, -- [3]
+						52787, -- [4]
+						52788, -- [5]
+					},
+					name = "Improved Tracking",
+					wowTreeIndex = 14,
 					column = 1,
 					row = 1,
-					icon = 134154,
-					ranks = 3,
+					icon = 236183,
+					ranks = 5,
 				},
 			}, -- [1]
 			{
 				info = {
-					name = "Humanoid Slaying",
-					tips = "Increases all damage caused against Humanoid targets by %d%% and increases critical damage caused against Humanoid targets by an additional %d%%.",
-					tipValues = {{1, 1}, {2, 2}, {3, 3}},
+					talentRankSpellIds = {
+						19498, -- [1]
+						19499, -- [2]
+						19500, -- [3]
+					},
+					name = "Hawk Eye",
+					wowTreeIndex = 21,
 					column = 2,
 					row = 1,
-					icon = 135942,
+					icon = 132327,
 					ranks = 3,
 				},
 			}, -- [2]
 			{
 				info = {
-					name = "Hawk Eye",
-					tips = "Increases the range of your ranged weapons by %d yards.",
-					tipValues = {{2}, {4}, {6}},
-					column = 3,
-					row = 1,
-					icon = 132327,
-					ranks = 3,
-				},
-			}, -- [3]
-			{
-				info = {
+					talentRankSpellIds = {
+						19159, -- [1]
+						19160, -- [2]
+					},
 					name = "Savage Strikes",
-					tips = "Increases the critical strike chance of Raptor Strike and Mongoose Bite by %d%%.",
-					tipValues = {{10}, {20}},
-					column = 4,
+					wowTreeIndex = 12,
+					column = 3,
 					row = 1,
 					icon = 132277,
 					ranks = 2,
 				},
+			}, -- [3]
+			{
+				info = {
+					talentRankSpellIds = {
+						19290, -- [1]
+						19294, -- [2]
+						24283, -- [3]
+					},
+					name = "Surefooted",
+					wowTreeIndex = 6,
+					column = 1,
+					row = 2,
+					icon = 132219,
+					ranks = 3,
+				},
 			}, -- [4]
 			{
 				info = {
+					talentRankSpellIds = {
+						19184, -- [1]
+						19185, -- [2]
+						19387, -- [3]
+					},
 					name = "Entrapment",
-					tips = "Gives your Immolation Trap, Frost Trap, Explosive Trap, and Snake Trap a %d%% chance to entrap the target, preventing them from moving for 4 sec.",
-					tipValues = {{8}, {16}, {25}},
-					column = 1,
+					wowTreeIndex = 2,
+					column = 2,
 					row = 2,
 					icon = 136100,
 					ranks = 3,
@@ -577,108 +956,154 @@ Talented_Data.HUNTER = {
 			}, -- [5]
 			{
 				info = {
-					name = "Deflection",
-					tips = "Increases your Parry chance by %d%%.",
-					tipValues = {{1}, {2}, {3}, {4}, {5}},
-					column = 2,
+					talentRankSpellIds = {
+						19376, -- [1]
+						63457, -- [2]
+						63458, -- [3]
+					},
+					name = "Trap Mastery",
+					wowTreeIndex = 3,
+					column = 3,
 					row = 2,
-					icon = 132269,
-					ranks = 5,
+					icon = 132149,
+					ranks = 3,
 				},
 			}, -- [6]
 			{
 				info = {
-					name = "Improved Wing Clip",
-					tips = "Gives your Wing Clip ability a %d%% chance to immobilize the target for 5 sec.",
-					tipValues = {{7}, {14}, {20}},
-					column = 3,
+					talentRankSpellIds = {
+						34494, -- [1]
+						34496, -- [2]
+					},
+					name = "Survival Instincts",
+					wowTreeIndex = 16,
+					column = 4,
 					row = 2,
-					icon = 132309,
-					ranks = 3,
+					icon = 132214,
+					ranks = 2,
 				},
 			}, -- [7]
 			{
 				info = {
-					name = "Clever Traps",
-					tips = "Increases the duration of Freezing and Frost Trap effects by %d%%, the damage of Immolation and Explosive Trap effects by %d%%, and the number of snakes summoned from Snake Traps by %d%%.",
-					tipValues = {{15, 15, 15}, {30, 30, 30}},
-					column = 1,
-					row = 3,
-					icon = 136106,
-					ranks = 2,
-				},
-			}, -- [8]
-			{
-				info = {
+					talentRankSpellIds = {
+						19255, -- [1]
+						19256, -- [2]
+						19257, -- [3]
+						19258, -- [4]
+						19259, -- [5]
+					},
 					name = "Survivalist",
-					tips = "Increases total health by %d%%.",
-					tipValues = {{2}, {4}, {6}, {8}, {10}},
-					column = 2,
+					wowTreeIndex = 13,
+					column = 1,
 					row = 3,
 					icon = 136223,
 					ranks = 5,
 				},
+			}, -- [8]
+			{
+				info = {
+					isExceptional = 1,
+					talentRankSpellIds = {
+						19503, -- [1]
+					},
+					name = "Scatter Shot",
+					wowTreeIndex = 20,
+					column = 2,
+					row = 3,
+					icon = 132153,
+					ranks = 1,
+				},
 			}, -- [9]
 			{
 				info = {
-					tips = "When activated, increases your Dodge and Parry chance by 25% for 10 sec.",
-					name = "Deterrence",
-					row = 3,
+					talentRankSpellIds = {
+						13713, -- [1]
+						13853, -- [2]
+						13854, -- [3]
+					},
+					name = "Deflection",
+					wowTreeIndex = 7,
 					column = 3,
-					exceptional = 1,
-					icon = 132369,
-					ranks = 1,
+					row = 3,
+					icon = 132269,
+					ranks = 3,
 				},
 			}, -- [10]
 			{
 				info = {
-					name = "Trap Mastery",
-					tips = "Decreases the chance enemies will resist trap effects by %d%%.",
-					tipValues = {{5}, {10}},
-					column = 1,
-					row = 4,
-					icon = 132149,
+					talentRankSpellIds = {
+						19286, -- [1]
+						19287, -- [2]
+					},
+					name = "Survival Tactics",
+					wowTreeIndex = 5,
+					column = 4,
+					row = 3,
+					icon = 132293,
 					ranks = 2,
 				},
 			}, -- [11]
 			{
 				info = {
-					name = "Surefooted",
-					tips = "Increases hit chance by %d%% and increases the chance movement impairing effects will be resisted by an additional %d%%.",
-					tipValues = {{1, 5}, {2, 10}, {3, 15}},
+					talentRankSpellIds = {
+						56333, -- [1]
+						56336, -- [2]
+						56337, -- [3]
+					},
+					name = "T.N.T.",
+					wowTreeIndex = 28,
 					column = 2,
 					row = 4,
-					icon = 132219,
+					icon = 133713,
 					ranks = 3,
 				},
 			}, -- [12]
 			{
 				info = {
-					name = "Improved Feign Death",
-					tips = "Reduces the chance your Feign Death ability will be resisted by %d%%.",
-					tipValues = {{2}, {4}},
+					talentRankSpellIds = {
+						56342, -- [1]
+						56343, -- [2]
+						56344, -- [3]
+					},
+					name = "Lock and Load",
+					wowTreeIndex = 4,
 					column = 4,
 					row = 4,
-					icon = 132293,
-					ranks = 2,
+					icon = 236185,
+					ranks = 3,
 				},
 			}, -- [13]
 			{
 				info = {
-					name = "Survival Instincts",
-					tips = "Reduces all damage taken by %d%% and increases attack power by %d%%.",
-					tipValues = {{2, 2}, {4, 4}},
+					talentRankSpellIds = {
+						56339, -- [1]
+						56340, -- [2]
+						56341, -- [3]
+					},
+					prereqs = {
+						{
+							column = 1,
+							row = 3,
+							source = 8,
+						}, -- [1]
+					},
+					name = "Hunter vs. Wild",
+					wowTreeIndex = 27,
 					column = 1,
 					row = 5,
-					icon = 132214,
-					ranks = 2,
+					icon = 236180,
+					ranks = 3,
 				},
 			}, -- [14]
 			{
 				info = {
+					talentRankSpellIds = {
+						19370, -- [1]
+						19371, -- [2]
+						19373, -- [3]
+					},
 					name = "Killer Instinct",
-					tips = "Increases your critical strike chance with all attacks by %d%%.",
-					tipValues = {{1}, {2}, {3}},
+					wowTreeIndex = 9,
 					column = 2,
 					row = 5,
 					icon = 135881,
@@ -687,7 +1112,7 @@ Talented_Data.HUNTER = {
 			}, -- [15]
 			{
 				info = {
-					tips = "A strike that becomes active after parrying an opponent's attack.  This attack deals 40 damage and immobilizes the target for 5 sec.  Counterattack cannot be blocked, dodged, or parried.",
+					isExceptional = 1,
 					prereqs = {
 						{
 							column = 3,
@@ -695,50 +1120,74 @@ Talented_Data.HUNTER = {
 							source = 10,
 						}, -- [1]
 					},
-					name = "Counterattack",
-					row = 5,
-					column = 3,
-					exceptional = 1,
-					icon = 132336,
 					ranks = 1,
+					name = "Counterattack",
+					talentRankSpellIds = {
+						19306, -- [1]
+					},
+					column = 3,
+					row = 5,
+					icon = 132336,
+					wowTreeIndex = 8,
 				},
 			}, -- [16]
 			{
 				info = {
-					name = "Resourcefulness",
-					tips = "Reduces the mana cost of all traps and melee abilities by %d%% and reduces the cooldown of all traps by %d sec.",
-					tipValues = {{20, 2}, {40, 4}, {60, 6}},
-					column = 1,
-					row = 6,
-					icon = 132207,
-					ranks = 3,
-				},
-			}, -- [17]
-			{
-				info = {
+					talentRankSpellIds = {
+						13712, -- [1]
+						13788, -- [2]
+						13789, -- [3]
+						19168, -- [4]
+						19180, -- [5]
+					},
 					name = "Lightning Reflexes",
-					tips = "Increases your Agility by %d%%.",
-					tipValues = {{3}, {6}, {9}, {12}, {15}},
-					column = 3,
+					wowTreeIndex = 1,
+					column = 1,
 					row = 6,
 					icon = 136047,
 					ranks = 5,
 				},
+			}, -- [17]
+			{
+				info = {
+					talentRankSpellIds = {
+						34491, -- [1]
+						34492, -- [2]
+						34493, -- [3]
+					},
+					name = "Resourcefulness",
+					wowTreeIndex = 15,
+					column = 3,
+					row = 6,
+					icon = 132207,
+					ranks = 3,
+				},
 			}, -- [18]
 			{
 				info = {
-					name = "Thrill of the Hunt",
-					tips = "Gives you a %d%% chance to regain 40%% of the mana cost of any shot when it critically hits.",
-					tipValues = {{33}, {66}, {100}},
+					talentRankSpellIds = {
+						7140, -- [1]
+						23577, -- [2]
+						23578, -- [3]
+					},
+					prereqs = {
+						{
+							column = 1,
+							row = 6,
+							source = 17,
+						}, -- [1]
+					},
+					name = "Expose Weakness",
+					wowTreeIndex = 18,
 					column = 1,
 					row = 7,
-					icon = 132216,
+					icon = 132295,
 					ranks = 3,
 				},
 			}, -- [19]
 			{
 				info = {
-					tips = "A stinging shot that puts the target to sleep for 12 sec.  Any damage will cancel the effect.  When the target wakes up, the Sting causes 300 Nature damage over 12 sec.  Only one Sting per Hunter can be active on the target at a time.",
+					isExceptional = 1,
 					prereqs = {
 						{
 							column = 2,
@@ -746,38 +1195,44 @@ Talented_Data.HUNTER = {
 							source = 15,
 						}, -- [1]
 					},
-					name = "Wyvern Sting",
-					row = 7,
-					column = 2,
-					exceptional = 1,
-					icon = 135125,
 					ranks = 1,
+					name = "Wyvern Sting",
+					talentRankSpellIds = {
+						19386, -- [1]
+					},
+					column = 2,
+					row = 7,
+					icon = 135125,
+					wowTreeIndex = 11,
 				},
 			}, -- [20]
 			{
 				info = {
-					prereqs = {
-						{
-							column = 3,
-							row = 6,
-							source = 18,
-						}, -- [1]
+					talentRankSpellIds = {
+						34497, -- [1]
+						34498, -- [2]
+						34499, -- [3]
 					},
-					name = "Expose Weakness",
-					tips = "Your ranged criticals have a %d%% chance to apply an Expose Weakness effect to the target. Expose Weakness increases the attack power of all attackers against that target by 25%% of your Agility for 7 sec.",
-					tipValues = {{33}, {66}, {100}},
+					name = "Thrill of the Hunt",
+					wowTreeIndex = 17,
 					column = 3,
 					row = 7,
-					icon = 132295,
+					icon = 132216,
 					ranks = 3,
 				},
 			}, -- [21]
 			{
 				info = {
+					talentRankSpellIds = {
+						34506, -- [1]
+						34507, -- [2]
+						34508, -- [3]
+						34833, -- [4]
+						34834, -- [5]
+					},
 					name = "Master Tactician",
-					tips = "Your successful ranged attacks have a 6%% chance to increase your critical strike chance with all attacks by %d%% for 8 sec.",
-					tipValues = {{2}, {4}, {6}, {8}, {10}},
-					column = 2,
+					wowTreeIndex = 19,
+					column = 1,
 					row = 8,
 					icon = 132178,
 					ranks = 5,
@@ -785,22 +1240,112 @@ Talented_Data.HUNTER = {
 			}, -- [22]
 			{
 				info = {
-					tips = "When activated, this ability immediately finishes the cooldown on your other Hunter abilities.",
+					talentRankSpellIds = {
+						53295, -- [1]
+						53296, -- [2]
+						53297, -- [3]
+					},
 					prereqs = {
 						{
 							column = 2,
-							row = 8,
-							source = 22,
+							row = 7,
+							source = 20,
 						}, -- [1]
 					},
-					name = "Readiness",
-					row = 9,
+					name = "Noxious Stings",
+					wowTreeIndex = 22,
 					column = 2,
-					exceptional = 1,
-					icon = 132206,
-					ranks = 1,
+					row = 8,
+					icon = 236200,
+					ranks = 3,
 				},
 			}, -- [23]
+			{
+				info = {
+					talentRankSpellIds = {
+						53298, -- [1]
+						53299, -- [2]
+					},
+					name = "Point of No Escape",
+					wowTreeIndex = 23,
+					column = 1,
+					row = 9,
+					icon = 236199,
+					ranks = 2,
+				},
+			}, -- [24]
+			{
+				info = {
+					isExceptional = 1,
+					talentRankSpellIds = {
+						3674, -- [1]
+					},
+					name = "Black Arrow",
+					wowTreeIndex = 10,
+					column = 2,
+					row = 9,
+					icon = 136181,
+					ranks = 1,
+				},
+			}, -- [25]
+			{
+				info = {
+					talentRankSpellIds = {
+						53302, -- [1]
+						53303, -- [2]
+						53304, -- [3]
+					},
+					name = "Sniper Training",
+					wowTreeIndex = 24,
+					column = 4,
+					row = 9,
+					icon = 236187,
+					ranks = 3,
+				},
+			}, -- [26]
+			{
+				info = {
+					talentRankSpellIds = {
+						53290, -- [1]
+						53291, -- [2]
+						53292, -- [3]
+					},
+					prereqs = {
+						{
+							column = 3,
+							row = 7,
+							source = 21,
+						}, -- [1]
+					},
+					name = "Hunting Party",
+					wowTreeIndex = 25,
+					column = 3,
+					row = 10,
+					icon = 236181,
+					ranks = 3,
+				},
+			}, -- [27]
+			{
+				info = {
+					isExceptional = 1,
+					prereqs = {
+						{
+							column = 2,
+							row = 9,
+							source = 25,
+						}, -- [1]
+					},
+					ranks = 1,
+					name = "Explosive Shot",
+					talentRankSpellIds = {
+						15495, -- [1]
+					},
+					column = 2,
+					row = 11,
+					icon = 236178,
+					wowTreeIndex = 26,
+				},
+			}, -- [28]
 		},
 		info = {
 			name = "Survival",

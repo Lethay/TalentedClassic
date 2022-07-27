@@ -6,9 +6,12 @@ Talented_Data.DEATHKNIGHT = {
 		talents = {
 			{
 				info = {
-					tips = "Whenever you kill an enemy that grants experience or honor, you generate up to %d runic power.  In addition, you generate %d runic power per 5 sec while in combat.",
-					tipValues = {{10, 1}, {20, 2}},
+					talentRankSpellIds = {
+						48979, -- [1]
+						49483, -- [2]
+					},
 					name = "Butchery",
+					wowTreeIndex = 3,
 					column = 1,
 					row = 1,
 					icon = 132455,
@@ -17,9 +20,13 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [1]
 			{
 				info = {
-					tips = "Increases the critical strike chance of Blood Strike, Scourge Strike, Heart Strike and Obliterate by %d%%, and reduces threat generated while in Blood or Unholy Presence by %d%%.",
-					tipValues = {{3, 8}, {6, 16}, {9, 25}},
+					talentRankSpellIds = {
+						48997, -- [1]
+						49490, -- [2]
+						49491, -- [3]
+					},
 					name = "Subversion",
+					wowTreeIndex = 8,
 					column = 2,
 					row = 1,
 					icon = 237533,
@@ -28,9 +35,15 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [2]
 			{
 				info = {
-					tips = "Whenever your Blood Runes are on cooldown, you gain the Blade Barrier effect, which decreases damage taken by %d%% for the next 10 sec.",
-					tipValues = {{1}, {2}, {3}, {4}, {5}},
+					talentRankSpellIds = {
+						49182, -- [1]
+						49500, -- [2]
+						49501, -- [3]
+						51789, -- [4]
+						55225, -- [5]
+					},
 					name = "Blade Barrier",
+					wowTreeIndex = 21,
 					column = 3,
 					row = 1,
 					icon = 132330,
@@ -39,9 +52,15 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [3]
 			{
 				info = {
-					tips = "Increases your attack power by %d for every 180 armor value you have.",
-					tipValues = {{1}, {2}, {3}, {4}, {5}},
+					talentRankSpellIds = {
+						48978, -- [1]
+						49390, -- [2]
+						49391, -- [3]
+						49392, -- [4]
+						49393, -- [5]
+					},
 					name = "Bladed Armor",
+					wowTreeIndex = 2,
 					column = 1,
 					row = 2,
 					icon = 135067,
@@ -50,9 +69,13 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [4]
 			{
 				info = {
-					tips = "You have a 15%% chance after dodging, parrying or taking direct damage to gain the Scent of Blood effect, causing your next %d melee hit to generate 10 runic power.",
-					tipValues = {{1}, {2}, {3}},
+					talentRankSpellIds = {
+						49004, -- [1]
+						49508, -- [2]
+						49509, -- [3]
+					},
 					name = "Scent of Blood",
+					wowTreeIndex = 9,
 					column = 2,
 					row = 2,
 					icon = 132284,
@@ -61,9 +84,12 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [5]
 			{
 				info = {
-					tips = "Increases the damage you deal with two-handed melee weapons by %d%%.",
-					tipValues = {{2}, {4}},
+					talentRankSpellIds = {
+						12163, -- [1]
+						12711, -- [2]
+					},
 					name = "Two-Handed Weapon Specialization",
+					wowTreeIndex = 27,
 					column = 3,
 					row = 2,
 					icon = 135378,
@@ -72,9 +98,12 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [6]
 			{
 				info = {
-					tips = "Converts 1 Blood Rune into 10%% of your maximum health.",
+					isExceptional = 1,
+					talentRankSpellIds = {
+						48982, -- [1]
+					},
 					name = "Rune Tap",
-					exceptional = 1,
+					wowTreeIndex = 4,
 					column = 1,
 					row = 3,
 					icon = 237529,
@@ -83,9 +112,15 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [7]
 			{
 				info = {
-					tips = "Increases your chance to critically hit with weapons, spells and abilities by %d%%.",
-					tipValues = {{1}, {2}, {3}, {4}, {5}},
+					talentRankSpellIds = {
+						48987, -- [1]
+						49477, -- [2]
+						49478, -- [3]
+						49479, -- [4]
+						49480, -- [5]
+					},
 					name = "Dark Conviction",
+					wowTreeIndex = 6,
 					column = 2,
 					row = 3,
 					icon = 237518,
@@ -94,9 +129,13 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [8]
 			{
 				info = {
-					tips = "Whenever you hit with Death Strike or Obliterate there is a %d%% chance that the Frost and Unholy Runes will become Death Runes when they activate.  Death Runes count as a Blood, Frost or Unholy Rune.",
-					tipValues = {{33}, {66}, {100}},
+					talentRankSpellIds = {
+						49467, -- [1]
+						50033, -- [2]
+						50034, -- [3]
+					},
 					name = "Death Rune Mastery",
+					wowTreeIndex = 25,
 					column = 3,
 					row = 3,
 					icon = 135372,
@@ -105,18 +144,20 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [9]
 			{
 				info = {
-					tips = "Increases the health provided by Rune Tap by %d%% and lowers its cooldown by %d sec.",
-					tipValues = {{33, 10}, {66, 20}, {100, 30}},
+					talentRankSpellIds = {
+						48985, -- [1]
+						49488, -- [2]
+						49489, -- [3]
+					},
 					prereqs = {
 						{
 							column = 1,
 							row = 3,
 							source = 7,
 						}, -- [1]
-						{
-						}, -- [2]
 					},
 					name = "Improved Rune Tap",
+					wowTreeIndex = 5,
 					column = 1,
 					row = 4,
 					icon = 237529,
@@ -125,9 +166,13 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [10]
 			{
 				info = {
-					tips = "You have a chance equal to your Parry chance of taking %d%% less damage from a direct damage spell.",
-					tipValues = {{15}, {30}, {45}},
+					talentRankSpellIds = {
+						49145, -- [1]
+						49495, -- [2]
+						49497, -- [3]
+					},
 					name = "Spell Deflection",
+					wowTreeIndex = 22,
 					column = 3,
 					row = 4,
 					icon = 237531,
@@ -136,9 +181,13 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [11]
 			{
 				info = {
-					tips = "Heals you for up to %d%% of your maximum health whenever you kill a target that yields experience or honor.",
-					tipValues = {{2}, {4}, {6}},
+					talentRankSpellIds = {
+						49015, -- [1]
+						50154, -- [2]
+						50181, -- [3]
+					},
 					name = "Vendetta",
+					wowTreeIndex = 12,
 					column = 4,
 					row = 4,
 					icon = 237536,
@@ -147,9 +196,13 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [12]
 			{
 				info = {
-					tips = "Increases the damage of Blood Strike by %d%% and Heart Strike by %d%%, and increases the damage of Blood Boil by %d%%.",
-					tipValues = {{5, 15, 10}, {10, 30, 20}, {15, 45, 30}},
+					talentRankSpellIds = {
+						48977, -- [1]
+						49394, -- [2]
+						49395, -- [3]
+					},
 					name = "Bloody Strikes",
+					wowTreeIndex = 20,
 					column = 1,
 					row = 5,
 					icon = 135772,
@@ -158,9 +211,13 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [13]
 			{
 				info = {
-					tips = "Increases your total Strength by %d%%, your Stamina by %d%%, and your expertise by %d.",
-					tipValues = {{2, 1, 2}, {4, 2, 4}, {6, 3, 6}},
+					talentRankSpellIds = {
+						49006, -- [1]
+						49526, -- [2]
+						50029, -- [3]
+					},
 					name = "Veteran of the Third War",
+					wowTreeIndex = 11,
 					column = 3,
 					row = 5,
 					icon = 136005,
@@ -169,9 +226,12 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [14]
 			{
 				info = {
-					tips = "Place a Mark of Blood on an enemy.  Whenever the marked enemy deals damage to a target, that target is healed for 4%% of its maximum health.  Lasts for 20 sec or up to 20 hits.",
+					isExceptional = 1,
+					talentRankSpellIds = {
+						49005, -- [1]
+					},
 					name = "Mark of Blood",
-					exceptional = 1,
+					wowTreeIndex = 10,
 					column = 4,
 					row = 5,
 					icon = 132205,
@@ -180,18 +240,20 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [15]
 			{
 				info = {
-					tips = "Gives you a %d%% bonus to physical damage you deal for 30 sec after dealing a critical strike from a weapon swing, spell, or ability.  This effect stacks up to 3 times.",
-					tipValues = {{1}, {2}, {3}},
+					talentRankSpellIds = {
+						48988, -- [1]
+						49503, -- [2]
+						49504, -- [3]
+					},
 					prereqs = {
 						{
 							column = 2,
 							row = 3,
 							source = 8,
 						}, -- [1]
-						{
-						}, -- [2]
 					},
 					name = "Bloody Vengeance",
+					wowTreeIndex = 7,
 					column = 2,
 					row = 6,
 					icon = 132090,
@@ -200,9 +262,12 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [16]
 			{
 				info = {
-					tips = "Increases the attack power by %d%% of party and raid members within 100 yards.  Also increases your total Strength by %d%%.",
-					tipValues = {{5, 1}, {10, 2}},
+					talentRankSpellIds = {
+						53137, -- [1]
+						53138, -- [2]
+					},
 					name = "Abomination's Might",
+					wowTreeIndex = 26,
 					column = 3,
 					row = 6,
 					icon = 236310,
@@ -211,9 +276,13 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [17]
 			{
 				info = {
-					tips = "Your weapon hits have a %d%% chance to cause the target to spawn 2-4 Bloodworms.  Bloodworms attack your enemies, healing you as they do damage for 20 sec or until killed.",
-					tipValues = {{3}, {6}, {9}},
+					talentRankSpellIds = {
+						49027, -- [1]
+						49542, -- [2]
+						49543, -- [3]
+					},
 					name = "Bloodworms",
+					wowTreeIndex = 18,
 					column = 1,
 					row = 7,
 					icon = 136211,
@@ -222,9 +291,12 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [18]
 			{
 				info = {
-					tips = "Induces a friendly unit into a killing frenzy for 30 sec.  The target is Enraged, which increases their physical damage by 20%%, but causes them to lose health equal to 1%% of their maximum health every second.",
+					isExceptional = 1,
+					talentRankSpellIds = {
+						8699, -- [1]
+					},
 					name = "Unholy Frenzy",
-					exceptional = 1,
+					wowTreeIndex = 13,
 					column = 2,
 					row = 7,
 					icon = 237512,
@@ -233,9 +305,12 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [19]
 			{
 				info = {
-					tips = "While in Frost Presence or Unholy Presence, you retain %d%% healing from Blood Presence, and healing done to you is increased by %d%% in Blood Presence.",
-					tipValues = {{2, 5}, {4, 10}},
+					talentRankSpellIds = {
+						50365, -- [1]
+						50371, -- [2]
+					},
 					name = "Improved Blood Presence",
+					wowTreeIndex = 1,
 					column = 3,
 					row = 7,
 					icon = 135770,
@@ -244,9 +319,12 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [20]
 			{
 				info = {
-					tips = "Increases the damage of your Death Strike by %d%%, increases its critical strike chance by %d%%, and increases the healing granted by %d%%.",
-					tipValues = {{15, 3, 25}, {30, 6, 50}},
+					talentRankSpellIds = {
+						62905, -- [1]
+						62908, -- [2]
+					},
 					name = "Improved Death Strike",
+					wowTreeIndex = 28,
 					column = 1,
 					row = 8,
 					icon = 237517,
@@ -255,9 +333,13 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [21]
 			{
 				info = {
-					tips = "Your Blood Strikes and Heart Strikes have a %d%% chance to launch a free Death Coil at your target.",
-					tipValues = {{5}, {10}, {15}},
+					talentRankSpellIds = {
+						49018, -- [1]
+						49529, -- [2]
+						49530, -- [3]
+					},
 					name = "Sudden Doom",
+					wowTreeIndex = 14,
 					column = 2,
 					row = 8,
 					icon = 136181,
@@ -266,9 +348,12 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [22]
 			{
 				info = {
-					tips = "Temporarily grants the Death Knight 15%% of maximum health and increases the amount of health generated through spells and effects by 35%% for 10 sec.  After the effect expires, the health is lost.",
+					isExceptional = 1,
+					talentRankSpellIds = {
+						55233, -- [1]
+					},
 					name = "Vampiric Blood",
-					exceptional = 1,
+					wowTreeIndex = 23,
 					column = 3,
 					row = 8,
 					icon = 136168,
@@ -277,9 +362,13 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [23]
 			{
 				info = {
-					tips = "Damage that would take you below 35%% health or taken while you are at 35%% health is reduced by %d%%.",
-					tipValues = {{5}, {10}, {15}},
+					talentRankSpellIds = {
+						49189, -- [1]
+						50149, -- [2]
+						50150, -- [3]
+					},
 					name = "Will of the Necropolis",
+					wowTreeIndex = 17,
 					column = 1,
 					row = 9,
 					icon = 132094,
@@ -288,9 +377,12 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [24]
 			{
 				info = {
-					tips = "Instantly strike the target and his nearest ally, causing 50%% weapon damage plus 125 on the primary target, and 25%% weapon damage plus 63 on the secondary target.  Each target takes 10%% additional damage for each of your diseases active on that target.",
+					isExceptional = 1,
+					talentRankSpellIds = {
+						55050, -- [1]
+					},
 					name = "Heart Strike",
-					exceptional = 1,
+					wowTreeIndex = 15,
 					column = 2,
 					row = 9,
 					icon = 135675,
@@ -299,9 +391,13 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [25]
 			{
 				info = {
-					tips = "Increases the critical strike damage bonus of your Blood Boil, Blood Strike, Death Strike, and Heart Strike abilities by %d%%.",
-					tipValues = {{15}, {30}, {45}},
+					talentRankSpellIds = {
+						49023, -- [1]
+						49533, -- [2]
+						49534, -- [3]
+					},
 					name = "Might of Mograine",
+					wowTreeIndex = 16,
 					column = 3,
 					row = 9,
 					icon = 135771,
@@ -310,9 +406,15 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [26]
 			{
 				info = {
-					tips = "When you are above 75%% health, you deal %d%% more damage.  In addition, your attacks ignore up to %d%% of your opponent's armor at all times.",
-					tipValues = {{2, 2}, {4, 4}, {6, 6}, {8, 8}, {10, 10}},
+					talentRankSpellIds = {
+						50096, -- [1]
+						50108, -- [2]
+						50109, -- [3]
+						50110, -- [4]
+						50111, -- [5]
+					},
 					name = "Blood Gorged",
+					wowTreeIndex = 24,
 					column = 2,
 					row = 10,
 					icon = 136080,
@@ -321,9 +423,12 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [27]
 			{
 				info = {
-					tips = "Summons a second rune weapon that fights on its own for 12 sec, doing the same attacks as the Death Knight but for 50%% reduced damage.",
+					isExceptional = 1,
+					talentRankSpellIds = {
+						49028, -- [1]
+					},
 					name = "Dancing Rune Weapon",
-					exceptional = 1,
+					wowTreeIndex = 19,
 					column = 2,
 					row = 11,
 					icon = 135277,
@@ -342,9 +447,13 @@ Talented_Data.DEATHKNIGHT = {
 		talents = {
 			{
 				info = {
-					tips = "Your Icy Touch does an additional %d%% damage and your Frost Fever reduces melee and ranged attack speed by an additional %d%%.",
-					tipValues = {{5, 2}, {10, 4}, {15, 6}},
+					talentRankSpellIds = {
+						49175, -- [1]
+						50031, -- [2]
+						51456, -- [3]
+					},
 					name = "Improved Icy Touch",
+					wowTreeIndex = 19,
 					column = 1,
 					row = 1,
 					icon = 237526,
@@ -353,9 +462,12 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [1]
 			{
 				info = {
-					tips = "Increases your maximum Runic Power by %d.",
-					tipValues = {{15}, {30}},
+					talentRankSpellIds = {
+						49455, -- [1]
+						50147, -- [2]
+					},
 					name = "Runic Power Mastery",
+					wowTreeIndex = 15,
 					column = 2,
 					row = 1,
 					icon = 135728,
@@ -364,9 +476,15 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [2]
 			{
 				info = {
-					tips = "Increases your armor value from items by %d%% and reduces the duration of all movement slowing effects by %d%%.",
-					tipValues = {{2, 6}, {4, 12}, {6, 18}, {8, 24}, {10, 30}},
+					talentRankSpellIds = {
+						12299, -- [1]
+						12761, -- [2]
+						12762, -- [3]
+						12763, -- [4]
+						12764, -- [5]
+					},
 					name = "Toughness",
+					wowTreeIndex = 1,
 					column = 3,
 					row = 1,
 					icon = 135892,
@@ -375,9 +493,12 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [3]
 			{
 				info = {
-					tips = "Increases the range of your Icy Touch, Chains of Ice and Howling Blast by %d yards.",
-					tipValues = {{5}, {10}},
+					talentRankSpellIds = {
+						55061, -- [1]
+						55062, -- [2]
+					},
 					name = "Icy Reach",
+					wowTreeIndex = 20,
 					column = 2,
 					row = 2,
 					icon = 135859,
@@ -386,9 +507,15 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [4]
 			{
 				info = {
-					tips = "Increases your Frost and Shadow damage by %d%%.",
-					tipValues = {{2}, {4}, {6}, {8}, {10}},
+					talentRankSpellIds = {
+						49140, -- [1]
+						49661, -- [2]
+						49662, -- [3]
+						49663, -- [4]
+						49664, -- [5]
+					},
 					name = "Black Ice",
+					wowTreeIndex = 3,
 					column = 3,
 					row = 2,
 					icon = 136141,
@@ -397,9 +524,13 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [5]
 			{
 				info = {
-					tips = "Increases your chance to hit with one-handed melee weapons by %d%% and increases the damage done by your offhand weapon by %d%%.",
-					tipValues = {{1, 8}, {2, 16}, {3, 25}},
+					talentRankSpellIds = {
+						49226, -- [1]
+						50137, -- [2]
+						50138, -- [3]
+					},
 					name = "Nerves of Cold Steel",
+					wowTreeIndex = 16,
 					column = 4,
 					row = 2,
 					icon = 132147,
@@ -408,18 +539,22 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [6]
 			{
 				info = {
-					tips = "You leech heat from victims of your Frost Fever, so that when their melee attack speed is reduced, yours increases by %d%% for the next 20 sec.",
-					tipValues = {{4}, {8}, {12}, {16}, {20}},
+					talentRankSpellIds = {
+						50880, -- [1]
+						50882, -- [2]
+						50884, -- [3]
+						50885, -- [4]
+						50886, -- [5]
+					},
 					prereqs = {
 						{
 							column = 1,
 							row = 1,
 							source = 1,
 						}, -- [1]
-						{
-						}, -- [2]
 					},
 					name = "Icy Talons",
+					wowTreeIndex = 22,
 					column = 1,
 					row = 3,
 					icon = 252994,
@@ -428,9 +563,12 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [7]
 			{
 				info = {
-					tips = "Draw upon unholy energy to become undead for 10 sec.  While undead, you are immune to Charm, Fear and Sleep effects.",
+					isExceptional = 1,
+					talentRankSpellIds = {
+						49039, -- [1]
+					},
 					name = "Lichborne",
-					exceptional = 1,
+					wowTreeIndex = 26,
 					column = 2,
 					row = 3,
 					icon = 136187,
@@ -439,9 +577,13 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [8]
 			{
 				info = {
-					tips = "Increases the critical strike chance of your melee special abilities by %d%%.  In addition, there is a %d%% chance that your Obliterate will do its damage without consuming diseases.",
-					tipValues = {{1, 33}, {2, 66}, {3, 100}},
+					talentRankSpellIds = {
+						51468, -- [1]
+						51472, -- [2]
+						51473, -- [3]
+					},
 					name = "Annihilation",
+					wowTreeIndex = 24,
 					column = 3,
 					row = 3,
 					icon = 135609,
@@ -450,9 +592,15 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [9]
 			{
 				info = {
-					tips = "Your melee attacks have a chance to make your next Icy Touch, Howling Blast or Frost Strike a critical strike.%s",
-					tipValues = {{""}, {"  Effect occurrs more often than Killing Machine (Rank 1)."}, {"  Effect occurrs more often than Killing Machine (Rank 2)."}, {"  Effect occurrs more often than Killing Machine (Rank 3)."}, {"  Effect occurrs more often than Killing Machine (Rank 4)"}},
+					talentRankSpellIds = {
+						51123, -- [1]
+						51124, -- [2]
+						51127, -- [3]
+						51128, -- [4]
+						51129, -- [5]
+					},
 					name = "Killing Machine",
+					wowTreeIndex = 23,
 					column = 2,
 					row = 4,
 					icon = 135305,
@@ -461,9 +609,12 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [10]
 			{
 				info = {
-					tips = "Your Chains of Ice, Howling Blast, Icy Touch and Obliterate generate %.1f additional runic power.",
-					tipValues = {{2.5}, {5}},
+					talentRankSpellIds = {
+						49149, -- [1]
+						50115, -- [2]
+					},
 					name = "Chill of the Grave",
+					wowTreeIndex = 7,
 					column = 3,
 					row = 4,
 					icon = 135849,
@@ -472,9 +623,12 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [11]
 			{
 				info = {
-					tips = "Your strength is increased by %d%% and %s.",
-					tipValues = {{2, "the cost of your Mind Freeze is reduced to 10 runic power"}, {4, "your Mind Freeze no longer costs runic power"}},
+					talentRankSpellIds = {
+						49137, -- [1]
+						49657, -- [2]
+					},
 					name = "Endless Winter",
+					wowTreeIndex = 2,
 					column = 4,
 					row = 4,
 					icon = 136223,
@@ -483,9 +637,13 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [12]
 			{
 				info = {
-					tips = "Reduces the chance melee attacks will hit you by %d%%.",
-					tipValues = {{1}, {2}, {3}},
+					talentRankSpellIds = {
+						49186, -- [1]
+						51108, -- [2]
+						51109, -- [3]
+					},
 					name = "Frigid Dreadplate",
+					wowTreeIndex = 9,
 					column = 2,
 					row = 5,
 					icon = 132734,
@@ -494,9 +652,13 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [13]
 			{
 				info = {
-					tips = "Diseased enemies take %d%% more damage from your Icy Touch, Howling Blast and Frost Strike.",
-					tipValues = {{7}, {13}, {20}},
+					talentRankSpellIds = {
+						49471, -- [1]
+						49790, -- [2]
+						49791, -- [3]
+					},
 					name = "Glacier Rot",
+					wowTreeIndex = 18,
 					column = 3,
 					row = 5,
 					icon = 136083,
@@ -505,9 +667,12 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [14]
 			{
 				info = {
-					tips = "When activated, makes your next Icy Touch, Howling Blast, Frost Strike or Obliterate a critical hit if used within 30 sec.",
+					isExceptional = 1,
+					talentRankSpellIds = {
+						49796, -- [1]
+					},
 					name = "Deathchill",
-					exceptional = 1,
+					wowTreeIndex = 6,
 					column = 4,
 					row = 5,
 					icon = 136213,
@@ -516,17 +681,18 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [15]
 			{
 				info = {
-					tips = "Increases the melee haste of all party and raid members within 100 yds by 20%% and your haste by an additional 5%%.",
+					talentRankSpellIds = {
+						55610, -- [1]
+					},
 					prereqs = {
 						{
 							column = 1,
 							row = 3,
 							source = 7,
 						}, -- [1]
-						{
-						}, -- [2]
 					},
 					name = "Improved Icy Talons",
+					wowTreeIndex = 27,
 					column = 1,
 					row = 6,
 					icon = 252994,
@@ -535,9 +701,12 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [16]
 			{
 				info = {
-					tips = "Your Icy Touch, Howling Blast, Obliterate and Frost Strike do an additional %d%% damage when striking targets with less than 35%% health.",
-					tipValues = {{6}, {12}},
+					talentRankSpellIds = {
+						49024, -- [1]
+						49538, -- [2]
+					},
 					name = "Merciless Combat",
+					wowTreeIndex = 11,
 					column = 2,
 					row = 6,
 					icon = 135294,
@@ -546,9 +715,13 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [17]
 			{
 				info = {
-					tips = "Increases the critical strike chance of your Icy Touch and Obliterate by %d%% and casting Obliterate has a %d%% chance to reset the cooldown on Howling Blast and cause your next Howling Blast to consume no runes.",
-					tipValues = {{5, 5}, {10, 10}, {15, 15}},
+					talentRankSpellIds = {
+						49188, -- [1]
+						56822, -- [2]
+						59057, -- [3]
+					},
 					name = "Rime",
+					wowTreeIndex = 10,
 					column = 3,
 					row = 6,
 					icon = 135840,
@@ -557,9 +730,13 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [18]
 			{
 				info = {
-					tips = "Victims of your Frost Fever disease are Chilled, reducing movement speed by %d%% for 10 sec.",
-					tipValues = {{15}, {30}, {50}},
+					talentRankSpellIds = {
+						50040, -- [1]
+						50041, -- [2]
+						50043, -- [3]
+					},
 					name = "Chilblains",
+					wowTreeIndex = 28,
 					column = 1,
 					row = 7,
 					icon = 135864,
@@ -568,9 +745,12 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [19]
 			{
 				info = {
-					tips = "Purges the earth around the Death Knight of all heat.  Enemies within 10 yards are trapped in ice, preventing them from performing any action for 10 sec and infecting them with Frost Fever.  Enemies are considered Frozen, but any damage other than diseases will break the ice.",
+					isExceptional = 1,
+					talentRankSpellIds = {
+						49203, -- [1]
+					},
 					name = "Hungering Cold",
-					exceptional = 1,
+					wowTreeIndex = 14,
 					column = 2,
 					row = 7,
 					icon = 135152,
@@ -579,9 +759,12 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [20]
 			{
 				info = {
-					tips = "While in Blood Presence or Unholy Presence, you retain %d%% stamina from Frost Presence, and damage done to you is decreased by an additional %d%% in Frost Presence.",
-					tipValues = {{4, 1}, {8, 2}},
+					talentRankSpellIds = {
+						50384, -- [1]
+						50385, -- [2]
+					},
 					name = "Improved Frost Presence",
+					wowTreeIndex = 17,
 					column = 3,
 					row = 7,
 					icon = 135773,
@@ -590,9 +773,13 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [21]
 			{
 				info = {
-					tips = "When dual-wielding, your Death Strikes, Obliterates, Plague Strikes, Rune Strikes, Blood Strikes and Frost Strikes have a %d%% chance to also deal damage with your offhand weapon.",
-					tipValues = {{30}, {60}, {100}},
+					talentRankSpellIds = {
+						65661, -- [1]
+						66191, -- [2]
+						66192, -- [3]
+					},
 					name = "Threat of Thassarian",
+					wowTreeIndex = 29,
 					column = 1,
 					row = 8,
 					icon = 132148,
@@ -601,9 +788,13 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [22]
 			{
 				info = {
-					tips = "Increases Blood Strike and Frost Strike damage by %d%%.  In addition, whenever you hit with Blood Strike or Pestilence there is a %d%% chance that the Blood Rune will become a Death Rune when it activates.  Death Runes count as a Blood, Frost or Unholy Rune.",
-					tipValues = {{3, 30}, {6, 60}, {10, 100}},
+					talentRankSpellIds = {
+						54637, -- [1]
+						54638, -- [2]
+						54639, -- [3]
+					},
 					name = "Blood of the North",
+					wowTreeIndex = 25,
 					column = 2,
 					row = 8,
 					icon = 135714,
@@ -612,9 +803,12 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [23]
 			{
 				info = {
-					tips = "Reinforces your armor with a thick coat of ice, increasing your armor by 25%% and increasing your Strength by 20%% for 20 sec.",
+					isExceptional = 1,
+					talentRankSpellIds = {
+						51271, -- [1]
+					},
 					name = "Unbreakable Armor",
-					exceptional = 1,
+					wowTreeIndex = 5,
 					column = 3,
 					row = 8,
 					icon = 132388,
@@ -623,9 +817,13 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [24]
 			{
 				info = {
-					tips = "When you are hit by a spell, you have a %d%% chance to boost your resistance to that type of magic for 18 sec.  Stacks up to 3 times.",
-					tipValues = {{10}, {20}, {30}},
+					talentRankSpellIds = {
+						49200, -- [1]
+						50151, -- [2]
+						50152, -- [3]
+					},
 					name = "Acclimation",
+					wowTreeIndex = 12,
 					column = 1,
 					row = 9,
 					icon = 135791,
@@ -634,9 +832,12 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [25]
 			{
 				info = {
-					tips = "Instantly strike the enemy, causing 55%% weapon damage plus 48 as Frost damage.",
+					isExceptional = 1,
+					talentRankSpellIds = {
+						43568, -- [1]
+					},
 					name = "Frost Strike",
-					exceptional = 1,
+					wowTreeIndex = 4,
 					column = 2,
 					row = 9,
 					icon = 237520,
@@ -645,9 +846,13 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [26]
 			{
 				info = {
-					tips = "Increases the critical strike damage bonus of your Blood Strike, Frost Strike, Howling Blast and Obliterate abilities by %d%%, and increases the duration of your Icebound Fortitude by %d secs.",
-					tipValues = {{15, 2}, {30, 4}, {45, 6}},
+					talentRankSpellIds = {
+						50187, -- [1]
+						50190, -- [2]
+						50191, -- [3]
+					},
 					name = "Guile of Gorefiend",
+					wowTreeIndex = 21,
 					column = 3,
 					row = 9,
 					icon = 132373,
@@ -656,9 +861,15 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [27]
 			{
 				info = {
-					tips = "Your spells and abilities deal %d%% more damage to targets infected with Frost Fever.  Also increases your expertise by %d.",
-					tipValues = {{3, 1}, {6, 2}, {9, 3}, {12, 4}, {15, 5}},
+					talentRankSpellIds = {
+						49202, -- [1]
+						50127, -- [2]
+						50128, -- [3]
+						50129, -- [4]
+						50130, -- [5]
+					},
 					name = "Tundra Stalker",
+					wowTreeIndex = 13,
 					column = 2,
 					row = 10,
 					icon = 136107,
@@ -667,9 +878,12 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [28]
 			{
 				info = {
-					tips = "Blast the target with a frigid wind dealing 198 to 214 Frost damage to all enemies within 10 yards.",
+					isExceptional = 1,
+					talentRankSpellIds = {
+						49184, -- [1]
+					},
 					name = "Howling Blast",
-					exceptional = 1,
+					wowTreeIndex = 8,
 					column = 2,
 					row = 11,
 					icon = 135833,
@@ -688,9 +902,12 @@ Talented_Data.DEATHKNIGHT = {
 		talents = {
 			{
 				info = {
-					tips = "Increases the critical strike chance by %d%% and critical strike damage bonus by %d%% of your Plague Strike and Scourge Strike.",
-					tipValues = {{3, 15}, {6, 30}},
+					talentRankSpellIds = {
+						51745, -- [1]
+						51746, -- [2]
+					},
 					name = "Vicious Strikes",
+					wowTreeIndex = 24,
 					column = 1,
 					row = 1,
 					icon = 135774,
@@ -699,9 +916,13 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [1]
 			{
 				info = {
-					tips = "Increases your chance to hit with your spells by %d%% and reduces the chance that your damage over time diseases can be cured by %d%%.",
-					tipValues = {{1, 10}, {2, 20}, {3, 30}},
+					talentRankSpellIds = {
+						48962, -- [1]
+						49567, -- [2]
+						49568, -- [3]
+					},
 					name = "Virulence",
+					wowTreeIndex = 1,
 					column = 2,
 					row = 1,
 					icon = 136126,
@@ -710,9 +931,15 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [2]
 			{
 				info = {
-					tips = "Increases your Dodge chance by %d%%.",
-					tipValues = {{1}, {2}, {3}, {4}, {5}},
+					talentRankSpellIds = {
+						12297, -- [1]
+						12750, -- [2]
+						12751, -- [3]
+						12752, -- [4]
+						12753, -- [5]
+					},
 					name = "Anticipation",
+					wowTreeIndex = 27,
 					column = 3,
 					row = 1,
 					icon = 136056,
@@ -721,9 +948,12 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [3]
 			{
 				info = {
-					tips = "Increases the duration of Blood Plague and Frost Fever by %d sec.",
-					tipValues = {{3}, {6}},
+					talentRankSpellIds = {
+						49036, -- [1]
+						49562, -- [2]
+					},
 					name = "Epidemic",
+					wowTreeIndex = 5,
 					column = 1,
 					row = 2,
 					icon = 136207,
@@ -732,9 +962,13 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [4]
 			{
 				info = {
-					tips = "Increases the damage and healing of Death Coil by %d%% and reduces the cooldown on Death and Decay by %d sec.",
-					tipValues = {{5, 5}, {10, 10}, {15, 15}},
+					talentRankSpellIds = {
+						48963, -- [1]
+						49564, -- [2]
+						49565, -- [3]
+					},
 					name = "Morbidity",
+					wowTreeIndex = 2,
 					column = 2,
 					row = 2,
 					icon = 136144,
@@ -743,9 +977,12 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [5]
 			{
 				info = {
-					tips = "Reduces the cooldown of your Death Grip ability by %d sec.",
-					tipValues = {{5}, {10}},
+					talentRankSpellIds = {
+						49588, -- [1]
+						49589, -- [2]
+					},
 					name = "Unholy Command",
+					wowTreeIndex = 19,
 					column = 3,
 					row = 2,
 					icon = 237532,
@@ -754,9 +991,13 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [6]
 			{
 				info = {
-					tips = "Increases your total Strength by %d%% and the contribution your Ghouls get from your Strength and Stamina by %d%%.",
-					tipValues = {{1, 20}, {2, 40}, {3, 60}},
+					talentRankSpellIds = {
+						48965, -- [1]
+						49571, -- [2]
+						49572, -- [3]
+					},
 					name = "Ravenous Dead",
+					wowTreeIndex = 3,
 					column = 4,
 					row = 2,
 					icon = 237524,
@@ -765,9 +1006,13 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [7]
 			{
 				info = {
-					tips = "Increases the damage of Plague Strike by %d%% and Scourge Strike by %d%%.",
-					tipValues = {{10, 7}, {20, 13}, {30, 20}},
+					talentRankSpellIds = {
+						49013, -- [1]
+						50304, -- [2]
+						55236, -- [3]
+					},
 					name = "Outbreak",
+					wowTreeIndex = 15,
 					column = 1,
 					row = 3,
 					icon = 136182,
@@ -776,9 +1021,15 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [8]
 			{
 				info = {
-					tips = "Your auto attacks deal an additional %d%% Shadow damage.",
-					tipValues = {{4}, {8}, {12}, {16}, {20}},
+					talentRankSpellIds = {
+						51459, -- [1]
+						51460, -- [2]
+						51462, -- [3]
+						51463, -- [4]
+						51464, -- [5]
+					},
 					name = "Necrosis",
+					wowTreeIndex = 23,
 					column = 2,
 					row = 3,
 					icon = 135695,
@@ -787,9 +1038,12 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [9]
 			{
 				info = {
-					tips = "Cause a corpse to explode for 166 Shadow damage to all enemies within 10 yards.  Will use a nearby corpse if the target is not a corpse.  Does not affect mechanical or elemental corpses.",
+					isExceptional = 1,
+					talentRankSpellIds = {
+						17616, -- [1]
+					},
 					name = "Corpse Explosion",
-					exceptional = 1,
+					wowTreeIndex = 7,
 					column = 3,
 					row = 3,
 					icon = 132099,
@@ -798,9 +1052,12 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [10]
 			{
 				info = {
-					tips = "You become as hard to stop as death itself.  The duration of all Stun and Fear effects used against you is reduced by %d%%, and your mounted speed is increased by %d%%.  This does not stack with other movement speed increasing effects.",
-					tipValues = {{10, 10}, {20, 20}},
+					talentRankSpellIds = {
+						49146, -- [1]
+						51267, -- [2]
+					},
 					name = "On a Pale Horse",
+					wowTreeIndex = 21,
 					column = 2,
 					row = 4,
 					icon = 237534,
@@ -809,9 +1066,13 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [11]
 			{
 				info = {
-					tips = "Your auto attacks have a %d%% chance to cause a Blood-Caked Strike, which hits for 25%% weapon damage plus 12.5%% for each of your diseases on the target.",
-					tipValues = {{10}, {20}, {30}},
+					talentRankSpellIds = {
+						49219, -- [1]
+						49627, -- [2]
+						49628, -- [3]
+					},
 					name = "Blood-Caked Blade",
+					wowTreeIndex = 12,
 					column = 3,
 					row = 4,
 					icon = 132109,
@@ -820,9 +1081,12 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [12]
 			{
 				info = {
-					tips = "Reduces the cooldown on Raise Dead by %d sec and the cooldown on Army of the Dead by %d min.  Also reduces the damage your pet takes from creature area of effect attacks by %d%%.",
-					tipValues = {{45, 2, 45}, {90, 4, 90}},
+					talentRankSpellIds = {
+						55620, -- [1]
+						55623, -- [2]
+					},
 					name = "Night of the Dead",
+					wowTreeIndex = 29,
 					column = 4,
 					row = 4,
 					icon = 237511,
@@ -831,9 +1095,12 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [13]
 			{
 				info = {
-					tips = "Causes the victims of your Death Coil to be surrounded by a vile swarm of unholy insects, taking 10%% of the damage done by the Death Coil over 10 sec, and preventing any diseases on the victim from being dispelled.",
+					isExceptional = 1,
+					talentRankSpellIds = {
+						49194, -- [1]
+					},
 					name = "Unholy Blight",
-					exceptional = 1,
+					wowTreeIndex = 8,
 					column = 1,
 					row = 5,
 					icon = 136132,
@@ -842,9 +1109,15 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [14]
 			{
 				info = {
-					tips = "The attack power bonus of your spells is increased by %d%%.",
-					tipValues = {{4}, {8}, {12}, {16}, {20}},
+					talentRankSpellIds = {
+						49220, -- [1]
+						49633, -- [2]
+						49635, -- [3]
+						49636, -- [4]
+						49638, -- [5]
+					},
 					name = "Impurity",
+					wowTreeIndex = 13,
 					column = 2,
 					row = 5,
 					icon = 136196,
@@ -853,9 +1126,12 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [15]
 			{
 				info = {
-					tips = "Your Death Strike, Plague Strike and Scourge Strike generate %.1f additional runic power.",
-					tipValues = {{2.5}, {5.0}},
+					talentRankSpellIds = {
+						29699, -- [1]
+						49223, -- [2]
+					},
 					name = "Dirge",
+					wowTreeIndex = 17,
 					column = 3,
 					row = 5,
 					icon = 136194,
@@ -864,9 +1140,12 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [16]
 			{
 				info = {
-					tips = "Your Plague Strikes and Scourge Strikes cause the Desecrated Ground effect.  Targets in the area are slowed by %d%% by the grasping arms of the dead while standing on the unholy ground.  Lasts 20 sec.",
-					tipValues = {{25}, {50}},
+					talentRankSpellIds = {
+						36473, -- [1]
+						55666, -- [2]
+					},
 					name = "Desecration",
+					wowTreeIndex = 30,
 					column = 1,
 					row = 6,
 					icon = 136199,
@@ -875,9 +1154,13 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [17]
 			{
 				info = {
-					tips = "You take %d%% less damage from all magic.  In addition, your Anti-Magic Shell absorbs an additional %d%% of spell damage.",
-					tipValues = {{2, 8}, {4, 16}, {6, 25}},
+					talentRankSpellIds = {
+						49224, -- [1]
+						49610, -- [2]
+						49611, -- [3]
+					},
 					name = "Magic Suppression",
+					wowTreeIndex = 16,
 					column = 2,
 					row = 6,
 					icon = 136120,
@@ -886,9 +1169,13 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [18]
 			{
 				info = {
-					tips = "Whenever you hit with Blood Strike or Pestilence there is a %d%% chance that the Blood Rune becomes a Death Rune when it activates.  Death Runes count as a Blood, Frost or Unholy Rune.",
-					tipValues = {{33}, {66}, {100}},
+					talentRankSpellIds = {
+						49208, -- [1]
+						56834, -- [2]
+						56835, -- [3]
+					},
 					name = "Reaping",
+					wowTreeIndex = 10,
 					column = 3,
 					row = 6,
 					icon = 136195,
@@ -897,17 +1184,18 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [19]
 			{
 				info = {
-					tips = "Reduces the cooldown on Raise Dead by 60 sec, and the Ghoul summoned by your Raise Dead spell is considered a pet under your control.  Unlike normal Death Knight Ghouls, your pet does not have a limited duration.",
+					talentRankSpellIds = {
+						52143, -- [1]
+					},
 					prereqs = {
 						{
 							column = 4,
 							row = 4,
 							source = 13,
 						}, -- [1]
-						{
-						}, -- [2]
 					},
 					name = "Master of Ghouls",
+					wowTreeIndex = 6,
 					column = 4,
 					row = 6,
 					icon = 136119,
@@ -916,9 +1204,15 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [20]
 			{
 				info = {
-					tips = "Your Blood Strikes cause you to deal %d%% additional damage with all attacks for the next 20 sec.",
-					tipValues = {{1}, {2}, {3}, {4}, {5}},
+					talentRankSpellIds = {
+						63583, -- [1]
+						66799, -- [2]
+						66800, -- [3]
+						66801, -- [4]
+						66802, -- [5]
+					},
 					name = "Desolation",
+					wowTreeIndex = 31,
 					column = 1,
 					row = 7,
 					icon = 136224,
@@ -927,29 +1221,33 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [21]
 			{
 				info = {
-					tips = "Places a large, stationary Anti-Magic Zone that reduces spell damage done to party or raid members inside it by 75%%.  The Anti-Magic Zone lasts for 10 sec or until it absorbs 14340 spell damage.",
+					isExceptional = 1,
 					prereqs = {
 						{
 							column = 2,
 							row = 6,
 							source = 18,
 						}, -- [1]
-						{
-						}, -- [2]
 					},
+					ranks = 1,
 					name = "Anti-Magic Zone",
-					exceptional = 1,
+					talentRankSpellIds = {
+						50461, -- [1]
+					},
 					column = 2,
 					row = 7,
 					icon = 237510,
-					ranks = 1,
+					wowTreeIndex = 28,
 				},
 			}, -- [22]
 			{
 				info = {
-					tips = "While in Blood Presence or Frost Presence, you retain %d%% increased movement speed from Unholy Presence, and your runes finish their cooldowns %d%% faster in Unholy Presence.",
-					tipValues = {{8, 5}, {15, 10}},
+					talentRankSpellIds = {
+						50391, -- [1]
+						50392, -- [2]
+					},
 					name = "Improved Unholy Presence",
+					wowTreeIndex = 18,
 					column = 3,
 					row = 7,
 					icon = 135775,
@@ -958,29 +1256,34 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [23]
 			{
 				info = {
-					tips = "Grants your pet 25%% haste for 30 sec and  heals it for 60%% of its health over the duration.",
+					isExceptional = 1,
 					prereqs = {
 						{
 							column = 4,
 							row = 6,
 							source = 20,
 						}, -- [1]
-						{
-						}, -- [2]
 					},
+					ranks = 1,
 					name = "Ghoul Frenzy",
-					exceptional = 1,
+					talentRankSpellIds = {
+						63560, -- [1]
+					},
 					column = 4,
 					row = 7,
 					icon = 132152,
-					ranks = 1,
+					wowTreeIndex = 25,
 				},
 			}, -- [24]
 			{
 				info = {
-					tips = "Your diseases also cause Crypt Fever, which increases disease damage taken by the target by %d%%.",
-					tipValues = {{10}, {20}, {30}},
+					talentRankSpellIds = {
+						49032, -- [1]
+						49631, -- [2]
+						49632, -- [3]
+					},
 					name = "Crypt Fever",
+					wowTreeIndex = 4,
 					column = 2,
 					row = 8,
 					icon = 136066,
@@ -989,9 +1292,12 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [25]
 			{
 				info = {
-					tips = "The Death Knight is surrounded by 3 whirling bones.  While at least 1 bone remains, he takes 20%% less damage from all sources and deals 2%% more damage with all attacks, spells and abilities.  Each damaging attack that lands consumes 1 bone.  Lasts 5 min.",
+					isExceptional = 1,
+					talentRankSpellIds = {
+						27688, -- [1]
+					},
 					name = "Bone Shield",
-					exceptional = 1,
+					wowTreeIndex = 14,
 					column = 3,
 					row = 8,
 					icon = 132728,
@@ -1000,9 +1306,13 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [26]
 			{
 				info = {
-					tips = "When your diseases damage an enemy, there is a chance equal to your melee critical strike chance that they will cause %d%% additional damage to the target and all enemies within 8 yards.  Ignores any target under the effect of a spell that is cancelled by taking damage.",
-					tipValues = {{33}, {66}, {100}},
+					talentRankSpellIds = {
+						3436, -- [1]
+						3439, -- [2]
+						8247, -- [3]
+					},
 					name = "Wandering Plague",
+					wowTreeIndex = 11,
 					column = 1,
 					row = 9,
 					icon = 136127,
@@ -1011,18 +1321,20 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [27]
 			{
 				info = {
-					tips = "Your Crypt Fever morphs into Ebon Plague, which increases magic damage taken by %d%% in addition to increasing disease damage taken.  Improves your critical strike chance with weapons and spells by %d%% at all times.",
-					tipValues = {{4, 1}, {9, 2}, {13, 3}},
+					talentRankSpellIds = {
+						51099, -- [1]
+						51160, -- [2]
+						51161, -- [3]
+					},
 					prereqs = {
 						{
 							column = 2,
 							row = 8,
 							source = 25,
 						}, -- [1]
-						{
-						}, -- [2]
 					},
 					name = "Ebon Plaguebringer",
+					wowTreeIndex = 22,
 					column = 2,
 					row = 9,
 					icon = 132095,
@@ -1031,9 +1343,12 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [28]
 			{
 				info = {
-					tips = "An unholy strike that deals 70%% of weapon damage as Physical damage plus 380.  In addition, for each of your diseases on your target, you deal an additional 12%% of the Physical damage done as Shadow damage.",
+					isExceptional = 1,
+					talentRankSpellIds = {
+						28265, -- [1]
+					},
 					name = "Scourge Strike",
-					exceptional = 1,
+					wowTreeIndex = 26,
 					column = 3,
 					row = 9,
 					icon = 237530,
@@ -1042,9 +1357,15 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [29]
 			{
 				info = {
-					tips = "Your spells and abilities deal %d%% more damage to targets infected with Blood Plague.  Also increases your expertise by %d.",
-					tipValues = {{2, 1}, {4, 2}, {6, 3}, {8, 4}, {10, 5}},
+					talentRankSpellIds = {
+						50117, -- [1]
+						50118, -- [2]
+						50119, -- [3]
+						50120, -- [4]
+						50121, -- [5]
+					},
 					name = "Rage of Rivendare",
+					wowTreeIndex = 20,
 					column = 2,
 					row = 10,
 					icon = 135564,
@@ -1053,9 +1374,12 @@ Talented_Data.DEATHKNIGHT = {
 			}, -- [30]
 			{
 				info = {
-					tips = "A Gargoyle flies into the area and bombards the target with Nature damage modified by the Death Knight's attack power.  Persists for 30 sec.",
+					isExceptional = 1,
+					talentRankSpellIds = {
+						49206, -- [1]
+					},
 					name = "Summon Gargoyle",
-					exceptional = 1,
+					wowTreeIndex = 9,
 					column = 2,
 					row = 11,
 					icon = 132182,

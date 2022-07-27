@@ -2,13 +2,16 @@ if not Talented_Data then return end
 
 Talented_Data.MAGE = {
 	{
-		numtalents = 23,
+		numtalents = 30,
 		talents = {
 			{
 				info = {
+					talentRankSpellIds = {
+						11210, -- [1]
+						12592, -- [2]
+					},
 					name = "Arcane Subtlety",
-					tips = "Reduces your target's resistance to all your spells by %d and reduces the threat caused by your Arcane spells by %d%%.",
-					tipValues = {{5, 20}, {10, 40}},
+					wowTreeIndex = 1,
 					column = 1,
 					row = 1,
 					icon = 135894,
@@ -17,20 +20,30 @@ Talented_Data.MAGE = {
 			}, -- [1]
 			{
 				info = {
+					talentRankSpellIds = {
+						11222, -- [1]
+						12839, -- [2]
+						12840, -- [3]
+					},
 					name = "Arcane Focus",
-					tips = "Reduces the chance that the opponent can resist your Arcane spells by %d%%.",
-					tipValues = {{2}, {4}, {6}, {8}, {10}},
+					wowTreeIndex = 3,
 					column = 2,
 					row = 1,
 					icon = 135892,
-					ranks = 5,
+					ranks = 3,
 				},
 			}, -- [2]
 			{
 				info = {
-					name = "Improved Arcane Missiles",
-					tips = "Gives you a %d%% chance to avoid interruption caused by damage while channeling Arcane Missiles.",
-					tipValues = {{20}, {40}, {60}, {80}, {100}},
+					talentRankSpellIds = {
+						11237, -- [1]
+						12463, -- [2]
+						12464, -- [3]
+						16769, -- [4]
+						16770, -- [5]
+					},
+					name = "Arcane Stability",
+					wowTreeIndex = 5,
 					column = 3,
 					row = 1,
 					icon = 136096,
@@ -39,31 +52,44 @@ Talented_Data.MAGE = {
 			}, -- [3]
 			{
 				info = {
-					name = "Wand Specialization",
-					tips = "Increases your damage with Wands by %d%%.",
-					tipValues = {{13}, {25}},
+					talentRankSpellIds = {
+						28574, -- [1]
+						54658, -- [2]
+						54659, -- [3]
+					},
+					name = "Arcane Fortitude",
+					wowTreeIndex = 9,
 					column = 1,
 					row = 2,
-					icon = 135463,
-					ranks = 2,
+					icon = 135733,
+					ranks = 3,
 				},
 			}, -- [4]
 			{
 				info = {
+					talentRankSpellIds = {
+						29441, -- [1]
+						29442, -- [2]
+					},
 					name = "Magic Absorption",
-					tips = "Increases all resistances by %d and causes all spells you fully resist to restore %d%% of your total mana.  1 sec. cooldown.",
-					tipValues = {{2, 1}, {4, 2}, {6, 3}, {8, 4}, {10, 5}},
+					wowTreeIndex = 15,
 					column = 2,
 					row = 2,
 					icon = 136011,
-					ranks = 5,
+					ranks = 2,
 				},
 			}, -- [5]
 			{
 				info = {
+					talentRankSpellIds = {
+						11213, -- [1]
+						12574, -- [2]
+						12575, -- [3]
+						12576, -- [4]
+						12577, -- [5]
+					},
 					name = "Arcane Concentration",
-					tips = "Gives you a %d%% chance of entering a Clearcasting state after any damage spell hits a target.  The Clearcasting state reduces the mana cost of your next damage spell by 100%%.",
-					tipValues = {{2}, {4}, {6}, {8}, {10}},
+					wowTreeIndex = 2,
 					column = 3,
 					row = 2,
 					icon = 136170,
@@ -72,9 +98,12 @@ Talented_Data.MAGE = {
 			}, -- [6]
 			{
 				info = {
+					talentRankSpellIds = {
+						11247, -- [1]
+						12606, -- [2]
+					},
 					name = "Magic Attunement",
-					tips = "Increases the effect of your Amplify Magic and Dampen Magic spells by %d%%.",
-					tipValues = {{25}, {50}},
+					wowTreeIndex = 7,
 					column = 1,
 					row = 3,
 					icon = 136006,
@@ -83,9 +112,13 @@ Talented_Data.MAGE = {
 			}, -- [7]
 			{
 				info = {
-					name = "Arcane Impact",
-					tips = "Increases the critical strike chance of your Arcane Explosion and Arcane Blast spells by an additional %d%%.",
-					tipValues = {{2}, {4}, {6}},
+					talentRankSpellIds = {
+						11242, -- [1]
+						12467, -- [2]
+						12469, -- [3]
+					},
+					name = "Spell Impact",
+					wowTreeIndex = 6,
 					column = 2,
 					row = 3,
 					icon = 136116,
@@ -94,190 +127,357 @@ Talented_Data.MAGE = {
 			}, -- [8]
 			{
 				info = {
-					tips = "Increases your armor by an amount equal to 100% of your Intellect.",
-					name = "Arcane Fortitude",
+					talentRankSpellIds = {
+						44397, -- [1]
+						44398, -- [2]
+						44399, -- [3]
+					},
+					name = "Student of the Mind",
+					wowTreeIndex = 25,
+					column = 3,
 					row = 3,
-					column = 4,
-					exceptional = 1,
-					icon = 135733,
-					ranks = 1,
+					icon = 236225,
+					ranks = 3,
 				},
 			}, -- [9]
 			{
 				info = {
-					name = "Improved Mana Shield",
-					tips = "Decreases the mana lost per point of damage taken when Mana Shield is active by %d%%.",
-					tipValues = {{10}, {20}},
+					isExceptional = 1,
+					talentRankSpellIds = {
+						54646, -- [1]
+					},
+					name = "Focus Magic",
+					wowTreeIndex = 29,
+					column = 4,
+					row = 3,
+					icon = 135754,
+					ranks = 1,
+				},
+			}, -- [10]
+			{
+				info = {
+					talentRankSpellIds = {
+						11252, -- [1]
+						12605, -- [2]
+					},
+					name = "Arcane Shielding",
+					wowTreeIndex = 8,
 					column = 1,
 					row = 4,
 					icon = 136153,
 					ranks = 2,
 				},
-			}, -- [10]
+			}, -- [11]
 			{
 				info = {
+					talentRankSpellIds = {
+						11255, -- [1]
+						12598, -- [2]
+					},
 					name = "Improved Counterspell",
-					tips = "Gives your Counterspell a %d%% chance to silence the target for 4 sec.",
-					tipValues = {{50}, {100}},
+					wowTreeIndex = 12,
 					column = 2,
 					row = 4,
 					icon = 135856,
 					ranks = 2,
 				},
-			}, -- [11]
+			}, -- [12]
 			{
 				info = {
+					talentRankSpellIds = {
+						18462, -- [1]
+						18463, -- [2]
+						18464, -- [3]
+					},
 					name = "Arcane Meditation",
-					tips = "Allows %d%% of your mana regeneration to continue while casting.",
-					tipValues = {{10}, {20}, {30}},
-					column = 4,
+					wowTreeIndex = 14,
+					column = 3,
 					row = 4,
 					icon = 136208,
 					ranks = 3,
 				},
-			}, -- [12]
+			}, -- [13]
 			{
 				info = {
+					talentRankSpellIds = {
+						29447, -- [1]
+						55339, -- [2]
+						55340, -- [3]
+					},
+					name = "Torment the Weak",
+					wowTreeIndex = 30,
+					column = 4,
+					row = 4,
+					icon = 236226,
+					ranks = 3,
+				},
+			}, -- [14]
+			{
+				info = {
+					talentRankSpellIds = {
+						31569, -- [1]
+						31570, -- [2]
+					},
 					name = "Improved Blink",
-					tips = "For 4 sec after casting Blink, your chance to be hit by all attacks and spells is reduced by %d%%.",
-					tipValues = {{13}, {25}},
+					wowTreeIndex = 16,
 					column = 1,
 					row = 5,
 					icon = 135736,
 					ranks = 2,
 				},
-			}, -- [13]
+			}, -- [15]
 			{
 				info = {
-					tips = "When activated, your next Mage spell with a casting time less than 10 sec becomes an instant cast spell.",
+					isExceptional = 1,
+					talentRankSpellIds = {
+						12043, -- [1]
+					},
 					name = "Presence of Mind",
-					row = 5,
+					wowTreeIndex = 10,
 					column = 2,
-					exceptional = 1,
+					row = 5,
 					icon = 136031,
 					ranks = 1,
 				},
-			}, -- [14]
+			}, -- [16]
 			{
 				info = {
+					talentRankSpellIds = {
+						11232, -- [1]
+						12500, -- [2]
+						12501, -- [3]
+						12502, -- [4]
+						12503, -- [5]
+					},
 					name = "Arcane Mind",
-					tips = "Increases your total Intellect by %d%%.",
-					tipValues = {{3}, {6}, {9}, {12}, {15}},
+					wowTreeIndex = 4,
 					column = 4,
 					row = 5,
 					icon = 136129,
 					ranks = 5,
 				},
-			}, -- [15]
-			{
-				info = {
-					name = "Prismatic Cloak",
-					tips = "Reduces all damage taken by %d%%.",
-					tipValues = {{2}, {4}},
-					column = 1,
-					row = 6,
-					icon = 135752,
-					ranks = 2,
-				},
-			}, -- [16]
-			{
-				info = {
-					prereqs = {
-						{
-							column = 2,
-							row = 5,
-							source = 14,
-						}, -- [1]
-					},
-					name = "Arcane Instability",
-					tips = "Increases your spell damage and critical strike chance by %d%%.",
-					tipValues = {{1}, {2}, {3}},
-					column = 2,
-					row = 6,
-					icon = 136222,
-					ranks = 3,
-				},
 			}, -- [17]
 			{
 				info = {
-					prereqs = {
-						{
-							column = 3,
-							row = 2,
-							source = 6,
-						}, -- [1]
+					talentRankSpellIds = {
+						31574, -- [1]
+						31575, -- [2]
+						54354, -- [3]
 					},
-					name = "Arcane Potency",
-					tips = "Increases the critical strike chance of any spell cast while Clearcasting by %d%%.",
-					tipValues = {{10}, {20}, {30}},
-					column = 3,
+					name = "Prismatic Cloak",
+					wowTreeIndex = 18,
+					column = 1,
 					row = 6,
-					icon = 135732,
+					icon = 135752,
 					ranks = 3,
 				},
 			}, -- [18]
 			{
 				info = {
-					name = "Empowered Arcane Missiles",
-					tips = "Your Arcane Missiles spell gains an additional %d%% of your bonus spell damage effects, but mana cost is increased by %d%%.",
-					tipValues = {{15, 2}, {30, 4}, {45, 6}},
-					column = 1,
-					row = 7,
-					icon = 136096,
+					talentRankSpellIds = {
+						15058, -- [1]
+						15059, -- [2]
+						15060, -- [3]
+					},
+					prereqs = {
+						{
+							column = 2,
+							row = 5,
+							source = 16,
+						}, -- [1]
+					},
+					name = "Arcane Instability",
+					wowTreeIndex = 13,
+					column = 2,
+					row = 6,
+					icon = 136222,
 					ranks = 3,
 				},
 			}, -- [19]
 			{
 				info = {
-					tips = "When activated, your spells deal 30% more damage while costing 30% more mana to cast.  This effect lasts 15 sec.",
+					talentRankSpellIds = {
+						24544, -- [1]
+						31571, -- [2]
+					},
 					prereqs = {
 						{
 							column = 2,
-							row = 6,
-							source = 17,
+							row = 5,
+							source = 16,
 						}, -- [1]
 					},
-					name = "Arcane Power",
-					row = 7,
-					column = 2,
-					exceptional = 1,
-					icon = 136048,
-					ranks = 1,
+					name = "Arcane Potency",
+					wowTreeIndex = 17,
+					column = 3,
+					row = 6,
+					icon = 135732,
+					ranks = 2,
 				},
 			}, -- [20]
 			{
 				info = {
-					name = "Spell Power",
-					tips = "Increases critical strike damage bonus of all spells by %d%%.",
-					tipValues = {{25}, {50}},
-					column = 3,
+					talentRankSpellIds = {
+						31579, -- [1]
+						31582, -- [2]
+						31583, -- [3]
+					},
+					name = "Arcane Empowerment",
+					wowTreeIndex = 19,
+					column = 1,
 					row = 7,
-					icon = 135734,
-					ranks = 2,
+					icon = 136096,
+					ranks = 3,
 				},
 			}, -- [21]
 			{
 				info = {
-					name = "Mind Mastery",
-					tips = "Increases spell damage by up to %d%% of your total Intellect.",
-					tipValues = {{5}, {10}, {15}, {20}, {25}},
+					isExceptional = 1,
+					prereqs = {
+						{
+							column = 2,
+							row = 6,
+							source = 19,
+						}, -- [1]
+					},
+					ranks = 1,
+					name = "Arcane Power",
+					talentRankSpellIds = {
+						12042, -- [1]
+					},
 					column = 2,
-					row = 8,
-					icon = 135740,
-					ranks = 5,
+					row = 7,
+					icon = 136048,
+					wowTreeIndex = 11,
 				},
 			}, -- [22]
 			{
 				info = {
-					tips = "Reduces target's movement speed by 50%, increases the time between ranged attacks by 50% and increases casting time by 50%.  Lasts 15 sec.  Slow can only affect one target at a time.",
-					name = "Slow",
-					row = 9,
+					talentRankSpellIds = {
+						44394, -- [1]
+						44395, -- [2]
+						44396, -- [3]
+					},
+					name = "Incanter's Absorption",
+					wowTreeIndex = 24,
+					column = 3,
+					row = 7,
+					icon = 236219,
+					ranks = 3,
+				},
+			}, -- [23]
+			{
+				info = {
+					talentRankSpellIds = {
+						44378, -- [1]
+						44379, -- [2]
+					},
+					prereqs = {
+						{
+							column = 2,
+							row = 7,
+							source = 22,
+						}, -- [1]
+					},
+					name = "Arcane Flows",
+					wowTreeIndex = 23,
 					column = 2,
-					exceptional = 1,
+					row = 8,
+					icon = 236223,
+					ranks = 2,
+				},
+			}, -- [24]
+			{
+				info = {
+					talentRankSpellIds = {
+						31584, -- [1]
+						31585, -- [2]
+						31586, -- [3]
+						31587, -- [4]
+						31588, -- [5]
+					},
+					name = "Mind Mastery",
+					wowTreeIndex = 20,
+					column = 3,
+					row = 8,
+					icon = 135740,
+					ranks = 5,
+				},
+			}, -- [25]
+			{
+				info = {
+					isExceptional = 1,
+					talentRankSpellIds = {
+						246, -- [1]
+					},
+					name = "Slow",
+					wowTreeIndex = 21,
+					column = 2,
+					row = 9,
 					icon = 136091,
 					ranks = 1,
 				},
-			}, -- [23]
+			}, -- [26]
+			{
+				info = {
+					talentRankSpellIds = {
+						44401, -- [1]
+						44404, -- [2]
+						54486, -- [3]
+						54488, -- [4]
+						54489, -- [5]
+					},
+					name = "Missile Barrage",
+					wowTreeIndex = 28,
+					column = 3,
+					row = 9,
+					icon = 236221,
+					ranks = 5,
+				},
+			}, -- [27]
+			{
+				info = {
+					talentRankSpellIds = {
+						44400, -- [1]
+						44402, -- [2]
+						44403, -- [3]
+					},
+					name = "Netherwind Presence",
+					wowTreeIndex = 26,
+					column = 2,
+					row = 10,
+					icon = 236222,
+					ranks = 3,
+				},
+			}, -- [28]
+			{
+				info = {
+					talentRankSpellIds = {
+						32925, -- [1]
+						32956, -- [2]
+					},
+					name = "Spell Power",
+					wowTreeIndex = 22,
+					column = 3,
+					row = 10,
+					icon = 135734,
+					ranks = 2,
+				},
+			}, -- [29]
+			{
+				info = {
+					isExceptional = 1,
+					talentRankSpellIds = {
+						44425, -- [1]
+					},
+					name = "Arcane Barrage",
+					wowTreeIndex = 27,
+					column = 2,
+					row = 11,
+					icon = 236205,
+					ranks = 1,
+				},
+			}, -- [30]
 		},
 		info = {
 			name = "Arcane",
@@ -285,271 +485,450 @@ Talented_Data.MAGE = {
 		},
 	}, -- [1]
 	{
-		numtalents = 22,
+		numtalents = 28,
 		talents = {
 			{
 				info = {
-					name = "Improved Fireball",
-					tips = "Reduces the casting time of your Fireball spell by %.1f sec.",
-					tipValues = {{0.1}, {0.2}, {0.3}, {0.4}, {0.5}},
-					column = 2,
+					talentRankSpellIds = {
+						11078, -- [1]
+						11080, -- [2]
+					},
+					name = "Improved Fire Blast",
+					wowTreeIndex = 5,
+					column = 1,
 					row = 1,
-					icon = 135812,
-					ranks = 5,
+					icon = 135807,
+					ranks = 2,
 				},
 			}, -- [1]
 			{
 				info = {
-					name = "Impact",
-					tips = "Gives your Fire spells a %d%% chance to stun the target for 2 sec.",
-					tipValues = {{2}, {4}, {6}, {8}, {10}},
-					column = 3,
+					talentRankSpellIds = {
+						18459, -- [1]
+						18460, -- [2]
+						54734, -- [3]
+					},
+					name = "Incineration",
+					wowTreeIndex = 15,
+					column = 2,
 					row = 1,
-					icon = 135821,
-					ranks = 5,
+					icon = 135813,
+					ranks = 3,
 				},
 			}, -- [2]
 			{
 				info = {
-					name = "Ignite",
-					tips = "Your critical strikes from Fire damage spells cause the target to burn for an additional %d%% of your spell's damage over 4 sec.",
-					tipValues = {{8}, {16}, {24}, {32}, {40}},
-					column = 1,
-					row = 2,
-					icon = 135818,
+					talentRankSpellIds = {
+						11069, -- [1]
+						12338, -- [2]
+						12339, -- [3]
+						12340, -- [4]
+						12341, -- [5]
+					},
+					name = "Improved Fireball",
+					wowTreeIndex = 4,
+					column = 3,
+					row = 1,
+					icon = 135812,
 					ranks = 5,
 				},
 			}, -- [3]
 			{
 				info = {
-					name = "Flame Throwing",
-					tips = "Increases the range of your Fire spells by %d yards.",
-					tipValues = {{3}, {6}},
-					column = 2,
+					talentRankSpellIds = {
+						3261, -- [1]
+						11119, -- [2]
+						11120, -- [3]
+						12654, -- [4]
+						12846, -- [5]
+					},
+					name = "Ignite",
+					wowTreeIndex = 12,
+					column = 1,
 					row = 2,
-					icon = 135815,
-					ranks = 2,
+					icon = 135818,
+					ranks = 5,
 				},
 			}, -- [4]
 			{
 				info = {
-					name = "Improved Fire Blast",
-					tips = "Reduces the cooldown of your Fire Blast spell by %.1f sec.",
-					tipValues = {{0.5}, {1.0}, {1.5}},
-					column = 3,
+					talentRankSpellIds = {
+						54747, -- [1]
+						54748, -- [2]
+					},
+					name = "Burning Determination",
+					wowTreeIndex = 28,
+					column = 2,
 					row = 2,
-					icon = 135807,
-					ranks = 3,
+					icon = 135829,
+					ranks = 2,
 				},
 			}, -- [5]
 			{
 				info = {
-					name = "Incineration",
-					tips = "Increases the critical strike chance of your Fire Blast and Scorch spells by %d%%.",
-					tipValues = {{2}, {4}},
-					column = 1,
-					row = 3,
-					icon = 135813,
-					ranks = 2,
+					talentRankSpellIds = {
+						11108, -- [1]
+						12349, -- [2]
+						12350, -- [3]
+					},
+					name = "World in Flames",
+					wowTreeIndex = 9,
+					column = 3,
+					row = 2,
+					icon = 236228,
+					ranks = 3,
 				},
 			}, -- [6]
 			{
 				info = {
-					name = "Improved Flamestrike",
-					tips = "Increases the critical strike chance of your Flamestrike spell by %d%%.",
-					tipValues = {{5}, {10}, {15}},
-					column = 2,
+					talentRankSpellIds = {
+						11100, -- [1]
+						12353, -- [2]
+					},
+					name = "Flame Throwing",
+					wowTreeIndex = 6,
+					column = 1,
 					row = 3,
-					icon = 135826,
-					ranks = 3,
+					icon = 135815,
+					ranks = 2,
 				},
 			}, -- [7]
 			{
 				info = {
-					tips = "Hurls an immense fiery boulder that causes 148 to 195 Fire damage and an additional 56 Fire damage over 12 sec.",
-					name = "Pyroblast",
+					talentRankSpellIds = {
+						11103, -- [1]
+						12355, -- [2]
+						12357, -- [3]
+					},
+					name = "Impact",
+					wowTreeIndex = 8,
+					column = 2,
 					row = 3,
-					column = 3,
-					exceptional = 1,
-					icon = 135808,
-					ranks = 1,
+					icon = 135821,
+					ranks = 3,
 				},
 			}, -- [8]
 			{
 				info = {
+					isExceptional = 1,
+					talentRankSpellIds = {
+						11366, -- [1]
+					},
+					name = "Pyroblast",
+					wowTreeIndex = 7,
+					column = 3,
+					row = 3,
+					icon = 135808,
+					ranks = 1,
+				},
+			}, -- [9]
+			{
+				info = {
+					talentRankSpellIds = {
+						11083, -- [1]
+						12351, -- [2]
+					},
 					name = "Burning Soul",
-					tips = "Gives your Fire spells a %d%% chance to not lose casting time when you take damage and reduces the threat caused by your Fire spells by %d%%.",
-					tipValues = {{35, 5}, {70, 10}},
+					wowTreeIndex = 1,
 					column = 4,
 					row = 3,
 					icon = 135805,
 					ranks = 2,
 				},
-			}, -- [9]
+			}, -- [10]
 			{
 				info = {
+					talentRankSpellIds = {
+						11095, -- [1]
+						12872, -- [2]
+						12873, -- [3]
+					},
 					name = "Improved Scorch",
-					tips = "Your Scorch spells have a %d%% chance to cause your target to be vulnerable to Fire damage.  This vulnerability increases the Fire damage dealt to your target by 3%% and lasts 30 sec.  Stacks up to 5 times.",
-					tipValues = {{33}, {66}, {100}},
+					wowTreeIndex = 3,
 					column = 1,
 					row = 4,
 					icon = 135827,
 					ranks = 3,
 				},
-			}, -- [10]
+			}, -- [11]
 			{
 				info = {
+					talentRankSpellIds = {
+						11094, -- [1]
+						13043, -- [2]
+					},
 					name = "Molten Shields",
-					tips = "Causes your Fire Ward to have a %d%% chance to reflect Fire spells while active. In addition, your Molten Armor has a %d%% chance to affect ranged and spell attacks.",
-					tipValues = {{10, 50}, {20, 100}},
+					wowTreeIndex = 2,
 					column = 2,
 					row = 4,
 					icon = 135806,
 					ranks = 2,
 				},
-			}, -- [11]
+			}, -- [12]
 			{
 				info = {
+					talentRankSpellIds = {
+						29074, -- [1]
+						29075, -- [2]
+						29076, -- [3]
+					},
 					name = "Master of Elements",
-					tips = "Your Fire and Frost spell criticals will refund %d%% of their base mana cost.",
-					tipValues = {{10}, {20}, {30}},
+					wowTreeIndex = 16,
 					column = 4,
 					row = 4,
 					icon = 135820,
 					ranks = 3,
 				},
-			}, -- [12]
+			}, -- [13]
 			{
 				info = {
+					talentRankSpellIds = {
+						31638, -- [1]
+						31639, -- [2]
+						31640, -- [3]
+					},
 					name = "Playing with Fire",
-					tips = "Increases all spell damage caused by %d%% and all spell damage taken by %d%%.",
-					tipValues = {{1, 1}, {2, 2}, {3, 3}},
+					wowTreeIndex = 17,
 					column = 1,
 					row = 5,
 					icon = 135823,
 					ranks = 3,
 				},
-			}, -- [13]
+			}, -- [14]
 			{
 				info = {
+					talentRankSpellIds = {
+						11115, -- [1]
+						11367, -- [2]
+						11368, -- [3]
+					},
 					name = "Critical Mass",
-					tips = "Increases the critical strike chance of your Fire spells by %d%%.",
-					tipValues = {{2}, {4}, {6}},
+					wowTreeIndex = 11,
 					column = 2,
 					row = 5,
 					icon = 136115,
 					ranks = 3,
 				},
-			}, -- [14]
+			}, -- [15]
 			{
 				info = {
-					tips = "A wave of flame radiates outward from the caster, damaging all enemies caught within the blast for 160 to 192 Fire damage, and Dazing them for 6 sec.",
+					isExceptional = 1,
 					prereqs = {
 						{
 							column = 3,
 							row = 3,
-							source = 8,
+							source = 9,
 						}, -- [1]
 					},
-					name = "Blast Wave",
-					row = 5,
-					column = 3,
-					exceptional = 1,
-					icon = 135903,
 					ranks = 1,
+					name = "Blast Wave",
+					talentRankSpellIds = {
+						1831, -- [1]
+					},
+					column = 3,
+					row = 5,
+					icon = 135903,
+					wowTreeIndex = 10,
 				},
-			}, -- [15]
+			}, -- [16]
 			{
 				info = {
+					talentRankSpellIds = {
+						31641, -- [1]
+						31642, -- [2]
+					},
 					name = "Blazing Speed",
-					tips = "Gives you a %d%% chance when hit by a melee or ranged attack to increase your movement speed by 50%% and dispel all movement impairing effects.  This effect lasts 8 sec.",
-					tipValues = {{5}, {10}},
+					wowTreeIndex = 18,
 					column = 1,
 					row = 6,
 					icon = 135788,
 					ranks = 2,
 				},
-			}, -- [16]
+			}, -- [17]
 			{
 				info = {
+					talentRankSpellIds = {
+						7844, -- [1]
+						11124, -- [2]
+						12378, -- [3]
+						12398, -- [4]
+						12399, -- [5]
+					},
 					name = "Fire Power",
-					tips = "Increases the damage done by your Fire spells by %d%%.",
-					tipValues = {{2}, {4}, {6}, {8}, {10}},
+					wowTreeIndex = 13,
 					column = 3,
 					row = 6,
 					icon = 135817,
 					ranks = 5,
 				},
-			}, -- [17]
+			}, -- [18]
 			{
 				info = {
+					talentRankSpellIds = {
+						34293, -- [1]
+						34295, -- [2]
+						34296, -- [3]
+					},
 					name = "Pyromaniac",
-					tips = "Increases chance to critically hit and reduces the mana cost of all Fire spells by an additional %d%%.",
-					tipValues = {{1}, {2}, {3}},
+					wowTreeIndex = 20,
 					column = 1,
 					row = 7,
 					icon = 135789,
 					ranks = 3,
 				},
-			}, -- [18]
+			}, -- [19]
 			{
 				info = {
-					tips = "When activated, this spell causes each of your Fire damage spell hits to increase your critical strike chance with Fire damage spells by 10%.  This effect lasts until you have caused 3 critical strikes with Fire spells.",
+					isExceptional = 1,
 					prereqs = {
 						{
 							column = 2,
 							row = 5,
-							source = 14,
+							source = 15,
 						}, -- [1]
 					},
-					name = "Combustion",
-					row = 7,
-					column = 2,
-					exceptional = 1,
-					icon = 135824,
 					ranks = 1,
+					name = "Combustion",
+					talentRankSpellIds = {
+						11129, -- [1]
+					},
+					column = 2,
+					row = 7,
+					icon = 135824,
+					wowTreeIndex = 14,
 				},
-			}, -- [19]
+			}, -- [20]
 			{
 				info = {
+					talentRankSpellIds = {
+						31679, -- [1]
+						31680, -- [2]
+					},
 					name = "Molten Fury",
-					tips = "Increases damage of all spells against targets with less than 20%% health by %d%%.",
-					tipValues = {{10}, {20}},
+					wowTreeIndex = 19,
 					column = 3,
 					row = 7,
 					icon = 135822,
 					ranks = 2,
 				},
-			}, -- [20]
-			{
-				info = {
-					name = "Empowered Fireball",
-					tips = "Your Fireball spell gains an additional %d%% of your bonus spell damage effects.",
-					tipValues = {{3}, {6}, {9}, {12}, {15}},
-					column = 3,
-					row = 8,
-					icon = 135812,
-					ranks = 5,
-				},
 			}, -- [21]
 			{
 				info = {
-					tips = "Targets in a cone in front of the caster take 382 to 442 Fire damage and are Disoriented for 3 sec.  Any direct damaging attack will revive targets.  Turns off your attack when used.",
+					talentRankSpellIds = {
+						44440, -- [1]
+						44441, -- [2]
+					},
+					name = "Fiery Payback",
+					wowTreeIndex = 23,
+					column = 1,
+					row = 8,
+					icon = 236215,
+					ranks = 2,
+				},
+			}, -- [22]
+			{
+				info = {
+					talentRankSpellIds = {
+						31656, -- [1]
+						31657, -- [2]
+						31658, -- [3]
+					},
+					name = "Empowered Fire",
+					wowTreeIndex = 21,
+					column = 3,
+					row = 8,
+					icon = 135812,
+					ranks = 3,
+				},
+			}, -- [23]
+			{
+				info = {
+					talentRankSpellIds = {
+						44442, -- [1]
+						44443, -- [2]
+					},
+					prereqs = {
+						{
+							column = 2,
+							row = 9,
+							source = 25,
+						}, -- [1]
+					},
+					name = "Firestarter",
+					wowTreeIndex = 24,
+					column = 1,
+					row = 9,
+					icon = 236216,
+					ranks = 2,
+				},
+			}, -- [24]
+			{
+				info = {
+					isExceptional = 1,
 					prereqs = {
 						{
 							column = 2,
 							row = 7,
-							source = 19,
+							source = 20,
 						}, -- [1]
 					},
+					ranks = 1,
 					name = "Dragon's Breath",
-					row = 9,
+					talentRankSpellIds = {
+						29964, -- [1]
+					},
 					column = 2,
-					exceptional = 1,
+					row = 9,
 					icon = 134153,
+					wowTreeIndex = 22,
+				},
+			}, -- [25]
+			{
+				info = {
+					talentRankSpellIds = {
+						44445, -- [1]
+						44446, -- [2]
+						44448, -- [3]
+					},
+					name = "Hot Streak",
+					wowTreeIndex = 25,
+					column = 3,
+					row = 9,
+					icon = 236218,
+					ranks = 3,
+				},
+			}, -- [26]
+			{
+				info = {
+					talentRankSpellIds = {
+						44449, -- [1]
+						44450, -- [2]
+						44469, -- [3]
+						44470, -- [4]
+						44471, -- [5]
+					},
+					name = "Burnout",
+					wowTreeIndex = 26,
+					column = 2,
+					row = 10,
+					icon = 236207,
+					ranks = 5,
+				},
+			}, -- [27]
+			{
+				info = {
+					isExceptional = 1,
+					talentRankSpellIds = {
+						20475, -- [1]
+					},
+					name = "Living Bomb",
+					wowTreeIndex = 27,
+					column = 2,
+					row = 11,
+					icon = 236220,
 					ranks = 1,
 				},
-			}, -- [22]
+			}, -- [28]
 		},
 		info = {
 			name = "Fire",
@@ -557,24 +936,34 @@ Talented_Data.MAGE = {
 		},
 	}, -- [2]
 	{
-		numtalents = 22,
+		numtalents = 28,
 		talents = {
 			{
 				info = {
-					name = "Frost Warding",
-					tips = "Increases the armor and resistances given by your Frost Armor and Ice Armor spells by %d%%.  In addition, gives your Frost Ward a %d%% chance to reflect Frost spells and effects while active.",
-					tipValues = {{15, 10}, {30, 20}},
+					talentRankSpellIds = {
+						11071, -- [1]
+						12494, -- [2]
+						12496, -- [3]
+					},
+					name = "Frostbite",
+					wowTreeIndex = 2,
 					column = 1,
 					row = 1,
-					icon = 135850,
-					ranks = 2,
+					icon = 135842,
+					ranks = 3,
 				},
 			}, -- [1]
 			{
 				info = {
+					talentRankSpellIds = {
+						11070, -- [1]
+						12473, -- [2]
+						16763, -- [3]
+						16765, -- [4]
+						16766, -- [5]
+					},
 					name = "Improved Frostbolt",
-					tips = "Reduces the casting time of your Frostbolt spell by %.1f sec.",
-					tipValues = {{0.1}, {0.2}, {0.3}, {0.4}, {0.5}},
+					wowTreeIndex = 1,
 					column = 2,
 					row = 1,
 					icon = 135846,
@@ -583,53 +972,72 @@ Talented_Data.MAGE = {
 			}, -- [2]
 			{
 				info = {
-					name = "Elemental Precision",
-					tips = "Reduces the mana cost and chance targets resist your Frost and Fire spells by %d%%.",
-					tipValues = {{1}, {2}, {3}},
+					talentRankSpellIds = {
+						31670, -- [1]
+						31672, -- [2]
+						55094, -- [3]
+					},
+					name = "Ice Floes",
+					wowTreeIndex = 4,
 					column = 3,
 					row = 1,
-					icon = 135989,
+					icon = 135854,
 					ranks = 3,
 				},
 			}, -- [3]
 			{
 				info = {
+					talentRankSpellIds = {
+						11207, -- [1]
+						12672, -- [2]
+						15047, -- [3]
+					},
 					name = "Ice Shards",
-					tips = "Increases the critical strike damage bonus of your Frost spells by %d%%.",
-					tipValues = {{20}, {40}, {60}, {80}, {100}},
+					wowTreeIndex = 15,
 					column = 1,
 					row = 2,
 					icon = 135855,
-					ranks = 5,
+					ranks = 3,
 				},
 			}, -- [4]
 			{
 				info = {
-					name = "Frostbite",
-					tips = "Gives your Chill effects a %d%% chance to freeze the target for 5 sec.",
-					tipValues = {{5}, {10}, {15}},
+					talentRankSpellIds = {
+						11189, -- [1]
+						28332, -- [2]
+					},
+					name = "Frost Warding",
+					wowTreeIndex = 12,
 					column = 2,
 					row = 2,
-					icon = 135842,
-					ranks = 3,
+					icon = 135850,
+					ranks = 2,
 				},
 			}, -- [5]
 			{
 				info = {
-					name = "Improved Frost Nova",
-					tips = "Reduces the cooldown of your Frost Nova spell by %d sec.",
-					tipValues = {{2}, {4}},
+					talentRankSpellIds = {
+						13705, -- [1]
+						13832, -- [2]
+						13843, -- [3]
+					},
+					name = "Precision",
+					wowTreeIndex = 17,
 					column = 3,
 					row = 2,
-					icon = 135840,
-					ranks = 2,
+					icon = 135989,
+					ranks = 3,
 				},
 			}, -- [6]
 			{
 				info = {
+					talentRankSpellIds = {
+						11175, -- [1]
+						12569, -- [2]
+						12571, -- [3]
+					},
 					name = "Permafrost",
-					tips = "Increases the duration of your Chill effects by %d sec and reduces the target's speed by an additional %d%%.",
-					tipValues = {{1, 4}, {2, 7}, {3, 10}},
+					wowTreeIndex = 7,
 					column = 4,
 					row = 2,
 					icon = 135864,
@@ -638,9 +1046,13 @@ Talented_Data.MAGE = {
 			}, -- [7]
 			{
 				info = {
+					talentRankSpellIds = {
+						11151, -- [1]
+						12952, -- [2]
+						12953, -- [3]
+					},
 					name = "Piercing Ice",
-					tips = "Increases the damage done by your Frost spells by %d%%.",
-					tipValues = {{2}, {4}, {6}},
+					wowTreeIndex = 3,
 					column = 1,
 					row = 3,
 					icon = 135845,
@@ -649,21 +1061,28 @@ Talented_Data.MAGE = {
 			}, -- [8]
 			{
 				info = {
-					tips = "Hastens your spellcasting, increasing spell casting speed by 20% and gives you 100% chance to avoid interruption caused by damage while casting.  Lasts 20 sec.",
+					isExceptional = 1,
+					talentRankSpellIds = {
+						12472, -- [1]
+					},
 					name = "Icy Veins",
-					row = 3,
+					wowTreeIndex = 11,
 					column = 2,
-					exceptional = 1,
+					row = 3,
 					icon = 135838,
 					ranks = 1,
 				},
 			}, -- [9]
 			{
 				info = {
+					talentRankSpellIds = {
+						11185, -- [1]
+						12487, -- [2]
+						12488, -- [3]
+					},
 					name = "Improved Blizzard",
-					tips = "Adds a chill effect to your Blizzard spell.  This effect lowers the target's movement speed by %d%%.  Lasts 1.50 sec.",
-					tipValues = {{30}, {50}, {65}},
-					column = 4,
+					wowTreeIndex = 5,
+					column = 3,
 					row = 3,
 					icon = 135857,
 					ranks = 3,
@@ -671,9 +1090,12 @@ Talented_Data.MAGE = {
 			}, -- [10]
 			{
 				info = {
+					talentRankSpellIds = {
+						16757, -- [1]
+						16758, -- [2]
+					},
 					name = "Arctic Reach",
-					tips = "Increases the range of your Frostbolt, Ice Lance and Blizzard spells and the radius of your Frost Nova and Cone of Cold spells by %d%%.",
-					tipValues = {{10}, {20}},
+					wowTreeIndex = 16,
 					column = 1,
 					row = 4,
 					icon = 136141,
@@ -682,9 +1104,13 @@ Talented_Data.MAGE = {
 			}, -- [11]
 			{
 				info = {
+					talentRankSpellIds = {
+						11160, -- [1]
+						12518, -- [2]
+						12519, -- [3]
+					},
 					name = "Frost Channeling",
-					tips = "Reduces the mana cost of your Frost spells by %d%% and reduces the threat caused by your Frost spells by %d%%.",
-					tipValues = {{5, 4}, {10, 7}, {15, 10}},
+					wowTreeIndex = 8,
 					column = 2,
 					row = 4,
 					icon = 135860,
@@ -693,128 +1119,268 @@ Talented_Data.MAGE = {
 			}, -- [12]
 			{
 				info = {
-					prereqs = {
-						{
-							column = 3,
-							row = 2,
-							source = 6,
-						}, -- [1]
+					talentRankSpellIds = {
+						11170, -- [1]
+						12982, -- [2]
+						12983, -- [3]
 					},
 					name = "Shatter",
-					tips = "Increases the critical strike chance of all your spells against frozen targets by %d%%.",
-					tipValues = {{10}, {20}, {30}, {40}, {50}},
+					wowTreeIndex = 9,
 					column = 3,
 					row = 4,
 					icon = 135849,
-					ranks = 5,
+					ranks = 3,
 				},
 			}, -- [13]
 			{
 				info = {
-					name = "Frozen Core",
-					tips = "Reduces the damage taken by Frost and Fire effects by %d%%.",
-					tipValues = {{2}, {4}, {6}},
-					column = 1,
+					isExceptional = 1,
+					talentRankSpellIds = {
+						11958, -- [1]
+					},
+					name = "Cold Snap",
+					wowTreeIndex = 14,
+					column = 2,
 					row = 5,
-					icon = 135851,
-					ranks = 3,
+					icon = 135865,
+					ranks = 1,
 				},
 			}, -- [14]
 			{
 				info = {
-					tips = "When activated, this spell finishes the cooldown on all Frost spells you recently cast.",
-					name = "Cold Snap",
-					row = 5,
-					column = 2,
-					exceptional = 1,
-					icon = 135865,
-					ranks = 1,
-				},
-			}, -- [15]
-			{
-				info = {
+					talentRankSpellIds = {
+						11190, -- [1]
+						12489, -- [2]
+						12490, -- [3]
+					},
 					name = "Improved Cone of Cold",
-					tips = "Increases the damage dealt by your Cone of Cold spell by %d%%.",
-					tipValues = {{15}, {25}, {35}},
+					wowTreeIndex = 6,
 					column = 3,
 					row = 5,
 					icon = 135852,
 					ranks = 3,
 				},
+			}, -- [15]
+			{
+				info = {
+					talentRankSpellIds = {
+						31667, -- [1]
+						31668, -- [2]
+						31669, -- [3]
+					},
+					name = "Frozen Core",
+					wowTreeIndex = 18,
+					column = 4,
+					row = 5,
+					icon = 135851,
+					ranks = 3,
+				},
 			}, -- [16]
 			{
 				info = {
-					name = "Ice Floes",
-					tips = "Reduces the cooldown of your Cone of Cold, Cold Snap, Ice Barrier and Ice Block spells by %d%%.",
-					tipValues = {{10}, {20}},
+					talentRankSpellIds = {
+						55091, -- [1]
+						55092, -- [2]
+					},
+					prereqs = {
+						{
+							column = 2,
+							row = 5,
+							source = 14,
+						}, -- [1]
+					},
+					name = "Cold as Ice",
+					wowTreeIndex = 19,
 					column = 1,
 					row = 6,
-					icon = 135854,
+					icon = 236209,
 					ranks = 2,
 				},
 			}, -- [17]
 			{
 				info = {
+					talentRankSpellIds = {
+						11180, -- [1]
+						12579, -- [2]
+						28592, -- [3]
+					},
 					name = "Winter's Chill",
-					tips = "Gives your Frost damage spells a %d%% chance to apply the Winter's Chill effect, which increases the chance a Frost spell will critically hit the target by 2%% for 15 sec.  Stacks up to 5 times.",
-					tipValues = {{20}, {40}, {60}, {80}, {100}},
+					wowTreeIndex = 10,
 					column = 3,
 					row = 6,
 					icon = 135836,
-					ranks = 5,
+					ranks = 3,
 				},
 			}, -- [18]
 			{
 				info = {
-					tips = "Instantly shields you, absorbing 454 damage.  Lasts 1 min.  While the shield holds, spells will not be interrupted.",
+					talentRankSpellIds = {
+						44745, -- [1]
+						54787, -- [2]
+					},
 					prereqs = {
 						{
 							column = 2,
-							row = 5,
-							source = 15,
+							row = 7,
+							source = 20,
 						}, -- [1]
 					},
-					name = "Ice Barrier",
+					name = "Shattered Barrier",
+					wowTreeIndex = 28,
+					column = 1,
 					row = 7,
-					column = 2,
-					exceptional = 1,
-					icon = 135988,
-					ranks = 1,
+					icon = 236224,
+					ranks = 2,
 				},
 			}, -- [19]
 			{
 				info = {
+					isExceptional = 1,
+					prereqs = {
+						{
+							column = 2,
+							row = 5,
+							source = 14,
+						}, -- [1]
+					},
+					ranks = 1,
+					name = "Ice Barrier",
+					talentRankSpellIds = {
+						11426, -- [1]
+					},
+					column = 2,
+					row = 7,
+					icon = 135988,
+					wowTreeIndex = 13,
+				},
+			}, -- [20]
+			{
+				info = {
+					talentRankSpellIds = {
+						31674, -- [1]
+						31675, -- [2]
+						31676, -- [3]
+						31677, -- [4]
+						31678, -- [5]
+					},
 					name = "Arctic Winds",
-					tips = "Increases all Frost damage you cause by %d%% and reduces the chance melee and ranged attacks will hit you by %d%%.",
-					tipValues = {{1, 1}, {2, 2}, {3, 3}, {4, 4}, {5, 5}},
+					wowTreeIndex = 20,
 					column = 3,
 					row = 7,
 					icon = 135833,
 					ranks = 5,
 				},
-			}, -- [20]
-			{
-				info = {
-					name = "Empowered Frostbolt",
-					tips = "Your Frostbolt spell gains an additional %d%% of your bonus spell damage effects and an additional %d%% chance to critically strike.",
-					tipValues = {{2, 1}, {4, 2}, {6, 3}, {8, 4}, {10, 5}},
-					column = 2,
-					row = 8,
-					icon = 135846,
-					ranks = 5,
-				},
 			}, -- [21]
 			{
 				info = {
-					tips = "Summon a Water Elemental to fight for the caster for 45 sec.",
-					name = "Summon Water Elemental",
-					row = 9,
+					talentRankSpellIds = {
+						31682, -- [1]
+						31683, -- [2]
+					},
+					name = "Empowered Frostbolt",
+					wowTreeIndex = 21,
 					column = 2,
-					exceptional = 1,
+					row = 8,
+					icon = 135846,
+					ranks = 2,
+				},
+			}, -- [22]
+			{
+				info = {
+					talentRankSpellIds = {
+						44543, -- [1]
+						44544, -- [2]
+					},
+					name = "Fingers of Frost",
+					wowTreeIndex = 23,
+					column = 3,
+					row = 8,
+					icon = 236227,
+					ranks = 2,
+				},
+			}, -- [23]
+			{
+				info = {
+					talentRankSpellIds = {
+						9178, -- [1]
+						44546, -- [2]
+						44548, -- [3]
+					},
+					name = "Brain Freeze",
+					wowTreeIndex = 24,
+					column = 1,
+					row = 9,
+					icon = 236206,
+					ranks = 3,
+				},
+			}, -- [24]
+			{
+				info = {
+					isExceptional = 1,
+					talentRankSpellIds = {
+						17162, -- [1]
+					},
+					name = "Summon Water Elemental",
+					wowTreeIndex = 22,
+					column = 2,
+					row = 9,
 					icon = 135862,
 					ranks = 1,
 				},
-			}, -- [22]
+			}, -- [25]
+			{
+				info = {
+					talentRankSpellIds = {
+						44557, -- [1]
+						44560, -- [2]
+						44561, -- [3]
+					},
+					prereqs = {
+						{
+							column = 2,
+							row = 9,
+							source = 25,
+						}, -- [1]
+					},
+					name = "Enduring Winter",
+					wowTreeIndex = 25,
+					column = 3,
+					row = 9,
+					icon = 135862,
+					ranks = 3,
+				},
+			}, -- [26]
+			{
+				info = {
+					talentRankSpellIds = {
+						44566, -- [1]
+						44567, -- [2]
+						44568, -- [3]
+						44570, -- [4]
+						44571, -- [5]
+					},
+					name = "Chilled to the Bone",
+					wowTreeIndex = 26,
+					column = 2,
+					row = 10,
+					icon = 236208,
+					ranks = 5,
+				},
+			}, -- [27]
+			{
+				info = {
+					isExceptional = 1,
+					talentRankSpellIds = {
+						44572, -- [1]
+					},
+					name = "Deep Freeze",
+					wowTreeIndex = 27,
+					column = 2,
+					row = 11,
+					icon = 236214,
+					ranks = 1,
+				},
+			}, -- [28]
 		},
 		info = {
 			name = "Frost",

@@ -65,10 +65,10 @@ function TalentView:SetViewMode(mode, force)
 	end
 end
 
-local function GetMaxPoints(...)
+local function GetMaxPoints()
 	local total = 0
-	for i = 1, GetNumTalentTabs(...) do
-		total = total + select(3, GetTalentTabInfo(i, ...))
+	for i = 1, GetNumTalentTabs() do
+		total = total + select(3, GetTalentTabInfo(i))
 	end
 	return total + UnitCharacterPoints("player")
 end
@@ -265,7 +265,7 @@ function TalentView:Update()
 		end
 	end
 
-	local maxpoints = GetMaxPoints(nil)
+	local maxpoints = GetMaxPoints()
 	local points = self.frame.points
 	if points then
 		if Talented.db.profile.show_level_req then

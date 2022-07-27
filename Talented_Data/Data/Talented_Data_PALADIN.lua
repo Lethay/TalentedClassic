@@ -2,112 +2,156 @@ if not Talented_Data then return end
 
 Talented_Data.PALADIN = {
 	{
-		numtalents = 20,
+		numtalents = 26,
 		talents = {
 			{
 				info = {
-					name = "Divine Strength",
-					tips = "Increases your total Strength by %d%%.",
-					tipValues = {{2}, {4}, {6}, {8}, {10}},
+					talentRankSpellIds = {
+						20205, -- [1]
+						20206, -- [2]
+						20207, -- [3]
+						20208, -- [4]
+						20209, -- [5]
+					},
+					name = "Spiritual Focus",
+					wowTreeIndex = 1,
 					column = 2,
 					row = 1,
-					icon = 132154,
+					icon = 135736,
 					ranks = 5,
 				},
 			}, -- [1]
 			{
 				info = {
-					name = "Divine Intellect",
-					tips = "Increases your total Intellect by %d%%.",
-					tipValues = {{2}, {4}, {6}, {8}, {10}},
+					talentRankSpellIds = {
+						20224, -- [1]
+						20225, -- [2]
+						20330, -- [3]
+						20331, -- [4]
+						20332, -- [5]
+					},
+					name = "Seals of the Pure",
+					wowTreeIndex = 10,
 					column = 3,
 					row = 1,
-					icon = 136090,
+					icon = 132325,
 					ranks = 5,
 				},
 			}, -- [2]
 			{
 				info = {
-					name = "Spiritual Focus",
-					tips = "Gives your Flash of Light and Holy Light spells a %d%% chance to not lose casting time when you take damage.",
-					tipValues = {{14}, {28}, {42}, {56}, {70}},
-					column = 2,
+					talentRankSpellIds = {
+						20237, -- [1]
+						20238, -- [2]
+						20239, -- [3]
+					},
+					name = "Healing Light",
+					wowTreeIndex = 5,
+					column = 1,
 					row = 2,
-					icon = 135736,
-					ranks = 5,
+					icon = 135920,
+					ranks = 3,
 				},
 			}, -- [3]
 			{
 				info = {
-					name = "Improved Seal of Righteousness",
-					tips = "Increases the damage done by your Seal of Righteousness and Judgement of Righteousness by %d%%.",
-					tipValues = {{3}, {6}, {9}, {12}, {15}},
-					column = 3,
+					talentRankSpellIds = {
+						20257, -- [1]
+						20258, -- [2]
+						20259, -- [3]
+						20260, -- [4]
+						20261, -- [5]
+					},
+					name = "Divine Intellect",
+					wowTreeIndex = 7,
+					column = 2,
 					row = 2,
-					icon = 132325,
+					icon = 136090,
 					ranks = 5,
 				},
 			}, -- [4]
 			{
 				info = {
-					name = "Healing Light",
-					tips = "Increases the amount healed by your Holy Light and Flash of Light spells by %d%%.",
-					tipValues = {{4}, {8}, {12}},
-					column = 1,
-					row = 3,
-					icon = 135920,
-					ranks = 3,
+					talentRankSpellIds = {
+						9453, -- [1]
+						25836, -- [2]
+					},
+					name = "Unyielding Faith",
+					wowTreeIndex = 14,
+					column = 3,
+					row = 2,
+					icon = 135984,
+					ranks = 2,
 				},
 			}, -- [5]
 			{
 				info = {
-					tips = "Increases the radius of your Auras to 40 yards.",
+					isExceptional = 1,
+					talentRankSpellIds = {
+						31821, -- [1]
+					},
 					name = "Aura Mastery",
+					wowTreeIndex = 3,
+					column = 1,
 					row = 3,
-					column = 2,
-					exceptional = 1,
 					icon = 135872,
 					ranks = 1,
 				},
 			}, -- [6]
 			{
 				info = {
+					talentRankSpellIds = {
+						20210, -- [1]
+						20212, -- [2]
+						20213, -- [3]
+						20214, -- [4]
+						20215, -- [5]
+					},
+					name = "Illumination",
+					wowTreeIndex = 9,
+					column = 2,
+					row = 3,
+					icon = 135913,
+					ranks = 5,
+				},
+			}, -- [7]
+			{
+				info = {
+					talentRankSpellIds = {
+						20234, -- [1]
+						20235, -- [2]
+					},
 					name = "Improved Lay on Hands",
-					tips = "Gives the target of your Lay on Hands spell a %d%% bonus to their armor value from items for 2 min.  In addition, the cooldown for your Lay on Hands spell is reduced by %d min.",
-					tipValues = {{15, 10}, {30, 20}},
+					wowTreeIndex = 4,
 					column = 3,
 					row = 3,
 					icon = 135928,
 					ranks = 2,
 				},
-			}, -- [7]
-			{
-				info = {
-					name = "Unyielding Faith",
-					tips = "Increases your chance to resist Fear and Disorient effects by an additional %d%%.",
-					tipValues = {{5}, {10}},
-					column = 4,
-					row = 3,
-					icon = 135984,
-					ranks = 2,
-				},
 			}, -- [8]
 			{
 				info = {
-					name = "Illumination",
-					tips = "After getting a critical effect from your Flash of Light, Holy Light, or Holy Shock heal spell, gives you a %d%% chance to gain mana equal to 60%% of the base cost of the spell.",
-					tipValues = {{20}, {40}, {60}, {80}, {100}},
-					column = 2,
+					talentRankSpellIds = {
+						20254, -- [1]
+						20255, -- [2]
+						20256, -- [3]
+					},
+					name = "Improved Concentration Aura",
+					wowTreeIndex = 8,
+					column = 1,
 					row = 4,
-					icon = 135913,
-					ranks = 5,
+					icon = 135933,
+					ranks = 3,
 				},
 			}, -- [9]
 			{
 				info = {
+					talentRankSpellIds = {
+						20244, -- [1]
+						20245, -- [2]
+					},
 					name = "Improved Blessing of Wisdom",
-					tips = "Increases the effect of your Blessing of Wisdom spell by %d%%.",
-					tipValues = {{10}, {20}},
+					wowTreeIndex = 6,
 					column = 3,
 					row = 4,
 					icon = 135970,
@@ -116,128 +160,262 @@ Talented_Data.PALADIN = {
 			}, -- [10]
 			{
 				info = {
-					name = "Pure of Heart",
-					tips = "Increases your resistance to Curse and Disease effects by %d%%.",
-					tipValues = {{5}, {10}, {15}},
-					column = 1,
-					row = 5,
-					icon = 135948,
-					ranks = 3,
+					talentRankSpellIds = {
+						53660, -- [1]
+						53661, -- [2]
+					},
+					name = "Blessed Hands",
+					wowTreeIndex = 25,
+					column = 4,
+					row = 4,
+					icon = 236248,
+					ranks = 2,
 				},
 			}, -- [11]
 			{
 				info = {
-					tips = "When activated, gives your next Flash of Light, Holy Light, or Holy Shock spell a 100% critical effect chance.",
-					prereqs = {
-						{
-							column = 2,
-							row = 4,
-							source = 9,
-						}, -- [1]
+					talentRankSpellIds = {
+						31822, -- [1]
+						31823, -- [2]
 					},
-					name = "Divine Favor",
+					name = "Pure of Heart",
+					wowTreeIndex = 15,
+					column = 1,
 					row = 5,
-					column = 2,
-					exceptional = 1,
-					icon = 135915,
-					ranks = 1,
+					icon = 135948,
+					ranks = 2,
 				},
 			}, -- [12]
 			{
 				info = {
+					isExceptional = 1,
+					prereqs = {
+						{
+							column = 2,
+							row = 3,
+							source = 7,
+						}, -- [1]
+					},
+					ranks = 1,
+					name = "Divine Favor",
+					talentRankSpellIds = {
+						20216, -- [1]
+					},
+					column = 2,
+					row = 5,
+					icon = 135915,
+					wowTreeIndex = 2,
+				},
+			}, -- [13]
+			{
+				info = {
+					talentRankSpellIds = {
+						20359, -- [1]
+						20360, -- [2]
+						20361, -- [3]
+					},
 					name = "Sanctified Light",
-					tips = "Increases the critical effect chance of your Holy Light spell by %d%%.",
-					tipValues = {{2}, {4}, {6}},
+					wowTreeIndex = 11,
 					column = 3,
 					row = 5,
 					icon = 135917,
 					ranks = 3,
 				},
-			}, -- [13]
+			}, -- [14]
 			{
 				info = {
+					talentRankSpellIds = {
+						31825, -- [1]
+						31826, -- [2]
+					},
 					name = "Purifying Power",
-					tips = "Reduces the mana cost of your Cleanse, Purify and Consecration spells by %d%% and increases the critical strike chance of your Exorcism and Holy Wrath spells by %d%%.",
-					tipValues = {{5, 10}, {10, 20}},
+					wowTreeIndex = 16,
 					column = 1,
 					row = 6,
 					icon = 135950,
 					ranks = 2,
 				},
-			}, -- [14]
+			}, -- [15]
 			{
 				info = {
+					talentRankSpellIds = {
+						5923, -- [1]
+						5924, -- [2]
+						5925, -- [3]
+						5926, -- [4]
+						25829, -- [5]
+					},
 					name = "Holy Power",
-					tips = "Increases the critical effect chance of your Holy spells by %d%%.",
-					tipValues = {{1}, {2}, {3}, {4}, {5}},
+					wowTreeIndex = 13,
 					column = 3,
 					row = 6,
 					icon = 135938,
 					ranks = 5,
 				},
-			}, -- [15]
+			}, -- [16]
 			{
 				info = {
+					talentRankSpellIds = {
+						31833, -- [1]
+						31834, -- [2]
+						31835, -- [3]
+					},
 					name = "Light's Grace",
-					tips = "Gives your Holy Light spell a %d%% chance to reduce the cast time of your next Holy Light spell by 0.5 sec.  This effect lasts 15 sec.",
-					tipValues = {{33}, {66}, {100}},
+					wowTreeIndex = 18,
 					column = 1,
 					row = 7,
 					icon = 135931,
 					ranks = 3,
 				},
-			}, -- [16]
+			}, -- [17]
 			{
 				info = {
-					tips = "Blasts the target with Holy energy, causing 277 to 299 Holy damage to an enemy, or 351 to 379 healing to an ally.",
+					isExceptional = 1,
 					prereqs = {
 						{
 							column = 2,
 							row = 5,
-							source = 12,
+							source = 13,
 						}, -- [1]
 					},
-					name = "Holy Shock",
-					row = 7,
-					column = 2,
-					exceptional = 1,
-					icon = 135972,
 					ranks = 1,
+					name = "Holy Shock",
+					talentRankSpellIds = {
+						20473, -- [1]
+					},
+					column = 2,
+					row = 7,
+					icon = 135972,
+					wowTreeIndex = 12,
 				},
-			}, -- [17]
+			}, -- [18]
 			{
 				info = {
+					talentRankSpellIds = {
+						31828, -- [1]
+						31829, -- [2]
+						31830, -- [3]
+					},
 					name = "Blessed Life",
-					tips = "All attacks against you have a %d%% chance to cause half damage.",
-					tipValues = {{4}, {7}, {10}},
+					wowTreeIndex = 17,
 					column = 3,
 					row = 7,
 					icon = 135876,
 					ranks = 3,
 				},
-			}, -- [18]
+			}, -- [19]
 			{
 				info = {
+					talentRankSpellIds = {
+						8913, -- [1]
+						53551, -- [2]
+						53552, -- [3]
+					},
+					name = "Sacred Cleansing",
+					wowTreeIndex = 21,
+					column = 1,
+					row = 8,
+					icon = 236261,
+					ranks = 3,
+				},
+			}, -- [20]
+			{
+				info = {
+					talentRankSpellIds = {
+						31837, -- [1]
+						31838, -- [2]
+						31839, -- [3]
+						31840, -- [4]
+						31841, -- [5]
+					},
 					name = "Holy Guidance",
-					tips = "Increases your spell damage and healing by %d%% of your total Intellect.",
-					tipValues = {{7}, {14}, {21}, {28}, {35}},
-					column = 2,
+					wowTreeIndex = 19,
+					column = 3,
 					row = 8,
 					icon = 135921,
 					ranks = 5,
 				},
-			}, -- [19]
+			}, -- [21]
 			{
 				info = {
-					tips = "Reduces the mana cost of all spells by 50% for 15 sec.",
+					isExceptional = 1,
+					talentRankSpellIds = {
+						31842, -- [1]
+					},
 					name = "Divine Illumination",
+					wowTreeIndex = 20,
+					column = 1,
 					row = 9,
-					column = 2,
-					exceptional = 1,
 					icon = 135895,
 					ranks = 1,
 				},
-			}, -- [20]
+			}, -- [22]
+			{
+				info = {
+					talentRankSpellIds = {
+						53655, -- [1]
+						53656, -- [2]
+						53657, -- [3]
+						53671, -- [4]
+						53673, -- [5]
+					},
+					name = "Judgements of the Pure",
+					wowTreeIndex = 26,
+					column = 3,
+					row = 9,
+					icon = 236256,
+					ranks = 5,
+				},
+			}, -- [23]
+			{
+				info = {
+					talentRankSpellIds = {
+						53569, -- [1]
+						53576, -- [2]
+					},
+					prereqs = {
+						{
+							column = 2,
+							row = 7,
+							source = 18,
+						}, -- [1]
+					},
+					name = "Infusion of Light",
+					wowTreeIndex = 24,
+					column = 2,
+					row = 10,
+					icon = 236254,
+					ranks = 2,
+				},
+			}, -- [24]
+			{
+				info = {
+					talentRankSpellIds = {
+						53556, -- [1]
+						53557, -- [2]
+					},
+					name = "Enlightened Judgements",
+					wowTreeIndex = 22,
+					column = 3,
+					row = 10,
+					icon = 236251,
+					ranks = 2,
+				},
+			}, -- [25]
+			{
+				info = {
+					isExceptional = 1,
+					talentRankSpellIds = {
+						53563, -- [1]
+					},
+					name = "Beacon of Light",
+					wowTreeIndex = 23,
+					column = 2,
+					row = 11,
+					icon = 236247,
+					ranks = 1,
+				},
+			}, -- [26]
 		},
 		info = {
 			name = "Holy",
@@ -245,46 +423,65 @@ Talented_Data.PALADIN = {
 		},
 	}, -- [1]
 	{
-		numtalents = 22,
+		numtalents = 26,
 		talents = {
 			{
 				info = {
-					name = "Improved Devotion Aura",
-					tips = "Increases the armor bonus of your Devotion Aura by %d%%.",
-					tipValues = {{8}, {16}, {24}, {32}, {40}},
+					talentRankSpellIds = {
+						63646, -- [1]
+						63647, -- [2]
+						63648, -- [3]
+						63649, -- [4]
+						63650, -- [5]
+					},
+					name = "Divinity",
+					wowTreeIndex = 9,
 					column = 2,
 					row = 1,
-					icon = 135893,
+					icon = 135883,
 					ranks = 5,
 				},
 			}, -- [1]
 			{
 				info = {
-					name = "Redoubt",
-					tips = "Damaging melee and ranged attacks against you have a 10%% chance to increase your chance to block by %d%%.  Lasts 10 sec or 5 blocks.",
-					tipValues = {{6}, {12}, {18}, {24}, {30}},
+					talentRankSpellIds = {
+						20262, -- [1]
+						20263, -- [2]
+						20264, -- [3]
+						20265, -- [4]
+						20266, -- [5]
+					},
+					name = "Divine Strength",
+					wowTreeIndex = 18,
 					column = 3,
 					row = 1,
-					icon = 132110,
+					icon = 132154,
 					ranks = 5,
 				},
 			}, -- [2]
 			{
 				info = {
-					name = "Precision",
-					tips = "Increases your chance to hit with melee weapons and spells by %d%%.",
-					tipValues = {{1}, {2}, {3}},
+					talentRankSpellIds = {
+						31844, -- [1]
+						31845, -- [2]
+						32957, -- [3]
+					},
+					name = "Stoicism",
+					wowTreeIndex = 13,
 					column = 1,
 					row = 2,
-					icon = 132282,
+					icon = 135978,
 					ranks = 3,
 				},
 			}, -- [3]
 			{
 				info = {
+					talentRankSpellIds = {
+						20174, -- [1]
+						20175, -- [2]
+					},
 					name = "Guardian's Favor",
-					tips = "Reduces the cooldown of your Blessing of Protection by %d sec and increases the duration of your Blessing of Freedom by %d sec.",
-					tipValues = {{60, 2}, {120, 4}},
+					wowTreeIndex = 4,
 					column = 2,
 					row = 2,
 					icon = 135964,
@@ -293,31 +490,44 @@ Talented_Data.PALADIN = {
 			}, -- [4]
 			{
 				info = {
-					name = "Toughness",
-					tips = "Increases your armor value from items by %d%%.",
-					tipValues = {{2}, {4}, {6}, {8}, {10}},
-					column = 4,
+					talentRankSpellIds = {
+						12297, -- [1]
+						12750, -- [2]
+						12751, -- [3]
+						12752, -- [4]
+						12753, -- [5]
+					},
+					name = "Anticipation",
+					wowTreeIndex = 12,
+					column = 3,
 					row = 2,
-					icon = 135892,
+					icon = 135994,
 					ranks = 5,
 				},
 			}, -- [5]
 			{
 				info = {
-					tips = "Places a Blessing on the friendly target, increasing total stats by 10% for 10 min.  Players may only have one Blessing on them per Paladin at any one time.",
-					name = "Blessing of Kings",
-					row = 3,
+					isExceptional = 1,
+					talentRankSpellIds = {
+						64205, -- [1]
+					},
+					name = "Divine Sacrifice",
+					wowTreeIndex = 24,
 					column = 1,
-					exceptional = 1,
-					icon = 135995,
+					row = 3,
+					icon = 253400,
 					ranks = 1,
 				},
 			}, -- [6]
 			{
 				info = {
+					talentRankSpellIds = {
+						20468, -- [1]
+						20469, -- [2]
+						20470, -- [3]
+					},
 					name = "Improved Righteous Fury",
-					tips = "While Righteous Fury is active, all damage taken is reduced by %d%% and increases the amount of threat generated by your Righteous Fury spell by %d%%.",
-					tipValues = {{2, 16}, {4, 33}, {6, 50}},
+					wowTreeIndex = 10,
 					column = 2,
 					row = 3,
 					icon = 135962,
@@ -326,197 +536,311 @@ Talented_Data.PALADIN = {
 			}, -- [7]
 			{
 				info = {
-					prereqs = {
-						{
-							column = 3,
-							row = 1,
-							source = 2,
-						}, -- [1]
+					talentRankSpellIds = {
+						12299, -- [1]
+						12761, -- [2]
+						12762, -- [3]
+						12763, -- [4]
+						12764, -- [5]
 					},
-					name = "Shield Specialization",
-					tips = "Increases the amount of damage absorbed by your shield by %d%%.",
-					tipValues = {{10}, {20}, {30}},
+					name = "Toughness",
+					wowTreeIndex = 3,
 					column = 3,
 					row = 3,
-					icon = 134952,
-					ranks = 3,
+					icon = 135892,
+					ranks = 5,
 				},
 			}, -- [8]
 			{
 				info = {
-					name = "Anticipation",
-					tips = "Increases your Defense skill by %d.",
-					tipValues = {{4}, {8}, {12}, {16}, {20}},
-					column = 4,
-					row = 3,
-					icon = 135994,
-					ranks = 5,
+					talentRankSpellIds = {
+						53527, -- [1]
+						53530, -- [2]
+					},
+					prereqs = {
+						{
+							column = 1,
+							row = 3,
+							source = 6,
+						}, -- [1]
+					},
+					name = "Divine Guardian",
+					wowTreeIndex = 25,
+					column = 1,
+					row = 4,
+					icon = 253400,
+					ranks = 2,
 				},
 			}, -- [9]
 			{
 				info = {
-					name = "Stoicism",
-					tips = "Increases your resistance to Stun effects by an additional %d%% and reduces the chance your spells will be dispelled by an additional %d%%.",
-					tipValues = {{5, 15}, {10, 30}},
-					column = 1,
+					talentRankSpellIds = {
+						20487, -- [1]
+						20488, -- [2]
+					},
+					name = "Improved Hammer of Justice",
+					wowTreeIndex = 11,
+					column = 2,
 					row = 4,
-					icon = 135978,
+					icon = 135963,
 					ranks = 2,
 				},
 			}, -- [10]
 			{
 				info = {
-					name = "Improved Hammer of Justice",
-					tips = "Decreases the cooldown of your Hammer of Justice spell by %d sec.",
-					tipValues = {{5}, {10}, {15}},
-					column = 2,
+					talentRankSpellIds = {
+						20138, -- [1]
+						20139, -- [2]
+						20140, -- [3]
+					},
+					name = "Improved Devotion Aura",
+					wowTreeIndex = 2,
+					column = 3,
 					row = 4,
-					icon = 135963,
+					icon = 135893,
 					ranks = 3,
 				},
 			}, -- [11]
 			{
 				info = {
-					name = "Improved Concentration Aura",
-					tips = "Increases the effect of your Concentration Aura by an additional %d%% and reduces the duration of any Silence or Interrupt effect used against an affected group member by %d%%.  The duration reduction does not stack with any other effects.",
-					tipValues = {{5, 10}, {10, 20}, {15, 30}},
-					column = 3,
-					row = 4,
-					icon = 135933,
-					ranks = 3,
+					isExceptional = 1,
+					talentRankSpellIds = {
+						20911, -- [1]
+					},
+					name = "Blessing of Sanctuary",
+					wowTreeIndex = 8,
+					column = 2,
+					row = 5,
+					icon = 136051,
+					ranks = 1,
 				},
 			}, -- [12]
 			{
 				info = {
-					name = "Spell Warding",
-					tips = "All spell damage taken is reduced by %d%%.",
-					tipValues = {{2}, {4}},
-					column = 1,
-					row = 5,
-					icon = 135925,
-					ranks = 2,
-				},
-			}, -- [13]
-			{
-				info = {
-					tips = "Places a Blessing on the friendly target, reducing damage dealt from all sources by up to 10 for 10 min.  In addition, when the target blocks a melee attack the attacker will take 14 Holy damage.  Players may only have one Blessing on them per Paladin at any one time.",
-					name = "Blessing of Sanctuary",
-					row = 5,
-					column = 2,
-					exceptional = 1,
-					icon = 136051,
-					ranks = 1,
-				},
-			}, -- [14]
-			{
-				info = {
+					talentRankSpellIds = {
+						20177, -- [1]
+						20178, -- [2]
+						20179, -- [3]
+						20180, -- [4]
+						20181, -- [5]
+					},
 					name = "Reckoning",
-					tips = "Gives you a %d%% chance after being hit by any damaging attack that the next 4 weapon swings within 8 sec will generate an additional attack.",
-					tipValues = {{2}, {4}, {6}, {8}, {10}},
+					wowTreeIndex = 5,
 					column = 3,
 					row = 5,
 					icon = 135882,
 					ranks = 5,
 				},
-			}, -- [15]
+			}, -- [13]
 			{
 				info = {
+					talentRankSpellIds = {
+						31848, -- [1]
+						31849, -- [2]
+					},
 					name = "Sacred Duty",
-					tips = "Increases your total Stamina by %d%%, reduces the cooldown of your Divine Shield spell by %d sec and reduces the attack speed penalty by %d%%.",
-					tipValues = {{3, 30, 50}, {6, 60, 100}},
+					wowTreeIndex = 14,
 					column = 1,
 					row = 6,
 					icon = 135896,
 					ranks = 2,
 				},
-			}, -- [16]
+			}, -- [14]
 			{
 				info = {
+					talentRankSpellIds = {
+						16538, -- [1]
+						16539, -- [2]
+						16540, -- [3]
+					},
 					name = "One-Handed Weapon Specialization",
-					tips = "Increases all damage you deal when a one-handed melee weapon is equipped by %d%%.",
-					tipValues = {{1}, {2}, {3}, {4}, {5}},
+					wowTreeIndex = 6,
 					column = 3,
 					row = 6,
 					icon = 135321,
-					ranks = 5,
+					ranks = 3,
 				},
-			}, -- [17]
+			}, -- [15]
 			{
 				info = {
-					prereqs = {
-						{
-							column = 2,
-							row = 7,
-							source = 19,
-						}, -- [1]
+					talentRankSpellIds = {
+						31785, -- [1]
+						33776, -- [2]
 					},
-					name = "Improved Holy Shield",
-					tips = "Increases damage caused by your Holy Shield by %d%% and increases the number of charges of your Holy Shield by %d.",
-					tipValues = {{10, 2}, {20, 4}},
+					name = "Spiritual Attunement",
+					wowTreeIndex = 26,
 					column = 1,
 					row = 7,
-					icon = 135880,
+					icon = 135958,
 					ranks = 2,
 				},
-			}, -- [18]
+			}, -- [16]
 			{
 				info = {
-					tips = "Increases chance to block by 30% for 10 sec and deals 59 Holy damage for each attack blocked while active.  Damage caused by Holy Shield causes 35% additional threat.  Each block expends a charge.  4 charges.",
+					isExceptional = 1,
 					prereqs = {
 						{
 							column = 2,
 							row = 5,
-							source = 14,
+							source = 12,
 						}, -- [1]
 					},
-					name = "Holy Shield",
-					row = 7,
-					column = 2,
-					exceptional = 1,
-					icon = 135880,
 					ranks = 1,
+					name = "Holy Shield",
+					talentRankSpellIds = {
+						9800, -- [1]
+					},
+					column = 2,
+					row = 7,
+					icon = 135880,
+					wowTreeIndex = 7,
+				},
+			}, -- [17]
+			{
+				info = {
+					talentRankSpellIds = {
+						31850, -- [1]
+						31851, -- [2]
+						31852, -- [3]
+					},
+					name = "Ardent Defender",
+					wowTreeIndex = 15,
+					column = 3,
+					row = 7,
+					icon = 135870,
+					ranks = 3,
+				},
+			}, -- [18]
+			{
+				info = {
+					talentRankSpellIds = {
+						20127, -- [1]
+						20128, -- [2]
+						20130, -- [3]
+					},
+					name = "Redoubt",
+					wowTreeIndex = 1,
+					column = 1,
+					row = 8,
+					icon = 132110,
+					ranks = 3,
 				},
 			}, -- [19]
 			{
 				info = {
-					name = "Ardent Defender",
-					tips = "When you have less than 35%% health, all damage taken is reduced by %d%%.",
-					tipValues = {{6}, {12}, {18}, {24}, {30}},
+					talentRankSpellIds = {
+						31858, -- [1]
+						31859, -- [2]
+						31860, -- [3]
+					},
+					name = "Combat Expertise",
+					wowTreeIndex = 16,
 					column = 3,
-					row = 7,
-					icon = 135870,
-					ranks = 5,
+					row = 8,
+					icon = 135986,
+					ranks = 3,
 				},
 			}, -- [20]
 			{
 				info = {
-					name = "Combat Expertise",
-					tips = "Increases your expertise by %d and your total Stamina by %d%%.",
-					tipValues = {{1, 2}, {2, 4}, {3, 6}, {4, 8}, {5, 10}},
-					column = 3,
-					row = 8,
-					icon = 135986,
-					ranks = 5,
+					talentRankSpellIds = {
+						53590, -- [1]
+						53591, -- [2]
+						53592, -- [3]
+					},
+					name = "Touched by the Light",
+					wowTreeIndex = 20,
+					column = 1,
+					row = 9,
+					icon = 236267,
+					ranks = 3,
 				},
 			}, -- [21]
 			{
 				info = {
-					tips = "Hurls a holy shield at the enemy, dealing 270 to 330 Holy damage, Dazing them and then jumping to additional nearby enemies.  Affects 3 total targets.  Lasts 6 sec.",
+					isExceptional = 1,
 					prereqs = {
 						{
 							column = 2,
 							row = 7,
-							source = 19,
+							source = 17,
 						}, -- [1]
 					},
-					name = "Avenger's Shield",
-					row = 9,
-					column = 2,
-					exceptional = 1,
-					icon = 135874,
 					ranks = 1,
+					name = "Avenger's Shield",
+					talentRankSpellIds = {
+						31935, -- [1]
+					},
+					column = 2,
+					row = 9,
+					icon = 135874,
+					wowTreeIndex = 17,
 				},
 			}, -- [22]
+			{
+				info = {
+					talentRankSpellIds = {
+						53583, -- [1]
+						53585, -- [2]
+					},
+					name = "Guarded by the Light",
+					wowTreeIndex = 19,
+					column = 3,
+					row = 9,
+					icon = 236252,
+					ranks = 2,
+				},
+			}, -- [23]
+			{
+				info = {
+					talentRankSpellIds = {
+						53709, -- [1]
+						53710, -- [2]
+						53711, -- [3]
+					},
+					prereqs = {
+						{
+							column = 2,
+							row = 9,
+							source = 22,
+						}, -- [1]
+					},
+					name = "Shield of the Templar",
+					wowTreeIndex = 23,
+					column = 2,
+					row = 10,
+					icon = 236264,
+					ranks = 3,
+				},
+			}, -- [24]
+			{
+				info = {
+					talentRankSpellIds = {
+						53695, -- [1]
+						53696, -- [2]
+					},
+					name = "Judgements of the Just",
+					wowTreeIndex = 22,
+					column = 3,
+					row = 10,
+					icon = 236259,
+					ranks = 2,
+				},
+			}, -- [25]
+			{
+				info = {
+					isExceptional = 1,
+					talentRankSpellIds = {
+						53595, -- [1]
+					},
+					name = "Hammer of the Righteous",
+					wowTreeIndex = 21,
+					column = 2,
+					row = 11,
+					icon = 236253,
+					ranks = 1,
+				},
+			}, -- [26]
 		},
 		info = {
 			name = "Protection",
@@ -524,24 +848,36 @@ Talented_Data.PALADIN = {
 		},
 	}, -- [2]
 	{
-		numtalents = 22,
+		numtalents = 26,
 		talents = {
 			{
 				info = {
-					name = "Improved Blessing of Might",
-					tips = "Increases the attack power bonus of your Blessing of Might by %d%%.",
-					tipValues = {{4}, {8}, {12}, {16}, {20}},
+					talentRankSpellIds = {
+						13713, -- [1]
+						13853, -- [2]
+						13854, -- [3]
+						16462, -- [4]
+						16463, -- [5]
+					},
+					name = "Deflection",
+					wowTreeIndex = 3,
 					column = 2,
 					row = 1,
-					icon = 135906,
+					icon = 132269,
 					ranks = 5,
 				},
 			}, -- [1]
 			{
 				info = {
+					talentRankSpellIds = {
+						20101, -- [1]
+						20102, -- [2]
+						20103, -- [3]
+						20104, -- [4]
+						20105, -- [5]
+					},
 					name = "Benediction",
-					tips = "Reduces the mana cost of your Judgement and Seal spells by %d%%.",
-					tipValues = {{3}, {6}, {9}, {12}, {15}},
+					wowTreeIndex = 4,
 					column = 3,
 					row = 1,
 					icon = 135863,
@@ -550,9 +886,12 @@ Talented_Data.PALADIN = {
 			}, -- [2]
 			{
 				info = {
-					name = "Improved Judgement",
-					tips = "Decreases the cooldown of your Judgement spell by %d sec.",
-					tipValues = {{1}, {2}},
+					talentRankSpellIds = {
+						25956, -- [1]
+						25957, -- [2]
+					},
+					name = "Improved Judgements",
+					wowTreeIndex = 10,
 					column = 1,
 					row = 2,
 					icon = 135959,
@@ -561,9 +900,13 @@ Talented_Data.PALADIN = {
 			}, -- [3]
 			{
 				info = {
-					name = "Improved Seal of the Crusader",
-					tips = "In addition to the normal effect, your Judgement of the Crusader spell will also increase the critical strike chance of all attacks made against that target by an additional %d%%.",
-					tipValues = {{1}, {2}, {3}},
+					talentRankSpellIds = {
+						20335, -- [1]
+						20336, -- [2]
+						20337, -- [3]
+					},
+					name = "Heart of the Crusader",
+					wowTreeIndex = 8,
 					column = 2,
 					row = 2,
 					icon = 135924,
@@ -572,31 +915,43 @@ Talented_Data.PALADIN = {
 			}, -- [4]
 			{
 				info = {
-					name = "Deflection",
-					tips = "Increases your Parry chance by %d%%.",
-					tipValues = {{1}, {2}, {3}, {4}, {5}},
+					talentRankSpellIds = {
+						20042, -- [1]
+						20045, -- [2]
+					},
+					name = "Improved Blessing of Might",
+					wowTreeIndex = 1,
 					column = 3,
 					row = 2,
-					icon = 132269,
-					ranks = 5,
+					icon = 135906,
+					ranks = 2,
 				},
 			}, -- [5]
 			{
 				info = {
+					talentRankSpellIds = {
+						67, -- [1]
+						9452, -- [2]
+					},
 					name = "Vindication",
-					tips = "Gives the Paladin's damaging melee attacks a chance to reduce the target's attributes by %d%% for 15 sec.",
-					tipValues = {{5}, {10}, {15}},
+					wowTreeIndex = 12,
 					column = 1,
 					row = 3,
 					icon = 135985,
-					ranks = 3,
+					ranks = 2,
 				},
 			}, -- [6]
 			{
 				info = {
+					talentRankSpellIds = {
+						20117, -- [1]
+						20118, -- [2]
+						20119, -- [3]
+						20120, -- [4]
+						20121, -- [5]
+					},
 					name = "Conviction",
-					tips = "Increases your chance to get a critical strike with melee weapons by %d%%.",
-					tipValues = {{1}, {2}, {3}, {4}, {5}},
+					wowTreeIndex = 6,
 					column = 2,
 					row = 3,
 					icon = 135957,
@@ -605,31 +960,40 @@ Talented_Data.PALADIN = {
 			}, -- [7]
 			{
 				info = {
-					tips = "Gives the Paladin a chance to deal additional Holy damage equal to 70% of normal weapon damage.  Only one Seal can be active on the Paladin at any one time.  Lasts 30 sec.\r\n\r\nUnleashing this Seal's energy will judge an enemy, instantly causing 68 to 73 Holy damage, 137 to 146 if the target is stunned or incapacitated.",
+					isExceptional = 1,
+					talentRankSpellIds = {
+						20375, -- [1]
+					},
 					name = "Seal of Command",
-					row = 3,
+					wowTreeIndex = 9,
 					column = 3,
-					exceptional = 1,
+					row = 3,
 					icon = 132347,
 					ranks = 1,
 				},
 			}, -- [8]
 			{
 				info = {
+					talentRankSpellIds = {
+						26022, -- [1]
+						26023, -- [2]
+					},
 					name = "Pursuit of Justice",
-					tips = "Reduces the chance you'll be hit by spells by %d%% and increases movement and mounted movement speed by %d%%.  This does not stack with other movement speed increasing effects.",
-					tipValues = {{1, 5}, {2, 10}, {3, 15}},
+					wowTreeIndex = 13,
 					column = 4,
 					row = 3,
 					icon = 135937,
-					ranks = 3,
+					ranks = 2,
 				},
 			}, -- [9]
 			{
 				info = {
+					talentRankSpellIds = {
+						9799, -- [1]
+						25988, -- [2]
+					},
 					name = "Eye for an Eye",
-					tips = "All spell criticals against you cause %d%% of the damage taken to the caster as well.  The damage caused by Eye for an Eye will not exceed 50%% of the Paladin's total health.",
-					tipValues = {{15}, {30}},
+					wowTreeIndex = 11,
 					column = 1,
 					row = 4,
 					icon = 135904,
@@ -638,20 +1002,28 @@ Talented_Data.PALADIN = {
 			}, -- [10]
 			{
 				info = {
-					name = "Improved Retribution Aura",
-					tips = "Increases the damage done by your Retribution Aura by %d%%.",
-					tipValues = {{25}, {50}},
+					talentRankSpellIds = {
+						32043, -- [1]
+						35396, -- [2]
+						35397, -- [3]
+					},
+					name = "Sanctity of Battle",
+					wowTreeIndex = 19,
 					column = 3,
 					row = 4,
-					icon = 135873,
-					ranks = 2,
+					icon = 135924,
+					ranks = 3,
 				},
 			}, -- [11]
 			{
 				info = {
+					talentRankSpellIds = {
+						31866, -- [1]
+						31867, -- [2]
+						31868, -- [3]
+					},
 					name = "Crusade",
-					tips = "Increases all damage caused against Humanoids, Demons, Undead and Elementals by %d%%.",
-					tipValues = {{1}, {2}, {3}},
+					wowTreeIndex = 14,
 					column = 4,
 					row = 4,
 					icon = 135889,
@@ -660,9 +1032,13 @@ Talented_Data.PALADIN = {
 			}, -- [12]
 			{
 				info = {
+					talentRankSpellIds = {
+						12163, -- [1]
+						12711, -- [2]
+						12712, -- [3]
+					},
 					name = "Two-Handed Weapon Specialization",
-					tips = "Increases the damage you deal with two-handed melee weapons by %d%%.",
-					tipValues = {{2}, {4}, {6}},
+					wowTreeIndex = 5,
 					column = 1,
 					row = 5,
 					icon = 133041,
@@ -671,35 +1047,24 @@ Talented_Data.PALADIN = {
 			}, -- [13]
 			{
 				info = {
-					tips = "Increases Holy damage done by party members within 30 yards by 10%.  Players may only have one Aura on them per Paladin at any one time.",
-					name = "Sanctity Aura",
-					row = 5,
+					talentRankSpellIds = {
+						31869, -- [1]
+					},
+					name = "Sanctified Retribution",
+					wowTreeIndex = 15,
 					column = 3,
-					exceptional = 1,
+					row = 5,
 					icon = 135934,
 					ranks = 1,
 				},
 			}, -- [14]
 			{
 				info = {
-					prereqs = {
-						{
-							column = 3,
-							row = 5,
-							source = 14,
-						}, -- [1]
+					talentRankSpellIds = {
+						8602, -- [1]
+						16909, -- [2]
+						16910, -- [3]
 					},
-					name = "Improved Sanctity Aura",
-					tips = "The amount of damage caused by targets affected by Sanctity Aura is increased by %d%%.",
-					tipValues = {{1}, {2}},
-					column = 4,
-					row = 5,
-					icon = 135934,
-					ranks = 2,
-				},
-			}, -- [15]
-			{
-				info = {
 					prereqs = {
 						{
 							column = 2,
@@ -708,87 +1073,179 @@ Talented_Data.PALADIN = {
 						}, -- [1]
 					},
 					name = "Vengeance",
-					tips = "Gives you a %d%% bonus to Physical and Holy damage you deal for 30 sec after dealing a critical strike from a weapon swing, spell, or ability.  This effect stacks up to 3 times.",
-					tipValues = {{1}, {2}, {3}, {4}, {5}},
+					wowTreeIndex = 2,
 					column = 2,
 					row = 6,
 					icon = 132275,
-					ranks = 5,
+					ranks = 3,
+				},
+			}, -- [15]
+			{
+				info = {
+					talentRankSpellIds = {
+						31871, -- [1]
+						31872, -- [2]
+					},
+					name = "Divine Purpose",
+					wowTreeIndex = 16,
+					column = 3,
+					row = 6,
+					icon = 135897,
+					ranks = 2,
 				},
 			}, -- [16]
 			{
 				info = {
-					name = "Sanctified Judgement",
-					tips = "Gives your Judgement spell a %d%% chance to return 80%% of the mana cost of the judged seal.",
-					tipValues = {{33}, {66}, {100}},
-					column = 3,
-					row = 6,
-					icon = 135959,
-					ranks = 3,
+					talentRankSpellIds = {
+						53486, -- [1]
+						53488, -- [2]
+					},
+					name = "The Art of War",
+					wowTreeIndex = 25,
+					column = 1,
+					row = 7,
+					icon = 236246,
+					ranks = 2,
 				},
 			}, -- [17]
 			{
 				info = {
-					name = "Sanctified Seals",
-					tips = "Increases your chance to critically hit with all spells and melee attacks by %d%% and reduces the chance your Seals will be dispelled by %d%%.",
-					tipValues = {{1, 33}, {2, 66}, {3, 100}},
-					column = 1,
+					isExceptional = 1,
+					talentRankSpellIds = {
+						20066, -- [1]
+					},
+					name = "Repentance",
+					wowTreeIndex = 7,
+					column = 2,
 					row = 7,
-					icon = 135924,
-					ranks = 3,
+					icon = 135942,
+					ranks = 1,
 				},
 			}, -- [18]
 			{
 				info = {
-					tips = "Puts the enemy target in a state of meditation, incapacitating them for up to 6 sec.  Any damage caused will awaken the target.  Only works against Humanoids.",
-					name = "Repentance",
+					talentRankSpellIds = {
+						31876, -- [1]
+						31877, -- [2]
+						31878, -- [3]
+					},
+					name = "Judgements of the Wise",
+					wowTreeIndex = 17,
+					column = 3,
 					row = 7,
-					column = 2,
-					exceptional = 1,
-					icon = 135942,
-					ranks = 1,
+					icon = 236257,
+					ranks = 3,
 				},
 			}, -- [19]
 			{
 				info = {
-					name = "Divine Purpose",
-					tips = "Melee and ranged critical strikes against you cause %d%% less damage.",
-					tipValues = {{4}, {7}, {10}},
-					column = 3,
-					row = 7,
-					icon = 135897,
+					talentRankSpellIds = {
+						31879, -- [1]
+						31880, -- [2]
+						31881, -- [3]
+					},
+					prereqs = {
+						{
+							column = 2,
+							row = 7,
+							source = 18,
+						}, -- [1]
+					},
+					name = "Fanaticism",
+					wowTreeIndex = 18,
+					column = 2,
+					row = 8,
+					icon = 135905,
 					ranks = 3,
 				},
 			}, -- [20]
 			{
 				info = {
-					prereqs = {
-						{
-							column = 2,
-							row = 7,
-							source = 19,
-						}, -- [1]
+					talentRankSpellIds = {
+						53375, -- [1]
+						53376, -- [2]
 					},
-					name = "Fanaticism",
-					tips = "Increases the critical strike chance of all Judgements capable of a critical hit by %d%% and reduces threat caused by all actions by %d%% except when under the effects of Righteous Fury.",
-					tipValues = {{3, 6}, {6, 12}, {9, 18}, {12, 24}, {15, 30}},
-					column = 2,
+					name = "Sanctified Wrath",
+					wowTreeIndex = 21,
+					column = 3,
 					row = 8,
-					icon = 135905,
-					ranks = 5,
+					icon = 236262,
+					ranks = 2,
 				},
 			}, -- [21]
 			{
 				info = {
-					tips = "An instant strike that causes 110% weapon damage and refreshes all Judgements on the target.",
-					name = "Crusader Strike",
+					talentRankSpellIds = {
+						53379, -- [1]
+						53484, -- [2]
+						53648, -- [3]
+					},
+					name = "Swift Retribution",
+					wowTreeIndex = 22,
+					column = 1,
 					row = 9,
+					icon = 236266,
+					ranks = 3,
+				},
+			}, -- [22]
+			{
+				info = {
+					isExceptional = 1,
+					talentRankSpellIds = {
+						14517, -- [1]
+					},
+					name = "Crusader Strike",
+					wowTreeIndex = 20,
 					column = 2,
-					exceptional = 1,
+					row = 9,
 					icon = 135891,
 					ranks = 1,
 				},
-			}, -- [22]
+			}, -- [23]
+			{
+				info = {
+					talentRankSpellIds = {
+						53501, -- [1]
+						53502, -- [2]
+						53503, -- [3]
+					},
+					name = "Sheath of Light",
+					wowTreeIndex = 26,
+					column = 3,
+					row = 9,
+					icon = 236263,
+					ranks = 3,
+				},
+			}, -- [24]
+			{
+				info = {
+					talentRankSpellIds = {
+						53380, -- [1]
+						53381, -- [2]
+						53382, -- [3]
+					},
+					name = "Righteous Vengeance",
+					wowTreeIndex = 23,
+					column = 2,
+					row = 10,
+					icon = 236260,
+					ranks = 3,
+				},
+			}, -- [25]
+			{
+				info = {
+					isExceptional = 1,
+					talentRankSpellIds = {
+						53385, -- [1]
+					},
+					name = "Divine Storm",
+					wowTreeIndex = 24,
+					column = 2,
+					row = 11,
+					icon = 236250,
+					ranks = 1,
+				},
+			}, -- [26]
 		},
 		info = {
 			name = "Retribution",
