@@ -38,6 +38,9 @@ function Talented.buildSpellCache()
 end
 
 function Talented.GetSpellsMatching(name)
+    if isRead == false then
+        Talented.ReadTalents()
+    end
     if cache[name] then
         if cache[name].spells then
             local result = {}
@@ -49,6 +52,32 @@ function Talented.GetSpellsMatching(name)
             return result
         end
     end
+end
+
+function Talented.ParseTalent(name)
+    print("--- Spell name: ", name, " ---")
+    local possibleTalentsBySpellId = Talented.GetSpellsMatching(name)
+    DevTools_Dump(possibleTalentsBySpellId)
+    for spellId, iconId in pairs(possibleTalentsBySpellId) do
+        print("SpellId: ", spellId)
+        print("IconId: ", tonumber(iconId))
+        local spellDescription = GetSpellDescription(spellId)
+        print(spellDescription)
+    end
+
+    local class = select(2, UnitClass"player")
+    local talent = {}
+    for i = 1, 3 do
+        local talentTree = Talented_Data[class][i].talents
+        for index, currentTalent in pairs(talentTree) do
+            if currentTalent.info.name == name then
+                talent = currentTalent.info
+            end
+        end
+    end
+    DevTools_Dump(talent)
+
+    Talented.GetTalentRanksMatching(name, talent.ranks, talent.icon)
 end
 
 function Talented.GetTalentRanksMatching(name, ranks, icon)
@@ -64,24 +93,132 @@ function Talented.GetTalentRanksMatching(name, ranks, icon)
         return {48532, 48489, 48491}
     end
     local i = 1
+    local result = {}
     if cache[name] then
         if cache[name].spells then
             local result = {}
+            local maxNumbersFound = 0
             for foundSpellId, foundIconId in cache[name].spells:gmatch("(%d+)=(%d+)") do
                 local foundSpellNumber = tonumber(foundSpellId)
                 -- Filter out when talents have the same names as actual other spells in the game, such as pet spells
                 if (tonumber(foundIconId) == icon and (Talented.listContains(blackedOutSpellIds, foundSpellNumber) ~= true)) then
-                    result[i] = foundSpellNumber
+                    result[i] = {
+                        spellNumber = foundSpellNumber,
+                        numbersFound = 0,
+                    }
+                    local spellDescription = GetSpellDescription(foundSpellNumber)
+--                    DevTools_Dump(foundSpellNumber, spellDescription)
+                    local numbersFound = 0
+                    local firstNumber, secondNumber, thirdNumber, fourthNumber, fifthNumber = string.match(spellDescription, "[^%d]*(%d*.?%d)[^%d]*(%d*.?%d)[^%d]*(%d*.?%d)[^%d]*(%d*.?%d)[^%d]*(%d*.?%d)[^%d]*(%d*.?%d)")
+                    if firstNumber ~= "" then
+                        result[i].firstNumber = tonumber(firstNumber)
+                        numbersFound = 1
+                    end
+                    if secondNumber ~= "" then
+                        result[i].secondNumber = tonumber(secondNumber)
+                        numbersFound = 2
+                    end
+                    if thirdNumber ~= "" then
+                        result[i].thirdNumber = tonumber(thirdNumber)
+                        numbersFound = 3
+                    end
+                    if fourthNumber ~= "" then
+                        result[i].fourthNumber = tonumber(fourthNumber)
+                        numbersFound = 4
+                    end
+                    if fifthNumber ~= "" then
+                        result[i].fifthNumber = tonumber(fifthNumber)
+                        numbersFound = 5
+                    end
+                    result[i].numbersFound = numbersFound
+                    if (numbersFound > maxNumbersFound) then
+                        maxNumbersFound = numbersFound
+                    end
                     -- Load the spell descriptions now so that by the time the UI loads, they are all available.  Otherwise you have to mouse over each rank twice.
-                    GetSpellDescription(foundSpellNumber)
                     i = i + 1
                 end
             end
-            table.sort(result)
-            for j = ranks + 1, i do
-                result[j] = nil
+--            table.sort(result)
+--            if name == "Improved Hamstring" or name == "Mace Specialization" or name == "Sudden Death" or name == "Deep Wounds" or name == "Enrage" then
+--            if name == "Enrage" then
+--                print(name)
+                local k = 1
+                while k <= #result do
+--                    if result[k].numbersFound < maxNumbersFound and #result > ranks then
+                    if result[k].numbersFound < maxNumbersFound then
+                        if #result > ranks then
+                            print("removing ", k)
+                            DevTools_Dump(result)
+                            table.remove(result, k)
+                        else
+                            k = k + 1
+                        end
+                    else
+                        k = k + 1
+                    end
+                end
+--                DevTools_Dump(result)
+                table.sort(result, function(a, b)
+--                    DevTools_Dump(a)
+--                    DevTools_Dump(b)
+                    if (a ~= nil and b ~= nil and a.firstNumber ~= nil and b.firstNumber ~= nil and a.firstNumber < b.firstNumber) then
+                        return true
+                    elseif (a ~= nil and b ~= nil and a.firstNumber ~= nil and b.firstNumber ~= nil and a.firstNumber > b.firstNumber) then
+                        return false
+                    elseif (a ~= nil and b ~= nil and a.secondNumber ~= nil and b.secondNumber ~= nil and a.secondNumber < b.secondNumber) then
+                        return true
+                    elseif (a ~= nil and b ~= nil and a.secondNumber ~= nil and b.secondNumber ~= nil and a.secondNumber > b.secondNumber) then
+                        return false
+                    elseif (a ~= nil and b ~= nil and a.thirdNumber ~= nil and b.thirdNumber ~= nil and a.thirdNumber < b.thirdNumber) then
+                        return true
+                    elseif (a ~= nil and b ~= nil and a.thirdNumber ~= nil and b.thirdNumber ~= nil and a.thirdNumber > b.thirdNumber) then
+                        return false
+                    elseif (a ~= nil and b ~= nil and a.fourthNumber ~= nil and b.fourthNumber ~= nil and a.fourthNumber < b.fourthNumber) then
+                        return true
+                    elseif (a ~= nil and b ~= nil and a.fourthNumber ~= nil and b.fourthNumber ~= nil and a.fourthNumber > b.fourthNumber) then
+                        return false
+                    elseif (a ~= nil and b ~= nil and a.fifthNumber ~= nil and b.fifthNumber ~= nil and a.fifthNumber < b.fifthNumber) then
+                        return true
+                    elseif (a ~= nil and b ~= nil and a.fifthNumber ~= nil and b.fifthNumber ~= nil and a.fifthNumber > b.fifthNumber) then
+                        return false
+                    elseif (a ~= nil and b ~= nil and a.spellNumber < b.spellNumber) then
+                        return true
+                    else
+                        return false
+                    end
+                end)
+            local k = 1
+            while k <= #result do
+                if k > 1 and (result[k].firstNumber == nil or result[k].firstNumber == result[k - 1].firstNumber)
+                         and (result[k].secondNumber == nil or result[k].secondNumber == result[k - 1].secondNumber)
+                         and (result[k].thirdNumber == nil or result[k].thirdNumber == result[k - 1].thirdNumber)
+                         and (result[k].fourthNumber == nil or result[k].fourthNumber == result[k - 1].fourthNumber)
+                         and (result[k].fifthNumber == nil or result[k].fifthNumber == result[k - 1].fifthNumber) then
+                    print("removing ", k)
+                    DevTools_Dump(result)
+                    table.remove(result, k)
+                else
+                    k = k + 1
+                end
             end
-            return result
+--                DevTools_Dump(result)
+--            end
+
+--            for j = ranks + 1, i do
+--                result[j] = nil
+--            end
+
+            local finalResult = {}
+            for h = 1, ranks do
+                if (#result < h) then
+                    print("fail", ranks, name)
+                    DevTools_Dump(result)
+                else
+                    finalResult[h] = result[h].spellNumber
+                end
+            end
+
+            return finalResult
         end
     end
 end
@@ -96,6 +233,7 @@ function Talented.listContains(tableToSearch, valueToFind)
     return false
 end
 
+local isRead = false
 function Talented.ReadTalents()
     Talented.buildSpellCache()
     for treeIndex = 1, 3 do
@@ -168,5 +306,8 @@ function Talented.ReadTalents()
         local class = select(2, UnitClass"player")
         classTalents[treeIndex].info = Talented.tabdata[class][treeIndex]
     end
+    isRead = true
     return classTalents
 end
+
+Talented.ReadTalents()
