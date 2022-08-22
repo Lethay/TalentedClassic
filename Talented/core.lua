@@ -96,10 +96,10 @@ function Talented:OnInitialize()
 	else
 		self.PLAYER_LOGIN = function (self)
 			self:LoadAddOn"Talented_SpecTabs"
-			self:UnregisterEvent"PLAYER_LOGIN"
+			self:UnregisterEvent("PLAYER_LOGIN")
 			self.PLAYER_LOGIN = nil
 		end
-		self:RegisterEvent"PLAYER_LOGIN"
+		self:RegisterEvent("PLAYER_LOGIN")
 	end
 	self.OnInitialize = nil
 end
@@ -114,7 +114,7 @@ end
 
 function Talented:DeleteCurrentTemplate()
 	local template = self.template
-	if template == self.current then return end
+	if template.talentGroup then return end
 	local templates = self.db.global.templates
 	templates[template.class][template.name] = nil
 	self:SetTemplate()
@@ -123,7 +123,7 @@ end
 function Talented:UpdateTemplateName(template, newname)
 	local class = template.class
 	if self.db.global.templates[class][newname] or
-			self.current == template or
+			template.talentGroup or
 			type(newname) ~= "string" or newname == "" then
 		return
 	end
@@ -265,8 +265,8 @@ function Talented:OpenTemplate(template)
 		return
 	end
 	local base = self:CreateBaseFrame()
-	if not self.current then
-		self:UpdateCurrentTemplate()
+	if not self.alternates then
+		self:UpdatePlayerSpecs()
 	end
 	self:SetTemplate(template)
 	if not base:IsVisible() then
@@ -276,19 +276,19 @@ function Talented:OpenTemplate(template)
 end
 
 function Talented:SetTemplate(template)
-	if not template then template = self.current end
+	if not template then template = self:GetActiveSpec() end
 	local view = self:CreateBaseFrame().view
 	local old = view.template
 	if template ~= old then
-		if self.current == template then
-			local target = self:MakeTarget(1)
+		if template.talentGroup then
+			local target = self:MakeTarget(template.talentGroup)
 			view:SetTemplate(template, target)
 		else
 			view:SetTemplate(template)
 		end
 		self.template = template
 	end
-	if template and self.current ~= template then
+	if not template or not template.talentGroup then
 		self.db.profile.last_template = template.name
 	end
 	self:SetMode(self:GetDefaultMode())
@@ -302,22 +302,27 @@ end
 
 function Talented:OnEnable()
 	self:RawHook("ToggleTalentFrame", true)
+	self:RawHook("ToggleGlyphFrame", true)
 	--Non-taint option that loads Talented's frame IN ADDITION to Blizzard's frame: self:SecureHook("ToggleTalentFrame")
 	self:SecureHook("UpdateMicroButtons")
 
+	UIParent:UnregisterEvent("USE_GLYPH")
 	UIParent:UnregisterEvent("CONFIRM_TALENT_WIPE")
+	self:RegisterEvent("USE_GLYPH")
 	self:RegisterEvent("CONFIRM_TALENT_WIPE")
 	self:RegisterEvent("CHARACTER_POINTS_CHANGED")
+	self:RegisterEvent("PLAYER_TALENT_UPDATE")
 	TalentMicroButton:SetScript("OnClick", ToggleTalentFrame)
 end
 
 function Talented:OnDisable()
 	-- self:UnhookInspectUI()
+	UIParent:RegisterEvent("USE_GLYPH")
 	UIParent:RegisterEvent("CONFIRM_TALENT_WIPE")
 end
 
 function Talented:PLAYER_TALENT_UPDATE()
-	self:UpdateCurrentTemplate()
+	self:UpdatePlayerSpecs()
 end
 
 function Talented:CONFIRM_TALENT_WIPE(_, cost)
@@ -338,7 +343,7 @@ end
 
 
 function Talented:CHARACTER_POINTS_CHANGED()
-	self:UpdateCurrentTemplate()
+	self:UpdatePlayerSpecs()
 	self:UpdateView()
 	if self.mode == "apply" then
 		self:ApplyNextTalentPoint()
@@ -376,7 +381,7 @@ end
 
 function Talented:Update()
 	self:CreateBaseFrame()
-	self:UpdateCurrentTemplate()
+	self:UpdatePlayerSpecs()
 	if not self.template then
 		self:SetTemplate()
 	end

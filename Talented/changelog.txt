@@ -1,3 +1,6 @@
+v220823
+    - WotLK support. Thanks a lot to @glajchs.
+    
 v220527
     - Make the same wowhead.lua work with both vanilla and TBC
 

@@ -246,7 +246,7 @@ function Talented:TemplateToString(template, nmap)
 end
 
 function Talented:PackTemplate(template)
-	if not template or template == self.current or template.code then return end
+	if not template or template.talentGroup or template.code then return end
 	self:Debug("PACK TEMPLATE", template.name)
 	template.code = self:TemplateToString(template)
 	for tab in ipairs(template) do
@@ -255,7 +255,7 @@ function Talented:PackTemplate(template)
 end
 
 function Talented:UnpackTemplate(template)
-	if template == self.current or not template.code then return end
+	if template.talentGroup or not template.code then return end
 	self:Debug("UNPACK TEMPLATE", template.name)
 	self:StringToTemplate(template.code, template) 
 	template.code = nil

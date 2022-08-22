@@ -250,7 +250,7 @@ function Talented:GetTalentLink(template, tab, index, rank)
 	-- return ("|cff71d5ff|Hspell:%d|h[%s]|h|r"):format(data[tab][index].ranks[rank],
 	-- 	self:GetTalentName(template.class, tab, index)
 	-- )
-	if Talented.current == template then
+	if template.talentGroup then
 		local link = GetTalentLink(tab, index) --note cannot get rank
 		return link
 	else

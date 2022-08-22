@@ -3,14 +3,17 @@
 ## Name: Talented
 ## Notes: The Talent Template Editor
 ## Author: Jerry,Lethay
-## Version: v220527
+## Version: v220823
 ## OptionalDeps: Ace3
 ## SavedVariables: TalentedDB
 ## X-Category: Interface Enhancements
 ## LoadManagers: Talented_Loader AddonLoader
 ## X-LoadOn-Execute: local N = "ToggleTalentFrame" local P = _G[N] local function f() if _G[N] == f then _G[N] = P end local T = "Talented" AddonLoader:LoadAddOn(T) local t = _G[T] if t then t[N](t) else P() end end _G[N] = f
+## X-LoadOn-Execute2: local N = "ToggleGlyphFrame" local P = _G[N] local function f() if _G[N] == f then _G[N] = P end local T = "Talented" AddonLoader:LoadAddOn(T) local t = _G[T] if t then t[N](t) else P() end end _G[N] = f
+## X-LoadOn-Execute3: UIParent:UnregisterEvent( UIParent:UnregisterEvent( TalentMicroButton:SetScript("OnClick", function () ToggleTalentFrame() end)
 ## X-LoadOn-Slash: /talented
-## X-LoadOn-Event: CONFIRM_TALENT_WIPE
+## X-LoadOn-Event: CONFIRM_TALENT_WIPE USE_GLYPH
+## X-LoadOn-USE_GLYPH: if IsAddOnLoaded"Talented" then return end AddonLoader:LoadAddOn"Talented" if Talented then Talented:GLYPHFRAME_OPEN() end
 ## X-LoadOn-CONFIRM_TALENT_WIPE: if IsAddOnLoaded"Talented" then return end AddonLoader:LoadAddOn"Talented" if Talented then Talented:CONFIRM_TALENT_WIPE() end
 ## X-Curse-Packaged-Version: v200804
 ## X-Curse-Project-Name: Talented
@@ -64,3 +67,5 @@ ui\branches.lua
 ui\arrows.lua
 ui\lines.lua
 ui\menu.lua
+
+glyph.lua

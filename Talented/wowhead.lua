@@ -3,7 +3,7 @@ local ipairs = ipairs
 
 local L = LibStub("AceLocale-3.0"):GetLocale("Talented")
 -- local isVanilla = WOW_PROJECT_ID == WOW_PROJECT_CLASSIC
-local isTBC     = WOW_PROJECT_ID == WOW_PROJECT_BURNING_CRUSADE_CLASSIC
+local isTBC     = WOW_PROJECT_ID == WOW_PROJECT_BURNING_CRUSADE_CLASSIC --TODO: This is showing up as the ID for WotLK on the PTR. Update later, if needed.
 
 --https://classic.wowhead.com/talent-calc/rogue/0251030050502--05
 --https://classic.wowhead.com/talent-calc/rogue/0251030050502-32
@@ -65,9 +65,6 @@ Talented.exporters[L["Wowhead Talent Calculator"]] = function (self, template)
 		end
 		s[#s + 1] = "-"
 	end
-	if isTBC then
-		return L["http://tbc.wowhead.com/talent-calc/%s/%s"]:format(template.class:lower(), table.concat(s))
-	else
-		return L["http://classic.wowhead.com/talent-calc/%s/%s"]:format(template.class:lower(), table.concat(s))
-	end
+	-- return L["http://tbc.wowhead.com/talent#%s"]:format(self:TemplateToString(template, "0zMcmVokRsaqbdrfwihuGINALpTjnyxtgevE"))
+	return L["http://tbc.wowhead.com/talent-calc/%s/%s"]:format(template.class:lower(), table.concat(s))
 end

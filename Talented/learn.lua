@@ -6,8 +6,8 @@ local function ShowDialog(text, tab, index)
 		button1 = YES,
 		button2 = NO,
 		OnAccept = function(self)
---			LearnTalent(self.talent_tab, self.talent_index)
-			LearnTalent(self.talent_tab, Talented.convertOrderedTalentIndexToWowIndex(self, self.current.class, self.talent_tab, self.talent_index))
+--			LearnTalent(self.talent_tab, self.talent_index). Note this is the WoW API LearnTalent, not self:LearnTalent
+			LearnTalent(self.talent_tab, Talented.convertOrderedTalentIndexToWowIndex(self, select(2, UnitClass"player"), self.talent_tab, self.talent_index))
 		end,
 		timeout = 0,
 		exclusive = 1,
@@ -24,33 +24,34 @@ local function ShowDialog(text, tab, index)
 	return ShowDialog(text, tab, index)
 end
 
-function Talented:LearnTalent(tab, index)
+function Talented:LearnTalent(template, tab, index)
 	local p = self.db.profile
 
 	if not p.confirmlearn then
-		LearnTalent(tab, Talented.convertOrderedTalentIndexToWowIndex(self, self.current.class, tab, index))
+		LearnTalent(tab, Talented.convertOrderedTalentIndexToWowIndex(self, template.class, tab, index))
 		return
 	end
 
 	if not p.always_call_learn_talents then
-		local state = self:GetTalentState(self.current, tab, index)
+		local state = self:GetTalentState(template, tab, index)
 		if
 			state == "full" or -- talent maxed out
 			state == "unavailable" or -- prereqs not fullfilled
-			UnitCharacterPoints("player") == 0 -- no more points
+			-- UnitCharacterPoints("player") == 0 -- no more points
+			GetUnspentTalentPoints(nil, nil, GetActiveTalentGroup()) == 0 -- no more points
 		then
 			return
 		end
 	end
 
 	--Create confirmation dialogue
-	local info = self:GetTalentInfo(self.current.class)
+	local info = self:GetTalentInfo(template.class)
 	if not info then return end
 	local talent = info[tab].talents[index]
 	
 	ShowDialog(L["Are you sure that you want to learn \"%s (%d/%d)\" ?"]:format(
 			talent.info.name,
-			self.current[tab][index] + 1,
+			template[tab][index] + 1,
 			talent.info.ranks),
 		tab, index)
 end

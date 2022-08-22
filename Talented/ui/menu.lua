@@ -68,7 +68,12 @@ function Talented:CreateTemplateMenu()
 	local entry = self:GetNamedMenu("primary")
 	entry.text = TALENT_SPEC_PRIMARY
 	entry.func = Menu_SetTemplate
-	entry.arg1 = self.current
+	menu[#menu + 1] = entry
+
+	entry = self:GetNamedMenu("secondary")
+	entry.text = TALENT_SPEC_SECONDARY
+	entry.disabled = true
+	entry.func = Menu_SetTemplate
 	menu[#menu + 1] = entry
 
 	entry = self:GetNamedMenu("separator")
@@ -182,20 +187,20 @@ function Talented:MakeTemplateMenu()
 	-- 	end
 	-- 	table.sort(menuList, Sort_Template_Menu_Entry)
 	-- end
-	-- local talentGroup = GetActiveTalentGroup()
-	-- local entry = self:GetNamedMenu("primary")
-	-- local current = self.alternates[1]
-	-- update_template_entry(entry, TALENT_SPEC_PRIMARY, current)
-	-- entry.arg1 = current
-	-- entry.checked = (self.template == current)
-	-- if #self.alternates > 1 then
-	-- 	local alt = self.alternates[2]
-	-- 	local entry = self:GetNamedMenu("secondary")
-	-- 	entry.disabled = false
-	-- 	update_template_entry(entry, TALENT_SPEC_SECONDARY, alt)
-	-- 	entry.arg1 = alt
-	-- 	entry.checked = (self.template == alt)
-	-- end
+	local talentGroup = GetActiveTalentGroup()
+	local entry = self:GetNamedMenu("primary")
+	local current = self.alternates[1]
+	update_template_entry(entry, TALENT_SPEC_PRIMARY, current)
+	entry.arg1 = current
+	entry.checked = (self.template == current)
+	if #self.alternates > 1 then
+		local alt = self.alternates[2]
+		local entry = self:GetNamedMenu("secondary")
+		entry.disabled = false
+		update_template_entry(entry, TALENT_SPEC_SECONDARY, alt)
+		entry.arg1 = alt
+		entry.checked = (self.template == alt)
+	end
 
 	return menu
 end
@@ -369,22 +374,21 @@ end
 
 function Talented:MakeActionMenu()
 	local menu = self:CreateActionMenu()
-	-- local templateTalentGroup, activeTalentGroup = self.template.talentGroup, GetActiveTalentGroup()
-	local template, current = self.template, self.current
+	local templateTalentGroup, activeTalentGroup = self.template.talentGroup, GetActiveTalentGroup()
 	local restricted = (self.template.class ~= select(2, UnitClass("player")))
 	local targetName
 	if not restricted then
-		targetName = 1 --Primary talents, the only talent group ion calssic. Formerly targetName = templateTalentGroup or activeTalentGroup
+		targetName = 1 --Primary talents, the only talent group in classic. Formerly targetName = templateTalentGroup or activeTalentGroup
 	end
 
-	self:GetNamedMenu("Apply").disabled = self.template==self.current or restricted
-	self:GetNamedMenu("Delete").disabled = self.template==self.current or not self.db.global.templates[self.template.class][self.template.name]
+	self:GetNamedMenu("Apply").disabled = templateTalentGroup or restricted
+	self:GetNamedMenu("Delete").disabled = templateTalentGroup or not self.db.global.templates[self.template.class][self.template.name]
 	-- local switch = self:GetNamedMenu("SwitchTalentGroup")
 	-- switch.disabled = (restricted or not templateTalentGroup or templateTalentGroup == activeTalentGroup)
 	-- switch.arg1 = templateTalentGroup
 
 	local target = self:GetNamedMenu("Target")
-	if template == self.current then
+	if templateTalentGroup then
 		target.text = L["Clear target"]
 		target.arg1 = targetName
 		target.arg2 = nil

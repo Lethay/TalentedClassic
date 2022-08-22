@@ -220,7 +220,7 @@ Talented.options = {
 		-- 					desc = L["Create a new template from your current spec."],
 		-- 					type = "execute",
 		-- 					order = 300,
-		-- 					func = function() Talented:SetTemplate(Talented:CopyTemplate(Talented.current)) end,
+		-- 					func = function() Talented:SetTemplate(Talented:CopyTemplate(Talented.template)) end,
 		-- 				},
 		-- 				clone = {
 		-- 					name = L["Clone selected"],

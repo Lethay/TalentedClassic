@@ -18,12 +18,13 @@ function Talented:ApplyCurrentTemplate()
 		return
 	end
 	local count = 0
-	local current = self.current
+	local current = self:GetActiveSpec()
+	local group = GetActiveTalentGroup()
 	-- check if enough talent points are available
-	local available = UnitCharacterPoints("player")
+	local available = GetUnspentTalentPoints(nil, nil, group)
 	for tab, tree in ipairs(self:GetTalentInfo(template.class)) do
 		for index = 1, #tree.talents do
-			local delta = template[tab][index] - self.current[tab][index]
+			local delta = template[tab][index] - current[tab][index]
 			if delta > 0 then
 				count = count + delta
 			end
@@ -51,7 +52,7 @@ end
 
 -- function Talented:ApplyTalentPoints()
 -- 	local template = self.template
--- 	local current = self.current
+-- 	local current = self:GetActiveSpec()
 -- 	local cp = UnitCharacterPoints("player")
 
 -- 	while true do
@@ -89,13 +90,21 @@ end
 -- end
 
 function Talented:ApplyNextTalentPoint()
-	local cp = UnitCharacterPoints("player")
 	
+	-- Debug variabvle to check progress
 	local found = false
-	local current = self.current
+
+	-- Objects holding the current talent spec, the template we're applying and our class
+	local current = self:GetActiveSpec()
 	local template = self.template
 	local class = template.class
 	assert(select(2, UnitClass"player") == template.class, "Player class doesn't match template class")
+
+	-- The current number of talent points in the chosen spec (primary or secondary)
+	local group = GetActiveTalentGroup()
+	local cp = GetUnspentTalentPoints(nil, nil, group)
+	-- local cp = UnitCharacterPoints("player")
+
 	for tab, tree in ipairs(self:GetTalentInfo(class)) do
 		local ctab = current[tab]
 		local ttab = template[tab]
@@ -108,7 +117,9 @@ function Talented:ApplyNextTalentPoint()
 				end
 				found = true
 				if self:ValidateTalentBranch(current, tab, index, cvalue + 1) then
-					LearnTalent(tab, Talented.convertOrderedTalentIndexToWowIndex(self, class, tab, index)) --Don't use self:LearnTalent; don't want to confirm learning
+					LearnTalent(tab, Talented.convertOrderedTalentIndexToWowIndex(self, class, tab, index))
+					--This is the Blizzard API's LearnTalent.
+					-- We don't use self:LearnTalent because we don't want to confirm learning
 					return
 				end
 			end
@@ -123,7 +134,8 @@ end
 
 function Talented:CheckTalentPointsApplied()
 	local template = self.template
-	local current = self.current
+	local current = self:GetActiveSpec()
+	local group = GetActiveTalentGroup()
 	local failed
 	for tab, tree in ipairs(self:GetTalentInfo(template.class)) do
 		local ttab = template[tab]
@@ -138,7 +150,8 @@ function Talented:CheckTalentPointsApplied()
 	if failed then
 		Talented:Print(L["Error while applying talents! some of the request talents were not set!"])
 	else
-		local cp = UnitCharacterPoints("player")
+		local cp = GetUnspentTalentPoints(nil, nil, group)
+		-- local cp = UnitCharacterPoints("player")
 		Talented:Print(L["Template applied successfully, %d talent points remaining."], cp)
 	end
 	Talented:OpenTemplate(template)
