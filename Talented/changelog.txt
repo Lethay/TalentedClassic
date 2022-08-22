@@ -1,3 +1,13 @@
+v220527
+    - Make the same wowhead.lua work with both vanilla and TBC
+
+v211202
+    - Add Spanish localisation and fix a display issue with a Warlock talent (thanks @dcarril)
+
+v211114b
+    - Minor update to Korean localisation
+    - Update to AceConfig
+
 v210718
     - Add korean localisation (thank you Jinny2305 on Curseforge)
     - Add ability to link talents if viewing current talents (does not work from templates!). Thanks to @aLanaMaunz.
