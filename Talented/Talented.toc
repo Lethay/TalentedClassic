@@ -53,6 +53,8 @@ tips.lua
 apply.lua
 wowhead.lua
 wowdb.lua
+DevTools_Dump.lua
+spellscan.lua
 
 ui\pool.lua
 ui\base.lua

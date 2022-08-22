@@ -39,6 +39,7 @@ function Talented:ApplyCurrentTemplate()
 		self:UpdateView()
 	else
 		self:EnableUI(false)
+		self.mode = "apply"
 		self:ApplyNextTalentPoint()
 	end
 end
@@ -107,7 +108,7 @@ function Talented:ApplyNextTalentPoint()
 				end
 				found = true
 				if self:ValidateTalentBranch(current, tab, index, cvalue + 1) then
-					LearnTalent(tab, index) --Don't use self:LearnTalent; don't want to confirm learning
+					LearnTalent(tab, Talented.convertOrderedTalentIndexToWowIndex(self, class, tab, index)) --Don't use self:LearnTalent; don't want to confirm learning
 					return
 				end
 			end
@@ -127,7 +128,7 @@ function Talented:CheckTalentPointsApplied()
 	for tab, tree in ipairs(self:GetTalentInfo(template.class)) do
 		local ttab = template[tab]
 		for index = 1, #tree do
-			local delta = ttab[index] - select(5, GetTalentInfo(tab, index, nil))
+			local delta = ttab[index] - select(5, GetTalentInfo(template.class, tab, Talented.convertOrderedTalentIndexToWowIndex(self, template.class, tab, index), nil))
 			if delta > 0 then
 				failed = true
 				break

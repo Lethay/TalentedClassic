@@ -42,12 +42,12 @@ local L = LibStub("AceLocale-3.0"):GetLocale("Talented")
 -- end
 
 function Talented:UpdateCurrentTemplate()
-	local class = select(2, UnitClass"player")
+	local class, classNum = select(2, UnitClass("player"))
 	local template = self.current
 	local info
 
 	if not template then
-		local class = select(2, UnitClass("player"))
+		local class, classNum = select(2, UnitClass("player"))
 		template = {
 			name = "Current",
 			class = class,
@@ -69,12 +69,13 @@ function Talented:UpdateCurrentTemplate()
 	local total = 0 
 	for tab, tree in ipairs(info) do
 		for index, info in ipairs(tree.talents) do
-			local rank = select(5, GetTalentInfo(tab, index))
+			local indexToUse = Talented.convertOrderedTalentIndexToWowIndex(self, Talented.current.class, tab, index)
+			local rank = select(5, GetTalentInfo(tab, indexToUse))
 			template[tab][index] = rank
 			total = total + rank
 		end
 	end
-	self.maxpoints = total + UnitCharacterPoints("player") 
+	self.maxpoints = total + UnitCharacterPoints("player")
 
 	if self.template == self.current then
 		self:UpdateTooltip()

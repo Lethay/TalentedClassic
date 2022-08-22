@@ -18,14 +18,14 @@ Talented_Data_Export.options={
 }
 
 function Talented_Data_Export:export()
-    if Talented.talents==nil then 
-        print("Talented.talents==nil; no action taken. Open the Talented window first.")
-        return
-    end
+--    if Talented.talents==nil then
+--        print("Talented.talents==nil; no action taken. Open the Talented window first.")
+--        return
+--    end
 
     -- for index, class in ipairs(CLASS_SORT_ORDER) do
     class = select(2, UnitClass"player")
-    data = Talented.talents[class]
+    data = Talented.ReadTalents()
     if data ~= nil then
         print("Exported data for class", class)
         if     class=="HUNTER"  then Talented_Data_HUNTER  = data
@@ -37,6 +37,7 @@ function Talented_Data_Export:export()
         elseif class=="SHAMAN"  then Talented_Data_SHAMAN  = data
         elseif class=="DRUID"   then Talented_Data_DRUID   = data
         elseif class=="ROGUE"   then Talented_Data_ROGUE   = data
+        elseif class=="DEATHKNIGHT"   then Talented_Data_DEATHKNIGHT   = data
         end
     else
         print("Talented.talents[class] is nil for class",class,"- check code!")

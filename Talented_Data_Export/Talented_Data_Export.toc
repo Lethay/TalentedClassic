@@ -4,6 +4,6 @@
 ## Notes: Class Data Exporter for The Talent Template Editor
 ## Author: Jerry,Lethay
 ## Version: 1.0
-## SavedVariables: Talented_Data_HUNTER, Talented_Data_WARRIOR, Talented_Data_PALADIN, Talented_Data_MAGE, Talented_Data_PRIEST, Talented_Data_WARLOCK, Talented_Data_SHAMAN, Talented_Data_DRUID, Talented_Data_ROGUE
+## SavedVariables: Talented_Data_HUNTER, Talented_Data_WARRIOR, Talented_Data_PALADIN, Talented_Data_MAGE, Talented_Data_PRIEST, Talented_Data_WARLOCK, Talented_Data_SHAMAN, Talented_Data_DRUID, Talented_Data_ROGUE, Talented_Data_DEATHKNIGHT
 
 export.lua

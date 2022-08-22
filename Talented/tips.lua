@@ -95,12 +95,14 @@ function Talented:SetTooltipInfo(frame, class, tab, index)
 	if IsAltKeyDown() then 
 		for i = 1, info.ranks do
 			-- addtipline(info.tips)
-			addtipline(gettipline(info.tips, info.tipValues, i), i == rank and HIGHLIGHT_FONT_COLOR or NORMAL_FONT_COLOR)
+			addtipline(GetSpellDescription(info.talentRankSpellIds[i]), i == rank and HIGHLIGHT_FONT_COLOR or NORMAL_FONT_COLOR)
+--			addtipline(gettipline(info.tips, info.tipValues, i), i == rank and HIGHLIGHT_FONT_COLOR or NORMAL_FONT_COLOR)
 		end
 	else
 		if rank > 0 then
 			-- addtipline(info.tips)
-			addtipline(gettipline(info.tips, info.tipValues, rank))
+--			addtipline(gettipline(info.tips, info.tipValues, rank))
+			addtipline(GetSpellDescription(info.talentRankSpellIds[rank]))
 		end
 		if rank < ranks then
 			if rank > 0 then
@@ -108,7 +110,11 @@ function Talented:SetTooltipInfo(frame, class, tab, index)
 			end
 			-- addtipline(info.tips)
 			-- addtipline(self:GetTalentDesc(class, tab, index, rank + 1))
-			addtipline(gettipline(info.tips, info.tipValues, rank + 1))
+			if (info.talentRankSpellIds == nil) then
+				DevTools_Dump(info)
+			end
+			addtipline(GetSpellDescription(info.talentRankSpellIds[rank + 1]))
+--			addtipline(gettipline(info.tips, info.tipValues, rank + 1))
 		end
 	end
 	local s = self:GetTalentState(template, tab, index)

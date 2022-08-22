@@ -27,6 +27,7 @@ Data\Talented_Data_WARLOCK.lua
 Data\Talented_Data_SHAMAN.lua
 Data\Talented_Data_DRUID.lua
 Data\Talented_Data_ROGUE.lua
+Data\Talented_Data_DEATHKNIGHT.lua
 
 Locales\Talented_Data_esES.lua
 Locales\Talented_Data_zhCN.lua

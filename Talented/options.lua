@@ -1,7 +1,7 @@
 local L = LibStub("AceLocale-3.0"):GetLocale("Talented")
 local Talented = Talented
 
-Talented.max_talent_points = 61 --Level 70 is max
+Talented.max_talent_points = 71 --Level 80 is max
 
 Talented.defaults = {
 	profile = {
