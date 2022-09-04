@@ -192,8 +192,12 @@ function TalentView:Update()
 		for index, talent in ipairs(tree) do
 			local rank = template[tab] and template[tab][index] or 0 --template[tab] ? template[tab][index] : 0
 			count = count + rank
-
 			local button = self:GetUIElement(tab, index)
+			if button == nil then
+				--/script class="Ferocity"; info=Talented:UncompressSpellData(class); tab=1; tree=info[tab]; for index, talent in pairs(tree) do print(index, talent.row, talent.column, talent.inactive) end
+				print(template.class, info, at_cap, tab, tree, index, talent, button)
+				for k,v in pairs(talent) do print(k, v) end
+			end
 			local color = GRAY_FONT_COLOR
 			local state = Talented:GetTalentState(template, tab, index)
 			if state == "empty" and (at_cap or not allowEditing) then

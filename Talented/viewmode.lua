@@ -33,8 +33,9 @@ function Talented:UpdatePlayerSpecs()
 		local total = 0 
 		for tab, tree in ipairs(info) do
 			for index, info in ipairs(tree) do
-				local indexToUse = Talented.convertOrderedTalentIndexToWowIndex(self, class, tab, index)
-				local rank = select(5, Talented:OrderedGetTalentInfo(class, tab, indexToUse, nil, nil, talentGroup))
+				-- local indexToUse = Talented.convertOrderedTalentIndexToWowIndex(self, class, tab, index)
+				-- local rank = select(5, Talented:OrderedGetTalentInfo(class, tab, indexToUse, nil, nil, talentGroup))
+				local rank = select(5, Talented:OrderedGetTalentInfo(class, tab, index, nil, nil, talentGroup))
 				template[tab][index] = rank
 				total = total + rank
 			end

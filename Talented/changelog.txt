@@ -1,6 +1,15 @@
+v220904
+    - Fix accidental mis-indexing of talents (don't debug at 2am, kids)
+    - Fix hunter pet talents
+
+    To do:
+    - Add buttons to set group finder role, as in the default blizzard frames.
+    - Change view to current talents when applying a template
+    
 v220903
     - Fix desaturation of talent templates when "always edit" is disabled
     - Fix incorrect invoke of PlaySound when removing glyphs
+    - Fix linking of incorrect talents in chat
     - Update TOC to WotLK
     - Fix spellID when linking talents
     - Stop unnecessary spell scanning (and hence printing of information)
