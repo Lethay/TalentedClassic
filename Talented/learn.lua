@@ -1,34 +1,36 @@
 local L = LibStub("AceLocale-3.0"):GetLocale("Talented")
 local StaticPopupDialogs = StaticPopupDialogs
 
-local function ShowDialog(text, tab, index)
+local function ShowDialog(text, tab, index, pet)
 	StaticPopupDialogs.TALENTED_CONFIRM_LEARN = {
 		button1 = YES,
 		button2 = NO,
 		OnAccept = function(self)
---			LearnTalent(self.talent_tab, self.talent_index). Note this is the WoW API LearnTalent, not self:LearnTalent
-			LearnTalent(self.talent_tab, Talented.convertOrderedTalentIndexToWowIndex(self, select(2, UnitClass"player"), self.talent_tab, self.talent_index))
+			Talented:OrderedLearnTalent(select(2, UnitClass"player"), self.talent_tab, self.talent_index, self.is_pet)
+			--Note this calls the WoW API LearnTalent, not self:LearnTalent
 		end,
 		timeout = 0,
 		exclusive = 1,
 		whileDead = 1,
 		interruptCinematic = 1
 	}
-	ShowDialog = function (text, tab, index)
+	ShowDialog = function (text, tab, index, pet)
 		StaticPopupDialogs.TALENTED_CONFIRM_LEARN.text = text
 		local dlg = StaticPopup_Show"TALENTED_CONFIRM_LEARN"
 		dlg.talent_tab = tab
 		dlg.talent_index = index
+		dlg.is_pet = pet
 		return dlg
 	end
-	return ShowDialog(text, tab, index)
+	return ShowDialog(text, tab, index, pet)
 end
 
 function Talented:LearnTalent(template, tab, index)
+	local is_pet = not RAID_CLASS_COLORS[template.class]
 	local p = self.db.profile
 
 	if not p.confirmlearn then
-		LearnTalent(tab, Talented.convertOrderedTalentIndexToWowIndex(self, template.class, tab, index))
+		Talented:OrderedLearnTalent(template.class, tab, index, is_pet)
 		return
 	end
 
@@ -36,23 +38,18 @@ function Talented:LearnTalent(template, tab, index)
 		local state = self:GetTalentState(template, tab, index)
 		if
 			state == "full" or -- talent maxed out
-			state == "unavailable" or -- prereqs not fullfilled
+			state == "unavailable" or -- prerequisites not fullfilled
 			-- UnitCharacterPoints("player") == 0 -- no more points
-			GetUnspentTalentPoints(nil, nil, GetActiveTalentGroup()) == 0 -- no more points
+			GetUnspentTalentPoints(nil, is_pet, GetActiveTalentGroup(nil, is_pet)) == 0 -- no more points
 		then
 			return
 		end
 	end
 
 	--Create confirmation dialogue
-	local info = self:GetTalentInfo(template.class)
-	if not info then return end
-	local talent = info[tab].talents[index]
-	
 	ShowDialog(L["Are you sure that you want to learn \"%s (%d/%d)\" ?"]:format(
-			talent.info.name,
+			self:GetTalentName(template.class, tab, index),
 			template[tab][index] + 1,
-			talent.info.ranks),
-		tab, index)
+			self:GetTalentRanks(template.class, tab, index)),
+		tab, index, is_pet)
 end
---[tab].talents[index].info

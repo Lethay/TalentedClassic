@@ -1,9 +1,9 @@
-## Interface: 20502
+## Interface: 30400
 ## Title: Talented
 ## Name: Talented
 ## Notes: The Talent Template Editor
 ## Author: Jerry,Lethay
-## Version: v220823
+## Version: v220903
 ## OptionalDeps: Ace3
 ## SavedVariables: TalentedDB
 ## X-Category: Interface Enhancements
@@ -15,10 +15,6 @@
 ## X-LoadOn-Event: CONFIRM_TALENT_WIPE USE_GLYPH
 ## X-LoadOn-USE_GLYPH: if IsAddOnLoaded"Talented" then return end AddonLoader:LoadAddOn"Talented" if Talented then Talented:GLYPHFRAME_OPEN() end
 ## X-LoadOn-CONFIRM_TALENT_WIPE: if IsAddOnLoaded"Talented" then return end AddonLoader:LoadAddOn"Talented" if Talented then Talented:CONFIRM_TALENT_WIPE() end
-## X-Curse-Packaged-Version: v200804
-## X-Curse-Project-Name: Talented
-## X-Curse-Project-ID: talented
-## X-Curse-Repository-ID: wow/talented/mainline
 
 #@no-lib-strip@
 Libs\LibStub\LibStub.lua
@@ -55,8 +51,9 @@ chat.lua
 tips.lua
 apply.lua
 wowhead.lua
-wowdb.lua
 DevTools_Dump.lua
+IndexMatching.lua
+spelldata.lua
 spellscan.lua
 
 ui\pool.lua
@@ -68,4 +65,5 @@ ui\arrows.lua
 ui\lines.lua
 ui\menu.lua
 
+pet.lua
 glyph.lua

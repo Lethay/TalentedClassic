@@ -10,7 +10,7 @@ local Talented = Talented
 
 local stop = 'Z'
 local talented_map = "012345abcdefABCDEFmnopqrMNOPQRtuvwxy*"
-local classmap = { 'DRUID','HUNTER','MAGE','PALADIN','PRIEST','ROGUE','SHAMAN','WARLOCK','WARRIOR','DEATHKNIGHT' }--, 'Ferocity', 'Cunning', 'Tenacity' }
+local classmap = { 'DRUID','HUNTER','MAGE','PALADIN','PRIEST','ROGUE','SHAMAN','WARLOCK','WARRIOR','DEATHKNIGHT', 'Ferocity', 'Cunning', 'Tenacity' }
 
 function Talented:GetTemplateStringClass(code, nmap)
 	nmap = nmap or talented_map
@@ -33,15 +33,16 @@ end
 local temp_tabcount = {}
 local function GetTemplateStringInfo(code)
 	if code:len() <= 0 then return end
+
 	local index = modf((talented_map:find(code:sub(1, 1), nil, true) - 1) / 3) + 1
 	if not index or index > #classmap then return end
 	local class = classmap[index]
-	local trees = Talented:UncompressSpellData(class)
+	local talents = Talented:UncompressSpellData(class)
 	local tabs, count, t = 1, 0, 0
 	for i = 2, code:len() do
 		local char = code:sub(i, i)
 		if char == stop then
-			if t >= #trees[tabs].talents then
+			if t >= #talents[tabs] then
 				temp_tabcount[tabs] = count
 				tabs = tabs + 1
 				count, t = 0, 0
@@ -54,7 +55,7 @@ local function GetTemplateStringInfo(code)
 			if not index then return end
 			local b = fmod(index, 6)
 			local a = (index - b) / 6
-			if t >= #trees[tabs].talents then
+			if t >= #talents[tabs] then
 				temp_tabcount[tabs] = count
 				tabs = tabs + 1
 				count, t = 0, 0
@@ -63,16 +64,15 @@ local function GetTemplateStringInfo(code)
 			count = count + a + b
 		end
 	end
-
 	if count > 0 then
 		temp_tabcount[tabs] = count
 	else
 		tabs = tabs - 1
 	end
-	for i = tabs + 1, #trees do
+	for i = tabs + 1, #talents do
 		temp_tabcount[i] = 0
 	end
-	tabs = #trees
+	tabs = #talents
 	if tabs == 1 then
 		return get_point_string(class, temp_tabcount[1])
 	else -- tab == 3
@@ -129,18 +129,27 @@ function Talented:GetTemplateInfo(template)
 end
 
 function Talented:StringToTemplate(code, template, nmap)
-	if code == nil or code:len() <= 0 then return end
 	nmap = nmap or talented_map
+	if code:len() <= 0 then return end
 
 	local index = modf((nmap:find(code:sub(1, 1), nil, true) - 1) / 3) + 1
 	assert(index and index <= #classmap, "Unknown class code")
 
+--[[
+	if not class then
+		_, class = UnitClass("player")
+	end
+	assert(classmap[index] == class, "Invalid class")
+]]
 	local class = classmap[index]
+
 	template = template or {}
+
 	template.class = class
 
-	local trees = self:UncompressSpellData(class)
-	assert(trees)
+	local talents = self:UncompressSpellData(class)
+
+	assert(talents)
 
 	local tab = 1
 	local t = wipe(template[tab] or {})
@@ -149,7 +158,7 @@ function Talented:StringToTemplate(code, template, nmap)
 	for i = 2, code:len() do
 		local char = code:sub(i, i)
 		if char == stop then
-			if #t >= #trees[tab].talents then
+			if #t >= #talents[tab] then
 				tab = tab + 1
 				t = wipe(template[tab] or {})
 				template[tab] = t
@@ -163,14 +172,14 @@ function Talented:StringToTemplate(code, template, nmap)
 			local b = fmod(index, 6)
 			local a = (index - b) / 6
 
-			if #t >= #trees[tab].talents then
+			if #t >= #talents[tab] then
 				tab = tab + 1
 				t = wipe(template[tab] or {})
 				template[tab] = t
 			end
 			t[#t + 1] = a
 
-			if #t < #trees[tab].talents then
+			if #t < #talents[tab] then
 				t[#t + 1] = b
 			else
 				assert(b == 0)
@@ -178,18 +187,18 @@ function Talented:StringToTemplate(code, template, nmap)
 		end
 	end
 
-	assert(#template <= #trees, "Too many branches")
+	assert(#template <= #talents, "Too many branches")
 	do
-		for tab, tree in ipairs(trees) do
+		for tab, tree in ipairs(talents) do
 			local t = template[tab] or {}
 			template[tab] = t
-			for index = 1, #tree.talents do
+			for index = 1, #tree do
 				t[index] = t[index] or 0
 			end
 		end
 	end
 
-	return template, class
+	return  template, class
 end
 
 local function rtrim(s, c)
@@ -226,12 +235,12 @@ function Talented:TemplateToString(template, nmap)
 	local s = nmap:sub(1, 1)
 	local trees = self:UncompressSpellData(class)
 	for tab, tree in ipairs(trees) do
-		local tmpTree    = template[tab] --n.b. unlike spellData, this IS the array of talent ranks -- don't need tmpTree.talents
+		local tmpTree    = template[tab]
 		local index = 1
 		while index <= #tmpTree do
 			local r1, r2
-			r1, index = get_next_valid_index(tmpTree, index, tree.talents)
-			r2, index = get_next_valid_index(tmpTree, index, tree.talents)
+			r1, index = get_next_valid_index(tmpTree, index, tree)
+			r2, index = get_next_valid_index(tmpTree, index, tree)
 			local v = r1 * 6 + r2 + 1
 			local c = nmap:sub(v, v)
 			assert(c)
@@ -259,6 +268,9 @@ function Talented:UnpackTemplate(template)
 	self:Debug("UNPACK TEMPLATE", template.name)
 	self:StringToTemplate(template.code, template) 
 	template.code = nil
+	if not RAID_CLASS_COLORS[template.class] then
+		self:FixPetTemplate(template)
+	end
 end
 
 function Talented:CopyPackedTemplate(src, dst)
@@ -271,7 +283,7 @@ function Talented:CopyPackedTemplate(src, dst)
 			d = {}
 			dst[tab] = d
 		end
-		for index, value in ipairs(tree) do --templates don't have tree.talents like Talented_Data members do
+		for index, value in ipairs(tree) do
 			dst[tab][index] = value
 		end
 	end

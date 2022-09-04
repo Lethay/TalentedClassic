@@ -1,5 +1,3 @@
--- if not Talented.spelldata then return end
-
 local function handle_ranks(...)
 	local result = {}
 	local first = (...)
@@ -36,9 +34,9 @@ local function handle_ranks(...)
 		req = req
 	}
 	if not result[1] then
-		entry.prereqs = nil
+		entry.req = nil
 		entry.ranks = nil
-		-- entry.inactive = true
+		entry.inactive = true
 	end
 	return entry
 end
@@ -62,7 +60,7 @@ local function handle_talents(...)
 		local drow, dcolumn = talent.row, talent.column
 		if dcolumn == -1 then
 			talent.row, talent.column = result[index - 1].row, result[index - 1].column
-			-- talent.inactive = true
+			talent.inactive = true
 		elseif dcolumn then
 			if drow then
 				row = row + 1
@@ -77,9 +75,9 @@ local function handle_talents(...)
 		if dcolumn ~= -1 or drow then
 			row, column = next_talent_pos(row, column)
 		end
-		if talent.prereqs then
-			talent.prereqs[1].source = talent.prereqs[1].source + index
-			assert(talent.prereqs[1].source > 0 and talent.prereqs[1].source <= #result)
+		if talent.req then
+			talent.req = talent.req + index
+			assert(talent.req > 0 and talent.req <= #result)
 		end
 	end
 	return result
@@ -94,28 +92,26 @@ local function handle_tabs(...)
 end
 
 function Talented:UncompressSpellData(class)
-	--Gives data of the format,
-	--classTrees      = self:GetTalentInfo(class)
-	--treeObj         = self:GetTalentInfo(class)[tab]
-	--treeTalents     = self:GetTalentInfo(class)[tab].talents
-	--talentObj       = self:GetTalentInfo(class)[tab].talents[index]
-	--talentInfoTable = self:GetTalentInfo(class)[tab].talents[index].info
-	--talentRow       = self:GetTalentInfo(class)[tab].talents[index].info.row
+	--Gives data with entries,
+	--trees:          self:UncompressSpellData(class);        which can be iterated over as tab, tree = ipairs()
+	--tree:           self:UncompressSpellData(class)[tab];         with tab in 1, 2, 3
+	--talent:         self:UncompressSpellData(class)[tab][talent]; with talent in 1, 2, ... #talents
+	--talentInfoTable self:UncompressSpellData(class)[tab][talent].info
+	--talentRow       self:UncompressSpellData(class)[tab][talent].info.row
+	-- OLD:
+		--classTrees      = self:G*etTalentInfo(class)
+		--treeObj         = self:G*etTalentInfo(class)[tab]
+		--treeTalents     = self:G*etTalentInfo(class)[tab].talents
+		--talentObj       = self:G*etTalentInfo(class)[tab].talents[index]
+		--talentInfoTable = self:G*etTalentInfo(class)[tab].talents[index].info
+		--talentRow       = self:G*etTalentInfo(class)[tab].talents[index].info.row
 	--Templates are different. They have the format
 	--classTrees      = template
 	--treeObj         = ---
 	--treeTalents     = template[tab]
 	--talentRank      = template[tab][index]
-	if not self.spelldata then self.spelldata = {} end
-	if not self.spelldata[class] then
-		data = Talented:GetTalentInfo(class)
-		self.spelldata[class] = data
-	else
-		data = self.spelldata[class]
-	end
-	
+	local data = self.spelldata[class]
 	if type(data) == "table" then return data end
-
 	self:Debug("UNCOMPRESS CLASSDATA", class)
 	data = handle_tabs(strsplit("|", data))
 	self.spelldata[class] = data
@@ -124,19 +120,6 @@ function Talented:UncompressSpellData(class)
 	end
 	return data
 end
-
--- This is defined elsewhere, in talents.lua.
--- function Talented:GetTalentInfo(class)
--- 	local data = self.spelldata[class]
--- 	if type(data) == "table" then return data end
--- 	self:Debug("UNCOMPRESS CLASSDATA", class)
--- 	data = handle_tabs(strsplit("|", data))
--- 	self.spelldata[class] = data
--- 	if class == select(2, UnitClass"player") then
--- 		self:CheckSpellData(class)
--- 	end
--- 	return data
--- end
 
 local spellTooltip
 local function CreateSpellTooltip()
@@ -205,55 +188,51 @@ local function CreateSpellTooltip()
 end
 
 function Talented:GetTalentName(class, tab, index)
-	local talent = self:GetTalentInfo(class)[tab].talents[index].info
-	return talent.name
-	-- local spell = self:GetTalentInfo(class)[tab][index].ranks[1]
-	-- return (GetSpellInfo(spell))
+	local spell = self:UncompressSpellData(class)[tab][index].ranks[1]
+	return (GetSpellInfo(spell))
 end
 
 function Talented:GetTalentIcon(class, tab, index)
-	local talent = self:GetTalentInfo(class)[tab].talents[index].info
-	return talent.icon
-	-- local spell = self:GetTalentInfo(class)[tab][index].ranks[1]
-	-- return (select(3, GetSpellInfo(spell)))
+	local spell = self:UncompressSpellData(class)[tab][index].ranks[1]
+	return (select(3, GetSpellInfo(spell)))
 end
 
 function Talented:GetTalentDesc(class, tab, index, rank)
 	if not spellTooltip then
 		spellTooltip = CreateSpellTooltip()
 	end
-	local spell = self:GetTalentInfo(class)[tab].talents[index].info
-	return self.spellDescCache[spell]
+	local spell = self:UncompressSpellData(class)[tab][index].ranks[rank]
+	-- local desc = self.spellDescCache[spell]
+	-- --If it exists in the cache, return as-is
+	-- if type(desc) ~= "table" then
+	-- 	return desc
+	-- --Otherwise, get the description from the game and return that
+	-- else
+		return GetSpellDescription(spell)
+	-- end
 end
 
 function Talented:GetTalentPos(class, tab, index)
-	local talent = self:GetTalentInfo(class)[tab].talents[index].info
+	local talent = self:UncompressSpellData(class)[tab][index]
 	return talent.row, talent.column
 end
 
 function Talented:GetTalentPrereqs(class, tab, index)
-	local talent = self:GetTalentInfo(class)[tab].talents[index].info
-	return talent.prereqs
+	local talent = self:UncompressSpellData(class)[tab][index]
+	return talent.req
 end
 
 function Talented:GetTalentRanks(class, tab, index)
-	local talent = self:GetTalentInfo(class)[tab].talents[index].info
-	return talent.ranks --should be #talent.ranks if ranks is an array
+	local talent = self:UncompressSpellData(class)[tab][index]
+	return #talent.ranks
 end
 
 function Talented:GetTalentLink(template, tab, index, rank)
-	-- local data = self:GetTalentInfo(template.class)
-	-- local rank = rank or (template[tab] and template[tab][index])
-	-- if not rank or rank == 0 then
-	-- 	rank = 1
-	-- end
-	-- return ("|cff71d5ff|Hspell:%d|h[%s]|h|r"):format(data[tab][index].ranks[rank],
-	-- 	self:GetTalentName(template.class, tab, index)
-	-- )
-	if template.talentGroup then
-		local link = GetTalentLink(tab, index) --note cannot get rank
-		return link
-	else
-		return nil
+	local data = self:UncompressSpellData(template.class)
+	local rank = rank or (template[tab] and template[tab][index])
+	if not rank or rank == 0 then
+		rank = 1
 	end
+	return
+		("|cff71d5ff|Hspell:%d|h[%s]|h|r"):format(data[tab][index].ranks[rank], self:GetTalentName(template.class, tab, index))
 end

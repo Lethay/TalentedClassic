@@ -78,11 +78,7 @@ function TalentView:SetClass(class, force)
 
 	Talented.Pool:changeSet(self.name)
 	wipe(self.elements)
-	local talents = Talented:GetTalentInfo(class)
-	if not talents then
-		Talented:ReportMissingTalents(class)
-		return
-	end
+	local talents = Talented:UncompressSpellData(class)
 
 	if not LAYOUT_OFFSET_X then
 		RecalcLayout(Talented.db.profile.offset)
@@ -97,12 +93,13 @@ function TalentView:SetClass(class, force)
 		end
 	end
 	local first_tree = talents[1]
-	local finalRow = first_tree.talents[first_tree.numtalents].info.row
+	local finalRow = first_tree[#first_tree].row
 	local size_y = finalRow * LAYOUT_OFFSET_Y + LAYOUT_DELTA_Y
 	for tab, tree in ipairs(talents) do
 		local frame = Talented:MakeTalentFrame(self.frame, LAYOUT_SIZE_X, size_y)
 		frame.tab = tab
 		frame.view = self
+		frame.pet = self.pet
 
 		local background = Talented.tabdata[class][tab].background
 		frame.topleft:SetTexture("Interface\\TalentFrame\\"..background.."-TopLeft")
@@ -111,26 +108,26 @@ function TalentView:SetClass(class, force)
 		frame.bottomright:SetTexture("Interface\\TalentFrame\\"..background.."-BottomRight")
 
 		self:SetUIElement(frame, tab)
-		for index, _talent in ipairs(tree.talents) do
-			talent = _talent.info
-			local button = Talented:MakeButton(frame)
-			button.id = index
 
-			self:SetUIElement(button, tab, index)
+		for index, talent in ipairs(tree) do
+			if not talent.inactive then
+				local button = Talented:MakeButton(frame)
+				button.id = index
 
-			button:SetPoint("TOPLEFT", offset(talent.row, talent.column))
-			button.texture:SetTexture(talent.icon)
-			button:Show()
+				self:SetUIElement(button, tab, index)
+
+				button:SetPoint("TOPLEFT", offset(talent.row, talent.column))
+				button.texture:SetTexture(Talented:GetTalentIcon(class, tab, index))
+				button:Show()
+			end
 		end
 
-		for index, _talent in ipairs(tree.talents) do
-			talent = _talent.info
-			local req = talent.prereqs
+		for index, talent in ipairs(tree) do
+			local req = talent.req
 			if req then
-				req = req[1] --No talent in vanilla has more than 1 requirement
 				local elements = {}
-				Talented.DrawLine(elements, frame, offset, talent.row, talent.column, req.row, req.column)
-				self:SetUIElement(elements, tab, index, req.source)
+				Talented.DrawLine(elements, frame, offset, talent.row, talent.column, tree[req].row, tree[req].column)
+				self:SetUIElement(elements, tab, index, req)
 			end
 		end
 
@@ -186,14 +183,13 @@ local LIGHTBLUE_FONT_COLOR = { r = 0.3, g = 0.9, b = 1 }
 function TalentView:Update()
 	local template, target = self.template, self.target
 	local total = 0
-	local info = Talented:GetTalentInfo(template.class)
+	local info = Talented:UncompressSpellData(template.class)
 	local at_cap = Talented:IsTemplateAtCap(template)
-	local allowEditing = (self.mode == "edit")
+	local allowEditing = (self.mode == "edit" or template.talentGroup==nil)
 
 	for tab, tree in ipairs(info) do
 		local count = 0
-		for index, _talent in ipairs(tree.talents) do
-			talent = _talent.info
+		for index, talent in ipairs(tree) do
 			local rank = template[tab] and template[tab][index] or 0 --template[tab] ? template[tab][index] : 0
 			count = count + rank
 
@@ -221,12 +217,12 @@ function TalentView:Update()
 				button.slot:SetVertexColor(color.r, color.g, color.b)
 				button.rank:SetVertexColor(color.r, color.g, color.b)
 			end
-			local req = talent.prereqs
+			local req = talent.req
 			if req then
 				local ecolor = color
 				if ecolor == GREEN_FONT_COLOR then
 					if allowEditing then
-						local s = Talented:GetTalentState(template, tab, req[1].source)
+						local s = Talented:GetTalentState(template, tab, req)
 						if s ~= "full" then
 							ecolor = RED_FONT_COLOR
 						end
@@ -234,7 +230,7 @@ function TalentView:Update()
 						ecolor = NORMAL_FONT_COLOR
 					end
 				end
-				for _, element in ipairs(self:GetUIElement(tab, index, req[1].source)) do
+				for _, element in ipairs(self:GetUIElement(tab, index, req)) do
 					element:SetVertexColor(ecolor.r, ecolor.g, ecolor.b)
 				end
 			end
@@ -258,6 +254,7 @@ function TalentView:Update()
 				button.target.texture:Hide()
 			end
 		end
+
 		local frame = self:GetUIElement(tab)
 		frame.name:SetFormattedText(L["%s (%d)"], Talented.tabdata[template.class][tab].name, count)
 		total = total + count

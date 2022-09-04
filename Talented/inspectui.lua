@@ -61,7 +61,7 @@
 -- 		self.inspections = inspections
 -- 	end
 -- 	local _, class = UnitClass(unit)
--- 	local info = self:GetTalentInfo(class)
+-- 	local info = self:UncompressSpellData(class)
 	
 -- 	local template = inspections[template_name]
 -- 	if not template then

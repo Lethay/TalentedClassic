@@ -3,13 +3,13 @@ local ipairs = ipairs
 local L = LibStub("AceLocale-3.0"):GetLocale("Talented")
 
 function Talented:IsTemplateAtCap(template)
-	local max = RAID_CLASS_COLORS[template.class] and 71 or 20 --Level 80 is max
+	local max = RAID_CLASS_COLORS[template.class] and 71 or 20
 	return self.db.profile.level_cap and self:GetPointCount(template) >= max
 end
 
 function Talented:GetPointCount(template)
 	local total = 0
-	local info = self:GetTalentInfo(template.class)
+	local info = self:UncompressSpellData(template.class)
 	for tab in ipairs(info) do
 		total = total + self:GetTalentTabCount(template, tab)
 	end
@@ -26,7 +26,7 @@ end
 
 function Talented:ClearTalentTab(tab)
 	local template = self.template
-	if template and template ~= template.current and self.mode == "edit" then
+	if template and not template.talentGroup and self.mode == "edit" then
 		local tab = template[tab]
 		for index, value in ipairs(tab) do
 			tab[index] = 0
@@ -36,13 +36,13 @@ function Talented:ClearTalentTab(tab)
 end
 
 function Talented:GetSkillPointsPerTier(class)
-	-- Player Tiers are 5 points apart, Pet Tiers are only 3 points apart.
+	-- Player Tiers are 5 points appart, Pet Tiers are only 3 points appart.
 	return RAID_CLASS_COLORS[class] and 5 or 3
 end
 
 function Talented:GetTalentState(template, tab, index)
 	local s
-	local info = self:GetTalentInfo(template.class)[tab].talents[index].info
+	local info = self:UncompressSpellData(template.class)[tab][index]
 	local tier = (info.row - 1) * self:GetSkillPointsPerTier(template.class)
 	local count = self:GetTalentTabCount(template, tab)
 
@@ -50,17 +50,16 @@ function Talented:GetTalentState(template, tab, index)
 		s = false
 	else
 		s = true
-		if info.prereqs and self:GetTalentState(template, tab, info.prereqs[1].source) ~= "full" then
+		if info.req and self:GetTalentState(template, tab, info.req) ~= "full" then
 			s = false
 		end
 	end
 
-	if not s then --or info.inactive 
+	if not s or info.inactive then
 		s = "unavailable"
 	else
 		local value = template[tab][index]
-		if value == info.ranks then
-		-- if value == #info.ranks then TODO: This will be needed when ranks is an array
+		if value == #info.ranks then
 			s = "full"
 		elseif value == 0 then
 			s = "empty"
@@ -74,21 +73,20 @@ end
 function Talented:ValidateTalentBranch(template, tab, index, newvalue)
 	local count = 0
 	local pointsPerTier = self:GetSkillPointsPerTier(template.class)
-	local tree = self:GetTalentInfo(template.class)[tab]
-	local ttab = template[tab] --n.b. NOT .talents
-	for i, talent in ipairs(tree.talents) do
+	local tree = self:UncompressSpellData(template.class)[tab]
+	local ttab = template[tab]
+	for i, talent in ipairs(tree) do
 		local value = i == index and newvalue or ttab[i]
 		if value > 0 then
-			local tier = (talent.info.row - 1) * pointsPerTier
+			local tier = (talent.row - 1) * pointsPerTier
 			if count < tier then
 				self:Debug("Update refused because of tier")
 				return false
 			end
-			local r = talent.info.prereqs
+			local r = talent.req
 			if r then
-				rs = r[1].source
-				local rvalue = rs == index and newvalue or ttab[rs]
-				if rvalue < tree.talents[rs].info.ranks then
+				local rvalue = r == index and newvalue or ttab[r]
+				if rvalue < #tree[r].ranks then
 					self:Debug("Update refused because of prereq")
 					return false
 				end
@@ -102,31 +100,23 @@ end
 function Talented:ValidateTemplate(template, fix)
 	local class = template.class
 	if not class then return end
-	
 	local pointsPerTier = self:GetSkillPointsPerTier(template.class)
-	local info = self:GetTalentInfo(class)
-	if not info then
-		--Couldn't load data, cannot validate template.
-		--Returning false here would delete the template, so return true.
-		return true
-	end
-	
+	local info = self:UncompressSpellData(class)
 	local fixed
 	for tab, tree in ipairs(info) do
-		local t = template[tab] --NOT .talents
+		local t = template[tab]
 		if not t then return end
 		local count = 0
-		for i, talent in ipairs(tree.talents) do
+		for i, talent in ipairs(tree) do
 			local value = t[i]
 			if not value then return end
 			if value > 0 then
-				if count < (talent.info.row - 1) * pointsPerTier or value > ((talent.inactive and 0) or talent.info.ranks) then 
+				if count < (talent.row - 1) * pointsPerTier or value > (talent.inactive and 0 or #talent.ranks) then 
 					if fix then t[i], value, fixed = 0, 0, true else return end
 				end
-				local r = talent.info.prereqs
+				local r = talent.req
 				if r then
-					rs = r[1].source
-					if t[rs] < tree.talents[rs].info.ranks then 
+					if t[r] < #tree[r].ranks then 
 						if fix then t[i], value, fixed = 0, 0, true else return end
 					end
 				end

@@ -1,15 +1,14 @@
-v220823
-    - WotLK support. Thanks a lot to @glajchs.
-    
-v220527
-    - Make the same wowhead.lua work with both vanilla and TBC
+v220903
+    - Fix desaturation of talent templates when "always edit" is disabled
+    - Fix incorrect invoke of PlaySound when removing glyphs
+    - Update TOC to WotLK
+    - Fix spellID when linking talents
+    - Stop unnecessary spell scanning (and hence printing of information)
+    - Fix URL of WoWHead export
 
-v211202
-    - Add Spanish localisation and fix a display issue with a Warlock talent (thanks @dcarril)
-
-v211114b
-    - Minor update to Korean localisation
-    - Update to AceConfig
+    To do:
+    - Add buttons to set group finder role, as in the default blizzard frames.
+    - Fix hunter pet talents
 
 v210718
     - Add korean localisation (thank you Jinny2305 on Curseforge)

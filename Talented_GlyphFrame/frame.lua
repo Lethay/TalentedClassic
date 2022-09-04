@@ -115,9 +115,9 @@ frame:SetScript("OnEvent", function (self, event, ...)
 		self.glyphs[id]:Update()
 		local _, type = GetGlyphSocketInfo(id, self.group)
 		if event == "GLYPH_REMOVED" then
-			PlaySound(type == 2 and "Glyph_MinorDestroy" or "Glyph_MajorDestroy", "SFX")
+			PlaySound(type == 2 and 13830 or 13828, "SFX")
 		else
-			PlaySound(type == 2 and "Glyph_MinorCreate" or "Glyph_MajorCreate", "SFX")
+			PlaySound(type == 2 and 13829 or 13827, "SFX")
 			self:Glow()
 		end
 		self:UpdateGroup()

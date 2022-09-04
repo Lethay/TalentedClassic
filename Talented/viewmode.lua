@@ -1,6 +1,5 @@
 local select = select
 local ipairs = ipairs
-local GetTalentInfo = GetTalentInfo
 local Talented = Talented
 
 local L = LibStub("AceLocale-3.0"):GetLocale("Talented")
@@ -14,8 +13,7 @@ function Talented:UpdatePlayerSpecs()
 
 	local class, classNum = select(2, UnitClass("player"))
 	local group = GetActiveTalentGroup()
-	local info
-	-- local info = self:UncompressSpellData(class)
+	local info = self:UncompressSpellData(class)
 
 	for talentGroup = 1, GetNumTalentGroups() do
 		local template = self.alternates[talentGroup]
@@ -25,24 +23,18 @@ function Talented:UpdatePlayerSpecs()
 				name = talentGroup == 1 and TALENT_SPEC_PRIMARY or TALENT_SPEC_SECONDARY,
 				class = class,
 			}
-			info = self:GetTalentInfo(class)
-			if not info then
-				error(("Unable to get talent for class %s, %s"):format(class, "player"))
-			end
 			for tab, tree in ipairs(info) do
 				template[tab] = { talents = {} }
 			end
-			self.alternates[talentGroup] = template
 		else
 			template.points = nil
-			info = self:GetTalentInfo(template.class)
 		end
 		
 		local total = 0 
 		for tab, tree in ipairs(info) do
-			for index, info in ipairs(tree.talents) do
+			for index, info in ipairs(tree) do
 				local indexToUse = Talented.convertOrderedTalentIndexToWowIndex(self, class, tab, index)
-				local rank = select(5, GetTalentInfo(tab, indexToUse, nil, nil, talentGroup))
+				local rank = select(5, Talented:OrderedGetTalentInfo(class, tab, indexToUse, nil, nil, talentGroup))
 				template[tab][index] = rank
 				total = total + rank
 			end

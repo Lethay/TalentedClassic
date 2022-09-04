@@ -2,7 +2,7 @@ local Talented = LibStub("AceAddon-3.0"):NewAddon("Talented",
 	"AceConsole-3.0", "AceComm-3.0", "AceHook-3.0", "AceEvent-3.0", "AceSerializer-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("Talented")
 
-local classes = {'DRUID','HUNTER','MAGE','PALADIN','PRIEST','ROGUE','SHAMAN','WARLOCK','WARRIOR','DEATHKNIGHT'}
+local classes = {'DRUID','HUNTER','MAGE','PALADIN','PRIEST','ROGUE','SHAMAN','WARLOCK','WARRIOR','DEATHKNIGHT', "Ferocity", "Tenacity", "Cunning"}
 Talented.prev_Print = Talented.Print
 function Talented:Print(s, ...)
 	if type(s) == "string" and s:find("%", nil, true) then
@@ -41,7 +41,9 @@ function Talented:MakeTarget(targetName)
 	end
 	self:CopyPackedTemplate(src, target)
 
-	if not self:ValidateTemplate(target) or target.class ~= select(2, UnitClass"player")
+	if not self:ValidateTemplate(target) or
+		(RAID_CLASS_COLORS[target.class] and target.class ~= select(2, UnitClass"player")) or
+		(not RAID_CLASS_COLORS[target.class] and (not self.GetPetClass or target.class ~= self:GetPetClass()))
 	then
 		self.db.char.targets[targetName] = nil
 		return nil
@@ -91,6 +93,9 @@ function Talented:OnInitialize()
 	self:RegisterChatCommand("talented", "OnChatCommand")
 
 	self:RegisterComm("Talented")
+	if self.InitializePet then
+		self:InitializePet()
+	end
 	if IsLoggedIn() then
 		self:LoadAddOn"Talented_SpecTabs"
 	else
@@ -156,10 +161,10 @@ do
 			dst.code = src.code
 			return
 		else
-			for tab, tree in ipairs(Talented:GetTalentInfo(src.class)) do
+			for tab, tree in ipairs(Talented:UncompressSpellData(src.class)) do
 				local s, d = src[tab], {}
 				dst[tab] = d
-				for index = 1, #tree.talents do
+				for index = 1, #tree do
 					d[index] = s[index]
 				end
 			end
@@ -167,7 +172,7 @@ do
 	end
 
 	function Talented:ImportFromOther(name, src)
-		if not self:GetTalentInfo(src.class) then return end
+		if not self:UncompressSpellData(src.class) then return end
 
 		local dst = new(self.db.global.templates, name, src.class)
 
@@ -190,13 +195,13 @@ do
 		class = class or select(2, UnitClass"player")
 		
 		local template = new(self.db.global.templates, L["Empty"], class)
-		local info = self:GetTalentInfo(class)
+		local info = self:UncompressSpellData(class)
 		if not info then return end
 		
 		for tab, tree in ipairs(info) do
 			local t = {}
 			template[tab] = t
-				for index = 1, #tree.talents do
+				for index = 1, #tree do
 				t[index] = 0
 			end
 		end
@@ -241,20 +246,6 @@ do
 	end
 end
 
-function Talented:convertOrderedTalentIndexToWowIndex(classNameToLookup, talentSpecNumber, orderedTalentIndex)
-	return Talented_Data[classNameToLookup][talentSpecNumber].talents[orderedTalentIndex].info.wowTreeIndex
-end
-
-function Talented:convertWowTalentIndexToOrderedIndex(talentSpecNumber, wowTalentIndex)
-	local talentSpecTree = Talented.GetTalentInfo(select(2, UnitClass"player"))[talentSpecNumber].talents[orderedTalentIndex]
-	for index, value in ipairs(talentSpecTree) do
-		if (value.info.wowTreeIndex == wowTalentIndex) then
-			return index
-		end
-	end
-end
-
-
 function Talented:OpenTemplate(template)
 	self:UnpackTemplate(template)
 	if not self:ValidateTemplate(template, true) then
@@ -281,8 +272,11 @@ function Talented:SetTemplate(template)
 	local old = view.template
 	if template ~= old then
 		if template.talentGroup then
-			local target = self:MakeTarget(template.talentGroup)
-			view:SetTemplate(template, target)
+			if not template.pet then
+				view:SetTemplate(template, self:MakeTarget(template.talentGroup))
+			else
+				view:SetTemplate(template, self:MakeTarget(UnitName"PET"))
+			end
 		else
 			view:SetTemplate(template)
 		end
@@ -426,82 +420,32 @@ function Talented:MakeSubArrays(db)
 end
 
 
-function Talented:LoadOldTemplates(db)
+function Talented:LoadTemplates()
+	local db = self.db.global.templates
+	Talented:MakeSubArrays(db)
+	local returnValue = 0
 	local invalid = {}
-	local converted = {}
-
-	--Load old template and place it into the db by class
-	for name, code in pairs(db) do
-		if not self:is_class(name) then 
+	for class, classdb in pairs(db) do
+		assert(self:is_class(class))
+		
+		for name, code in pairs(classdb) do
 			if type(code) == "string" then
-				local class = self:GetTemplateStringClass(code)
-				if class then
-					db[class][name] = {
-						name = name,
-						code = code,
-						class = class,
-					}
-					converted[#converted +1] = name
-				else
-					invalid[#invalid +1] = name
-				end
-
+				db[class][name] = {
+					name = name,
+					code = code,
+					class = class,
+				}
 			elseif not self:ValidateTemplate(code) then
-				invalid[#invalid +1] = name
+				db[class][name] = nil
+				invalid[#invalid + 1] = name
 			end
-
-			--Erase this old template
-			db[name] = nil
 		end
-	end
-
-	if next(converted) then
-		table.sort(converted)
-		self:Print(L["The following templates were converted from a previous version of the addon. Ensure that none are 'invalid' (below); retrieve the backup of your config file from the WTF folder if so."])
-		self:Print(table.concat(converted, ", "))
 	end
 	
 	if next(invalid) then
 		table.sort(invalid)
 		self:Print(L["The following templates are no longer valid and have been removed:"])
 		self:Print(table.concat(invalid, ", "))
-		return 1 --indicates bad things
-	end
-
-	return 0
-end
-
-function Talented:LoadTemplates()
-	local db = self.db.global.templates
-	if Talented:MakeSubArrays(db)==1 then
-		--If we had to make the sub arrays, either the database was empty or it has templates as defined in an older version of the addon (arranged by name, not by class)
-		self:LoadOldTemplates(db)
-	else
-		--If we have the nice new layout for templates
-		local returnValue = 0
-		local invalid = {}
-		for class, classdb in pairs(db) do
-			assert(self:is_class(class))
-			
-			for name, code in pairs(classdb) do
-				if type(code) == "string" then
-					db[class][name] = {
-						name = name,
-						code = code,
-						class = class,
-					}
-				elseif not self:ValidateTemplate(code) then
-					db[class][name] = nil
-					invalid[#invalid + 1] = name
-				end
-			end
-		end
-		
-		if next(invalid) then
-			table.sort(invalid)
-			self:Print(L["The following templates are no longer valid and have been removed:"])
-			self:Print(table.concat(invalid, ", "))
-		end
 	end
 
 	self.OnDatabaseShutdown = function (self, event, db)
@@ -519,6 +463,15 @@ function Talented:LoadTemplates()
 	end
 	self.db.RegisterCallback(self, "OnDatabaseShutdown")
 	self.LoadTemplates = nil
+
+	--FIXME: Delete, if not needed to find PlayerTalentFrameRoleButton. See base.lua:156.
+	-- self.GrabRoleSelectButton = function(self, button)
+	-- 	local frame = TalentedFrame
+	-- 	if not frame then return end
+	-- 	local n = button.GetName()
+	-- 	print(n)
+	-- end
+	-- ldbi.RegisterCallback(self, "LibDBIcon_IconCreated", "GrabRoleSelectButton")
 end
 
 _G.Talented = Talented
