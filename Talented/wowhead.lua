@@ -13,6 +13,9 @@ Talented.importers[".*/talent.calc/(.-)/(%d*)-?(%d*)-?(%d*).*"] = function (self
 		return
 	end
 
+	--death-knight -> deathknight
+	class = select(1, class:gsub("-", ""))
+	
 	if not dst then
 		return class:upper()
 	end
@@ -63,5 +66,8 @@ Talented.exporters[L["Wowhead Talent Calculator"]] = function (self, template)
 		s[#s + 1] = "-"
 	end
 	if not RAID_CLASS_COLORS[template.class] then return self:ExportWhpetTemplate(template) end
-	return L["https://www.wowhead.com/wotlk/talent-calc/%s/%s"]:format(template.class:lower(), table.concat(s))
+	class = template.class:lower()
+	--deathknight -> death-knight
+	class = select(1, class:gsub("deathknight", "death-knight"))
+	return L["https://www.wowhead.com/wotlk/talent-calc/%s/%s"]:format(class, table.concat(s))
 end

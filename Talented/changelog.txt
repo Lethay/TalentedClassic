@@ -3,6 +3,7 @@ v220907
     - Add a more obvious button to switch between primary & secondary spec
     - Fix hunter pet talents labelling
     - Fix removal and replacement of glyphs
+    - Fix importing and exporting of deathknight talents to Wowhead
 
     To do:
     - Add buttons to set group finder role, as in the default blizzard frames.
