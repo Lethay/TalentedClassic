@@ -1,11 +1,19 @@
+v220907
+    - Fix interaction with Scrolling Loot Text that was preventing the talent window from being opened
+    - Add a more obvious button to switch between primary & secondary spec
+    - Fix hunter pet talents labelling
+    - Fix removal and replacement of glyphs
+
+    To do:
+    - Add buttons to set group finder role, as in the default blizzard frames.
+    - Allow instant application of talents
+    - Correctly print name of new glyph, when replacing a glyph
+    - Check over template targetting code
+
 v220904
     - Fix accidental mis-indexing of talents (don't debug at 2am, kids)
     - Fix hunter pet talents
 
-    To do:
-    - Add buttons to set group finder role, as in the default blizzard frames.
-    - Change view to current talents when applying a template
-    
 v220903
     - Fix desaturation of talent templates when "always edit" is disabled
     - Fix incorrect invoke of PlaySound when removing glyphs

@@ -17,6 +17,6 @@ Talented.USE_GLYPH =  Talented.OpenGlyphFrame
 
 StaticPopupDialogs["CONFIRM_REMOVE_GLYPH"].OnAccept = function(self)
 	if TalentedGlyphs and TalentedGlyphs.group == GetActiveTalentGroup() then
-		RemoveGlyphFromSocket(self.data)
+		RemoveGlyphFromSocket(self.data.id)
 	end
 end

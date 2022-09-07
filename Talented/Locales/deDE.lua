@@ -48,6 +48,7 @@ L["You can edit the name of the template here. You must press the Enter key to s
 L["Remove all talent points from this tree."] = "Alle Talentpunkte aus diesem Baum entfernen."
 L["%s (%d)"] = "%s (%d)"
 L["Level %d"] = "Level %d"
+L["Level %d (requires %s)"] = "Level %d (requires %s)"
 L["%d/%d"] = "%d/%d"
 --~ L["Right-click to unlearn"] = "Rechtsklick zum verlernen"
 L["Effective tooltip information not available"] = "Effektive Tooltip Informationen nicht verfügbar"

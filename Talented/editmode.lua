@@ -3,7 +3,7 @@ local ipairs = ipairs
 local L = LibStub("AceLocale-3.0"):GetLocale("Talented")
 
 function Talented:IsTemplateAtCap(template)
-	local max = RAID_CLASS_COLORS[template.class] and 71 or 20
+	local max = RAID_CLASS_COLORS[template.class] and Talented.max_talent_points or Talented.max_pet_talent_points
 	return self.db.profile.level_cap and self:GetPointCount(template) >= max
 end
 

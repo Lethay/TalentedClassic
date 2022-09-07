@@ -45,6 +45,7 @@ L["You can edit the name of the template here. You must press the Enter key to s
 L["Remove all talent points from this tree."] = "본 트리의 모든 특성 포인트를 제거합니다."
 L["%s (%d)"] = "%s (%d)"
 L["Level %d"] = "%d 레벨"
+L["Level %d (requires %s)"] = "%d 레벨 (requires %s)"
 L["%d/%d"] = "%d/%d"
 --~ L["Right-click to unlearn"] = "우클릭으로 배우기 취소"
 L["Effective tooltip information not available"] = "유효한 툴팁 정보가 없습니다"

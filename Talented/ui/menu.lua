@@ -318,10 +318,10 @@ function Talented:CreateActionMenu()
 	entry.func = function () Talented:SetMode("apply") end
 	menu[#menu + 1] = entry
 
-	-- entry = self:GetNamedMenu("SwitchTalentGroup")
-	-- entry.text = L["Switch to this Spec"]
-	-- entry.func = function (entry, talentGroup) SetActiveTalentGroup(talentGroup) end
-	-- menu[#menu + 1] = entry
+	entry = self:GetNamedMenu("SwitchTalentGroup")
+	entry.text = L["Switch to this Spec"]
+	entry.func = function (entry, talentGroup) SetActiveTalentGroup(talentGroup) end
+	menu[#menu + 1] = entry
 
 	entry = self:GetNamedMenu("Delete")
 	entry.text = L["Delete template"]
@@ -407,9 +407,9 @@ function Talented:MakeActionMenu()
 
 	self:GetNamedMenu("Apply").disabled = templateTalentGroup or restricted and pet_restricted
 	self:GetNamedMenu("Delete").disabled = templateTalentGroup or not self.db.global.templates[self.template.class][self.template.name]
-	-- local switch = self:GetNamedMenu("SwitchTalentGroup")
-	-- switch.disabled = (restricted or not templateTalentGroup or templateTalentGroup == activeTalentGroup)
-	-- switch.arg1 = templateTalentGroup
+	local switch = self:GetNamedMenu("SwitchTalentGroup")
+	switch.disabled = (restricted or not templateTalentGroup or templateTalentGroup == activeTalentGroup)
+	switch.arg1 = templateTalentGroup
 
 	local target = self:GetNamedMenu("Target")
 	if templateTalentGroup then

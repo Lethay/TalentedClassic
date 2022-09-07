@@ -247,18 +247,18 @@ local function CreateBaseButtons(parent)
 	points:SetSize(80, 14)
 	points:SetPoint("TOPRIGHT", parent, "TOPRIGHT", -40, -6)
 
-	-- local b = MakeButton(parent)
-	-- parent.bactivate = b
+	local b = MakeButton(parent)
+	parent.bactivate = b
 
-	-- b:SetText(TALENT_SPEC_ACTIVATE)
-	-- b:SetSize(b:GetTextWidth() + 40, 22)
-	-- b:SetScript("OnClick", function (self)
-	-- 	if self.talentGroup then
-	-- 		SetActiveTalentGroup(self.talentGroup)
-	-- 	end
-	-- end)
-	-- b:SetPoint("BOTTOM", 0, 6)
-	-- b:SetFrameLevel(parent:GetFrameLevel() + 2)
+	b:SetText(TALENT_SPEC_ACTIVATE)
+	b:SetSize(b:GetTextWidth() + 40, 22)
+	b:SetScript("OnClick", function (self)
+		if self.talentGroup then
+			SetActiveTalentGroup(self.talentGroup)
+		end
+	end)
+	b:SetPoint("BOTTOM", 0, 6)
+	b:SetFrameLevel(parent:GetFrameLevel() + 2)
 end
 
 local function BaseFrame_SetTabSize(self, tabs)

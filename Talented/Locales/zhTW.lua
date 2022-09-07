@@ -45,6 +45,7 @@ L["You can edit the name of the template here. You must press the Enter key to s
 L["Remove all talent points from this tree."] = "移除此天賦系的所有點數。"
 L["%s (%d)"] = "%s (%d)"
 L["Level %d"] = "等級 %d"
+L["Level %d (requires %s)"] = "等級 %d (requires %s)"
 L["%d/%d"] = "%d/%d"
 --~ L["Right-click to unlearn"] = "右鍵點擊取消"
 L["Effective tooltip information not available"] = "尚無有效的滑鼠提示資訊"

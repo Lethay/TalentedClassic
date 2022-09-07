@@ -47,6 +47,7 @@ L["You can edit the name of the template here. You must press the Enter key to s
 L["Remove all talent points from this tree."] = true
 L["%s (%d)"] = true
 L["Level %d"] = true
+L["Level %d (requires %s)"] = true
 L["%d/%d"] = true
 --~ L["Right-click to unlearn"] = true
 L["Effective tooltip information not available"] = true
@@ -108,6 +109,8 @@ L["Wowdb Talent Calculator"] = true
 L["MMO Champion Talent Calculator"] = true
 --~ L["http://www.worldofwarcraft.com/info/classes/%s/talents.html?tal=%s"] = true
 L["http://www.wowarmory.com/talent-calc.xml?%s=%s&tal=%s"] = true
+L["https://www.wowhead.com/wotlk/talent-calc/%s/%s"] = true
+L["https://www.wowhead.com/wotlk/pet-talent-calc/%s/%s"] = true
 L["http://tbc.wowhead.com/talent-calc/%s/%s"] = true
 L["http://tbc.wowhead.com/petcalc#%s"] = true
 L["http://classic.wowhead.com/talent-calc/%s/%s"] = true

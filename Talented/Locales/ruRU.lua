@@ -48,6 +48,7 @@ L["You can edit the name of the template here. You must press the Enter key to s
 L["Remove all talent points from this tree."] = "Удалить все очки талантов из этой ветки."
 L["%s (%d)"] = "%s (%d)"
 L["Level %d"] = "Уровень %d"
+L["Level %d (requires %s)"] = "Уровень %d (requires %s)"
 L["%d/%d"] = "%d/%d"
 --~ L["Right-click to unlearn"] = "Правый клик для отмены"
 L["Effective tooltip information not available"] = "Последняя версия информации о талантах недоступна"

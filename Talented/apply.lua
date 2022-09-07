@@ -55,7 +55,7 @@ end
 
 function Talented:ApplyNextTalentPoint()
 	
-	-- Debug variabvle to check progress
+	-- Debug variable to check progress
 	local found = false
 
 	-- Objects holding the current talent spec, the template we're applying and our class
@@ -71,7 +71,6 @@ function Talented:ApplyNextTalentPoint()
 	-- The current number of talent points in the chosen spec (primary or secondary)
 	local group = GetActiveTalentGroup(nil, pet)
 	local cp = GetUnspentTalentPoints(nil, pet, group)
-	-- local cp = UnitCharacterPoints("player")
 
 	for tab, tree in ipairs(self:UncompressSpellData(template.class)) do
 		local ctab = current[tab]
@@ -109,7 +108,6 @@ function Talented:CheckTalentPointsApplied()
 	for tab, tree in ipairs(self:UncompressSpellData(template.class)) do
 		local ttab = template[tab]
 		for index = 1, #tree do
-			-- local wowIndex = Talented.convertOrderedTalentIndexToWowIndex(self, template.class, tab, index)
 			local delta = ttab[index] - select(5, Talented:OrderedGetTalentInfo(template.class, tab, index, nil, pet))
 			if delta > 0 then
 				failed = true
@@ -121,7 +119,6 @@ function Talented:CheckTalentPointsApplied()
 		Talented:Print(L["Error while applying talents! some of the request talents were not set!"])
 	else
 		local cp = GetUnspentTalentPoints(nil, pet, group)
-		-- local cp = UnitCharacterPoints("player")
 		Talented:Print(L["Template applied successfully, %d talent points remaining."], cp)
 	end
 	Talented:OpenTemplate(pet and self.pet_current or self:GetActiveSpec())

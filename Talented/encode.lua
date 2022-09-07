@@ -135,12 +135,6 @@ function Talented:StringToTemplate(code, template, nmap)
 	local index = modf((nmap:find(code:sub(1, 1), nil, true) - 1) / 3) + 1
 	assert(index and index <= #classmap, "Unknown class code")
 
---[[
-	if not class then
-		_, class = UnitClass("player")
-	end
-	assert(classmap[index] == class, "Invalid class")
-]]
 	local class = classmap[index]
 
 	template = template or {}

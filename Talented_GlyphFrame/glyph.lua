@@ -122,13 +122,17 @@ local function Glyph_OnClick(self, button)
 		if group ~= GetActiveTalentGroup() then return end
 		if button == "RightButton" then
 			if IsShiftKeyDown() then
-				local _, _, spell = GetGlyphSocketInfo(id)
+				local _, _, glyphID = GetGlyphSocketInfo(id)
+				local glyphName = select(1, GetSpellInfo(glyphID))
 				if spell then
-					StaticPopup_Show("CONFIRM_REMOVE_GLYPH", GetSpellInfo(spell)).data = id
+					StaticPopup_Show("CONFIRM_REMOVE_GLYPH", nil, nil, {name=glyphName, id=id})
 				end
 			end
 		elseif self.glyph:IsShown() and GlyphMatchesSocket(id) then
-			StaticPopup_Show("CONFIRM_GLYPH_PLACEMENT").data = id
+			local _, _, oldGlyphID = GetGlyphSocketInfo(id)
+			local oldGlyphName = select(1, GetSpellInfo(oldGlyphID))
+			
+			StaticPopup_Show("CONFIRM_GLYPH_PLACEMENT", "", "", {id=id, name="a new glyph", currentName=oldGlyphName}) --FIXME: Need to find and insert the name of the new glyph
 		else
 			PlaceGlyphInSocket(id)
 		end

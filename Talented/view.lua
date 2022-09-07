@@ -3,8 +3,6 @@ local Talented = Talented
 
 local LAYOUT_BASE_X = 4
 local LAYOUT_BASE_Y = 24
--- local LAYOUT_MAX_COLUMNS = 4
--- local LAYOUT_MAX_ROWS = 9
 
 local LAYOUT_OFFSET_X, LAYOUT_OFFSET_Y, LAYOUT_DELTA_X, LAYOUT_DELTA_Y
 local LAYOUT_SIZE_X
@@ -75,6 +73,8 @@ end
 
 function TalentView:SetClass(class, force)
 	if self.class == class and not force then return end
+	local pet = not RAID_CLASS_COLORS[class]
+	self.pet = pet
 
 	Talented.Pool:changeSet(self.name)
 	wipe(self.elements)
@@ -172,7 +172,16 @@ function TalentView:ClearTarget()
 end
 
 function TalentView:GetReqLevel(total)
-	return total == 0 and 1 or total + 9
+	if not self.pet then
+		return total == 0 and 1 or total + 9
+	else
+		if total == 0 then return 10 end
+		if total > 16 then
+			return 60 + (total - 15) * 4 -- this spec requires Beast Mastery
+		else
+			return 16 + total * 4
+		end
+	end
 end
 
 local GRAY_FONT_COLOR = GRAY_FONT_COLOR
@@ -194,7 +203,6 @@ function TalentView:Update()
 			count = count + rank
 			local button = self:GetUIElement(tab, index)
 			if button == nil then
-				--/script class="Ferocity"; info=Talented:UncompressSpellData(class); tab=1; tree=info[tab]; for index, talent in pairs(tree) do print(index, talent.row, talent.column, talent.inactive) end
 				print(template.class, info, at_cap, tab, tree, index, talent, button)
 				for k,v in pairs(talent) do print(k, v) end
 			end
@@ -274,7 +282,13 @@ function TalentView:Update()
 	local points = self.frame.points
 	if points then
 		if Talented.db.profile.show_level_req then
-			points:SetFormattedText(L["Level %d"], self:GetReqLevel(total))
+			level =  self:GetReqLevel(total)
+			if self.pet and total>16 then
+				beastMasteryTalentName = select(1, GetSpellInfo(53270))
+				points:SetFormattedText(L["Level %d (requires %s)"], level, beastMasteryTalentName)
+			else
+				points:SetFormattedText(L["Level %d"], level)
+			end
 		else
 			points:SetFormattedText(L["%d/%d"], total, maxpoints)
 		end
@@ -312,18 +326,18 @@ function TalentView:Update()
 	local cb, active = self.frame.checkbox, self.frame.bactivate
 	if cb then
 		if template.talentGroup == GetActiveTalentGroup() then 
-			if activate then activate:Hide() end
+			if active then active:Hide() end
 			cb:Show()
 			cb.label:SetText(L["Edit talents"])
 			cb.tooltip = L["Toggle editing of talents."]
 		elseif template.talentGroup then
 			cb:Hide() --Can't edit the non-active spec when they're not active. TODO: Check if this is correct behaviour. If not, fix, then make this cb:Show()
-			if activate then
-				activate.talentGroup = template.talentGroup
-				activate:Show()
+			if active then
+				active.talentGroup = template.talentGroup
+				active:Show()
 			end
 		else
-			if activate then activate:Hide() end
+			if active then active:Hide() end
 			cb:Hide()
 			-- cb:Show()
 			-- cb.label:SetText(L["Edit template"])
