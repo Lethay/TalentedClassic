@@ -400,7 +400,7 @@ function Talented:MakeActionMenu()
 	local pet_restricted = not self.GetPetClass or self:GetPetClass() ~= self.template.class
 	local targetName
 	if not restricted then
-		targetName = 1 --Primary talents, the only talent group in classic. Formerly targetName = templateTalentGroup or activeTalentGroup
+		targetName = templateTalentGroup or activeTalentGroup
 	elseif not pet_restricted then
 		targetName = UnitName"PET"
 	end
@@ -448,6 +448,83 @@ function Talented:MakeActionMenu()
 	return menu
 end
 
+local function PlayerTalentFrameRoleDropDown_OnSelect(self)
+	SetTalentGroupRole(GetActiveTalentGroup(), self.value)
+	icon = Talented:GetRoleIcon(self.value)
+	b = TalentedFrame.brole
+	b:SetText(icon)
+	b:SetSize(max(12, b:GetTextWidth()+12), 22)
+end
+
+function Talented:CreateRoleMenu()
+	local menu = self:GetNamedMenu("Role")
+
+	--Check if we're editing the current role, and exit out otherwise
+	local templateTalentGroup, activeTalentGroup = self.template.talentGroup, GetActiveTalentGroup()
+	if templateTalentGroup ~= activeTalentGroup then return end
+
+	--Get current role
+	local currentRole = "NONE";
+	currentRole = GetTalentGroupRole(activeTalentGroup)
+
+	--Make choices for each role
+	entry = self:GetNamedMenu("Tank")
+	entry.text = INLINE_TANK_ICON.." "..TANK;
+	entry.func = PlayerTalentFrameRoleDropDown_OnSelect
+	entry.classicChecks = true;
+	entry.value = "TANK";
+	entry.checked = entry.value == currentRole;
+	menu[#menu + 1] = entry
+
+	entry = self:GetNamedMenu("Healer")
+	entry.text = INLINE_HEALER_ICON.." "..HEALER;
+	entry.func = PlayerTalentFrameRoleDropDown_OnSelect
+	entry.classicChecks = true;
+	entry.value = "HEALER";
+	entry.checked = entry.value == currentRole;
+	menu[#menu + 1] = entry
+
+	entry = self:GetNamedMenu("Damager")
+	entry.text = INLINE_DAMAGER_ICON.." "..DAMAGER;
+	entry.func = PlayerTalentFrameRoleDropDown_OnSelect
+	entry.classicChecks = true;
+	entry.value = "DAMAGER";
+	entry.checked = entry.value == currentRole or currentRole == "NONE";
+	menu[#menu + 1] = entry
+
+	--Prevent this function running twice
+	self.CreateRoleMenu = function (self) return self:GetNamedMenu("Role") end
+	return menu
+end
+
+function Talented:MakeRoleMenu()
+	--Create or retrieve menu
+	local menu = self:CreateRoleMenu()
+
+	--Initiate current role, then check if we're looking at a template or our own spec
+	local currentRole = "NONE";
+	local templateTalentGroup, activeTalentGroup = self.template.talentGroup, GetActiveTalentGroup()
+
+	--Get current role if we are looking at our spec
+	if templateTalentGroup == activeTalentGroup then
+		currentRole = GetTalentGroupRole(activeTalentGroup)
+
+		--Check/uncheck roles according to whether they are selected
+		for _, entry in ipairs(self:GetNamedMenu("Role")) do
+			entry.checked = entry.value == currentRole
+			entry.disabled = false
+		end
+
+	--Otherwise, disable this menu
+	else
+		for _, entry in ipairs(self:GetNamedMenu("Role")) do
+			entry.disabled = true
+		end
+	end
+
+	return menu
+end
+
 function Talented:CloseMenu()
 	HideDropDownMenu(1)
 end
@@ -475,6 +552,10 @@ end
 
 function Talented:OpenActionMenu(frame)
 	EasyMenu(self:MakeActionMenu(), self:GetDropdownFrame(frame))
+end
+
+function Talented:OpenRoleMenu(frame)
+	EasyMenu(self:MakeRoleMenu(), self:GetDropdownFrame(frame))
 end
 
 function Talented:OpenLockMenu(frame, parent)

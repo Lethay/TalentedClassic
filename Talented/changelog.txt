@@ -1,3 +1,13 @@
+v221205
+    - Add button to set group finder role.
+
+    To do:
+        - Allow instant application of talents
+        - Correctly print name of new glyph, when replacing a glyph
+        - Check over template targetting code
+        - Auto switch glyph pane
+        - Fix hunter pet talents, again
+
 v220907
     - Fix interaction with Scrolling Loot Text that was preventing the talent window from being opened
     - Add a more obvious button to switch between primary & secondary spec
@@ -10,6 +20,7 @@ v220907
     - Allow instant application of talents
     - Correctly print name of new glyph, when replacing a glyph
     - Check over template targetting code
+    - Auto switch glyph pane
 
 v220904
     - Fix accidental mis-indexing of talents (don't debug at 2am, kids)

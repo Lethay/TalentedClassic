@@ -1,9 +1,9 @@
-## Interface: 30400
+## Interface: 30401
 ## Title: Talented
 ## Name: Talented
 ## Notes: The Talent Template Editor
 ## Author: Jerry,Lethay
-## Version: v220907
+## Version: v221205
 ## OptionalDeps: Ace3
 ## SavedVariables: TalentedDB
 ## X-Category: Interface Enhancements
@@ -64,6 +64,7 @@ ui\branches.lua
 ui\arrows.lua
 ui\lines.lua
 ui\menu.lua
+ui\roleselect.lua
 
 pet.lua
 glyph.lua

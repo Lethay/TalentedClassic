@@ -463,14 +463,6 @@ function Talented:LoadTemplates()
 	self.db.RegisterCallback(self, "OnDatabaseShutdown")
 	self.LoadTemplates = nil
 
-	--FIXME: Delete, if not needed to find PlayerTalentFrameRoleButton. See base.lua:156.
-	-- self.GrabRoleSelectButton = function(self, button)
-	-- 	local frame = TalentedFrame
-	-- 	if not frame then return end
-	-- 	local n = button.GetName()
-	-- 	print(n)
-	-- end
-	-- ldbi.RegisterCallback(self, "LibDBIcon_IconCreated", "GrabRoleSelectButton")
 end
 
 _G.Talented = Talented

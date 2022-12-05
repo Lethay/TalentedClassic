@@ -119,7 +119,9 @@ local function Glyph_OnClick(self, button)
 		local link = GetGlyphLink(id, group)
 		if link then ChatEdit_InsertLink(link) end
 	else
+		--If we're not modifying the spec we're in, stop
 		if group ~= GetActiveTalentGroup() then return end
+		--If we're removing a glyph
 		if button == "RightButton" then
 			if IsShiftKeyDown() then
 				local _, _, glyphID = GetGlyphSocketInfo(id)
@@ -128,11 +130,13 @@ local function Glyph_OnClick(self, button)
 					StaticPopup_Show("CONFIRM_REMOVE_GLYPH", nil, nil, {name=glyphName, id=id})
 				end
 			end
+		--If we're replacing a glyph
 		elseif self.glyph:IsShown() and GlyphMatchesSocket(id) then
 			local _, _, oldGlyphID = GetGlyphSocketInfo(id)
 			local oldGlyphName = select(1, GetSpellInfo(oldGlyphID))
 			
 			StaticPopup_Show("CONFIRM_GLYPH_PLACEMENT", "", "", {id=id, name="a new glyph", currentName=oldGlyphName}) --FIXME: Need to find and insert the name of the new glyph
+		--If we're putting a glyph into an empty spot
 		else
 			PlaceGlyphInSocket(id)
 		end

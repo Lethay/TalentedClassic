@@ -57,5 +57,10 @@ end
 
 function Talented:UpdateView()
 	if not self.base then return end
+
+	icon = self:GetRoleIcon(self:GetCurrentRole())
+	b = TalentedFrame.brole
+	b:SetText(icon)
+
 	self.base.view:Update()
 end

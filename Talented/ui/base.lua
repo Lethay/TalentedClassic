@@ -153,17 +153,16 @@ local function CreateBaseButtons(parent)
 	end)
 	b:SetPoint("LEFT", parent.bmode, "RIGHT", 14, 0)
 
-	--FIXME: Move Blizzard's role selection button to here.
-	-- Problem: PlayerTalentFrameRoleButton only exists once the Blizzard talent window is opened.
-	-- Solution 1: find where/how the button is created.
-	-- Solution 2: find where/how that button changes the player's role.
-	-- local b = PlayerTalentFrameRoleButton
-	-- parent.brole = b
-	-- if not b.talented_hook then
-	-- 	b.talented_hook = true
-	-- ends
-	-- b:SetParent(parent)
-	-- b:SetPoint("LEFT", parent.bglyphs, "RIGHT", 14, 0)
+	--Button for role selection
+	local b = MakeButton(parent)
+	parent.brole = b
+	local roleIcon = INLINE_DAMAGER_ICON --Talented:GetRoleIcon(Talented:GetCurrentRole()) not yet initialised
+	b:SetText(roleIcon)
+	b:SetSize(max(12, b:GetTextWidth()+12), 22)
+	parent.brole:SetPoint("TOPRIGHT", -14, -25)
+	b:SetScript("OnClick", function (self)
+		Talented:OpenRoleMenu(self)
+	end)
 
 	local e = CreateFrame("EditBox", nil, parent, "InputBoxTemplate")
 	parent.editname = e
