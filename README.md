@@ -22,4 +22,5 @@ Known issues
     Potential issues with importing talent builds from Wowhead.
 
 License
+
     This addon is given under a CC BY license and its creators assume no responsibility for anything that goes wrong due to the addon's use. However, note that Blizzard's stipulations means that addon development is effectively, inherently NC-SA, too. You cannot make money by building addons for someone else's product, friends!
