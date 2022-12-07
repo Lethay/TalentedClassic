@@ -323,27 +323,30 @@ function TalentView:Update()
 		end
 	end
 
-	local cb, active = self.frame.checkbox, self.frame.bactivate
-	if cb then
+	local checkbox, activateBtn, roleSelectBtn = self.frame.checkbox, self.frame.bactivate, self.frame.brole
+	if checkbox then
 		if template.talentGroup == GetActiveTalentGroup() then 
-			if active then active:Hide() end
-			cb:Show()
-			cb.label:SetText(L["Edit talents"])
-			cb.tooltip = L["Toggle editing of talents."]
+			if activateBtn then activateBtn:Hide() end
+			roleSelectBtn:Show()
+			checkbox:Show()
+			checkbox.label:SetText(L["Edit talents"])
+			checkbox.tooltip = L["Toggle editing of talents."]
 		elseif template.talentGroup then
-			cb:Hide() --Can't edit the non-active spec when they're not active. TODO: Check if this is correct behaviour. If not, fix, then make this cb:Show()
-			if active then
-				active.talentGroup = template.talentGroup
-				active:Show()
+			checkbox:Hide()
+			roleSelectBtn:Hide()
+			if activateBtn then
+				activateBtn.talentGroup = template.talentGroup
+				activateBtn:Show()
 			end
 		else
-			if active then active:Hide() end
-			cb:Hide()
-			-- cb:Show()
-			-- cb.label:SetText(L["Edit template"])
-			-- cb.tooltip =L["Toggle editing of the template."]
+			if activateBtn then activateBtn:Hide() end
+			checkbox:Hide()
+			roleSelectBtn:Hide()
+			-- checkbox:Show()
+			-- checkbox.label:SetText(L["Edit template"])
+			-- checkbox.tooltip =L["Toggle editing of the template."]
 		end
-		cb:SetChecked(self.mode == "edit")
+		checkbox:SetChecked(self.mode == "edit")
 	end
 	
 	local targetname = self.frame.targetname

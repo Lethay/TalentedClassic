@@ -85,7 +85,8 @@ local function TabFrame_OnClick(self, button)
 			SetActiveTalentGroup(info.talentGroup)
 			Tabs_UpdateCheck(self:GetParent(), Talented.alternates[info.talentGroup])
 		end
-	else
+	-- else
+	end
 		local template
 		if info.pet then
 			template = Talented.pet_current
@@ -94,7 +95,7 @@ local function TabFrame_OnClick(self, button)
 		end
 		if template then Talented:OpenTemplate(template) end
 		Tabs_UpdateCheck(self:GetParent(), template)
-	end
+	-- end
 end
 
 local function TabFrame_Update(self)

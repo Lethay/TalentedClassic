@@ -1,12 +1,9 @@
+v221207
+    - Fix bug in LFG role selection menu button when changing spec (with Dual Specialisation)
+    - Hide LFG role selection menu button when not viewing active spec -- a disabled menu was confusing
+    
 v221205
     - Add button to set group finder role.
-
-    To do:
-        - Allow instant application of talents
-        - Correctly print name of new glyph, when replacing a glyph
-        - Check over template targetting code
-        - Auto switch glyph pane
-        - Fix hunter pet talents, again
 
 v220907
     - Fix interaction with Scrolling Loot Text that was preventing the talent window from being opened
@@ -14,13 +11,6 @@ v220907
     - Fix hunter pet talents labelling
     - Fix removal and replacement of glyphs
     - Fix importing and exporting of deathknight talents to Wowhead
-
-    To do:
-    - Add buttons to set group finder role, as in the default blizzard frames.
-    - Allow instant application of talents
-    - Correctly print name of new glyph, when replacing a glyph
-    - Check over template targetting code
-    - Auto switch glyph pane
 
 v220904
     - Fix accidental mis-indexing of talents (don't debug at 2am, kids)

@@ -156,12 +156,19 @@ local function CreateBaseButtons(parent)
 	--Button for role selection
 	local b = MakeButton(parent)
 	parent.brole = b
-	local roleIcon = INLINE_DAMAGER_ICON --Talented:GetRoleIcon(Talented:GetCurrentRole()) not yet initialised
+	local roleIcon = INLINE_DAMAGER_ICON
 	b:SetText(roleIcon)
 	b:SetSize(max(12, b:GetTextWidth()+12), 22)
 	parent.brole:SetPoint("TOPRIGHT", -14, -25)
 	b:SetScript("OnClick", function (self)
 		Talented:OpenRoleMenu(self)
+	end)
+	b:SetScript("OnShow", function (self)
+		-- role = Talented:GetTemplateTalentGroupRole()
+		--Just show the role from our current spec according to the Blizzard API, as the button's hidden otherwise
+		role = GetTalentGroupRole(GetActiveTalentGroup())
+		icon = Talented:GetRoleIcon(role)
+		self:SetText(icon)	
 	end)
 
 	local e = CreateFrame("EditBox", nil, parent, "InputBoxTemplate")
@@ -248,7 +255,6 @@ local function CreateBaseButtons(parent)
 
 	local b = MakeButton(parent)
 	parent.bactivate = b
-
 	b:SetText(TALENT_SPEC_ACTIVATE)
 	b:SetSize(b:GetTextWidth() + 40, 22)
 	b:SetScript("OnClick", function (self)

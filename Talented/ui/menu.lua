@@ -521,7 +521,6 @@ function Talented:MakeRoleMenu()
 			entry.disabled = true
 		end
 	end
-
 	return menu
 end
 
