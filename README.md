@@ -18,10 +18,6 @@ This was an addon originally written by "Jerry" (URL: https://www.wowinterface.c
 
     Hunter pet talents do not work
     Potential issues with importing talent builds from Wowhead.
-    Talent templates take time to be applied and sometimes crash
-    Name of new glyph is not given when replacing a glyph
-    Templates cannot target secondary spec
-    Glyph pane does not default to secondary spec when that is active
 
 **License**
 
