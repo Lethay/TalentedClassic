@@ -58,9 +58,5 @@ end
 function Talented:UpdateView()
 	if not self.base then return end
 
-	-- local role = self:GetTemplateTalentGroupRole()
-	-- local icon = self:GetRoleIcon(role)
-	-- TalentedFrame.brole:SetText(icon)
-
 	self.base.view:Update()
 end

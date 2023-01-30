@@ -30,7 +30,6 @@ Libs\AceConfig-3.0\AceConfig-3.0.xml
 Libs\AceLocale-3.0\AceLocale-3.0.xml
 Libs\AceComm-3.0\AceComm-3.0.xml
 Libs\AceSerializer-3.0\AceSerializer-3.0.xml
-Libs\LibGratuity-3.0\LibGratuity-3.0.lua
 #@end-no-lib-strip@
 
 locales.xml
