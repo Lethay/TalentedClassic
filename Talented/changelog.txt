@@ -1,5 +1,6 @@
 v220130
     - Remove LibGratuity, hopefully fixing an interaction with Zygor's levelling addon.
+    - Update WoWAce.
     
 v221207
     - Fix bug in LFG role selection menu button when changing spec (with Dual Specialisation)
