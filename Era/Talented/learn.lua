@@ -61,7 +61,7 @@ function Talented:createNew2OldIdx()
 	for tab=1,3 do
 	   local tierColumn = {}
 	   local maxTier=0
-	   for idx=GetNumTalents(3),1,-1 do
+	   for idx=GetNumTalents(tab),1,-1 do
 		  local _,_,tier,column = GetTalentInfo(tab,idx)
 		  tierColumn[tier] = tierColumn[tier] or {}
 		  tierColumn[tier][column] = idx
