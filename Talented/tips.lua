@@ -32,6 +32,29 @@ local function addtipline(tip)
 end
 
 local lastTooltipInfo = {}
+
+function Talented:AddAfterSpellLoad(template, tab, index)
+		
+		local s = self:GetTalentState(template, tab, index)
+		if self.mode == "edit" then
+			if template.talentGroup then
+				if s == "available" or s == "empty" then
+					addline(TOOLTIP_TALENT_LEARN, GREEN_FONT_COLOR)
+				end
+			elseif s == "full" then
+				addline(TALENT_TOOLTIP_REMOVEPREVIEWPOINT, GREEN_FONT_COLOR)
+			elseif s == "available" then
+				GameTooltip:AddDoubleLine(
+					TALENT_TOOLTIP_ADDPREVIEWPOINT, TALENT_TOOLTIP_REMOVEPREVIEWPOINT,
+					GREEN_FONT_COLOR.r, GREEN_FONT_COLOR.g, GREEN_FONT_COLOR.b,
+					GREEN_FONT_COLOR.r, GREEN_FONT_COLOR.g, GREEN_FONT_COLOR.b)
+			elseif s == "empty" then
+				addline(TALENT_TOOLTIP_ADDPREVIEWPOINT, GREEN_FONT_COLOR)
+			end
+		end
+		GameTooltip:Show()
+end
+
 function Talented:SetTooltipInfo(frame, class, tab, index)
 	lastTooltipInfo[1] = frame
 	lastTooltipInfo[2] = class
@@ -61,15 +84,27 @@ function Talented:SetTooltipInfo(frame, class, tab, index)
 	if tier >= 1 and self:GetTalentTabCount(template, tab) < tier then
 		addline(TOOLTIP_TALENT_TIER_POINTS:format(tier, self.tabdata[class][tab].name), RED_FONT_COLOR)
 	end
+
 	if IsAltKeyDown() then
 		for i = 1, ranks do
-			local tip = self:GetTalentDesc(class, tab, index, i)
-			if type(tip) == "table" and tip and tip[#tip] then tip = tip[#tip].left end
-			addline(tip, i == rank and HIGHLIGHT_FONT_COLOR or NORMAL_FONT_COLOR, true)
+			self:GetTalentDesc(class, tab, index, i, function()
+				local tip = _spell:GetSpellDescription()
+				if type(tip) == "table" and tip and tip[#tip] then tip = tip[#tip].left end
+				addline(tip, i == rank and HIGHLIGHT_FONT_COLOR or NORMAL_FONT_COLOR, true)
+				if i == ranks then
+					self:AddAfterSpellLoad(template, tab, index)
+				end
+					GameTooltip:Show()
+				
+			end)	
 		end
 	else
 		if rank > 0 then
-			addtipline(self:GetTalentDesc(class, tab, index, rank))
+			self:GetTalentDesc(class, tab, index, rank, function()
+				local tip = _spell:GetSpellDescription()
+				addtipline(tip)
+				self:AddAfterSpellLoad(template, tab, index)
+			end)
 			--TODO: Make the tooltip update without having to make a new tooltip? 
 			-- Can ContinueOnSpellLoad do this? https://wowpedia.fandom.com/wiki/SpellMixin#SpellMixin:ContinueOnSpellLoad
 		end
@@ -77,26 +112,14 @@ function Talented:SetTooltipInfo(frame, class, tab, index)
 			if rank > 0 then
 				addline("|n"..TOOLTIP_TALENT_NEXT_RANK, HIGHLIGHT_FONT_COLOR)
 			end
-			addtipline(self:GetTalentDesc(class, tab, index, rank + 1))
+			self:GetTalentDesc(class, tab, index, rank + 1, function()
+				local tip = _spell:GetSpellDescription()
+				addtipline(tip)
+				self:AddAfterSpellLoad(template, tab, index)
+			end)
 		end
 	end
-	local s = self:GetTalentState(template, tab, index)
-	if self.mode == "edit" then
-		if template.talentGroup then
-			if s == "available" or s == "empty" then
-				addline(TOOLTIP_TALENT_LEARN, GREEN_FONT_COLOR)
-			end
-		elseif s == "full" then
-			addline(TALENT_TOOLTIP_REMOVEPREVIEWPOINT, GREEN_FONT_COLOR)
-		elseif s == "available" then
-			GameTooltip:AddDoubleLine(
-				TALENT_TOOLTIP_ADDPREVIEWPOINT, TALENT_TOOLTIP_REMOVEPREVIEWPOINT,
-				GREEN_FONT_COLOR.r, GREEN_FONT_COLOR.g, GREEN_FONT_COLOR.b,
-				GREEN_FONT_COLOR.r, GREEN_FONT_COLOR.g, GREEN_FONT_COLOR.b)
-		elseif s == "empty" then
-			addline(TALENT_TOOLTIP_ADDPREVIEWPOINT, GREEN_FONT_COLOR)
-		end
-	end
+
 	GameTooltip:Show()
 end
 

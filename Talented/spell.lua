@@ -190,7 +190,7 @@ function Talented:GetTalentIcon(class, tab, index)
 	return (select(3, GetSpellInfo(spell)))
 end
 
-function Talented:GetTalentDesc(class, tab, index, rank)
+function Talented:GetTalentDesc(class, tab, index, rank, callback)
 	if not spellTooltip then
 		spellTooltip = CreateSpellTooltip()
 	end
@@ -201,8 +201,10 @@ function Talented:GetTalentDesc(class, tab, index, rank)
 	-- 	return desc
 	-- --Otherwise, get the description from the game and return that
 	-- else
-		return GetSpellDescription(spell)
-	-- end
+	_spell = Spell:CreateFromSpellID(spell);
+
+	return _spell:ContinueOnSpellLoad(callback)
+	-- endr
 end
 
 function Talented:GetTalentPos(class, tab, index)
