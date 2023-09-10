@@ -1,41 +1,32 @@
 --[[
-Name: Gratuity-2.0
-Revision: $Rev: 52819 $
+Name: LibGratuity-3.0
+Revision: $Rev: 42 $
 Author: Tekkub Stoutwrithe (tekkub@gmail.com)
-Website: http://wiki.wowace.com/index.php/GratuityLib
-Documentation: http://wiki.wowace.com/index.php/Gratuity-2.0_API_Documentation
-SVN: svn://svn.wowace.com/root/trunk/GratuityLib/Gratuity-2.0
+SVN: svn://svn.wowace.com/root/trunk/LibGratuity-3.0
 Description: Tooltip parsing library
-Dependencies: AceLibrary, (optional) Deformat-2.0
+Dependencies: (optional) Deformat-2.0
 ]]
 
-local vmajor, vminor = "Gratuity-2.0", "$Revision: 52819 $"
+local vmajor, vminor = "LibGratuity-3.0", 90000 + tonumber(("$Revision: 42 $"):match("%d+"))
 
-if not AceLibrary then error(vmajor .. " requires AceLibrary.") end
-if not AceLibrary:IsNewVersion(vmajor, vminor) then return end
+local lib = LibStub:NewLibrary(vmajor, vminor)
+if not lib then
+	return
+end
 
-local lib = {}
 local methods = {
 	"SetBagItem", "SetAction", "SetAuctionItem", "SetAuctionSellItem", "SetBuybackItem",
 	"SetCraftItem", "SetCraftSpell", "SetHyperlink", "SetInboxItem", "SetInventoryItem",
 	"SetLootItem", "SetLootRollItem", "SetMerchantItem", "SetPetAction", "SetPlayerBuff",
 	"SetQuestItem", "SetQuestLogItem", "SetQuestRewardSpell", "SetSendMailItem", "SetShapeshift",
-	"SetSpell", "SetTalent", "SetTrackingSpell", "SetTradePlayerItem", "SetTradeSkillItem", "SetTradeTargetItem",
+	"SetSpellByID", "SetTalent", "SetTrackingSpell", "SetTradePlayerItem", "SetTradeSkillItem", "SetTradeTargetItem",
 	"SetTrainerService", "SetUnit", "SetUnitBuff", "SetUnitDebuff", "SetGuildBankItem",
 }
 
-
--- Activate a new instance of this library
-local function activate(self, oldLib, oldDeactivate)
-	if oldLib then self.vars = oldLib.vars
-	else
-		self.vars = {}
-		self:CreateTooltip()
-	end
-
-	self:CreateSetMethods()
-
-	if oldDeactivate then oldDeactivate(oldLib) end
+if select(4, GetBuildInfo()) >= 40000 then
+	table.insert(methods, "SetSpellBookItem")
+else
+	table.insert(methods, "SetSpell")
 end
 
 function lib:CreateTooltip()
@@ -63,10 +54,10 @@ function lib:Erase()
 --	if not self.vars.tooltip:IsOwned(self.vars.tooltip) then self.vars.tooltip:SetOwner(self.vars.tooltip, "ANCHOR_NONE") end
 	if not self.vars.tooltip:IsOwned(UIParent) then self.vars.tooltip:SetOwner(UIParent, "ANCHOR_NONE") end
 --	if not self.vars.tooltip:IsOwned(self.vars.tooltip) then
---		self:error("Gratuity's tooltip is not scanable")
+--		error("Gratuity's tooltip is not scannable", 2)
 --	end
 	if not self.vars.tooltip:IsOwned(UIParent) then
-		self:error("Gratuity's tooltip is not scanable")
+		error("Gratuity's tooltip is not scannable", 2)
 	end
 end
 
@@ -100,7 +91,7 @@ function lib:Find(txt, startln, endln, ignoreleft, ignoreright, exact)
 	if (exact == true) then
 		searchFunction = FindExact;
 	end;
-	self:argCheck(txt, 2, "string", "number")
+	assert(type(txt) == "string" or type(txt) == "number")
 	local t1, t2 = type(startln or 1), type(self:NumLines(endln))
 	if (t1 ~= "number" or t2 ~= "number") then print(t1, t2, (startln or 1),self:NumLines(endln)) end
 	for i=(startln or 1),self:NumLines(endln) do
@@ -121,7 +112,7 @@ end
 --  Args are passed directly to Find, t1-t10 replace the txt arg
 --  Returns Find results for the first match found, if any
 function lib:MultiFind(startln, endln, ignoreleft, ignoreright, t1,t2,t3,t4,t5,t6,t7,t8,t9,t10)
-	self:argCheck(t1, 6, "string", "number")
+	assert(type(t1) == "string" or type(t1) == "number")
 	if t1 and self:Find(t1, startln, endln, ignoreleft, ignoreright) then return self:Find(t1, startln, endln, ignoreleft, ignoreright)
 	elseif t2 then return self:MultiFind(startln, endln, ignoreleft, ignoreright, t2,t3,t4,t5,t6,t7,t8,t9,t10) end
 end
@@ -135,10 +126,10 @@ local deformat
 --    endln    - Last line to test, default 30
 --    ignoreleft / ignoreright - Causes text on one side of the tooltip to be ignored
 function lib:FindDeformat(txt, startln, endln, ignoreleft, ignoreright)
-	self:argCheck(txt, 2, "string", "number")
+	assert(type(txt) == "string" or type(txt) == "number")
 	if not deformat then
-		if not AceLibrary:HasInstance("Deformat-2.0") then
-			self:error("FindDeformat requires Deformat-2.0 to be available")
+		if not AceLibrary or not AceLibrary:HasInstance("Deformat-2.0") then
+			error("FindDeformat requires Deformat-2.0 to be available", 2)
 		end
 		deformat = AceLibrary("Deformat-2.0")
 	end
@@ -185,7 +176,7 @@ end
 --    line     - the line number you wish to retrieve
 --    getright - if passed the right line will be returned, if not the left will be returned
 function lib:GetLine(line, getright)
-	self:argCheck(line, 2, "number")
+	assert(type(line) == "number")
 	if self.vars.tooltip:NumLines() < line then return end
 	if getright then return self.vars.Rlines[line] and self.vars.Rlines[line]:GetText()
 	elseif self.vars.Llines[line] then
@@ -203,20 +194,62 @@ local testmethods = {
 	SetAction = function(id) return HasAction(id) end,
 }
 local gettrue = function() return true end
+
+local function handlePcall(success, ...)
+	if not success then
+		geterrorhandler()(...)
+		return
+	end
+	return ...
+end
+
 function lib:CreateSetMethods()
 	for _,m in pairs(methods) do
 		local meth = m
 		local func = testmethods[meth] or gettrue
-		self[meth] = function(self,a1,a2,a3,a4)
+		self[meth] = function(self, ...)
 			self:Erase()
-			if not func(a1,a2,a3,a4) then return end
-			return self:pcall(self.vars.tooltip[meth], self.vars.tooltip,a1,a2,a3,a4) end
+			if not func(...) then return end
+			return handlePcall(pcall(self.vars.tooltip[meth], self.vars.tooltip, ...))
+		end
 	end
 end
 
+-- Activate a new instance of this library
+if not lib.vars then
+	lib.vars = {}
+	lib:CreateTooltip()
+end
+lib:CreateSetMethods()
 
---------------------------------
---      Load this bitch!      --
---------------------------------
-AceLibrary:Register(lib, vmajor, vminor, activate)
-lib = nil
+local function createCompat()
+	createCompat = nil
+	local Gratuity20 = setmetatable({}, {__index=function(self, key)
+		if type(lib[key]) == "function" then
+			self[key] = function(self, ...)
+				return lib[key](lib, ...)
+			end
+		else
+			self[key] = lib[key]
+		end
+		return self[key]
+	end})
+	AceLibrary:Register(Gratuity20, "Gratuity-2.0", vminor+70000000)
+end
+
+--Prevent conflict w/ other addons
+-- if not AceLibrary then
+-- 	local frame = CreateFrame("Frame")
+-- 	frame:RegisterEvent("ADDON_LOADED")
+-- 	frame:SetScript("OnEvent", function(this)
+-- 		if not AceLibrary then
+-- 			return
+-- 		end
+-- 		createCompat()
+-- 		frame:SetScript("OnEvent", nil)
+-- 		frame:UnregisterAllEvents()
+-- 		frame:Hide()
+-- 	end)
+-- else
+-- 	createCompat()
+-- end
