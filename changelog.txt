@@ -1,3 +1,7 @@
+v230910b
+    - Add Talented_Data to Era folder
+    - Remove LibGratuity from Era folder
+    
 v230910
     - Fix viewing of tooltips on first hover, thanks to @Galatex1
     - Add era-specific version and fix it, thanks to @Ulidan
