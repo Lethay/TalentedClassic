@@ -1,3 +1,6 @@
+v230917
+    - Era: Remove LibGratuity from TOC file.
+
 v230910b
     - Add Talented_Data to Era folder
     - Remove LibGratuity from Era folder
