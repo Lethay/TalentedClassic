@@ -81,6 +81,10 @@ function Talented:createNew2OldIdx()
 	end
 end
 
+function Talented:GetNewIdx(tab, index)
+	return new2OldIdx[tab][index]
+end
+
 function Talented:MatchedLearnTalent(tab, index)
 	return LearnTalent(tab, new2OldIdx[tab][index])
 end
