@@ -1,3 +1,7 @@
+v230930
+    - Era: Add zhCN localisation (thanks @maxevil05).
+    - Fix generated LUA error when levelling up before Talented is open (@Ulidan).
+
 v230917
     - Era: Remove LibGratuity from TOC file.
 
