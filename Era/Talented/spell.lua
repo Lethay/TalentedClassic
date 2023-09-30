@@ -251,7 +251,7 @@ function Talented:GetTalentLink(template, tab, index, rank)
 	-- 	self:GetTalentName(template.class, tab, index)
 	-- )
 	if Talented.current == template then
-		local link = GetTalentLink(tab, index) --note cannot get rank
+		local link = GetTalentLink(tab, self:GetNewIdx(tab, index)) --note cannot get rank
 		return link
 	else
 		return nil
