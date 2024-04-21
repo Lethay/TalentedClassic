@@ -1,4 +1,4 @@
-## Interface: 11401
+## Interface: 11502
 ## Title: Talented Data
 ## Notes: Gather localized information about the different talent trees of your toons
 ## Author: Jerry,Lethay

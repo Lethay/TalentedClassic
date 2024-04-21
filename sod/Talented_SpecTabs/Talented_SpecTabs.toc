@@ -1,4 +1,4 @@
-## Interface: 30400
+## Interface: 11502
 ## Note: Add Spec Tabs to the Talented Frame.
 ## Dependency: Talented
 ## LoadOnDemand: 1
