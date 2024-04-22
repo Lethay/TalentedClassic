@@ -32,7 +32,7 @@ function Talented:LearnTalent(tab, index)
 	end
 
 	if not p.always_call_learn_talents then
-		local state = self:GetTalentState(template, tab, index)
+		local state = self:GetTalentState(current, tab, index)
 		if
 			state == "full" or -- talent maxed out
 			state == "unavailable" or -- prereqs not fullfilled
