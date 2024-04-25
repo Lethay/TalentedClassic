@@ -147,18 +147,22 @@ function TalentView:SetTemplate(template, target)
 	if template then Talented:UnpackTemplate(template) end
 	-- if target then Talented:UnpackTemplate(target) end This will use target's code object, which we have NOT been updating
 
+	--Pack target
 	local curr = self.target
 	self.target = target
-
 	if curr and curr ~= template and curr ~= target then
 		Talented:PackTemplate(curr)
 	end
+
+	--Pack template
 	curr = self.template
 	self.template = template
 	if curr and curr.name and curr ~= template and curr ~= target then --make sure template still exists, in which case it AND its name should exist
 		Talented:PackTemplate(curr)
 	end
 
+	--Set current spec and class
+	self.spec = template.talentGroup
 	self:SetClass(template.class)
 	return self:Update()
 end
@@ -184,15 +188,13 @@ function TalentView:Update()
 	local total = 0
 	local info = Talented:GetTalentInfo(template.class)
 	local at_cap = Talented:IsTemplateAtCap(template)
-	local allowEditing = (self.mode == "edit" or Talented.current ~= template)
-
+	local allowEditing = (self.mode == "edit" or template.talentGroup==nil)
 	for tab, tree in ipairs(info) do
 		local count = 0
 		for index, _talent in ipairs(tree.talents) do
 			talent = _talent.info
 			local rank = template[tab] and template[tab][index] or 0 --template[tab] ? template[tab][index] : 0
 			count = count + rank
-
 			local button = self:GetUIElement(tab, index)
 			local color = GRAY_FONT_COLOR
 			local state = Talented:GetTalentState(template, tab, index)
@@ -283,10 +285,9 @@ function TalentView:Update()
 		end
 		points:SetTextColor(color.r, color.g, color.b)
 	end
-
 	local pointsleft = self.frame.pointsleft
 	if pointsleft then
-		if maxpoints ~= total and template == Talented.current then
+		if maxpoints ~= total and template.talentGroup then
 			pointsleft:Show()
 			pointsleft.text:SetFormattedText(L["You have %d talent |4point:points; left"], maxpoints - total)
 		else
@@ -296,7 +297,7 @@ function TalentView:Update()
 
 	local edit = self.frame.editname
 	if edit then
-		if template == Talented.current then
+		if template.talentGroup then
 			edit:Hide()
 		else
 			edit:Show()
@@ -304,28 +305,39 @@ function TalentView:Update()
 		end
 	end
 
-	local cb = self.frame.checkbox --, self.frame.bactivate
-	if cb then
-		if template == Talented.current then 
-			cb:Show()
-			cb.label:SetText(L["Edit talents"])
-			cb.tooltip = L["Toggle editing of talents."]
-		elseif template then
-			cb:Hide()
-		-- else
-		-- 	cb:Show()
-		-- 	cb.label:SetText(L["Edit template"])
-		-- 	cb.tooltip =L["Toggle editing of the template."]
+	local checkbox, activateBtn = self.frame.checkbox, self.frame.bactivate
+	if checkbox then
+		if template.talentGroup == GetActiveTalentGroup() then 
+			if activateBtn then activateBtn:Hide() end
+			checkbox:Show()
+			checkbox.label:SetText(L["Edit talents"])
+			checkbox.tooltip = L["Toggle editing of talents."]
+		elseif template.talentGroup then
+			checkbox:Hide()
+			if activateBtn then
+				activateBtn.talentGroup = template.talentGroup
+				activateBtn:Show()
+			end
+		else
+			if activateBtn then activateBtn:Hide() end
+			checkbox:Hide()
+			-- checkbox:Show()
+			-- checkbox.label:SetText(L["Edit template"])
+			-- checkbox.tooltip =L["Toggle editing of the template."]
 		end
-		cb:SetChecked(self.mode == "edit")
+		checkbox:SetChecked(self.mode == "edit")
 	end
 	
 	local targetname = self.frame.targetname
 	if targetname then
-		if template == Talented.current then
+		if template.talentGroup then
 			targetname:Show()
-			if target then
+			if template.talentGroup == GetActiveTalentGroup() and target then
 				targetname:SetText(L["Target: %s"]:format(target.name))
+			elseif template.talentGroup == 1 then
+				targetname:SetText(TALENT_SPEC_PRIMARY)
+			else
+				targetname:SetText(TALENT_SPEC_SECONDARY)
 			end
 		else
 			targetname:Hide()
@@ -350,9 +362,9 @@ end
 
 function TalentView:UpdateTalent(tab, index, offset)
 	--Don't allow editing of current talents if looking @ current template
-	if self.mode ~= "edit" and self.template == Talented.current then return end
+	if self.mode ~= "edit" and self.spec then return end
 	
-	if self.template == Talented.current then
+	if self.spec then
 		-- Applying talent
 		if offset > 0 then
 			Talented:LearnTalent(tab, index)
@@ -387,7 +399,7 @@ end
 
 function TalentView:ClearTalentTab(tab)
 	local template = self.template
-	if template and template ~= Talented.current then
+	if template and not template.talentGroup then
 		local tab = template[tab]
 		for index, value in ipairs(tab) do
 			tab[index] = 0

@@ -1,0 +1,72 @@
+--
+-- ─── EXTRACTING RANK 1 TOOLTIPS ─────────────────────────────────────────────────
+--
+EXPORT
+	To export data, disable Talented_Data, make a character of each class and
+	1. Open Talented Window. Check talent tooltips are loading. Reload if not.
+	2. Run /script Talented_Data_Export(), or press the button in the options. After a /reload or logout the data will be found in (WoW install location)/_classic_/WTF/Account/(AccountName)//SavedVariables/Talented_Data_Export.lua.
+
+EDITING EXPORTED DATA
+	When you have outputted data for each class, open the file. Edit it file as follows,
+	1. Replace all [" and "] with nothing
+	2. Replace all "Data_" with "Data."
+	3. Replace all "%" with "%%"
+
+ENGLISH DATA
+	English tooltips form the base file. If the aim is to extract these, then next each class' data needs to be extracted to its own file, for example Talented_Data_Druid.lua should contain Talented_Data.DRUID.
+
+LOCALISATION DATA
+	Other languages are handled by altering the English data, so as not to duplicate data about spell ranks. For example, for the French localisation of Hunter:
+		data = Talented_Data.HUNTER
+		if data then
+			tree = data[1]
+			tree.info.name = "Maîtrise des bêtes"
+			tree = data[2]
+			tree.info.name = "Précision"
+			tree = data[3]
+			tree.info.name = "Survie"
+		end
+
+	This sets the names of the talent trees. Individual talent names and tooltips are changed like follows (example: Korean localisation):
+	data = Talented_Data.HUNTER
+		if data then
+			tree = data[1]
+			tree.info.name = "야수"
+			tree.talents[1].info.name = "매의 상 연마"
+			tree.talents[1].info.tips = "활성화되면 모든 일반 원거리 공격 시 %d%%의 확률로 원거리 공격 속도가 12초 동안 30%%만큼 증가됩니다."
+			tree.talents[2].info.name = "지구력 훈련"
+			tree.talents[2].info.tips = "야수의 최대 생명력이 %d%%만큼 증가합니다."
+			...
+		end
+	
+	Each talent's name and tooltip has to be set separately.
+
+--
+-- ─── HIGHER RANK TOOLTIPS ───────────────────────────────────────────────────────
+--
+Unfortunately, there doesn't seem to be an API to extract tooltips for other ranks. Instead, every tooltip must have format codes MANUALLY inserted. For example, the first talent in the first tree for Druids:
+	{
+		info = {
+			name = "Improved Wrath",
+			ranks = 5,
+			column = 1,
+			icon = 136006,
+			row = 1,
+			tips = "Reduces the cast time of your Wrath spell by %.1f sec.",
+			tipValues = {{0.1}, {0.2}, {0.3}, {0.4}, {0.5}}
+		},
+	}, -- [1]
+Where "0.1 sec" has been replaced with "%.1f". tipValues is another manually typed field, giving the values for each rank of the talent. It is a 2D field in case there are two numbers to be formatted. For example, the first talent in the first tree for Mages:
+	{
+		info = {
+			name = "Arcane Subtlety",
+			tips = "Reduces your target's resistance to all your spells by %d and reduces the threat caused by your Arcane spells by %d%%.",
+			column = 1,
+			row = 1,
+			icon = 135894,
+			ranks = 2,
+			tipValues = {{5, 20}, {10, 40}}
+		},
+	}, -- [1]
+Where "5" has been replaced by "%d" and "20%" has been replaced by "%d%%". The first value of tipValues is {5, 20} for +5 resistance and -20% threat, and the second value is {10, 40}.
+
