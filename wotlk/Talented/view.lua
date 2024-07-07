@@ -325,7 +325,7 @@ function TalentView:Update()
 
 	local checkbox, activateBtn, roleSelectBtn = self.frame.checkbox, self.frame.bactivate, self.frame.brole
 	if checkbox then
-		if template.talentGroup == GetActiveTalentGroup() then 
+		if template.talentGroup == GetActiveTalentGroup() then
 			if activateBtn then activateBtn:Hide() end
 			roleSelectBtn:Show()
 			checkbox:Show()
@@ -348,7 +348,7 @@ function TalentView:Update()
 		end
 		checkbox:SetChecked(self.mode == "edit")
 	end
-	
+
 	local targetname = self.frame.targetname
 	if targetname then
 		if template.talentGroup then
@@ -384,7 +384,7 @@ end
 function TalentView:UpdateTalent(tab, index, offset)
 	--Don't allow editing of current talents if looking @ current template
 	if self.mode ~= "edit" and self.spec then return end
-	
+
 	if self.spec then
 		-- Applying talent
 		if offset > 0 then

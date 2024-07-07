@@ -15,7 +15,7 @@ Talented.importers[".*/talent.calc/(.-)/(%d*)-?(%d*)-?(%d*).*"] = function (self
 
 	--death-knight -> deathknight
 	class = select(1, class:gsub("-", ""))
-	
+
 	if not dst then
 		return class:upper()
 	end
@@ -25,7 +25,7 @@ Talented.importers[".*/talent.calc/(.-)/(%d*)-?(%d*)-?(%d*).*"] = function (self
 	dst.class = class:upper()
 	local info = self:UncompressSpellData(dst.class)
 	local lens = {t1:len(), t2:len(), t3:len()}
-	
+
 	for tab, tree in ipairs(info) do
 		local count = 1
 		local t = {}

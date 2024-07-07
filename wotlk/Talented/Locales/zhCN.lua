@@ -50,7 +50,7 @@ L["%d/%d"] = "%d/%d"
 --~ L["Right-click to unlearn"] = "右键点击取消"
 L["Effective tooltip information not available"] = "无有效鼠标提示信息"
 L["You have %d talent |4point:points; left"] = "您还有%d点天赋点数剩余"
-L["Are you sure that you want to learn \"%s (%d/%d)\" ?"] = "是否确认学习\“%s (%d/%d)\”？"
+L["Are you sure that you want to learn \"%s (%d/%d)\" ?"] = "是否确认学习“%s (%d/%d)”？"
 
 --~ L["Open the Talented options panel."] = ""
 

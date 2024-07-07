@@ -54,7 +54,6 @@ function Talented:ApplyCurrentTemplate()
 end
 
 function Talented:ApplyNextTalentPoint()
-	
 	-- Debug variable to check progress
 	local found = false
 

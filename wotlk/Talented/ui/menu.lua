@@ -253,7 +253,7 @@ StaticPopupDialogs["TALENTED_IMPORT_URL"] = {
 		self:GetParent():Hide();
 	end,
 	hideOnEscape = 1
-	
+
 }
 
 StaticPopupDialogs["TALENTED_EXPORT_TO"] = {

@@ -168,7 +168,7 @@ local function CreateBaseButtons(parent)
 		--Just show the role from our current spec according to the Blizzard API, as the button's hidden otherwise
 		role = GetTalentGroupRole(GetActiveTalentGroup())
 		icon = Talented:GetRoleIcon(role)
-		self:SetText(icon)	
+		self:SetText(icon)
 	end)
 
 	local e = CreateFrame("EditBox", nil, parent, "InputBoxTemplate")
