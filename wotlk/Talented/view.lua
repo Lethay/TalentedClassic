@@ -22,7 +22,7 @@ local function RecalcLayout(offset)
 	end
 end
 
-local function offset(row, column)
+local function Offset(row, column)
 	return (column - 1) * LAYOUT_OFFSET_X + LAYOUT_DELTA_X, - ((row - 1) * LAYOUT_OFFSET_Y + LAYOUT_DELTA_Y)
 end
 
@@ -116,7 +116,7 @@ function TalentView:SetClass(class, force)
 
 				self:SetUIElement(button, tab, index)
 
-				button:SetPoint("TOPLEFT", offset(talent.row, talent.column))
+				button:SetPoint("TOPLEFT", Offset(talent.row, talent.column))
 				button.texture:SetTexture(Talented:GetTalentIcon(class, tab, index))
 				button:Show()
 			end
@@ -126,7 +126,7 @@ function TalentView:SetClass(class, force)
 			local req = talent.req
 			if req then
 				local elements = {}
-				Talented.DrawLine(elements, frame, offset, talent.row, talent.column, tree[req].row, tree[req].column)
+				Talented.DrawLine(elements, frame, Offset, talent.row, talent.column, tree[req].row, tree[req].column)
 				self:SetUIElement(elements, tab, index, req)
 			end
 		end

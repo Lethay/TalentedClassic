@@ -4,7 +4,7 @@ local Talented = Talented
 -- Builds a cache of name/icon pairs from existing spell data
 -- This is a rather slow operation, so it's only done once, and the result is subsequently saved
 function Talented:buildSpellCache()
-	cache = {}
+	local cache = {}
 	local id = 0
 	local misses = 0
 	while misses < 50000 do
@@ -36,7 +36,7 @@ function Talented:ReadTalents2()
 		for i = 1, numTalentsInTree do
 			local name, icon, row, column, currentRank, ranks, isExceptional, meetsPrereq = Talented:OrderedGetTalentInfo(class, treeIndex, i)
 			for rank = 1, ranks do
-				spell = Talented:UncompressSpellData(class)[treeIndex][i].ranks[rank]
+				local spell = Talented:UncompressSpellData(class)[treeIndex][i].ranks[rank]
 				GetSpellDescription(spell)
 			end
 		end
@@ -84,10 +84,10 @@ end
 
 function Talented:GetWoWIndices(isPet)
 	--Get the number of trees
-	numTrees = GetNumTalentTabs(false, isPet)
+	local numTrees = GetNumTalentTabs(false, isPet)
 
 	--Get the index, row and column of every talent -- and the name, for debugging
-	trees = {}
+	local trees = {}
 	for treeIndex = 1, numTrees do
 		local currentTree = {}
 		local numTalentsInTree = GetNumTalents(treeIndex, false, isPet)
@@ -108,11 +108,11 @@ function Talented:PrintSortedWoWIndices(unsortedTrees, isPet)
 	if not unsortedTrees then
 		unsortedTrees = Talented:GetWoWIndices(isPet)
 	end
-	sortedTrees = {}
+	local sortedTrees = {}
 
 	--Get the number of trees and their names
-	numTrees = GetNumTalentTabs(false, isPet)
-	treeNames = {}
+	local numTrees = GetNumTalentTabs(false, isPet)
+	local treeNames = {}
 	for treeIndex = 1, numTrees do
 		local name, _, _, _, _, _, _, _ = GetTalentTabInfo(treeIndex, false, isPet)
 		treeNames[treeIndex] = name
@@ -120,11 +120,11 @@ function Talented:PrintSortedWoWIndices(unsortedTrees, isPet)
 
 	--Organise all talents by row and column, then print
 	for treeIndex = 1, numTrees do
-		unsortedTree = unsortedTrees[treeIndex]
-		sortedTree = {}
-		sortedTreeNames = {}
+		local unsortedTree = unsortedTrees[treeIndex]
+		local sortedTree = {}
+		local sortedTreeNames = {}
 		for k, t in pairs(unsortedTree) do
-			name, row, column = t[1], t[2], t[3]
+			local name, row, column = t[1], t[2], t[3]
 			if not sortedTree[row] then sortedTree[row] = {} end
 			if not sortedTreeNames[row] then sortedTreeNames[row] = {} end
 			sortedTree[row][column] = k				-- for indexMatching.lua

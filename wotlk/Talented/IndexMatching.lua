@@ -26,7 +26,7 @@ function Talented:convertWowTalentIndexToOrderedIndex(classNameToLookup, talentS
 end
 
 function Talented:OrderedLearnTalent(class, tab, index, isPet)
-	mappedIndex = Talented:convertOrderedTalentIndexToWowIndex(class, tab, index)
+	local mappedIndex = Talented:convertOrderedTalentIndexToWowIndex(class, tab, index)
 	return LearnTalent(tab, mappedIndex, isPet)
 end
 
@@ -34,13 +34,13 @@ function Talented:OrderedGetTalentInfo(class, tab, index, isInspect, isPet, tale
 	--isInspect: the talents of the player we are inspecting, instead of player talents
 	--isPet: pet talents, instead of player talents
 	--talentGroup: 1 for primary talents, 2 for secondary talents, nil for current talents
-	mappedIndex = Talented:convertOrderedTalentIndexToWowIndex(class, tab, index)
+	local mappedIndex = Talented:convertOrderedTalentIndexToWowIndex(class, tab, index)
 	-- print(class, tab, index, "|", tab, mappedIndex, isInspect, isPet, talentGroup)
 	return GetTalentInfo(tab, mappedIndex, isInspect, isPet, talentGroup)
 end
 
 function Talented:OrderedTalentPrereqs(class, tab, index)
-	mappedIndex = Talented:convertOrderedTalentIndexToWowIndex(class, tab, index)
+	local mappedIndex = Talented:convertOrderedTalentIndexToWowIndex(class, tab, index)
 	return GetTalentPrereqs(tab, mappedIndex)
 	--n.b. return values are tier, column, isLearnable. They don't need to be mapped back.
 end
