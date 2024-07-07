@@ -107,7 +107,7 @@ function Talented:CheckTalentPointsApplied()
 	for tab, tree in ipairs(self:UncompressSpellData(template.class)) do
 		local ttab = template[tab]
 		for index = 1, #tree do
-			local delta = ttab[index] - select(5, Talented:OrderedGetTalentInfo(template.class, tab, index, nil, pet))
+			local delta = ttab[index] - select(5, Talented:OrderedGetTalentInfo(template.class, tab, index, nil, pet, group))
 			if delta > 0 then
 				failed = true
 				break

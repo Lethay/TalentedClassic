@@ -27,7 +27,8 @@ end
 
 function Talented:OrderedLearnTalent(class, tab, index, isPet)
 	local mappedIndex = Talented:convertOrderedTalentIndexToWowIndex(class, tab, index)
-	return LearnTalent(tab, mappedIndex, isPet)
+	local talentGroup = GetActiveTalentGroup(nil, isPet)
+	return LearnTalent(tab, mappedIndex, isPet, talentGroup)
 end
 
 function Talented:OrderedGetTalentInfo(class, tab, index, isInspect, isPet, talentGroup)
@@ -35,6 +36,7 @@ function Talented:OrderedGetTalentInfo(class, tab, index, isInspect, isPet, tale
 	--isPet: pet talents, instead of player talents
 	--talentGroup: 1 for primary talents, 2 for secondary talents, nil for current talents
 	local mappedIndex = Talented:convertOrderedTalentIndexToWowIndex(class, tab, index)
+	talentGroup = talentGroup or GetActiveTalentGroup(isInspect, isPet)
 	-- print(class, tab, index, "|", tab, mappedIndex, isInspect, isPet, talentGroup)
 	return GetTalentInfo(tab, mappedIndex, isInspect, isPet, talentGroup)
 end
