@@ -278,7 +278,7 @@ function TalentView:Update()
 		end
 	end
 
-	local maxpoints = GetMaxPoints(nil, nil, self.spec)
+	local maxpoints = GetMaxPoints(nil, self.pet, self.spec)
 	local points = self.frame.points
 	if points then
 		if Talented.db.profile.show_level_req then
