@@ -31,7 +31,7 @@ local function UpdateSpecInfo(info)
 			cache = {}
 			info.cache[i] = cache
 		end
-		local name, icon, points = GetTalentTabInfo(i, nil, pet, talentGroup)
+		local _, name, _, icon, points = GetTalentTabInfo(i, nil, pet, talentGroup)
 		cache.name, cache.icon, cache.points = name, icon, points
 		if points < min then
 			min = points

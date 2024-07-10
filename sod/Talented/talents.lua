@@ -33,7 +33,7 @@ do
 		}
 
 		for tab = 1, GetNumTalentTabs(inspect) do
-			local name, icon, _, background = GetTalentTabInfo(tab, inspect)
+			local _, name, _, icon, _, background = GetTalentTabInfo(tab, inspect)
 			result[tab] = {
 				info = {
 					name = name,
