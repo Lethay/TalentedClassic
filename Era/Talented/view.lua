@@ -68,7 +68,7 @@ end
 local function GetMaxPoints(...)
 	local total = 0
 	for i = 1, GetNumTalentTabs(...) do
-		total = total + select(3, GetTalentTabInfo(i, ...))
+		total = total + select(5, GetTalentTabInfo(i, ...))
 	end
 	return total + GetUnspentTalentPoints(...)
 end
