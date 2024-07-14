@@ -74,7 +74,7 @@ Talented_Data.DRUID = {
 					column = 3,
 					icon = 135138,
 					row = 2,
-					tips = "Increases the damage you deal with physical attacks in all forms by %d%%.",
+					tips = "Increases all damage you deal by %d%%.",
 					tipValues = {{2}, {4}, {6}, {8}, {10}}
 				},
 			}, -- [6]
@@ -115,7 +115,7 @@ Talented_Data.DRUID = {
 					column = 3,
 					exceptional = 1,
 					row = 3,
-					tips = "Imbues the Druid with natural energy.  Each of the Druid's melee attacks has a chance of causing the caster to enter a Clearcasting state.  The Clearcasting state reduces the Mana, Rage or Energy cost of your next damage or healing spell or offensive ability by 100%%.  Lasts 10 min.",
+					tips = "Imbues the Druid with natural energy.  Each of the Druid's melee attacks and non-instant spell casts has a chance of causing the caster to enter a Clearcasting state.  The Clearcasting state reduces the Mana, Rage or Energy cost of your next damage or healing spell or offensive ability by 100%%.  Lasts 10 min.",
 					tipValues = {},
 				},
 			}, -- [9]
@@ -156,7 +156,7 @@ Talented_Data.DRUID = {
 					icon = 135753,
 					row = 4,
 					tips = "Reduces the cast time of Starfire by %.1f sec and has a %d%% chance to stun the target for 3 sec.",
-					tipValues = {{0.1, 3}, {0.2, 6}, {0.3, 9}, {0.4, 12}, {0.5, 15}}, 
+					tipValues = {{0.1, 3}, {0.2, 6}, {0.3, 9}, {0.4, 12}, {0.5, 15}},
 				},
 			}, -- [12]
 			{
@@ -207,7 +207,7 @@ Talented_Data.DRUID = {
 					column = 2,
 					exceptional = 1,
 					row = 7,
-					tips = "Transforms the Druid into Moonkin Form.  While in this form the armor contribution from items is increased by 360%% and all party members within 30 yards have their spell critical chance increased by 3%%.  The Moonkin can only cast Balance spells while shapeshifted.\r\n\r\nThe act of shapeshifting frees the caster of Polymorph and Movement Impairing effects.",
+					tips = "Transforms the Druid into Moonkin Form.  While in this form the armor contribution from items is increased by 360%%, Moonfire costs 50% less mana and deals 50% more damage over time and all party members within 30 yards have their spell critical chance increased by 3%%.  The Moonkin cannot cast healing spells while shapeshifted.\r\n\r\nThe act of shapeshifting frees the caster of Polymorph and Movement Impairing effects.",
 					tipValues = {},
 				},
 			}, -- [16]
@@ -614,7 +614,7 @@ Talented_Data.DRUID = {
 					column = 2,
 					exceptional = 1,
 					row = 7,
-					tips = "Consumes a Rejuvenation or Regrowth effect on a friendly target to instantly heal them an amount equal to 12 sec. of Rejuvenation or 18 sec. of Regrowth.",
+					tips = "Instantly heals a target with an active Rejuvenation or Regrowth effect for an amount equal to 12 sec. of Rejuvenation or 18 sec. of Regrowth.",
 					tipValues = {},
 				},
 			}, -- [15]
