@@ -3,7 +3,7 @@
 ## Name: Talented
 ## Notes: The Talent Template Editor
 ## Author: Jerry,Lethay
-## Version: v240425-sod
+## Version: v240714-SoD
 ## OptionalDeps: Ace3
 ## SavedVariables: TalentedDB
 ## X-Category: Interface Enhancements
@@ -12,7 +12,7 @@
 ## X-LoadOn-Slash: /talented
 ## X-LoadOn-Event: CONFIRM_TALENT_WIPE
 ## X-LoadOn-CONFIRM_TALENT_WIPE: if IsAddOnLoaded"Talented" then return end AddonLoader:LoadAddOn"Talented" if Talented then Talented:CONFIRM_TALENT_WIPE() end
-## X-Curse-Packaged-Version: v240425-sod
+## X-Curse-Packaged-Version: v240714-SoD
 ## X-Curse-Project-Name: Talented
 ## X-Curse-Project-ID: talented
 ## X-Curse-Repository-ID: wow/talented/mainline

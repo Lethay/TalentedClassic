@@ -1,3 +1,7 @@
+v240714-SoD
+    - Update for phase 4
+    - Fixes thanks to mrchops1024
+    
 240425-SoD
     - Add dual spec support to SoD (thanks to @tcherney!)
 
