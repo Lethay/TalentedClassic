@@ -1,3 +1,6 @@
+240425-SoD
+    - Add dual spec support to SoD (thanks to @tcherney!)
+
 v231130-Era
     - Fix Era version by re-adding LibGratuity (sorry)
 
