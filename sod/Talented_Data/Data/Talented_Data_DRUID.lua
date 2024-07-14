@@ -207,7 +207,7 @@ Talented_Data.DRUID = {
 					column = 2,
 					exceptional = 1,
 					row = 7,
-					tips = "Transforms the Druid into Moonkin Form.  While in this form the armor contribution from items is increased by 360%%, Moonfire costs 50% less mana and deals 50% more damage over time and all party members within 30 yards have their spell critical chance increased by 3%%.  The Moonkin cannot cast healing spells while shapeshifted.\r\n\r\nThe act of shapeshifting frees the caster of Polymorph and Movement Impairing effects.",
+					tips = "Transforms the Druid into Moonkin Form.  While in this form the armor contribution from items is increased by 360%%, Moonfire costs 50%% less mana and deals 50%% more damage over time and all party members within 30 yards have their spell critical chance increased by 3%%.  The Moonkin cannot cast healing spells while shapeshifted.\r\n\r\nThe act of shapeshifting frees the caster of Polymorph and Movement Impairing effects.",
 					tipValues = {},
 				},
 			}, -- [16]
