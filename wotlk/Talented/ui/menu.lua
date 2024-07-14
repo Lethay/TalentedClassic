@@ -253,7 +253,7 @@ StaticPopupDialogs["TALENTED_IMPORT_URL"] = {
 		self:GetParent():Hide();
 	end,
 	hideOnEscape = 1
-	
+
 }
 
 StaticPopupDialogs["TALENTED_EXPORT_TO"] = {
@@ -449,7 +449,9 @@ function Talented:MakeActionMenu()
 end
 
 local function PlayerTalentFrameRoleDropDown_OnSelect(self)
-	SetTalentGroupRole(GetActiveTalentGroup(), self.value)
+	if SetTalentGroupRole then
+		SetTalentGroupRole(GetActiveTalentGroup(), self.value)
+	end
 	icon = Talented:GetRoleIcon(self.value)
 	b = TalentedFrame.brole
 	b:SetText(icon)

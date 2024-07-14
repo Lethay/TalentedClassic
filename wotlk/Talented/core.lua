@@ -21,10 +21,10 @@ end
 function Talented:MakeTarget(targetName)
 	local tar = self.db.char.targets[targetName]
 	local name = nil; local class = nil
-    if tar then
-        name = tar.name
-        class = tar.class
-    end
+	if tar then
+		name = tar.name
+		class = tar.class
+	end
 
 	local src = tar and self.db.global.templates[class] and self.db.global.templates[class][name]
 	if not src then
@@ -193,11 +193,11 @@ do
 
 	function Talented:CreateEmptyTemplate(class)
 		class = class or select(2, UnitClass"player")
-		
+
 		local template = new(self.db.global.templates, L["Empty"], class)
 		local info = self:UncompressSpellData(class)
 		if not info then return end
-		
+
 		for tab, tree in ipairs(info) do
 			local t = {}
 			template[tab] = t
@@ -320,17 +320,17 @@ function Talented:PLAYER_TALENT_UPDATE()
 end
 
 function Talented:CONFIRM_TALENT_WIPE(_, cost)
-    StaticPopupDialogs["CONFIRM_TALENT_WIPE"].text = L['CONFIRM_TALENT_WIPE_TEXT'] --the problem: text for CONFIRM_TALENT_WIPE are nil, eventualy in conjunction of unregisterevent from uiparent??? now let us set the text manually...
+	StaticPopupDialogs["CONFIRM_TALENT_WIPE"].text = L['CONFIRM_TALENT_WIPE_TEXT'] --the problem: text for CONFIRM_TALENT_WIPE are nil, eventualy in conjunction of unregisterevent from uiparent??? now let us set the text manually...
 	local dialog = StaticPopup_Show("CONFIRM_TALENT_WIPE")
 	if dialog then
 		MoneyFrame_Update(dialog:GetName().."MoneyFrame", cost)
 		local frame = self.base
-        if not frame or not frame:IsVisible() then
+		if not frame or not frame:IsVisible() then
 			self:Update()
 			-- ShowUIPanel(self.base)
 			self.base:Show()
 		end
-        dialog:SetFrameStrata('FULLSCREEN_DIALOG')
+		dialog:SetFrameStrata('FULLSCREEN_DIALOG')
 	end
 end
 
@@ -382,39 +382,39 @@ function Talented:Update()
 end
 
 function Talented:is_class(class)
-    for index, value in ipairs(classes) do
-        if class == value then
-            return true
-        end
-    end
-    return false
+	for index, value in ipairs(classes) do
+		if class == value then
+			return true
+		end
+	end
+	return false
 end
 
 function Talented:MakeSubArrays(db)
 	local madeArrays = 0
-    for index, class in ipairs(classes) do
-        if db[class] == nil then
+	for index, class in ipairs(classes) do
+		if db[class] == nil then
 			db[class] = {}
 			madeArrays = 1
-        
-        --If there is an existing template named after the class...
-        elseif type(db[class]) == "string" then
-            --rename the template
-            local count = 1
-            local name = class
-            name = format("%s (%d)", name, count)
-            while db[name] do
-                count = count + 1
-                template.name = format("%s (%d)", name, count)
-            end
 
-            --THEN make the class sub-array
-            db[name] = db[class]
+		--If there is an existing template named after the class...
+		elseif type(db[class]) == "string" then
+			--rename the template
+			local count = 1
+			local name = class
+			name = format("%s (%d)", name, count)
+			while db[name] do
+				count = count + 1
+				template.name = format("%s (%d)", name, count)
+			end
+
+			--THEN make the class sub-array
+			db[name] = db[class]
 			db[class] = {}
 			madeArrays = 1
-        end
+		end
 	end
-	
+
 	return madeArrays
 end
 
@@ -426,7 +426,7 @@ function Talented:LoadTemplates()
 	local invalid = {}
 	for class, classdb in pairs(db) do
 		assert(self:is_class(class))
-		
+
 		for name, code in pairs(classdb) do
 			if type(code) == "string" then
 				db[class][name] = {
@@ -440,7 +440,7 @@ function Talented:LoadTemplates()
 			end
 		end
 	end
-	
+
 	if next(invalid) then
 		table.sort(invalid)
 		self:Print(L["The following templates are no longer valid and have been removed:"])

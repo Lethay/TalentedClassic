@@ -260,7 +260,7 @@ end
 function Talented:UnpackTemplate(template)
 	if template.talentGroup or not template.code then return end
 	self:Debug("UNPACK TEMPLATE", template.name)
-	self:StringToTemplate(template.code, template) 
+	self:StringToTemplate(template.code, template)
 	template.code = nil
 	if not RAID_CLASS_COLORS[template.class] then
 		self:FixPetTemplate(template)

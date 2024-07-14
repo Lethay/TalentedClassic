@@ -1,6 +1,8 @@
 local L =  LibStub:GetLibrary("AceLocale-3.0"):NewLocale("Talented", "zhCN")
 if not L then return end
 
+L['CONFIRM_TALENT_WIPE_TEXT'] = "你想遗忘你所有的天赋吗？这将取消召唤任何被控制的宠物，并且每次费用都会增加。";
+
 L["Talented - Talent Editor"] = "Talented - 天赋编辑器"
 
 L["Layout options"] = "样式选项"
@@ -32,7 +34,7 @@ L["Output URL in Chat"] = "输出链接到聊天框"
 L["Directly outputs the URL in Chat instead of using a Dialog."] = "直接输出链接到聊天框。"
 
 L["Inspected Characters"] = "观察过的玩家"
---~ L["Talent trees of inspected characters."] = ""
+--~ L["Talent trees of inspected characters."] = "观察过的玩家的天赋树"
 L["Edit template"] = "编辑模板"
 L["Edit talents"] = "编辑天赋"
 L["Toggle edition of the template."] = "编辑天赋模板。"
@@ -52,7 +54,7 @@ L["Effective tooltip information not available"] = "无有效鼠标提示信息"
 L["You have %d talent |4point:points; left"] = "您还有%d点天赋点数剩余"
 L["Are you sure that you want to learn \"%s (%d/%d)\" ?"] = "是否确认学习\“%s (%d/%d)\”？"
 
---~ L["Open the Talented options panel."] = ""
+--~ L["Open the Talented options panel."] = "打开 Talented 选项面板"
 
 --~ L["View Current Spec"] = "查看当前配置方案"
 L["View the Current spec in the Talented frame."] = "在天赋面板上查看当前配置方案。"
@@ -92,10 +94,10 @@ L["Error while applying talents! some of the request talents were not set!"] = "
 L["Error! Talented window has been closed during template application. Please reapply later."] = "天赋面板在应用过程中被关闭！请稍候重新应用。"
 L["Talent application has been cancelled. %d talent points remaining."] = "应用天赋操作取消，剩余%d天赋点数。"
 L["Template applied successfully, %d talent points remaining."] = "成功应用模板，剩余%d天赋点数。"
+L["Warning - no action was taken, or we ran out of talent points."] = true --TODO: Localise!
 L["Talented_Data is outdated. It was created for %q, but current build is %q. Please update."] = "Talented_Data 已过期。创建数据属于%q版本，但当前客户端版本是%q。请进行升级。"
 L["Loading outdated data. |cffff1010WARNING:|r Recent changes in talent trees might not be included in this data."] = "加载过期数据。 |cffff1010警告：|r最新的天赋树改动可能不包含在该数据中。"
 L["\"%s\" does not appear to be a valid URL!"] = "\"%s\"看起来不是一个有效的链接！"
-L["Warning - no action was taken, or we ran out of talent points."] = true --TODO: Localise!
 
 L["Import template ..."] = "导入模板…"
 L["Enter the complete URL of a template from Blizzard talent calculator or wowhead."] = "请粘帖从暴雪官方或 Wowhead 的天赋模拟器获得的天赋配置链接。"
@@ -130,6 +132,9 @@ L[" (alt)"] = "（alt）"
 L["The following templates are no longer valid and have been removed:"] = "以下模板已失效并已被删除："
 L["The following templates were converted from a previous version of the addon. Ensure that none are 'invalid' (below); retrieve the backup of your config file from the WTF folder if so."] = true
 
+L["The template '%s' is no longer valid and has been removed."] = "模版 '%s' 失效，已被移除。"
+L["The template '%s' had inconsistencies and has been fixed. Please check it before applying."] = "模板 '%s' 冲突，现已修复。请在应用前检查。"
+
 L["Lock frame"] = "锁定框体"
 L["Can not apply, unknown template \"%s\""] = "不能接受，未知模板\"%s\""
 
@@ -144,6 +149,8 @@ L["Glyph frame options"] = "雕文框体选项"
 L["Display options"] = "显示选项"
 L["Add bottom offset"] = "添加底部偏移"
 L["Add some space below the talents to show the bottom information."] = "在天赋下面添加间距以显示底部信息。"
+
+L["Right-click to activate this spec"] = "右击激活此天赋"
 
 --~ L["Mode of operation."] = ""
 
@@ -200,6 +207,7 @@ L["Add some space below the talents to show the bottom information."] = "在天�
 --~ L["Clone selected"] = ""
 --~ L["Make a copy of the current template."] = ""
 
+--Locales for new template options
 L["Template"] = "方案"
 L["New Template"] = "新建方案"
 L["Create a new Template."] = "建立一个新的天赋方案"

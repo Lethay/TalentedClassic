@@ -14,7 +14,7 @@
 -- 	local GetTalentInfo = GetTalentInfo
 -- 	local GetTalentPrereqs = GetTalentPrereqs
 -- 	local TOOLTIP_TALENT_LEARN = TOOLTIP_TALENT_LEARN
-	
+
 -- 	local function FillPrereqs(...)
 -- 		if select("#", ...) < 3 then return end
 -- 		local table = {}
@@ -24,7 +24,7 @@
 -- 		end
 -- 		return table
 -- 	end
-	
+
 -- 	function BuildTalentInfo(inspect)
 -- 		if not G then
 -- 			G = LibStub("LibGratuity-3.0")
@@ -118,7 +118,7 @@
 -- 				args = {},
 -- 		}
 -- 	end
-	
+
 -- 	for name, info in pairs(info) do
 -- 		local colour = RAID_CLASS_COLORS[name]
 -- 		local cname = ("|cff%.2x%.2x%.2x%s|r"):format(colour.r*255, colour.g*255, colour.b*255, name)
@@ -147,9 +147,9 @@
 -- 			end
 -- 		end
 -- 	end
-	
+
 -- 	function Talented:DataAddonLoaded()
--- 		if loaded ~= nil then 
+-- 		if loaded ~= nil then
 -- 			return loaded
 -- 		end
 -- 		if not IsAddOnLoaded("Talented_Data") and CanLoadDataAddOn() then

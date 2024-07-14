@@ -34,25 +34,24 @@ end
 local lastTooltipInfo = {}
 
 function Talented:AddAfterSpellLoad(template, tab, index)
-		
-		local s = self:GetTalentState(template, tab, index)
-		if self.mode == "edit" then
-			if template.talentGroup then
-				if s == "available" or s == "empty" then
-					addline(TOOLTIP_TALENT_LEARN, GREEN_FONT_COLOR)
-				end
-			elseif s == "full" then
-				addline(TALENT_TOOLTIP_REMOVEPREVIEWPOINT, GREEN_FONT_COLOR)
-			elseif s == "available" then
-				GameTooltip:AddDoubleLine(
-					TALENT_TOOLTIP_ADDPREVIEWPOINT, TALENT_TOOLTIP_REMOVEPREVIEWPOINT,
-					GREEN_FONT_COLOR.r, GREEN_FONT_COLOR.g, GREEN_FONT_COLOR.b,
-					GREEN_FONT_COLOR.r, GREEN_FONT_COLOR.g, GREEN_FONT_COLOR.b)
-			elseif s == "empty" then
-				addline(TALENT_TOOLTIP_ADDPREVIEWPOINT, GREEN_FONT_COLOR)
+	local s = self:GetTalentState(template, tab, index)
+	if self.mode == "edit" then
+		if template.talentGroup then
+			if s == "available" or s == "empty" then
+				addline(TOOLTIP_TALENT_LEARN, GREEN_FONT_COLOR)
 			end
+		elseif s == "full" then
+			addline(TALENT_TOOLTIP_REMOVEPREVIEWPOINT, GREEN_FONT_COLOR)
+		elseif s == "available" then
+			GameTooltip:AddDoubleLine(
+				TALENT_TOOLTIP_ADDPREVIEWPOINT, TALENT_TOOLTIP_REMOVEPREVIEWPOINT,
+				GREEN_FONT_COLOR.r, GREEN_FONT_COLOR.g, GREEN_FONT_COLOR.b,
+				GREEN_FONT_COLOR.r, GREEN_FONT_COLOR.g, GREEN_FONT_COLOR.b)
+		elseif s == "empty" then
+			addline(TALENT_TOOLTIP_ADDPREVIEWPOINT, GREEN_FONT_COLOR)
 		end
-		GameTooltip:Show()
+	end
+	GameTooltip:Show()
 end
 
 function Talented:SetTooltipInfo(frame, class, tab, index)
@@ -94,9 +93,8 @@ function Talented:SetTooltipInfo(frame, class, tab, index)
 				if i == ranks then
 					self:AddAfterSpellLoad(template, tab, index)
 				end
-					GameTooltip:Show()
-				
-			end)	
+				GameTooltip:Show()
+			end)
 		end
 	else
 		if rank > 0 then
@@ -105,7 +103,7 @@ function Talented:SetTooltipInfo(frame, class, tab, index)
 				addtipline(tip)
 				self:AddAfterSpellLoad(template, tab, index)
 			end)
-			--TODO: Make the tooltip update without having to make a new tooltip? 
+			-- TODO: Make the tooltip update without having to make a new tooltip?
 			-- Can ContinueOnSpellLoad do this? https://wowpedia.fandom.com/wiki/SpellMixin#SpellMixin:ContinueOnSpellLoad
 		end
 		if rank < ranks then

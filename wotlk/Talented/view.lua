@@ -22,7 +22,7 @@ local function RecalcLayout(offset)
 	end
 end
 
-local function offset(row, column)
+local function Offset(row, column)
 	return (column - 1) * LAYOUT_OFFSET_X + LAYOUT_DELTA_X, - ((row - 1) * LAYOUT_OFFSET_Y + LAYOUT_DELTA_Y)
 end
 
@@ -116,7 +116,7 @@ function TalentView:SetClass(class, force)
 
 				self:SetUIElement(button, tab, index)
 
-				button:SetPoint("TOPLEFT", offset(talent.row, talent.column))
+				button:SetPoint("TOPLEFT", Offset(talent.row, talent.column))
 				button.texture:SetTexture(Talented:GetTalentIcon(class, tab, index))
 				button:Show()
 			end
@@ -126,7 +126,7 @@ function TalentView:SetClass(class, force)
 			local req = talent.req
 			if req then
 				local elements = {}
-				Talented.DrawLine(elements, frame, offset, talent.row, talent.column, tree[req].row, tree[req].column)
+				Talented.DrawLine(elements, frame, Offset, talent.row, talent.column, tree[req].row, tree[req].column)
 				self:SetUIElement(elements, tab, index, req)
 			end
 		end
@@ -278,7 +278,7 @@ function TalentView:Update()
 		end
 	end
 
-	local maxpoints = GetMaxPoints(nil, nil, self.spec)
+	local maxpoints = GetMaxPoints(nil, self.pet, self.spec)
 	local points = self.frame.points
 	if points then
 		if Talented.db.profile.show_level_req then
@@ -325,7 +325,7 @@ function TalentView:Update()
 
 	local checkbox, activateBtn, roleSelectBtn = self.frame.checkbox, self.frame.bactivate, self.frame.brole
 	if checkbox then
-		if template.talentGroup == GetActiveTalentGroup() then 
+		if template.talentGroup == GetActiveTalentGroup() then
 			if activateBtn then activateBtn:Hide() end
 			roleSelectBtn:Show()
 			checkbox:Show()
@@ -348,7 +348,7 @@ function TalentView:Update()
 		end
 		checkbox:SetChecked(self.mode == "edit")
 	end
-	
+
 	local targetname = self.frame.targetname
 	if targetname then
 		if template.talentGroup then
@@ -384,7 +384,7 @@ end
 function TalentView:UpdateTalent(tab, index, offset)
 	--Don't allow editing of current talents if looking @ current template
 	if self.mode ~= "edit" and self.spec then return end
-	
+
 	if self.spec then
 		-- Applying talent
 		if offset > 0 then

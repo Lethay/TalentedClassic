@@ -9,7 +9,7 @@ local COORDS = {
 		topright = { left = 0.515625, width = 0.125 },
 		topleft = { left = 0.640625, width = -0.125 },
 	},
-	arrow = { 
+	arrow = {
 		top = { left = 0, width = 0.5 },
 		left = { left = 0.5, width = 0.5 },
 		right = { left = 1.0, width = -0.5 },
@@ -19,11 +19,11 @@ local COORDS = {
 local function SetTextureCoords(object, type, subtype)
 	local coords = COORDS[type] and COORDS[type][subtype]
 	if not coords then return end
-	
+
 	local left = coords.left
 	local right = left + coords.width
 	local bottom = coords.height or 1
-	
+
 	object:SetTexCoord(left, right, 0, bottom)
 end
 
@@ -49,7 +49,7 @@ local function DrawVerticalLine(list, parent, offset, base_row, base_column, row
 	SetTextureCoords(arrow, "arrow", "top")
 	arrow:SetPoint("TOPLEFT", x + 2, y+16)
 	list[#list + 1] = arrow
-	
+
 	return true
 end
 
@@ -90,7 +90,7 @@ local function DrawHorizontalVerticalLine(list, parent, offset, base_row, base_c
 	FIXME : I need to check if this line is possible and return false if not.
 	Note that for the current trees, it's never impossible.
 	]]
-	
+
 	if base_column < column then
 		min_column = base_column + 1
 		max_column = column - 1
@@ -98,7 +98,7 @@ local function DrawHorizontalVerticalLine(list, parent, offset, base_row, base_c
 		min_column = column + 1
 		max_column = base_column - 1
 	end
-	
+
 	for i = min_column, max_column do
 		local x, y = offset(row, i)
 		local branch = Talented:MakeBranch(parent)
@@ -110,7 +110,7 @@ local function DrawHorizontalVerticalLine(list, parent, offset, base_row, base_c
 		list[#list + 1] = branch
 		SetTextureCoords(branch, "branch", "left")
 	end
-	
+
 	local x, y = offset(row, base_column)
 	local branch = Talented:MakeBranch(parent)
 	branch:SetPoint("TOPLEFT", x + 2, y - 2)
@@ -125,7 +125,7 @@ local function DrawHorizontalVerticalLine(list, parent, offset, base_row, base_c
 		branch2:SetPoint("TOPLEFT", x - 29, y - 2)
 		SetTextureCoords(branch, "branch", "topright")
 	end
-	
+
 	for i = row+1, base_row-1 do
 		local x, y = offset(i, base_column)
 		local branch = Talented:MakeBranch(parent)
@@ -137,7 +137,7 @@ local function DrawHorizontalVerticalLine(list, parent, offset, base_row, base_c
 		list[#list + 1] = branch
 		SetTextureCoords(branch, "branch", "top")
 	end
-	
+
 	x, y = offset(base_row, base_column)
 	branch = Talented:MakeBranch(parent)
 	branch:SetPoint("TOPLEFT", x + 2, y + 32)
@@ -147,7 +147,7 @@ local function DrawHorizontalVerticalLine(list, parent, offset, base_row, base_c
 	SetTextureCoords(arrow, "arrow", "top")
 	arrow:SetPoint("TOPLEFT", x + 2, y + 16)
 	list[#list + 1] = arrow
-	
+
 	return true
 end
 
@@ -155,7 +155,7 @@ local function DrawVerticalHorizontalLine(list, parent, offset, base_row, base_c
 	--[[
 	FIXME : I need to check if this line is possible and return false if not.
 	Note that it should never be impossible.
-	
+
 	Also, I need to really implement it.
 	]]
 	return true

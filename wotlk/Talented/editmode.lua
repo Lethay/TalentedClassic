@@ -111,12 +111,12 @@ function Talented:ValidateTemplate(template, fix)
 			local value = t[i]
 			if not value then return end
 			if value > 0 then
-				if count < (talent.row - 1) * pointsPerTier or value > (talent.inactive and 0 or #talent.ranks) then 
+				if count < (talent.row - 1) * pointsPerTier or value > (talent.inactive and 0 or #talent.ranks) then
 					if fix then t[i], value, fixed = 0, 0, true else return end
 				end
 				local r = talent.req
 				if r then
-					if t[r] < #tree[r].ranks then 
+					if t[r] < #tree[r].ranks then
 						if fix then t[i], value, fixed = 0, 0, true else return end
 					end
 				end

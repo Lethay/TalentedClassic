@@ -120,7 +120,7 @@ elseif locale == "zhCN" then
 	tabdata.PALADIN[1].name = "神圣"
 	tabdata.PALADIN[2].name = "防护"
 	tabdata.PALADIN[3].name = "惩戒"
-	tabdata.Cunning[1].name = "灵巧"
+	tabdata.Cunning[1].name = "狡诈"
 	tabdata.Tenacity[1].name = "坚毅"
 	tabdata.Ferocity[1].name = "凶暴"
 elseif locale == "frFR" then
