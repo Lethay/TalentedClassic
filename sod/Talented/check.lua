@@ -40,7 +40,7 @@ function Talented:CheckSpellData(class)
 			talents = {}
 			spelldata[tab] = talents
 		end
-		local name, _, _, background = GetTalentTabInfo(tab)
+		local _, name, _, _, _, background = GetTalentTabInfo(tab)
 		tabdata[tab].name = name -- no need to mark invalid for these
 		tabdata[tab].background = background
 		if #talents > GetNumTalents(tab) then
