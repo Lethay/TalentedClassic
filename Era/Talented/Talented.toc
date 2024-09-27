@@ -1,4 +1,4 @@
-## Interface: 11503
+## Interface: 11504
 ## Title: Talented
 ## Name: Talented
 ## Notes: The Talent Template Editor
