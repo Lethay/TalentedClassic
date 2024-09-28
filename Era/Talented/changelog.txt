@@ -1,3 +1,6 @@
+v240928-Era
+    - Quick patch for missing EasyMenu functions
+
 v240714-Era
     - Update for SoD's phase 4
     - Fixes thanks to mrchops1024

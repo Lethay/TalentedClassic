@@ -1,3 +1,6 @@
+v240928-SoD
+    - Quick patch for missing EasyMenu functions
+
 v240714-SoD
     - Update for phase 4
     - Fixes thanks to mrchops1024
