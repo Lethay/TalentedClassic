@@ -1,8 +1,6 @@
 # TalentedClassic
 WoW addon. A replacement to the default talent UI that allows creation of templates and viewing of all trees at once.
 
-Talented, Talented_GlyphFrame and Talented_SpecTabs are all required for proper usage. The legacy Talented_Data folder is no longer required.
-
 This was an addon originally written by "Jerry" (URL: https://www.wowinterface.com/downloads/info12593-Talented.html). The project is since abandoned, so I adapted old code to form this version.
 
 **Feature List (adapted from original page)**
