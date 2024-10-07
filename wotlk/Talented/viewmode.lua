@@ -29,8 +29,8 @@ function Talented:UpdatePlayerSpecs()
 		else
 			template.points = nil
 		end
-		
-		local total = 0 
+
+		local total = 0
 		for tab, tree in ipairs(info) do
 			for index, info in ipairs(tree) do
 				local rank = select(5, Talented:OrderedGetTalentInfo(class, tab, index, nil, nil, talentGroup))
@@ -39,7 +39,7 @@ function Talented:UpdatePlayerSpecs()
 			end
 		end
 		self.maxpoints = total + GetUnspentTalentPoints(nil, nil, group)
-		
+
 		self.alternates[talentGroup] = template
 		if self.template == template then
 			self:UpdateTooltip()

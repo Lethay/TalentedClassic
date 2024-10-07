@@ -36,7 +36,7 @@ function Talented:PET_TALENT_UPDATE()
 	template.talentGroup = talentGroup
 	template.class = class
 	local info = self:UncompressSpellData(class)
-    if not info then return end
+	if not info then return end
 	for tab, tree in ipairs(info) do
 		local ttab = template[tab]
 		if not ttab then
@@ -72,8 +72,8 @@ function Talented:FixAlternatesTalents(class)
 	local talentGroup = GetActiveTalentGroup(nil, true)
 	if not Talented:OrderedGetTalentInfo(class, 1, 1, nil, true, talentGroup) then return end
 	local data = self:UncompressSpellData(class)
-    if not data then return end
-    data = data[1]
+	if not data then return end
+	data = data[1]
 	local count = #data - 1
 	for index = 1, count do
 		local info = data[index]
