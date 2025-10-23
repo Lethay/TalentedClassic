@@ -82,7 +82,7 @@ local function TabFrame_OnClick(self, button)
 	local info = specs[self.type]
 	if button == "RightButton" then
 		if not info.pet and not InCombatLockdown() then
-			SetActiveTalentGroup(info.talentGroup)
+			C_SpecializationInfo.SetActiveSpecGroup(info.talentGroup)
 			Tabs_UpdateCheck(self:GetParent(), Talented.alternates[info.talentGroup])
 		end
 	-- else
