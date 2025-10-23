@@ -233,7 +233,7 @@ local function CreateBaseButtons(parent)
 	-- b:SetSize(b:GetTextWidth() + 40, 22)
 	-- b:SetScript("OnClick", function (self)
 	-- 	if self.talentGroup then
-	-- 		SetActiveTalentGroup(self.talentGroup)
+	-- 		C_SpecializationInfo.SetActiveSpecGroup(self.talentGroup)
 	-- 	end
 	-- end)
 	-- b:SetPoint("BOTTOM", 0, 6)

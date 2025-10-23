@@ -320,7 +320,7 @@ function Talented:CreateActionMenu()
 
 	entry = self:GetNamedMenu("SwitchTalentGroup")
 	entry.text = L["Switch to this Spec"]
-	entry.func = function (entry, talentGroup) SetActiveTalentGroup(talentGroup) end
+	entry.func = function (entry, talentGroup) C_SpecializationInfo.SetActiveSpecGroup(talentGroup) end
 	menu[#menu + 1] = entry
 
 	entry = self:GetNamedMenu("Delete")
